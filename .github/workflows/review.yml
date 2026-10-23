@@ -29,8 +29,8 @@ jobs:
       - uses: actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0 # v7.1.0
         with:
           python-version: '3.12'
-      - name: Install parser
-        run: python -m pip install --disable-pip-version-check --no-cache-dir PyYAML==6.0.3
+      - name: Install browser and parser packages
+        run: python -m pip install --disable-pip-version-check --no-cache-dir -r requirements-web.txt
       - name: Run tests
         run: python -m unittest discover -s tests -v
 
@@ -50,6 +50,7 @@ jobs:
         run: |
           python -m pip install --disable-pip-version-check --no-cache-dir torch==2.14.1+cpu --index-url https://download.pytorch.org/whl/cpu
           python -m pip install --disable-pip-version-check --no-cache-dir transformers==4.57.1 PyYAML==6.0.3
+          python -m pip install --disable-pip-version-check --no-cache-dir -r requirements-web.txt
       - name: Prepare verified model and migration source
         run: |
           python prepare_brief_source.py
@@ -67,4 +68,13 @@ jobs:
           with open(os.environ['GITHUB_STEP_SUMMARY'], 'a') as output:
               output.write(markdown(report))
           print(json.dumps({'model': report['model'], 'model_calls': report['model_calls'], 'passages_omitted': report['passages_omitted'], 'status': report['status']}, indent=2))
+          PY
+      - name: Exercise browser route with actual CPU model
+        run: |
+          python verify_web_model.py
+          python - <<'PY'
+          import os
+          from pathlib import Path
+          with open(os.environ['GITHUB_STEP_SUMMARY'], 'a') as output:
+              output.write('\n## Actual browser-route inference\n\n```json\n' + Path('runner-web-result.json').read_text() + '```\n')
           PY

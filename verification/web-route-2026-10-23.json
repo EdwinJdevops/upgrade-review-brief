@@ -1,0 +1,14 @@
+{
+  "route_status": 200,
+  "test_double": false,
+  "model": {
+    "name": "BAAI/bge-reranker-base",
+    "revision": "2cfc18c9415c912f9d8155881c133215df768a70",
+    "runtime": "server_cpu_float32"
+  },
+  "model_calls": 5,
+  "passage_count": 5,
+  "passages_omitted": 0,
+  "processing_seconds": 1.021,
+  "status": "REVIEW_REQUIRED"
+}

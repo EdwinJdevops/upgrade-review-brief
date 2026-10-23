@@ -9,3 +9,7 @@ experiment/tools/
 experiment/inputs/*.tgz
 experiment/inputs/*index.yaml
 runner-brief.json
+runner-web-result.json
+runner-browser-server.log
+runner-browser-recording/
+docs/demo/browser-demo.webm

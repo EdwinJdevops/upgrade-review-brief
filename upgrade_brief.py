@@ -177,22 +177,23 @@ def build_brief(case, root, scorer=None):
     if len(query) > 10000:
         raise EvidenceError("Focused change query exceeds model input limit")
     results = []
-    quote_budget = 12
     for passage in passages:
         ranking = scorer.score(query, passage["text"]) if scorer is not None else {
             "score": lexical_score(query, passage["text"]), "model_executed": False, "reason": "lexical_comparison_baseline"}
-        # Always retain every source locator. Bound redistributed quote volume per source.
-        words = passage["text"].split()
-        quote = " ".join(words[:min(6, quote_budget)])
-        quote_budget -= len(quote.split())
-        # Word normalization would violate exact quotes; select a literal prefix instead.
-        if quote:
-            match = re.match(r"(?:\s*\S+){1," + str(len(quote.split())) + r"}", passage["text"])
-            quote = match.group(0) if match else ""
         results.append({k:v for k,v in passage.items() if k != "text"} | {
-            "source_path": source["path"], "source_url": source["url"], "exact_excerpt": quote,
+            "source_path": source["path"], "source_url": source["url"],
             "lexical_overlap": lexical_score(query, passage["text"]), **ranking})
     results.sort(key=lambda x: (x["score"] is not None, x["score"] if x["score"] is not None else 0), reverse=True)
+    # Allocate the bounded literal previews after ranking, so the first reading
+    # does not lose its preview merely because it appeared later in the source.
+    texts = {passage["id"]: passage["text"] for passage in passages}
+    quote_budget = 12
+    for result in results:
+        text = texts[result["id"]]
+        count = min(6, quote_budget, len(text.split()))
+        match = re.match(r"(?:\s*\S+){1," + str(count) + r"}", text) if count else None
+        result["exact_excerpt"] = match.group(0) if match else ""
+        quote_budget -= count
     unresolved = ["This brief does not verify a live cluster, a supported upgrade path or runtime readiness.",
                   "Only the explicitly selected source section and Deployment fields were considered.",
                   "Every source passage remains listed; relevance scores are neither applicability nor approval."]

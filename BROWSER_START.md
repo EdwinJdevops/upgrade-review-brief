@@ -14,8 +14,12 @@ Standard public-repository GitHub-hosted runners are used. No larger runner, pro
 
 ## Finish the DEV entry
 
-DEV_SUBMISSION_DRAFT.md now has the verified repository and successful run links. Review its explanation and limitations, then copy it into the official Week 3 submission template at https://dev.to/challenges/hacktoberfest-week3-2026-10-19 . Retain `devchallenge` and `hf26challenge` tags. No public DEV post or screen recording is claimed as completed.
+DEV_SUBMISSION_DRAFT.md now has the verified repository and successful run links. Review its explanation and limitations, then copy it into the official Week 3 submission template at https://dev.to/challenges/hacktoberfest-week3-2026-10-19 . Retain `devchallenge` and `hf26challenge` tags. A real local browser demonstration is now recorded at docs/demo/browser-demo.mp4. No DEV submission or live Render deployment has been completed.
 
-The proposed partner entry uses the explicitly described GitHub Actions option in Best Use of GitHub Copilot. Copilot itself was not used. Other sponsor technology remains unused. Judges decide category acceptance and awards; a successful workflow is not a prize result.
+The proposed partner entry uses the explicitly described GitHub Actions option in Best Use of GitHub Copilot. Copilot itself was not used. Render deployment files are prepared, but actual Render hosting and other sponsor technology remain unused. Judges decide category acceptance and awards; a successful workflow is not a prize result.
 
 The official cutoff is October 25, 2026 at 11:59 PM PDT. The challenge permits AI coding help while requiring an essential open-source AI role in the product. Do not describe relevance scores as upgrade safety confidence or unit tests as customer validation.
+
+## Browser app and Render
+
+The application now has a browser interface for the included example and sanitized uploads. See RENDER_DEPLOYMENT.md and CONTEST_READINESS.md. The Render connection and credit/compute review are required before deployment; configuration alone is not sponsor usage. The recorded video is a valid type of demo requested by the contest, but the submission post must still be published and verified.

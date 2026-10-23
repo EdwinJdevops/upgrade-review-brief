@@ -1,6 +1,8 @@
 # Upgrade review brief — bounded Hacktoberfest build
 
-Publication update, October 23: the code is now in https://github.com/EdwinJdevops/upgrade-review-brief . [GitHub Actions run #1](https://github.com/EdwinJdevops/upgrade-review-brief/actions/runs/39942834494) passed all 45 tests and the actual CPU model demo. See verification/github-run-2026-10-23.json. The sections below retain the earlier implementation-stage history; statements about missing repository execution refer to that earlier stage. DEV publication remains unfinished.
+Browser implementation update, October 23: the project now includes a Flask browser interface, bounded sanitized uploads, JSON/Markdown downloads, Render configuration and 58 passing tests. An actual-model browser-route check passed locally (five evaluated windows, all five passages retained). Render deployment and DEV publication remain unfinished. See CONTEST_READINESS.md for current requirement/category status; the sections below retain earlier implementation-stage history.
+
+Earlier publication evidence: [GitHub Actions run #1](https://github.com/EdwinJdevops/upgrade-review-brief/actions/runs/39942834494) passed the then-current 45 tests and CPU CLI demo. See verification/github-run-2026-10-23.json.
 
 ## Decision
 

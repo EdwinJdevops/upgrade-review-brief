@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="eyebrow">HELM MIGRATION REVIEW / RESEARCH PROTOTYPE</div>
+<section class="hero">
+  <h1>Less digging.<br><span>More context.</span></h1>
+  <div class="intro"><p>Turn a deployment diff and migration guide into a source-linked review brief.</p><p class="muted">An open-weight model orders the reading. You make the upgrade decision.</p></div>
+</section>
+{% if not model_ready %}<p class="notice">The model is not loaded. Reviews remain unavailable until the verified model is ready.</p>{% endif %}
+<section class="demo card">
+  <div><div class="eyebrow">01 / TRY THE CONTROLLED EXAMPLE</div><h2>A green chart check.<br>A readiness path that changed.</h2><p>Kong 2.25.0 → 2.26.0. See the diff, relevant migration passages, and the controller question the inputs cannot answer.</p></div>
+  <form action="/review" method="post" data-review-form>
+    <input type="hidden" name="csrf" value="{{ session.csrf }}"><input type="hidden" name="mode" value="demo">
+    <button type="submit" {% if not model_ready %}disabled{% endif %}>Run the model review <span>↗</span></button>
+    <small>Real CPU inference. No model API key.</small>
+  </form>
+</section>
+<section class="workspace">
+  <div class="workspace-heading"><div class="eyebrow">02 / BRING YOUR OWN EVIDENCE</div><h2>Prepare your review.</h2><p class="muted">One Deployment. One selected migration section. Every source passage retained.</p></div>
+  <form action="/review" method="post" enctype="multipart/form-data" class="card upload" data-review-form>
+    <input type="hidden" name="csrf" value="{{ session.csrf }}"><input type="hidden" name="mode" value="upload">
+    <div class="file-grid">
+      <label><span>01 / Before</span><strong>Current rendered manifest</strong><input type="file" name="before" accept=".yaml,.yml" required><small>UTF-8 YAML · up to 128 KiB</small></label>
+      <label><span>02 / After</span><strong>Proposed rendered manifest</strong><input type="file" name="after" accept=".yaml,.yml" required><small>UTF-8 YAML · up to 128 KiB</small></label>
+      <label><span>03 / Guidance</span><strong>Migration guide</strong><input type="file" name="notes" accept=".md,.txt" required><small>Markdown · up to 64 KiB</small></label>
+    </div>
+    <div class="field-grid">
+      <label>Deployment name<input name="deployment" maxlength="200" required autocomplete="off"></label>
+      <label>Namespace<input name="namespace" maxlength="200" required autocomplete="off"></label>
+      <label>Migration section heading<input name="section" maxlength="200" placeholder="2.26.0" required><small>Exact text after a ## heading</small></label>
+      <label>Documentation source URL<input type="url" name="source_url" maxlength="2048" placeholder="https://…" required><small>Recorded as provenance; never fetched</small></label>
+    </div>
+    <p class="privacy">Files are sent to this server for processing and deleted from its temporary directory afterward. No hosted model API is called. Use sanitized inputs; do not upload secrets.</p>
+    <button type="submit" {% if not model_ready %}disabled{% endif %}>Prepare review brief <span>↗</span></button>
+  </form>
+</section>
+<section class="boundaries"><h2>Know what this brief covers.</h2><p>Images, HTTP probe paths and ports, and read-only-root settings in one selected Deployment. It cannot establish live-cluster state, collect every version's migration warning, or approve an upgrade. Sources supplied by you are identified by their bytes, not authenticated as publisher statements.</p></section>
+<p class="working" role="status" hidden>Preparing your brief with the open-weight model. Keep this tab open…</p>
+{% endblock %}

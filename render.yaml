@@ -1,0 +1,21 @@
+services:
+  - type: web
+    name: upgrade-review-brief
+    runtime: python
+    plan: 1c-2g
+    region: frankfurt
+    buildCommand: bash render-build.sh
+    startCommand: gunicorn wsgi:app --bind 0.0.0.0:$PORT --workers 1 --threads 2 --timeout 180 --no-control-socket --access-logfile -
+    healthCheckPath: /healthz
+    autoDeployTrigger: "off"
+    envVars:
+      - key: PYTHON_VERSION
+        value: 3.12.15
+      - key: SESSION_SECRET
+        generateValue: true
+      - key: TOKENIZERS_PARALLELISM
+        value: "false"
+      - key: OMP_NUM_THREADS
+        value: "1"
+      - key: RERANKER_CPU_THREADS
+        value: "1"

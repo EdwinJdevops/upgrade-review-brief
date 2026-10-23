@@ -1,0 +1,10 @@
+{
+  "date": "2026-10-23",
+  "command": "python -m unittest discover -s tests -q",
+  "tests": 58,
+  "result": "passed",
+  "browser_unit_tests_use_scorer_doubles": true,
+  "actual_model_evidence": "verification/web-browser-2026-10-23.json",
+  "render_deployed": false,
+  "dev_post_published": false
+}

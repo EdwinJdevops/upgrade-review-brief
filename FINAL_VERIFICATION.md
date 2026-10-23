@@ -1,10 +1,10 @@
 # Verification verdict — October 20, 2026
 
-Update: HACKATHON_BUILD.md records the later bounded review-brief implementation, 45 passing tests and an executed open-weight reranker. The commercial NO-GO below remains. Its earlier extraction failure is not a reason to block the separate, narrower hackathon build. This document's original tables describe the checker/extraction stage; the complete contest submission remains unpublished.
+Current status: CONTEST_READINESS.md supersedes this document for contest requirements and sponsor decisions. HACKATHON_BUILD.md records the later bounded CLI/browser implementation, 58 passing tests and executed open-weight inference. The commercial NO-GO below remains. Its earlier extraction failure is not a reason to block the separate, narrower hackathon build. The original tables below describe the historical checker/extraction stage; the complete contest submission remains unpublished.
 
 ## Decision
 
-NO-GO for scaling the current standalone commercial product or presenting the prototype as a finished qualifying submission. Retain the experiment and checker as research assets. Additional platform features, hosting, paid training and sponsor integrations are not justified by the current evidence.
+Historical commercial verdict: NO-GO for scaling the standalone commercial product on the evidence available at that stage. This does not prohibit the later bounded hackathon browser demo or useful hosting. Paid training and additional platform features still require evidence of need; current contest work is tracked in CONTEST_READINESS.md.
 
 This decision is narrower than declaring the technical problem worthless. It reflects failed extraction, unresolved buyer value and closer competitive overlap. A future bounded extension needs a demonstrated gap on an authorized real workflow, not a stronger novelty slogan.
 

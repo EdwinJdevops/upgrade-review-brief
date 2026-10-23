@@ -76,6 +76,14 @@ class BriefTests(unittest.TestCase):
         self.assertEqual(result["model_calls"], 0)
         self.assertTrue(all(p["score"] is None for p in result["source_passages"]))
 
+    def test_literal_preview_budget_follows_ranked_reading_order(self):
+        class LaterFirst:
+            def score(self, query, passage):
+                return {"score": int(passage.startswith("Second")), "model_executed": True}
+        report = build_brief(self.case, self.root, LaterFirst())
+        self.assertTrue(report["source_passages"][0]["exact_excerpt"].startswith("Second"))
+        self.assertLessEqual(sum(len(p["exact_excerpt"].split()) for p in report["source_passages"]), 12)
+
     def test_tampered_source_rejected(self):
         (self.root / "notes.md").write_text("edited")
         with self.assertRaises(EvidenceError):

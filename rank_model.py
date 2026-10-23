@@ -1,5 +1,6 @@
 """Purpose-trained local text relevance model. Scores do not prove applicability."""
 import math
+import os
 import time
 from pathlib import Path
 
@@ -14,14 +15,20 @@ class LocalReranker:
             if identity(model_dir / name, size, kind) != digest:
                 raise ValueError("Reranker file is missing or differs from the pinned revision: " + name)
         self.torch = torch
-        torch.set_num_threads(4)
+        threads = int(os.environ.get("RERANKER_CPU_THREADS", "4"))
+        if not 1 <= threads <= 4:
+            raise ValueError("RERANKER_CPU_THREADS must be between 1 and 4")
+        torch.set_num_threads(threads)
         self.tokenizer = AutoTokenizer.from_pretrained(model_dir, local_files_only=True, trust_remote_code=False)
         self.model = AutoModelForSequenceClassification.from_pretrained(
             model_dir, local_files_only=True, trust_remote_code=False,
             use_safetensors=True, torch_dtype=torch.float32,
         ).eval()
 
-    def score(self, query: str, passage: str) -> dict:
+    def score(self, query: str, passage: str, window_limit: int = 32) -> dict:
+        if window_limit <= 0:
+            return {"score": None, "model_executed": False, "window_count": 0,
+                    "reason": "request_window_budget_exhausted"}
         if len(query) > 10000 or len(passage) > 10000:
             raise ValueError("Reranker input exceeds character limit")
         query_tokens = len(self.tokenizer.encode(query, add_special_tokens=False))
@@ -33,7 +40,7 @@ class LocalReranker:
                                 return_overflowing_tokens=True)
         inputs.pop("overflow_to_sample_mapping", None)
         windows = int(inputs["input_ids"].shape[0])
-        if windows > 32:
+        if windows > min(32, window_limit):
             return {"score": None, "model_executed": False, "window_count": 0, "reason": "too_many_windows_not_partially_scored"}
         started = time.perf_counter()
         values = []
