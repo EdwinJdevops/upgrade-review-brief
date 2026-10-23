@@ -42,9 +42,17 @@ For the selected Deployment, fixed categories identify other edited settings, su
 
 The update passes **85 unit tests**, including the real CLI exit behavior and browser redaction boundaries. [GitHub Actions](https://github.com/EdwinJdevops/upgrade-review-brief/actions/runs/39975786774) passed. These tests use scorer doubles, not accuracy measurements. The same application revision is live on Render; [separate actual-model HTTP checks](verification/render-manifest-coverage-2026-10-23.json) verify the range inventory and sanitized Secret/replica-change upload with system TLS validation. [Public desktop/mobile checks](verification/render-coverage-browser-2026-10-23.json) also passed with real inference and both downloads; the browser proxy certificate exception is recorded. Dated results for preceding releases below remain historical.
 
+## Source-reference correction
+
+The packaged examples now link to Kong commit `b39300d09d6d70297dc437015d4a49e484b7b77d` instead of mutable `main`. [The publisher-binding check](verification/kong-source-binding-2026-10-23.json) confirms exactly the same guide bytes through GitHub's commit-resolved contents API, Git blob identity and SHA-256. Both selection modes emit precise source-line links and a source-reference warning. A supplied commit URL still does not authenticate an upload; the review performs no URL fetch.
+
+The inventory now distinguishes metadata-only edits: two of the three flagged resources in the controlled range have only metadata changes. Such edits remain subject to review; labels and annotations can affect behavior. The optional CI guard continues to flag them rather than silently approving them.
+
+The current local source/reference update passes **98 unit tests**. Its deployment and actual-model verification are recorded separately from the historical 85-test release below. Frozen model evaluation inputs/results were not rewritten; `evaluate_range_review.py --replay-contract verification/range-evaluation-contract.json` replays historical case metadata and defaults to fresh replay output filenames.
+
 ## Current assessment
 
-A working migration-review feature; commercial adoption and general incremental AI value remain unvalidated. [Current audit and next steps](AUDIT_AND_NEXT_STEPS.md) records seven concrete weaknesses and a new same-input ablation: keyword matching and BGE chose the same first demo passage. The model changed the lower reading order, not the manifest findings. Original application code has no selected LICENSE yet; upstream model and dependency terms are separate.
+A working migration-review feature; commercial adoption and general incremental AI value remain unvalidated. [Judge/competitor review and revised gates](JUDGE_AND_COMPETITOR_REVIEW.md) and [earlier audit](AUDIT_AND_NEXT_STEPS.md) records seven concrete weaknesses and a new same-input ablation: keyword matching and BGE chose the same first demo passage. The model changed the lower reading order, not the manifest findings. Original application code has no selected LICENSE yet; upstream model and dependency terms are separate.
 
 ## Current evidence
 

@@ -107,17 +107,28 @@ def inventory(before_docs, after_docs, before_selected, after_selected):
         elif selected:
             categories = ["resource_identity_or_presence"]
         outside = bool(categories) if selected else status != "unchanged"
+        surfaces = []
+        if left is None or right is None:
+            surfaces = ["resource_presence"]
+        else:
+            if typed(left[1]["metadata"]) != typed(right[1]["metadata"]):
+                surfaces.append("metadata")
+            if typed({k: v for k, v in left[1].items() if k != "metadata"}) != typed(
+                    {k: v for k, v in right[1].items() if k != "metadata"}):
+                surfaces.append("resource_body")
         entries.append({"api_version": key[0], "kind": key[1], "namespace": key[2], "name": key[3],
                         "before_document_index": left[0] if left else None,
                         "after_document_index": right[0] if right else None,
                         "change": status, "selected_deployment": selected,
-                        "outside_focused_scope": outside, "unreviewed_categories": categories})
+                        "outside_focused_scope": outside, "unreviewed_categories": categories,
+                        "change_surfaces": surfaces})
     counts = {state: sum(e["change"] == state for e in entries) for state in ("added", "removed", "modified", "unchanged")}
     return {
         "schema_version": 1, "comparison": "literal_typed_manifest_content",
         "before_resource_count": len(old), "after_resource_count": len(new),
         "resource_changes": counts,
         "outside_scope_changed_resources": sum(e["outside_focused_scope"] for e in entries),
+        "metadata_only_modified_resources": sum(e["change"] == "modified" and e["change_surfaces"] == ["metadata"] for e in entries),
         "resources": entries, "unselected_values_exported": False,
         "warning": "Inventory detects supplied content changes, not their risk or applicability. Unchanged resources may still need migration review. Identifiers are shown; unselected field values and keys are withheld. A null namespace means omitted, not an inferred default. API-version changes appear as removal plus addition. Lists must be expanded before upload. Sequence order can create content changes; resource document order, mapping order and YAML comments do not.",
     }

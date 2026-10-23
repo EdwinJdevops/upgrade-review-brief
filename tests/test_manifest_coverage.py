@@ -37,6 +37,28 @@ class CoverageTests(unittest.TestCase):
         self.assertEqual(report["outside_scope_changed_resources"], 1)
         self.assertEqual(report["resources"][0]["unreviewed_categories"], ["deployment_settings"])
 
+    def test_metadata_only_does_not_mean_harmless_or_suppressed(self):
+        self.new = copy.deepcopy(self.old)
+        self.new["metadata"]["annotations"] = {"private-policy-key": "private-policy-value"}
+        report = self.compare()
+        self.assertEqual(report["metadata_only_modified_resources"], 1)
+        self.assertEqual(report["resources"][0]["change_surfaces"], ["metadata"])
+        self.assertEqual(report["outside_scope_changed_resources"], 1)
+        self.assertNotIn("private-policy", json.dumps(report))
+
+    def test_full_body_change_is_distinct_from_metadata_even_when_in_focused_diff(self):
+        report = self.compare()
+        self.assertEqual(report["resources"][0]["change_surfaces"], ["metadata", "resource_body"])
+        self.assertEqual(report["metadata_only_modified_resources"], 0)
+        self.assertEqual(report["outside_scope_changed_resources"], 0)
+
+    def test_resource_addition_is_not_mislabeled_metadata_only(self):
+        service = {"apiVersion":"v1", "kind":"Service", "metadata":{"name":"proxy"}}
+        report = self.compare(after=[self.new, service])
+        entry = next(r for r in report["resources"] if r["kind"] == "Service")
+        self.assertEqual(entry["change_surfaces"], ["resource_presence"])
+        self.assertEqual(report["metadata_only_modified_resources"], 0)
+
     def test_secret_change_added_service_removed_crd_and_unmodified_resource(self):
         def resource(kind, name, **body):
             return {"apiVersion": "v1", "kind": kind, "metadata": {"name": name}, **body}

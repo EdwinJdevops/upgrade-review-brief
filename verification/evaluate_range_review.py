@@ -18,7 +18,15 @@ from rank_model import LocalReranker, MODEL, REVISION
 
 
 def main():
-    case = json.loads((ROOT / "brief-cases/kong-range.json").read_text())
+    import argparse
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument("--replay-contract", type=Path,
+                        help="Replay the original case metadata from a frozen contract, including its historical source URL")
+    parser.add_argument("--output", type=Path, default=ROOT / "verification/range-evaluation-replay.json")
+    parser.add_argument("--report-output", type=Path, default=ROOT / "verification/range-demo-replay.json")
+    args = parser.parse_args()
+    case = (json.loads(args.replay_contract.read_text())["case"] if args.replay_contract else
+            json.loads((ROOT / "brief-cases/kong-range.json").read_text()))
     old = snapshot(read_checked(ROOT, case["before"], 200_000), case["deployment"])
     new = snapshot(read_checked(ROOT, case["after"], 200_000), case["deployment"])
     passages, _ = select_range(read_checked(ROOT,case["notes"],200_000),case["from_chart"],case["to_chart"])
@@ -34,7 +42,8 @@ def main():
     frozen = ROOT / "verification/range-evaluation-contract.json"
     if frozen.exists() and frozen.read_text()!=encoded:
         raise ValueError("Do not overwrite frozen evaluation inputs")
-    frozen.write_text(encoded)
+    if not frozen.exists():
+        frozen.write_text(encoded)
     model = LocalReranker(ROOT/".models/bge-reranker-base")
     started=time.perf_counter()
     report=build_brief(case,ROOT,model)
@@ -56,8 +65,8 @@ def main():
             "model_windows":report["model_calls"],"unscored_query_passage_pairs":report["coverage"]["unscored_query_passage_pairs"],
             "local_report_seconds_excluding_model_initialization":round(seconds,4),
             "scope":contract["scope"]}
-    (ROOT/"verification/range-evaluation-results.json").write_text(json.dumps(result,indent=2)+"\n")
-    (ROOT/"verification/range-demo-report.json").write_text(json.dumps(report,indent=2)+"\n")
+    args.output.write_text(json.dumps(result,indent=2)+"\n")
+    args.report_output.write_text(json.dumps(report,indent=2)+"\n")
     print(json.dumps(result,indent=2))
 
 

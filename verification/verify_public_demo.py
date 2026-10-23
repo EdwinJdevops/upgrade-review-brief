@@ -52,6 +52,8 @@ with sync_playwright() as p:
     assert demo['model_calls'] == 5 and demo['passage_count'] == 5 and demo['passages_omitted'] == 0
     assert demo['status'] == 'REVIEW_REQUIRED' and demo['generated_actions'] == []
     assert demo['model']['name'] == 'BAAI/bge-reranker-base'
+    assert demo['source_reference']['commit']=='b39300d09d6d70297dc437015d4a49e484b7b77d'
+    assert all('#L' in passage['source_line_url'] for passage in demo['source_passages'])
     assert '/status/ready' in page.locator('table').first.inner_text()
     with page.expect_download() as download:
         page.get_by_role('button', name='Download JSON').click()
@@ -94,6 +96,9 @@ with sync_playwright() as p:
         assert ranged['status']=='REVIEW_REQUIRED' and ranged['generated_actions']==[]
         assert ranged['input_provenance']=='packaged_demo'
         assert ranged['manifest_inventory']['outside_scope_changed_resources']==3
+        assert ranged['manifest_inventory']['metadata_only_modified_resources']==2
+        assert ranged['source_reference']['commit']=='b39300d09d6d70297dc437015d4a49e484b7b77d'
+        assert not ranged['source_reference']['remote_content_verified_this_review']
         assert page.locator('#manifest-coverage table tbody tr').count()==3
         assert page.locator('#manifest-coverage').is_visible()
         assert page.evaluate('document.documentElement.scrollWidth <= innerWidth')

@@ -1,0 +1,12 @@
+{
+  "checked_at": "2026-10-23T17:44:44.196293+00:00",
+  "method": "GitHub contents API at immutable commit, system TLS; base64 bytes checked against Git blob SHA-1 and local SHA-256",
+  "commit": "b39300d09d6d70297dc437015d4a49e484b7b77d",
+  "blob_sha1": "893527759a66e5293aded6999f8c6879b634c6d6",
+  "content_sha256": "327a5710b6d529d1b24e1200d8eaf60bf50a478a0ecf541b227e92394091248d",
+  "bytes": 35561,
+  "publisher_file_url": "https://github.com/Kong/charts/blob/b39300d09d6d70297dc437015d4a49e484b7b77d/charts/kong/UPGRADE.md",
+  "matches_existing_demo_guide": true,
+  "content_changed_by_fix": false,
+  "boundary": "This verifies the packaged guide at this repository commit, not its applicability, authorship authority, supported upgrade path or a customer cluster. User uploads are never remotely authenticated by this check."
+}

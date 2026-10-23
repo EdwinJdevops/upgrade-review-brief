@@ -17,7 +17,7 @@
   "notes": {
     "path": "model-evaluation/sources/kong-guide.md",
     "sha256": "327a5710b6d529d1b24e1200d8eaf60bf50a478a0ecf541b227e92394091248d",
-    "url": "https://github.com/Kong/charts/blob/main/charts/kong/UPGRADE.md",
+    "url": "https://github.com/Kong/charts/blob/b39300d09d6d70297dc437015d4a49e484b7b77d/charts/kong/UPGRADE.md",
     "selection": "version_range"
   }
 }

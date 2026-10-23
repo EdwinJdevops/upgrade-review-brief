@@ -78,6 +78,14 @@ class PlanTests(unittest.TestCase):
             with self.assertRaises(EvidenceError): select_range(text,before,after)
         self.assertEqual(chart_version("my-chart-2-1.2.3"), ("my-chart-2",(1,2,3)))
 
+    def test_range_report_exposes_reference_boundary_and_preserves_immutable_links(self):
+        commit = "b39300d09d6d70297dc437015d4a49e484b7b77d"
+        self.case["notes"]["url"] = "https://github.com/Kong/charts/blob/" + commit + "/charts/kong/UPGRADE.md"
+        result = build_brief(self.case, self.root)
+        self.assertEqual(result["source_reference"]["commit"], commit)
+        self.assertFalse(result["source_reference"]["remote_content_verified_this_review"])
+        self.assertTrue(all(commit in p["source_line_url"] and "#L" in p["source_line_url"] for p in result["source_passages"]))
+
     def test_github_line_links_preserve_claimed_source_without_fetching(self):
         self.assertEqual(source_line_url("https://github.com/org/repo/blob/main/GUIDE.md#old",12,19),
                          "https://github.com/org/repo/blob/main/GUIDE.md#L12-L19")

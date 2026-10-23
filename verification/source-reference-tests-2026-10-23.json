@@ -1,0 +1,24 @@
+{
+  "checked_at": "2026-10-23T17:49:07.288342+00:00",
+  "python": "3.12.14",
+  "tests": 98,
+  "result": "passed",
+  "command": ".venv/bin/python -m unittest discover -s tests -q",
+  "model_quality_evaluation": false,
+  "scorers": "test doubles",
+  "source_sha256": {
+    "source_reference.py": "bb609f421ab68b8db39efb46bfe1ef75703b1a849be9ff28e31365a221fa6e33",
+    "manifest_coverage.py": "15684c9ca4a1510c34570ee0193a3a3e3df53ef5d5e4b4216d124b9e59baa003",
+    "upgrade_brief.py": "23d16a71a4f97376b4142c76d22d621caed910ed2c222b906f0bad348d508b3a",
+    "prepare_brief_source.py": "5c99b1b32900bce09131688ee4b0197117304c8d73d9ae5980f72ee0229f3231",
+    "templates/report.html": "7a78b749743b4cfe8c1c472194e1a74a3a898e87eeeecce572599e1a4d8eeefa",
+    "tests/test_source_reference.py": "2d13dec118aa0c1e58b6b024ba910e6356aabd2f242acafac9d82d97d93a687b",
+    "tests/test_manifest_coverage.py": "74f3d8bb19ba5dc7db4537251ba42c94f3025fdcffa55105be8c5255bd8dd157",
+    "tests/test_brief.py": "b04dc37ed0fd1bdf84a200d9e7c9474c7cb28eca3830e66c88882f5baa0a76c3",
+    "tests/test_plan.py": "fbbff456dd22b319abd7216a61d82c5be9dacb2bc98954f0c81c3a214c10e0a4",
+    "tests/test_web.py": "0be1271bc48f1ab54437f2ef310c9a2885bacc5c26aced94f54911083ced1139"
+  },
+  "source_bytes_unchanged": true,
+  "frozen_range_contract_sha256": "dbd485eaa030450baca072fbc5945f6d3767568e126651274c12c7df9a25f9c9",
+  "independent_customer_evidence": false
+}

@@ -53,7 +53,18 @@ def main():
     inv = ranged["manifest_inventory"]
     assert inv["before_resource_count"] == inv["after_resource_count"] == 3
     assert inv["outside_scope_changed_resources"] == 3
+    assert inv["metadata_only_modified_resources"] == 2
     assert {r["kind"] for r in inv["resources"]} == {"Deployment", "Service", "ServiceAccount"}
+    commit = "b39300d09d6d70297dc437015d4a49e484b7b77d"
+    assert ranged["source_reference"]["commit"] == commit
+    assert ranged["source_reference"]["remote_content_verified_this_review"] is False
+    assert all("/blob/" + commit + "/" in p["source_line_url"] and "#L" in p["source_line_url"] for p in ranged["source_passages"])
+    original_request = urllib.request.Request(base + "/review", data=urllib.parse.urlencode(
+        {"csrf": token(), "mode": "demo"}).encode(), method="POST")
+    original, _ = read_report(original_request)
+    assert original["model_calls"] == original["passage_count"] == 5
+    assert original["source_reference"]["commit"] == commit
+    assert all("/blob/" + commit + "/" in p["source_line_url"] and "#L" in p["source_line_url"] for p in original["source_passages"])
 
     root = Path(__file__).resolve().parents[1]
     # Fixture contains deliberate fake sentinels, never customer credentials.
@@ -79,6 +90,8 @@ def main():
                                      headers={"Content-Type": "multipart/form-data; boundary=" + boundary})
     uploaded, body = read_report(request)
     assert uploaded["input_provenance"] == "user_supplied_bytes_not_authenticated"
+    assert uploaded["source_reference"]["reference_type"] == "immutable_reference_not_established"
+    assert uploaded["source_reference"]["remote_content_verified_this_review"] is False
     assert uploaded["manifest_inventory"]["outside_scope_changed_resources"] == 2
     assert len(uploaded["changes"]) == 1  # replicas and Secret were not model-reviewed
     for private in ("sensitive-key-sentinel", "fake-old-sentinel", "fake-new-sentinel", "do-not-send-this-value", "private-header", "PRIVATE_TOKEN"):
@@ -90,6 +103,9 @@ def main():
            "range": {"model": ranged["model"], "model_windows": ranged["model_calls"],
                      "passages": ranged["passage_count"], "outside_scope_resources": inv["outside_scope_changed_resources"],
                      "resource_kinds": [r["kind"] for r in inv["resources"]], "processing_seconds": ranged["processing_seconds"]},
+           "pinned_source_links": {"commit": commit, "original_and_range_line_anchors_checked": True,
+                                   "remote_content_verification_not_claimed_by_review": True},
+           "metadata_only_modified_resources": inv["metadata_only_modified_resources"],
            "sanitized_upload": {"model_windows": uploaded["model_calls"], "focused_changes": len(uploaded["changes"]),
                                 "outside_scope_resources": 2, "secret_sentinels_absent_from_response": True,
                                 "processing_seconds": uploaded["processing_seconds"]},

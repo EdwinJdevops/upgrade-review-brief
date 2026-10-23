@@ -38,7 +38,7 @@ A BM25 comparison with fixed conventional parameters (k1=1.2, b=0.75) also surfa
 ```bash
 python prepare_brief_source.py
 python verification/prepare_range_case.py
-RERANKER_CPU_THREADS=1 python verification/evaluate_range_review.py
+RERANKER_CPU_THREADS=1 python verification/evaluate_range_review.py --replay-contract verification/range-evaluation-contract.json
 python -m unittest discover -s tests -q
 RERANKER_CPU_THREADS=1 python verification/verify_range_local.py
 ```

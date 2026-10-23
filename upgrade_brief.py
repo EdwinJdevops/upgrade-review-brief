@@ -174,10 +174,13 @@ def build_brief(case, root, scorer=None):
             or parsed_url.scheme != "https" or not parsed_url.hostname or parsed_url.username or parsed_url.password):
         raise EvidenceError("Source URL must be HTTPS without embedded credentials")
     text = read_checked(root, source, 200_000)
+    from source_reference import describe_source
+    source_reference = describe_source(source["url"])
     if source.get("selection") == "version_range":
         from review_plan import build_range_brief
         report = build_range_brief(case, old, new, source, text, scorer)
         report["manifest_inventory"] = manifest_inventory
+        report["source_reference"] = source_reference
         return report
     if source.get("selection") not in (None, "section"):
         raise EvidenceError("Unknown source selection mode")
@@ -191,12 +194,14 @@ def build_brief(case, root, scorer=None):
         query += " No changes in the limited selected fields. Which migration prerequisites still require human review?"
     if len(query) > 10000:
         raise EvidenceError("Focused change query exceeds model input limit")
+    from review_plan import source_line_url
     results = []
     for passage in passages:
         ranking = scorer.score(query, passage["text"]) if scorer is not None else {
             "score": lexical_score(query, passage["text"]), "model_executed": False, "reason": "lexical_comparison_baseline"}
         results.append({k:v for k,v in passage.items() if k != "text"} | {
             "source_path": source["path"], "source_url": source["url"],
+            "source_line_url": source_line_url(source["url"], passage["start_line"], passage["end_line"]),
             "lexical_overlap": lexical_score(query, passage["text"]), **ranking})
     results.sort(key=lambda x: (x["score"] is not None, x["score"] if x["score"] is not None else 0), reverse=True)
     # Allocate the bounded literal previews after ranking, so the first reading
@@ -219,6 +224,7 @@ def build_brief(case, root, scorer=None):
             "input_identities": {key: case[key] for key in ("before", "after", "notes")},
             "focused_change_query": query, "changes": changes, "source_passages": results,
             "manifest_inventory": manifest_inventory,
+            "source_reference": source_reference,
             "passage_count": len(passages), "passages_omitted": 0,
             "model_calls": sum(r.get("window_count", int(bool(r["model_executed"]))) for r in results), "unresolved": unresolved,
             "generated_actions": [], "live_identity_verified": False}
@@ -241,6 +247,7 @@ def markdown(report):
         for item in inventory["resources"]:
             namespace = item["namespace"] if item["namespace"] is not None else "(omitted)"
             lines.append(f"- {safe(item['api_version'])} {safe(item['kind'])} {safe(namespace)}/{safe(item['name'])}: {item['change']}; "
+                         + ("content areas: " + ", ".join(item["change_surfaces"]) + "; " if item.get("change_surfaces") else "")
                          + ("outside focused scope" if item["outside_focused_scope"] else "no outside-scope edit detected")
                          + ("; " + ", ".join(item["unreviewed_categories"]) if item["unreviewed_categories"] else ""))
     if "reading_tasks" in report:
@@ -256,9 +263,11 @@ def markdown(report):
         if report["coverage"]["changes_without_dedicated_query"]:
             lines.append("Changes without a dedicated query: " + safe(report["coverage"]["changes_without_dedicated_query"]))
     lines += ["", "## Migration source passages", "", "All selected passages are retained. Scores are relative relevance, not confidence.", ""]
+    if "source_reference" in report:
+        lines += [safe(report["source_reference"]["warning"]), ""]
     for passage in report["source_passages"]:
         lines += [f"- **{safe(passage['id'])}** · score `{passage['score']}` · `{safe(passage['source_path'])}`", 
-                  f"  Source: {safe(passage['source_url'])}", f"  Excerpt preview: {safe(passage['exact_excerpt'])}" if passage["exact_excerpt"] else "  Read the recorded source lines; excerpt budget exhausted."]
+                  f"  Source: {safe(passage.get('source_line_url', passage['source_url']))}", f"  Excerpt preview: {safe(passage['exact_excerpt'])}" if passage["exact_excerpt"] else "  Read the recorded source lines; excerpt budget exhausted."]
     lines += ["", "## Unresolved", ""] + ["- " + safe(x) for x in report["unresolved"]]
     lines += ["", f"Mode: {report['mode']}; model calls: {report['model_calls']}; omitted passages: {report['passages_omitted']}.", ""]
     return "\n".join(lines)

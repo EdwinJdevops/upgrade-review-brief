@@ -65,6 +65,8 @@ class WebTests(unittest.TestCase):
             self.assertNotIn("private-header", item[0])
         self.assertNotIn("do-not-send-this-value", response.get_data(as_text=True))
         self.assertEqual(report["input_identities"]["before"]["path"], "before.yaml")
+        self.assertIn("The source link is not established as immutable", response.get_data(as_text=True))
+        self.assertFalse(report["source_reference"]["remote_content_verified_this_review"])
 
     def test_missing_or_unicode_csrf_rejected(self):
         for csrf in ("", "wrong", "\u2603"):

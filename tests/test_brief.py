@@ -57,6 +57,25 @@ class BriefTests(unittest.TestCase):
         self.assertEqual(result["status"], "REVIEW_REQUIRED")
         self.assertEqual(result["generated_actions"], [])
 
+    def test_explicit_section_source_links_use_exact_lines_and_commit(self):
+        commit = "b39300d09d6d70297dc437015d4a49e484b7b77d"
+        url = "https://github.com/Kong/charts/blob/" + commit + "/charts/kong/UPGRADE.md#old-anchor"
+        self.case["notes"]["url"] = url
+        result = build_brief(self.case, self.root)
+        self.assertEqual(result["source_reference"]["commit"], commit)
+        self.assertFalse(result["source_reference"]["remote_content_verified_this_review"])
+        for item in result["source_passages"]:
+            link = url.split("#")[0] + f"#L{item['start_line']}-L{item['end_line']}"
+            self.assertEqual(item["source_line_url"], link)
+            self.assertIn(link, markdown(result))
+
+    def test_unverified_source_warning_survives_json_and_markdown_without_fetch(self):
+        from unittest.mock import patch
+        with patch("urllib.request.urlopen", side_effect=AssertionError("Unexpected source fetch")):
+            result = build_brief(self.case, self.root)
+        self.assertEqual(result["source_reference"]["reference_type"], "immutable_reference_not_established")
+        self.assertIn("line numbers can differ", markdown(result))
+
     def test_every_locator_and_excerpt_binds_to_source_bytes(self):
         result = build_brief(self.case, self.root)
         lines = (self.root / "notes.md").read_text().splitlines(keepends=True)
