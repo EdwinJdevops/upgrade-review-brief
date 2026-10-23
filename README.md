@@ -14,7 +14,7 @@ A push to main with `[model-demo]` in its commit message also requests the model
 
 ## Current evidence
 
-- 45 code tests passed in the development environment on October 23, 2026. Check Actions for repository CI results.
+- [GitHub Actions run #1](https://github.com/EdwinJdevops/upgrade-review-brief/actions/runs/39942834494) passed on October 23, 2026: all 45 tests and the CPU model demonstration succeeded. The model made five evaluations and omitted no passages.
 - The local model demo and clean-package replay from October 20 are preserved in `verification/`.
 - A six-query author-defined ranking check placed the expected passage uniquely first six times; a simple keyword baseline did so five times, tying on the remaining query. This is a small feasibility check, not a representative accuracy or customer-benefit result.
 - No measured reduction in total reviewer time, live-cluster readiness test, production use or commercial demand is claimed.
@@ -51,6 +51,6 @@ Input hashes establish correspondence to supplied bytes, not source authorship, 
 
 ## Submission status
 
-Work began October 20, 2026 for the Week 3 challenge. Code and CI publication do not by themselves constitute a DEV submission. The [article draft](DEV_SUBMISSION_DRAFT.md) still needs an actual successful demo/run link before publication. No sponsor prize qualification or contest win is claimed.
+Work began October 20, 2026 for the Week 3 challenge. Code and CI publication do not by themselves constitute a DEV submission. The [article draft](DEV_SUBMISSION_DRAFT.md) includes the verified repository and successful demonstration links. It has not been published to DEV. The article targets the published GitHub Actions option within Best Use of GitHub Copilot; category acceptance and awards remain unverified. GitHub Copilot itself was not used.
 
 [Attribution](THIRD_PARTY_NOTICES.md) records upstream sources. The earlier failed model trials and bounded existing-tool comparisons remain available rather than being represented as successes.

@@ -1,0 +1,31 @@
+{
+  "observed_on": "2026-10-23",
+  "repository": "EdwinJdevops/upgrade-review-brief",
+  "implementation_commit": "14891d0a31aec44fe98a76c0fc292458c913091c",
+  "run_id": 39942834494,
+  "run_url": "https://github.com/EdwinJdevops/upgrade-review-brief/actions/runs/39942834494",
+  "jobs": [
+    {
+      "id": 120378205194,
+      "name": "tests",
+      "status": "completed",
+      "conclusion": "success"
+    },
+    {
+      "id": 120378271774,
+      "name": "model-demo",
+      "status": "completed",
+      "conclusion": "success"
+    }
+  ],
+  "tests_run": 45,
+  "model": "BAAI/bge-reranker-base",
+  "model_revision": "2cfc18c9415c912f9d8155881c133215df768a70",
+  "model_calls": 5,
+  "passages_omitted": 0,
+  "report_status": "REVIEW_REQUIRED",
+  "model_runtime": "CPU float32 on standard GitHub-hosted runner",
+  "deployment_safety_verified": false,
+  "dev_submission_published": false,
+  "customer_benefit_measured": false
+}

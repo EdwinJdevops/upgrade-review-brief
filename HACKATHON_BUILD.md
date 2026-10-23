@@ -1,5 +1,7 @@
 # Upgrade review brief — bounded Hacktoberfest build
 
+Publication update, October 23: the code is now in https://github.com/EdwinJdevops/upgrade-review-brief . [GitHub Actions run #1](https://github.com/EdwinJdevops/upgrade-review-brief/actions/runs/39942834494) passed all 45 tests and the actual CPU model demo. See verification/github-run-2026-10-23.json. The sections below retain the earlier implementation-stage history; statements about missing repository execution refer to that earlier stage. DEV publication remains unfinished.
+
 ## Decision
 
 GO for this bounded hackathon implementation. The commercial platform remains unvalidated. Customer purchasing evidence is required before a commercial expansion; it is not a prerequisite for building a working challenge prototype. The previous response incorrectly allowed the commercial gate to block hackathon engineering.

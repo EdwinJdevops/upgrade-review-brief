@@ -4,7 +4,7 @@ published: false
 tags: devchallenge, hf26challenge
 ---
 
-*This is a draft for the [Hacktoberfest Open-Source AI Challenge Week 3: Slow and Steady](https://dev.to/challenges/hacktoberfest-week3-2026-10-19).*
+*This is a submission for the [Hacktoberfest Open-Source AI Challenge Week 3: Slow and Steady](https://dev.to/challenges/hacktoberfest-week3-2026-10-19).*
 
 ## What I Built
 
@@ -18,11 +18,11 @@ The controlled example compares Kong chart 2.25.0 with 2.26.0. Both chart versio
 
 The recorded local result is in `verification/demo-brief.md`, with machine-readable evidence in `verification/demo-brief.json`. The example identifies one readiness-path change, ranks five source passages and retains every passage locator. It explicitly reports that the external-controller context is unresolved.
 
-For a fresh browser demonstration, the prepared repository workflow can download the pinned model on a standard CPU runner and publish the newly generated brief to the run summary. Repository CI execution and a public demo recording are still pending at the time this draft was prepared. This section must be updated with the verified run or recording before publication.
+[Open the successful GitHub Actions demonstration](https://github.com/EdwinJdevops/upgrade-review-brief/actions/runs/39942834494). The run summary contains the newly generated brief. Both jobs completed successfully: 45 tests passed, then the CPU job verified the source/model files and performed five model evaluations, retaining all passages. The workflow can be rerun from a browser without WSL or a model API key. This is a workflow execution demonstration; no screen recording is claimed.
 
 ## Code
 
-The source is prepared for a new repository. Its public URL has not been verified. Add the actual repository link here after the implementation has been committed; do not publish this draft as a finished entry before that step.
+[Source code and reproducible workflow](https://github.com/EdwinJdevops/upgrade-review-brief). The source and CI were published on October 23; the initial local implementation and recorded experiments began October 20 during the challenge window.
 
 ## How I Built It
 
@@ -34,7 +34,7 @@ Early experiments with a small generative model were unsuccessful. A separate re
 
 The replacement reranker placed the expected passage uniquely first for six author-defined queries. A simple shared-token baseline did so for five, tying on the remaining query. This is a small feasibility check, not evidence of general superiority. The source and query cases are not independent or held out.
 
-The code test suite has 45 passing tests. They cover integrity checks, malformed inputs, limited-field privacy and preservation of review material. They do not prove application readiness, production safety or customer value. No total review-time saving has been measured.
+The GitHub Actions test job has 45 passing tests. They cover integrity checks, malformed inputs, limited-field privacy and preservation of review material. They do not prove application readiness, production safety or customer value. No total review-time saving has been measured.
 
 ## Why Does Open Innovation Matter?
 
@@ -46,4 +46,8 @@ That is useful for deployment evidence: the tool can process its selected manife
 
 The migration guidance belongs to [Kong](https://github.com/Kong/charts/blob/main/charts/kong/UPGRADE.md#2260). The relevance model is [BAAI/bge-reranker-base](https://huggingface.co/BAAI/bge-reranker-base). PyTorch, Transformers, PyYAML, Helm and GitHub Actions provide supporting tooling. AI coding assistance was used in development.
 
-Only selected fields in one Deployment and an explicitly selected migration section are covered. The project does not authenticate a live cluster or prove that every relevant migration warning has been collected. Sponsor categories remain unclaimed until the corresponding technology has actually been integrated and demonstrated.
+Only selected fields in one Deployment and an explicitly selected migration section are covered. The project does not authenticate a live cluster or prove that every relevant migration warning has been collected. The project now has a successful GitHub Actions automation run. Other sponsor integrations have not been implemented.
+
+## Prize Categories
+
+I am entering Best Use of GitHub Copilot through the challenge description's explicit GitHub Actions option. Actions automates the code tests, verified model preparation, CPU inference and publication of the review brief to the run summary. GitHub Copilot itself was not used; this entry relies on the published Actions option, and category acceptance remains the organizers' decision.
