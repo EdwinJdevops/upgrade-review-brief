@@ -1,0 +1,23 @@
+{
+  "date": "2026-10-23",
+  "service_id": "srv-dbdl4ca9lscs73c4urq0",
+  "url": "https://upgrade-review-brief.onrender.com",
+  "initial_monitoring_record": "verification/render-deployment-2026-10-23.json",
+  "change": "Configured HTTP readiness monitoring in Render Dashboard after initial TCP-only provisioning.",
+  "configured_http_health_path": "/healthz",
+  "render_service_updated_at": "2026-10-23T12:53:58.357765Z",
+  "configuration_verified_by": [
+    "Dashboard saved field",
+    "Render MCP get_service serviceDetails.healthCheckPath"
+  ],
+  "public_endpoint_verification": {
+    "status": 200,
+    "body": {
+      "status": "ready"
+    },
+    "system_tls_validation": true
+  },
+  "auto_deploy": "off",
+  "application_redeploy_requested": false,
+  "scope": "Verifies the saved platform path and ready response; does not simulate platform failure recovery or establish production capacity."
+}

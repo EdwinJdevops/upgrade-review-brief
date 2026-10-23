@@ -1,6 +1,6 @@
 # Deploy the browser review on Render
 
-Status, October 23: **live at https://upgrade-review-brief.onrender.com**. Deployment `dep-dbdl4da9lscs73c4uu50` reached `live` on source commit `12fb374a200ff5b60a2def67fcd3839b36c41c8d`. Public health, example, mobile sanitized uploads, secure cookies and JSON/Markdown downloads passed. See verification/render-deployment-2026-10-23.json and verification/render-public-browser-2026-10-23.json. Remaining credit balance is not exposed through MCP and remains unverified.
+Status, October 23: **live at https://upgrade-review-brief.onrender.com**. Deployment `dep-dbdl4da9lscs73c4uu50` reached `live` on source commit `12fb374a200ff5b60a2def67fcd3839b36c41c8d`. Public health, example, mobile sanitized uploads, secure cookies and JSON/Markdown downloads passed. See verification/render-deployment-2026-10-23.json and verification/render-public-browser-2026-10-23.json. Account billing was reviewed privately in the Dashboard; private balance and payment details are not published in this repository.
 
 ## Service definition
 
@@ -8,12 +8,12 @@ The live service was created directly through MCP, using the explicit commands, 
 
 - Build: `bash render-build.sh`
 - Start: `gunicorn wsgi:app --bind 0.0.0.0:$PORT --workers 1 --threads 2 --timeout 180 --no-control-socket --access-logfile -`
-- Health endpoint: `/healthz`, ready only when the verified model has loaded. The live service currently uses Render's default TCP probe: MCP creation cannot set the HTTP health path. Set `/healthz` under Settings → Health Checks in the Dashboard before treating platform monitoring as HTTP readiness monitoring.
+- Health endpoint: `/healthz`, ready only when the verified model has loaded. The live service was initially created with the default TCP probe. On October 23, `/healthz` was saved under Dashboard Settings → Health Checks and independently confirmed through the Render service API. See verification/render-health-monitoring-2026-10-23.json.
 - Compute: `1c-2g` (1 CPU / 2 GB RAM in the current Blueprint reference).
 - Automatic deployments: off. Deploy deliberately to avoid unnecessary repeated downloads/builds.
 - Live session secret: generated in memory by Python `secrets` when the single worker starts; it is not persisted or exposed. Restarting expires open forms. A future Blueprint sync can instead generate `SESSION_SECRET` on Render. Never paste secret values into the repository, article or chat.
 
-The previous local model experiment measured 1135.6 MiB peak process RSS. Render's 512 MB free compute is below that measurement. The 2 GB instance passed the included example and upload checks. A post-review sample reported 659,304,450 bytes (~629 MiB) against a 2 GiB limit. This is a sampled short run, not a measured peak or a load/capacity guarantee. Do not claim that the promotional $50 is present, covers all costs or has a particular expiration without checking the account. Review Render's displayed compute cost and remaining credit before creating the service. Scale down or delete the demo after judging if it is no longer needed.
+The previous local model experiment measured 1135.6 MiB peak process RSS. Render's 512 MB free compute is below that measurement. The 2 GB instance passed the included example and upload checks. A post-review sample reported 659,304,450 bytes (~629 MiB) against a 2 GiB limit. This is a sampled short run, not a measured peak or a load/capacity guarantee. Review current account credit and charges privately in the Dashboard; promotional credit is not a hard spending cap. Scale down or delete the demo after judging if it is no longer needed.
 
 Build preparation downloads approximately 1.1 GB of model weights plus dependencies and a pinned public migration guide. Startup verifies the model files and loads one float32 CPU model. Source/model preparation requires network access; request-time reviews fetch no supplied URLs and call no model API. Use one worker: increasing workers duplicates the model and breaks the process-local concurrency/rate budgets.
 
