@@ -21,6 +21,8 @@ def main():
     group.add_argument("--model-dir", type=Path)
     group.add_argument("--lexical-baseline", action="store_true")
     parser.add_argument("--format", choices=("json", "markdown"), default="markdown")
+    parser.add_argument("--fail-on-unreviewed-changes", action="store_true",
+                        help="Emit the report, then exit 3 if manifest edits exist outside the focused scope. Exit 0 never means approval.")
     args = parser.parse_args()
     try:
         selector = {"name": args.deployment, "namespace": args.namespace}
@@ -52,9 +54,11 @@ def main():
             if scorer:
                 report["model"] = {"name": MODEL, "revision": REVISION, "runtime": "local_cpu_float32"}
             print(json.dumps(report, indent=2) if args.format == "json" else markdown(report))
+            if args.fail_on_unreviewed_changes and report["manifest_inventory"]["outside_scope_changed_resources"]:
+                return 3
     except (OSError, ValueError, TypeError, KeyError, RecursionError, yaml.YAMLError):
         parser.exit(2, "Review failed: check input files, Deployment identity, chart versions and guide headings. No approval was produced.\n")
 
 
 if __name__ == "__main__":
-    main()
+    raise SystemExit(main())

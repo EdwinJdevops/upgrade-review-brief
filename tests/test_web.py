@@ -106,11 +106,34 @@ class WebTests(unittest.TestCase):
         self.assertEqual(response.status_code,200)
         report = self.report(response)
         self.assertEqual(report["from_chart"],"kong-2.18.0")
+        self.assertEqual(report["input_provenance"],"packaged_demo")
         self.assertEqual(report["to_chart"],"kong-2.26.0")
         self.assertEqual(len(report["changes"]),2)
         self.assertEqual(report["model_calls"],6)
         self.assertEqual(report["coverage"]["unscored_query_passage_pairs"],0)
         self.assertEqual(report["status"],"REVIEW_REQUIRED")
+
+    def test_unreviewed_resource_visible_without_secret_contents(self):
+        data = self.data()
+        old = BEFORE + '\n---\napiVersion: v1\nkind: Secret\nmetadata:\n  name: credentials\ndata:\n  private-key: old-private-payload\n'
+        new = AFTER + '\n---\napiVersion: v1\nkind: Secret\nmetadata:\n  name: credentials\ndata:\n  private-key: new-private-payload\n'
+        data["before"] = (io.BytesIO(old.encode()), "before.yaml")
+        data["after"] = (io.BytesIO(new.encode()), "after.yaml")
+        response = self.client.post("/review", data=data)
+        self.assertEqual(response.status_code, 200)
+        report = self.report(response)
+        self.assertEqual(report["manifest_inventory"]["outside_scope_changed_resources"], 1)
+        self.assertIn("Separate review needed", response.get_data(as_text=True))
+        for value in ("old-private-payload", "new-private-payload", "private-key"):
+            self.assertNotIn(value, response.get_data(as_text=True))
+            self.assertTrue(all(value not in query for query, _, _ in self.scorer.calls))
+
+    def test_duplicate_other_resource_rejected_before_inference(self):
+        data = self.data()
+        service = '\n---\napiVersion: v1\nkind: Service\nmetadata:\n  name: proxy\n'
+        data["after"] = (io.BytesIO((AFTER + service + service).encode()), "after.yaml")
+        self.assertEqual(self.client.post("/review", data=data).status_code, 400)
+        self.assertEqual(self.scorer.calls, [])
 
     def test_alias_yaml_rejected_before_inference(self):
         data = self.data()

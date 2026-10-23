@@ -50,7 +50,11 @@ def parse_manifests(text):
 
 
 def snapshot(text, selector):
-    index, doc = deployment(parse_manifests(text), selector)
+    return snapshot_documents(parse_manifests(text), selector)
+
+
+def snapshot_documents(docs, selector):
+    index, doc = deployment(docs, selector)
     labels = doc["metadata"].get("labels", {})
     if not isinstance(labels, dict):
         raise EvidenceError("Deployment labels must be a mapping")
@@ -153,10 +157,14 @@ def build_brief(case, root, scorer=None):
     root = Path(root).resolve()
     if not isinstance(case, dict) or case.get("schema_version") != 1:
         raise EvidenceError("Unsupported brief case schema")
-    old = snapshot(read_checked(root, case.get("before"), 2_000_000), case.get("deployment"))
-    new = snapshot(read_checked(root, case.get("after"), 2_000_000), case.get("deployment"))
+    before_docs = parse_manifests(read_checked(root, case.get("before"), 2_000_000))
+    after_docs = parse_manifests(read_checked(root, case.get("after"), 2_000_000))
+    old = snapshot_documents(before_docs, case.get("deployment"))
+    new = snapshot_documents(after_docs, case.get("deployment"))
     if old["chart_label"] != case.get("from_chart") or new["chart_label"] != case.get("to_chart"):
         raise EvidenceError("Declared chart versions do not match supplied manifest labels")
+    from manifest_coverage import inventory
+    manifest_inventory = inventory(before_docs, after_docs, old["document_index"], new["document_index"])
     source = case.get("notes")
     if not isinstance(source, dict):
         raise EvidenceError("Missing notes source")
@@ -168,7 +176,9 @@ def build_brief(case, root, scorer=None):
     text = read_checked(root, source, 200_000)
     if source.get("selection") == "version_range":
         from review_plan import build_range_brief
-        return build_range_brief(case, old, new, source, text, scorer)
+        report = build_range_brief(case, old, new, source, text, scorer)
+        report["manifest_inventory"] = manifest_inventory
+        return report
     if source.get("selection") not in (None, "section"):
         raise EvidenceError("Unknown source selection mode")
     passages = note_passages(text, source.get("section"))
@@ -208,6 +218,7 @@ def build_brief(case, root, scorer=None):
             "deployment": case["deployment"], "from_chart": old["chart_label"], "to_chart": new["chart_label"],
             "input_identities": {key: case[key] for key in ("before", "after", "notes")},
             "focused_change_query": query, "changes": changes, "source_passages": results,
+            "manifest_inventory": manifest_inventory,
             "passage_count": len(passages), "passages_omitted": 0,
             "model_calls": sum(r.get("window_count", int(bool(r["model_executed"]))) for r in results), "unresolved": unresolved,
             "generated_actions": [], "live_identity_verified": False}
@@ -223,6 +234,15 @@ def markdown(report):
         lines.append(f"- `{safe(change['field'])}`: `{safe(json.dumps(change['before']))}` → `{safe(json.dumps(change['after']))}`")
     if not report["changes"]:
         lines.append("No difference in the limited selected fields. Other changes may exist.")
+    if "manifest_inventory" in report:
+        inventory = report["manifest_inventory"]
+        lines += ["", "## Manifest coverage inventory", "", safe(inventory["warning"]), "",
+                  f"Resources with changes outside the focused scope: {inventory['outside_scope_changed_resources']}."]
+        for item in inventory["resources"]:
+            namespace = item["namespace"] if item["namespace"] is not None else "(omitted)"
+            lines.append(f"- {safe(item['api_version'])} {safe(item['kind'])} {safe(namespace)}/{safe(item['name'])}: {item['change']}; "
+                         + ("outside focused scope" if item["outside_focused_scope"] else "no outside-scope edit detected")
+                         + ("; " + ", ".join(item["unreviewed_categories"]) if item["unreviewed_categories"] else ""))
     if "reading_tasks" in report:
         lines += ["", "## Reading for each change", "", "Scores are comparable only within each task. Every task still requires human review.", ""]
         for task in report["reading_tasks"]:

@@ -30,7 +30,17 @@ python review_change.py --before before.yaml --after after.yaml --guide UPGRADE.
   --source-url https://example.org/guide --model-dir .models/bge-reranker-base
 ```
 
+Use `--fail-on-unreviewed-changes` in CI to emit the report and exit **3** when manifest edits fall outside the focused review. Exit 0 still means **REVIEW_REQUIRED**, never upgrade approval. Exit 2 means invalid input or review failure.
+
 Use `--format json` for machine-readable output, `--section` for an explicit heading, or `--lexical-baseline` for the labeled non-model comparison. No chart execution, source URL fetching or cluster writes occur in this review command.
+
+## Manifest coverage inventory
+
+The report now inventories every named resource in both supplied renders and marks additions, removals and content changes outside the focused review. For the controlled Kong range, this reveals **three resources with edits outside scope**: the Deployment, Service and ServiceAccount. Some edits are metadata; the inventory assigns no severity and does not infer that a resource is broken.
+
+For the selected Deployment, fixed categories identify other edited settings, such as replicas, environment/probe configuration, volumes or init containers. Their values and arbitrary field names are withheld from exports and model queries. Resource identifiers remain visible. Duplicate identities, unexpanded Kubernetes Lists and non-JSON YAML are rejected before inference. Namespace/API-version interpretation is literal; this is not Kubernetes semantic validation. Unchanged resources can still carry migration obligations.
+
+The update passes **85 unit tests**, including the real CLI exit behavior and browser redaction boundaries. These use scorer doubles, not accuracy measurements. Dated results for preceding releases below remain historical.
 
 ## Current assessment
 

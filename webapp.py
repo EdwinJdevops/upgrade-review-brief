@@ -138,7 +138,7 @@ def create_app(scorer=None, config=None):
                 report = build_brief(case, root, RequestScorer(model))
                 report["model"] = {"name": MODEL, "revision": REVISION, "runtime": "server_cpu_float32"}
                 report["processing_seconds"] = round(time.monotonic() - now, 3)
-                report["input_provenance"] = "packaged_demo" if request.form.get("mode") == "demo" else "user_supplied_bytes_not_authenticated"
+                report["input_provenance"] = "packaged_demo" if request.form.get("mode") in ("demo", "demo_range") else "user_supplied_bytes_not_authenticated"
                 if report["model_calls"] == 0:
                     return fail("No passage could be scored within the input limits. Shorten the selected material.", 422)
                 # Retain neither uploaded bytes nor reports between requests.
@@ -148,7 +148,7 @@ def create_app(scorer=None, config=None):
             return rendered
         except (EvidenceError, UnicodeError, yaml.YAMLError, TypeError, KeyError, RecursionError):
             # Parser errors can contain source text. Never put them in logs or responses.
-            return fail("Input validation failed. Check the Deployment selector, stable increasing Helm versions, UTF-8 files, HTTPS source URL and unique level-two guide headings. For unsupported version formats, supply an explicit section.", 400)
+            return fail("Input validation failed. Check the Deployment selector, stable increasing Helm versions, UTF-8 files, HTTPS source URL and unique level-two guide headings. Resources need unique API-version/kind/namespace/name identities and JSON-compatible YAML; expand List wrappers first. For unsupported version formats, supply an explicit section.", 400)
         except (OSError, ValueError, RuntimeError):
             app.logger.error("review_failed operational_error")
             return fail("The review could not finish. No approval or substitute model result was generated.", 503)
