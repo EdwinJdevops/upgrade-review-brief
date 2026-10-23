@@ -106,6 +106,6 @@ with sync_playwright() as p:
     if range_summary is not None: result['range_review']=range_summary
     output=args.output or (root/'verification/render-public-browser-2026-10-23.json')
     output.write_text(json.dumps(result,indent=2)+'\n')
-    print(json.dumps({k:v for k,v in result.items() if k!='demo_report'},indent=2))
+    print(json.dumps({k:v for k,v in result.items() if k not in ('demo_report','range_review')},indent=2))
     context.close()
     browser.close()

@@ -102,7 +102,7 @@ def select_range(text, before, after):
     chosen, ledger = [], []
     first_heading_line = available[0][1] - 1
     if first_heading_line > 0 and any(line.strip() for line in lines[:first_heading_line]):
-        ledger.append({"heading": "Document preamble", "start_line": 0, "end_line": first_heading_line,
+        ledger.append({"heading": "Document preamble", "start_line": 1, "end_line": first_heading_line,
                        "included": False, "reason": "outside_level_two_sections_review_separately"})
     for name, lo, hi in available:
         version = re.fullmatch(r"v?(0|[1-9]\d*)\.(0|[1-9]\d*)\.(0|[1-9]\d*)", name)

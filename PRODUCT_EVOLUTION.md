@@ -23,10 +23,11 @@ Before running inference, the evaluation froze the two author-labeled prerequisi
 | Per-change BGE, two readings per field | Both: filesystem condition and readiness condition |
 | Per-change keyword overlap, same queries/candidates | Readiness condition; filesystem condition outside its first two |
 | Combined BGE query, four readings total | Both |
+| Exploratory BM25, two readings per field | Readiness condition; filesystem condition outside its first two |
 
 The useful observed AI contribution here is bringing the filesystem condition into the first two readings for its field, where keyword matching ranked it seventh. The separate questions improve organization; this experiment does not show that decomposition outperforms the combined model at the same total reading budget. The original single-section demo still chooses the same first passage with and without the model. Both results remain published.
 
-These are author labels over one controlled chart family and public documentation. They are not independent accuracy estimates, total-review time savings, applicability classification or incident-prevention results. No training run or model switch was performed to obtain a preferred result. BGE remains the purpose-trained relevance model; the change is the review workflow around it.
+A BM25 comparison with fixed conventional parameters (k1=1.2, b=0.75) also surfaced one of the two conditions in its first two readings per field. It was added after seeing the original comparison and is explicitly exploratory, not a new independent test. See verification/range-bm25-posthoc.json and its replay script. These are author labels over one controlled chart family and public documentation. They are not independent accuracy estimates, total-review time savings, applicability classification or incident-prevention results. No training run or model switch was performed to obtain a preferred result. BGE remains the purpose-trained relevance model; the change is the review workflow around it.
 
 ## Verification and reproduction
 

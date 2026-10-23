@@ -64,6 +64,7 @@ class PlanTests(unittest.TestCase):
         names = {p["section"] for p in items}
         self.assertEqual(names, {"General notes", "2.19.0", "2.26.0"})
         self.assertFalse(ledger["version_history_complete_verified"])
+        self.assertEqual(ledger["sections"][0]["start_line"],1)
         self.assertNotIn("2.99.0", [s["heading"] for s in ledger["sections"]])
         joined = "\n".join(p["text"] for p in items)
         self.assertIn("separately managed", joined)

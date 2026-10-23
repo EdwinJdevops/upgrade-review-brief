@@ -1,0 +1,156 @@
+{
+  "kind": "post_hoc_lexical_baseline_not_independent_evaluation",
+  "parameters": {
+    "k1": 1.2,
+    "b": 0.75,
+    "tokenizer": "lowercase alphanumeric/underscore; no stemming or parameter search"
+  },
+  "frozen_contract_sha256": "dbd485eaa030450baca072fbc5945f6d3767568e126651274c12c7df9a25f9c9",
+  "prerequisites_hit_at_2": 1,
+  "prerequisites_total": 2,
+  "results": [
+    {
+      "field": "containers/proxy/readOnlyRootFilesystem",
+      "ranking": [
+        {
+          "id": "L118-L122",
+          "score": 19.028102
+        },
+        {
+          "id": "L101-L105",
+          "score": 9.658685
+        },
+        {
+          "id": "L49-L54",
+          "score": 9.54773
+        },
+        {
+          "id": "L66-L70",
+          "score": 7.101378
+        },
+        {
+          "id": "L124-L132",
+          "score": 5.608411
+        },
+        {
+          "id": "L107-L111",
+          "score": 5.329172
+        },
+        {
+          "id": "L62-L64",
+          "score": 5.276006
+        },
+        {
+          "id": "L41-L47",
+          "score": 5.272749
+        },
+        {
+          "id": "L89-L97",
+          "score": 5.188714
+        },
+        {
+          "id": "L74-L82",
+          "score": 4.090345
+        },
+        {
+          "id": "L113-L114",
+          "score": 3.030523
+        },
+        {
+          "id": "L84-L85",
+          "score": 2.529633
+        },
+        {
+          "id": "L56-L60",
+          "score": 2.331325
+        },
+        {
+          "id": "L99-L99",
+          "score": 0.985596
+        },
+        {
+          "id": "L72-L72",
+          "score": 0.940098
+        },
+        {
+          "id": "L134-L134",
+          "score": 0.0
+        }
+      ],
+      "expected_prerequisite": "L124-L132",
+      "hit_at_2": false
+    },
+    {
+      "field": "containers/proxy/readinessProbe.httpGet.path",
+      "ranking": [
+        {
+          "id": "L89-L97",
+          "score": 17.584605
+        },
+        {
+          "id": "L101-L105",
+          "score": 12.490838
+        },
+        {
+          "id": "L49-L54",
+          "score": 9.033743
+        },
+        {
+          "id": "L56-L60",
+          "score": 8.058597
+        },
+        {
+          "id": "L41-L47",
+          "score": 7.238393
+        },
+        {
+          "id": "L118-L122",
+          "score": 6.7018
+        },
+        {
+          "id": "L113-L114",
+          "score": 5.651549
+        },
+        {
+          "id": "L66-L70",
+          "score": 5.397878
+        },
+        {
+          "id": "L107-L111",
+          "score": 4.89506
+        },
+        {
+          "id": "L74-L82",
+          "score": 4.090345
+        },
+        {
+          "id": "L84-L85",
+          "score": 3.83805
+        },
+        {
+          "id": "L124-L132",
+          "score": 3.509083
+        },
+        {
+          "id": "L62-L64",
+          "score": 3.286999
+        },
+        {
+          "id": "L99-L99",
+          "score": 0.985596
+        },
+        {
+          "id": "L72-L72",
+          "score": 0.940098
+        },
+        {
+          "id": "L134-L134",
+          "score": 0.0
+        }
+      ],
+      "expected_prerequisite": "L89-L97",
+      "hit_at_2": true
+    }
+  ],
+  "scope": "Same one controlled case and author labels. Added after seeing the frozen comparison; not proof of general model or lexical superiority."
+}
