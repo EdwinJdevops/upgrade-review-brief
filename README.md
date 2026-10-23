@@ -10,13 +10,15 @@ The included Kong example shows a readiness-path change and missing context abou
 
 The Flask interface supports the controlled Kong example and sanitized file uploads. It runs the same open-weight model, shows the focused diff, keeps every passage locator and exports JSON/Markdown. Request-time source URLs are recorded, never fetched. Files uploaded to a hosted instance are processed on that server; they are not kept as a history. See [Render setup and operating limits](RENDER_DEPLOYMENT.md).
 
-The Render service is not deployed yet. The checked-in configuration is not evidence of live hosting or sponsor qualification. [Contest readiness](CONTEST_READINESS.md) records the remaining submission requirements and sponsor decisions.
+**Live demo:** [https://upgrade-review-brief.onrender.com](https://upgrade-review-brief.onrender.com). Render runs the Python application and the verified BGE CPU model in one `1c-2g` instance. Actual public-browser checks passed for the example, sanitized uploads, secure session cookie and both downloads. See [deployment evidence](verification/render-deployment-2026-10-23.json). [Contest readiness](CONTEST_READINESS.md) records the remaining submission requirements and sponsor decisions.
 
 Open [Actions](https://github.com/EdwinJdevops/upgrade-review-brief/actions) and select **Test and demonstrate upgrade review**. Choose **Run workflow**, enable `run_model`, and run it on `main`. The workflow tests the code, downloads verified model files, runs CPU inference and writes the actual review brief to its run summary. No WSL, GPU or model API key is needed on your device.
 
 A push to main with `[model-demo]` in its commit message also requests the model job. Normal pushes run fast tests only. This keeps model downloads explicit. Standard public-repository GitHub-hosted runners are used; account policies and external download availability can still block a run.
 
 ## Current evidence
+
+- The Render deployment is live. Public desktop/mobile checks exercised real inference: five evaluated windows and five retained passages per example/upload. [Public browser evidence](verification/render-public-browser-2026-10-23.json) records the checks and the execution proxy certificate exception.
 
 - The browser version passes 58 tests. Actual-model desktop and mobile browser checks cover the example, file uploads and JSON/Markdown downloads; see [browser evidence](verification/web-browser-2026-10-23.json). This is local execution, not a Render deployment.
 - [Watch the genuine browser demonstration](docs/demo/browser-demo.mp4). It shows real inference through the local browser interface. [Home screen](docs/demo/home-desktop.png) · [Review screen](docs/demo/report-desktop.png).

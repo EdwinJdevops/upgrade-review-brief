@@ -18,6 +18,8 @@ The part I want to automate is collecting and arranging the evidence before the 
 
 ## Demo
 
+[Try the live application on Render](https://upgrade-review-brief.onrender.com). Choose the controlled example, or upload sanitized inputs for one selected Deployment. The server runs the open-weight relevance model itself; there is no hosted model API call in the ranking path.
+
 [Watch the browser demonstration](https://github.com/EdwinJdevops/upgrade-review-brief/blob/main/docs/demo/browser-demo.mp4). This is a genuine recording of the local application running CPU inference, not a deployed Render instance or a simulated model response.
 
 ![Browser interface for the controlled example and sanitized file uploads](https://raw.githubusercontent.com/EdwinJdevops/upgrade-review-brief/main/docs/demo/home-desktop.png)
@@ -28,7 +30,7 @@ The included example identifies the readiness-path change, evaluates five model 
 
 The browser checks also exercised sanitized uploads at a mobile viewport, checked both downloads and found no page JavaScript errors or horizontal overflow at the tested width. The [recorded evidence](https://github.com/EdwinJdevops/upgrade-review-brief/blob/main/verification/web-browser-2026-10-23.json) includes the model revision and actual report. These checks are specific to the tested scenario and viewports.
 
-An [earlier GitHub Actions demonstration](https://github.com/EdwinJdevops/upgrade-review-brief/actions/runs/39942834494) separately executed the CLI with the same pinned model. The browser service is prepared for Render; no live deployment or Render category qualification is claimed yet.
+An [earlier GitHub Actions demonstration](https://github.com/EdwinJdevops/upgrade-review-brief/actions/runs/39942834494) separately executed the CLI with the same pinned model. The Render service is now live. Its public desktop and mobile checks passed: health returned ready, both the example and upload review evaluated five model windows, and JSON/Markdown downloads worked. The missing-CSRF-token request was rejected. [Deployment evidence](https://github.com/EdwinJdevops/upgrade-review-brief/blob/main/verification/render-deployment-2026-10-23.json) records the deployed commit and checks. The test browser required an explicit exception for the execution proxy certificate; a separate health request used system TLS verification. This is not an independent TLS audit or a production capacity test.
 
 ## Code
 
@@ -66,6 +68,8 @@ The migration guidance and chart belong to [Kong](https://github.com/Kong/charts
 
 ## Prize Categories
 
+I am entering **Best Use of Render**. Render hosts the live Python application and the BGE CPU inference runtime on one `1c-2g` service. It builds the pinned dependencies, verifies and loads the model weights, processes sanitized uploads and serves exportable review reports. The deployment has no database or persistent disk, and automatic deployments are disabled. The published compute price is $25/month before other usage charges; remaining promotional credits are not available through MCP, so I do not claim a verified balance or cost per user.
+
 I am entering **Best Use of GitHub Copilot** through the challenge description's explicit GitHub Actions option. Actions automates tests, verified model preparation, CPU inference and publication of the review brief to the run summary. The workflow also includes an actual-model browser-route check when its optional model job is requested.
 
-GitHub Copilot itself was not used. This entry relies on the published Actions option; category acceptance remains the organizers' decision. Render and the event .tech domain will only be listed if they are actually deployed and verified before submission.
+GitHub Copilot itself was not used. This entry relies on the published Actions option; category acceptance remains the organizers' decision. The event .tech domain has not been attached, so that category is not listed.

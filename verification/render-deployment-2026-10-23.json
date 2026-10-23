@@ -1,0 +1,144 @@
+{
+  "date": "2026-10-23",
+  "service": {
+    "name": "upgrade-review-brief",
+    "id": "srv-dbdl4ca9lscs73c4urq0",
+    "url": "https://upgrade-review-brief.onrender.com",
+    "region": "frankfurt",
+    "plan": "1c-2g",
+    "instances": 1,
+    "autoDeploy": "no"
+  },
+  "deployment": {
+    "id": "dep-dbdl4da9lscs73c4uu50",
+    "status": "live",
+    "commit": "12fb374a200ff5b60a2def67fcd3839b36c41c8d",
+    "startedAt": "2026-10-23T12:25:25.739709Z",
+    "finishedAt": "2026-10-23T12:27:46.205078Z"
+  },
+  "monitoring": {
+    "platform_probe": "default TCP",
+    "configured_http_health_path": "",
+    "application_health_path": "/healthz",
+    "application_health_verified": true,
+    "notes": "MCP creation has no HTTP health-check configuration field. Set /healthz in Render Dashboard to make platform probes check application readiness."
+  },
+  "verification": "verification/render-public-browser-2026-10-23.json",
+  "metrics": [
+    {
+      "type": "memory_usage",
+      "data": [
+        {
+          "unit": "bytes",
+          "values": [
+            {
+              "timestamp": "2026-10-23T12:28:00Z",
+              "value": 2572288
+            },
+            {
+              "timestamp": "2026-10-23T12:29:00Z",
+              "value": 624263200
+            },
+            {
+              "timestamp": "2026-10-23T12:30:00Z",
+              "value": 624349200
+            },
+            {
+              "timestamp": "2026-10-23T12:31:00Z",
+              "value": 659304450
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "memory_limit",
+      "data": [
+        {
+          "unit": "bytes",
+          "values": [
+            {
+              "timestamp": "2026-10-23T12:29:00Z",
+              "value": 2147483600
+            },
+            {
+              "timestamp": "2026-10-23T12:30:00Z",
+              "value": 2147483600
+            },
+            {
+              "timestamp": "2026-10-23T12:31:00Z",
+              "value": 2147483600
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "cpu_usage",
+      "data": [
+        {
+          "unit": "cpu",
+          "values": [
+            {
+              "timestamp": "2026-10-23T12:29:00Z",
+              "value": 0.14525907
+            },
+            {
+              "timestamp": "2026-10-23T12:30:00Z",
+              "value": 0.00042816668
+            },
+            {
+              "timestamp": "2026-10-23T12:31:00Z",
+              "value": 0.04934295
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "instance_count",
+      "data": [
+        {
+          "unit": "unitless",
+          "values": [
+            {
+              "timestamp": "2026-10-23T12:28:00Z",
+              "value": 1
+            },
+            {
+              "timestamp": "2026-10-23T12:29:00Z",
+              "value": 1
+            },
+            {
+              "timestamp": "2026-10-23T12:30:00Z",
+              "value": 1
+            },
+            {
+              "timestamp": "2026-10-23T12:31:00Z",
+              "value": 1
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "capacity_scope": "Short included-example/upload verification and sampled metrics only; not a load test or a measured peak-memory guarantee.",
+  "cost": {
+    "listed_compute_monthly_usd": 25,
+    "reference": "https://render.com/pricing",
+    "scope": "One 1c-2g service; excludes build/bandwidth and other account usage.",
+    "user_reported_redeemed_credit_usd": 50,
+    "remaining_credit_verified": false,
+    "hard_spending_cap_verified": false
+  },
+  "existing_infrastructure": {
+    "free_web_services": 4,
+    "static_sites": 1,
+    "paid_web_services_before": 0,
+    "postgres": 0,
+    "key_value": 0,
+    "resources_stopped": 0
+  },
+  "configuration_source": "Direct MCP creation. render.yaml is a future Blueprint specification, not a synced owner of the live configuration.",
+  "session_secret": "Generated cryptographically in memory per single-worker startup; forms expire after restart. No secret value is recorded."
+}
