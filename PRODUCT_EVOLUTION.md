@@ -45,7 +45,7 @@ RERANKER_CPU_THREADS=1 python verification/verify_range_local.py
 
 `prepare_range_case.py` downloads pinned official historical archives if missing and uses the locked Helm executable. It is an operator-controlled lab harness, not a sandbox for arbitrary customer charts. `evaluate_range_review.py` refuses to overwrite a changed frozen contract; keep original evidence when creating a different experiment.
 
-Evidence: verification/range-render-2026-10-23.json, verification/range-evaluation-contract.json, verification/range-evaluation-results.json, verification/range-local-browser-2026-10-23.json and verification/range-tests-2026-10-23.json. The later deployed revision and public checks are recorded separately; local success alone does not mean a deployment succeeded.
+Evidence: verification/range-render-2026-10-23.json, verification/range-evaluation-contract.json, verification/range-evaluation-results.json, verification/range-local-browser-2026-10-23.json and verification/range-tests-2026-10-23.json. The final deployed revision, successful 68-test CI run, full public-browser checks and targeted metadata/inference follow-up are linked in verification/render-range-release-2026-10-23.json. Local success alone was not treated as deployment success.
 
 ## Commercial work still required
 

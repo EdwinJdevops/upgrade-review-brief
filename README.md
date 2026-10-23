@@ -38,6 +38,8 @@ A working migration-review feature; commercial adoption and general incremental 
 
 ## Current evidence
 
+- The version-range feature is live and the final revision passed 68 tests in GitHub Actions. Full public desktop/mobile checks and the targeted follow-up are tied to their exact revisions in the [release record](verification/render-range-release-2026-10-23.json). The controlled range review retains 16 source passages and evaluates 32 model windows.
+
 - The Render deployment is live. Public desktop/mobile checks exercised real inference: five evaluated windows and five retained passages per example/upload. [Public browser evidence](verification/render-public-browser-2026-10-23.json) records the checks and the execution proxy certificate exception.
 
 - The browser version now passes 68 tests. Actual-model desktop and mobile browser checks cover the example, file uploads and JSON/Markdown downloads; see [browser evidence](verification/web-browser-2026-10-23.json). This is local execution, not a Render deployment.

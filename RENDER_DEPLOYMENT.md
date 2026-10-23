@@ -1,6 +1,8 @@
 # Deploy the browser review on Render
 
-Status, October 23: **live at https://upgrade-review-brief.onrender.com**. Deployment `dep-dbdl4da9lscs73c4uu50` reached `live` on source commit `12fb374a200ff5b60a2def67fcd3839b36c41c8d`. Public health, example, mobile sanitized uploads, secure cookies and JSON/Markdown downloads passed. See verification/render-deployment-2026-10-23.json and verification/render-public-browser-2026-10-23.json. Account billing was reviewed privately in the Dashboard; private balance and payment details are not published in this repository.
+Status, October 23: **live at https://upgrade-review-brief.onrender.com**. The version-range feature was deployed on source commit `20487734b1a7d363de1d7e17176cb8a66a2c6df6`, and the final line-number correction on `8f518bd4c55eba69451cfc9a7bb8b2338acdec40` is live as deployment `dep-dbdmqloae00c738oama0`. The final revision passed 68 tests in GitHub Actions and a targeted system-TLS/inference check. Full public desktop/mobile checks for the feature revision covered the original example, uploads, exports, CSRF rejection and the 16-passage/32-window range review. See verification/render-range-release-2026-10-23.json for the exact revision/evidence split. Earlier deployment records are historical evidence and are retained.
+
+Account billing was reviewed privately in the Dashboard; private balance and payment details are not published in this repository.
 
 ## Service definition
 

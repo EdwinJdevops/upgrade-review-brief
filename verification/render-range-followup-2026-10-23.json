@@ -1,0 +1,21 @@
+{
+  "checked_at": "2026-10-23T14:24:54.698487+00:00",
+  "url": "https://upgrade-review-brief.onrender.com",
+  "expected_commit_verified_separately_by_render": "8f518bd4c55eba69451cfc9a7bb8b2338acdec40",
+  "system_tls_validation": true,
+  "health_status": 200,
+  "range_status": 200,
+  "preamble_start_line": 1,
+  "actual_model": {
+    "name": "BAAI/bge-reranker-base",
+    "revision": "2cfc18c9415c912f9d8155881c133215df768a70",
+    "runtime": "server_cpu_float32"
+  },
+  "model_windows": 32,
+  "source_passages": 16,
+  "query_count": 2,
+  "unscored_pairs": 0,
+  "processing_seconds": 10.173,
+  "status": "REVIEW_REQUIRED",
+  "scope": "Targeted follow-up after a line-number metadata correction; full desktop/mobile checks for the preceding feature revision are retained separately."
+}

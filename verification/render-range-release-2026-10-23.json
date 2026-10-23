@@ -1,0 +1,39 @@
+{
+  "date": "2026-10-23",
+  "service": {
+    "id": "srv-dbdl4ca9lscs73c4urq0",
+    "url": "https://upgrade-review-brief.onrender.com",
+    "region": "frankfurt",
+    "plan": "1c-2g",
+    "configured_instances": 1,
+    "automatic_deploys": "off",
+    "http_health_path": "/healthz"
+  },
+  "deployment": {
+    "id": "dep-dbdmqloae00c738oama0",
+    "status": "live",
+    "commit": "8f518bd4c55eba69451cfc9a7bb8b2338acdec40",
+    "finishedAt": "2026-10-23T14:23:44.765526Z"
+  },
+  "ci": {
+    "run_id": 39968767364,
+    "url": "https://github.com/EdwinJdevops/upgrade-review-brief/actions/runs/39968767364",
+    "conclusion": "success",
+    "tests": 68,
+    "model_job": "intentionally skipped; actual model checked locally and on the deployed service"
+  },
+  "verification": {
+    "feature_revision": "20487734b1a7d363de1d7e17176cb8a66a2c6df6",
+    "full_public_browser": "verification/render-range-browser-2026-10-23.json",
+    "latest_revision_targeted_followup": "verification/render-range-followup-2026-10-23.json",
+    "notes": "The small follow-up corrected excluded-preamble line numbering from zero to one. Full browser checks precede it; targeted system-TLS/inference checks confirm the final revision."
+  },
+  "evaluation": {
+    "frozen_author_labeled": "verification/range-evaluation-results.json",
+    "exploratory_bm25": "verification/range-bm25-posthoc.json",
+    "scope": "One controlled historical chart family. Per-change model surfaced both prerequisite passages within two readings per field; overlap and exploratory BM25 surfaced one. Combined BGE also surfaced both within four readings. Not independent accuracy or reviewer-time proof."
+  },
+  "operating_scope": "Same single service and compute plan; no added database, training, model API or orchestration service. Six review attempts/min globally, one inference request at a time, six dedicated change queries and 32 model windows per review. No production capacity certification.",
+  "commercial_status": "No real customer review outcomes, payment, sustained adoption or profitability established.",
+  "submission_status": "DEV article draft updated; this workflow has not published the contest entry."
+}
