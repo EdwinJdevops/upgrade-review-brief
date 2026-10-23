@@ -1,0 +1,13 @@
+env:
+  database: 'off'
+image:
+  tag: 3.3.0
+ingressController:
+  enabled: false
+  image:
+    tag: 2.10.4
+postgresql:
+  enabled: false
+readinessProbe:
+  httpGet:
+    path: /status

@@ -1,0 +1,8 @@
+{
+  "tests_run": 32,
+  "failures": 0,
+  "errors": 0,
+  "skipped": 0,
+  "successful": true,
+  "scope": "14 assertion-rule tests plus 18 artifact/adversarial tests; synthetic/controller fixtures and real lab renders, not live cluster or customer validation"
+}

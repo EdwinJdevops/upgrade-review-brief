@@ -1,0 +1,11 @@
+{
+  "chart": "kong/kong",
+  "from_version": "2.25.0",
+  "to_version": "2.26.0",
+  "facts": {
+    "separate_deployments": {"value": true, "reference": "synthetic/deployments.json#separate"},
+    "controller_version": {"value": "2.10.4", "reference": "synthetic/controller-image.json#version"},
+    "proxy_version": {"value": "3.3.0", "reference": "synthetic/proxy-image.json#version"},
+    "target_readiness_path": {"value": "/status/ready", "reference": "synthetic/target-pod.json#probe"}
+  }
+}

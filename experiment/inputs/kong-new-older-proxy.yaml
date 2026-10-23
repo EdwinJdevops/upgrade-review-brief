@@ -1,0 +1,10 @@
+env:
+  database: 'off'
+image:
+  tag: 3.2.0
+ingressController:
+  enabled: false
+  image:
+    tag: 2.10.4
+postgresql:
+  enabled: false

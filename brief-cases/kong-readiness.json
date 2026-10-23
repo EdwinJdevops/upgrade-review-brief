@@ -1,0 +1,23 @@
+{
+  "schema_version": 1,
+  "deployment": {
+    "name": "upgrade-review-kong",
+    "namespace": "review"
+  },
+  "from_chart": "kong-2.25.0",
+  "to_chart": "kong-2.26.0",
+  "before": {
+    "path": "experiment/outputs/kong-old-proxy-only.yaml",
+    "sha256": "2f68c0a298dab25e39f780e6af5f84a332ba4abadb42cd92dfe15094d80d66b8"
+  },
+  "after": {
+    "path": "experiment/outputs/kong-new-proxy-only.yaml",
+    "sha256": "afe264e2482874ef8ce7c728dca3a95cb0569d74164d7367ee79b8b93e483450"
+  },
+  "notes": {
+    "path": "model-evaluation/sources/kong-guide.md",
+    "sha256": "327a5710b6d529d1b24e1200d8eaf60bf50a478a0ecf541b227e92394091248d",
+    "section": "2.26.0",
+    "url": "https://github.com/Kong/charts/blob/main/charts/kong/UPGRADE.md#2260"
+  }
+}

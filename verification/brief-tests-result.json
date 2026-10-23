@@ -1,0 +1,8 @@
+{
+  "tests_run": 45,
+  "failures": 0,
+  "errors": 0,
+  "skipped": 0,
+  "successful": true,
+  "scope": "Original checker plus source binding, limited-field privacy, malformed input, preserved passages, and grouped conditions/examples for the brief. No live cluster or customer validation."
+}

@@ -1,0 +1,40 @@
+{
+  "status": "LOCAL_CONTENT_CHECKED",
+  "applicability": "UNKNOWN",
+  "satisfaction": "UNKNOWN",
+  "evidence": [
+    {
+      "path": "experiment/outputs/kong-new-proxy-only.yaml",
+      "sha256": "afe264e2482874ef8ce7c728dca3a95cb0569d74164d7367ee79b8b93e483450",
+      "captured_at": "2026-10-20T08:00:00+00:00",
+      "capture_time_asserted_by_caller": true
+    }
+  ],
+  "facts": {
+    "proxy_version": {
+      "value": "3.3.0",
+      "reference": "experiment/outputs/kong-new-proxy-only.yaml#document=2/spec/template/spec/containers/0/image"
+    },
+    "target_readiness_path": {
+      "value": "/status/ready",
+      "reference": "experiment/outputs/kong-new-proxy-only.yaml#document=2/spec/template/spec/containers/0/readinessProbe/httpGet/path"
+    }
+  },
+  "errors": [],
+  "live_identity_verified": false,
+  "chart_render_binding_verified": false,
+  "scope": "One Kong requirement; local content and asserted capture times only",
+  "missing_evidence": [
+    "separate_deployments",
+    "controller_version"
+  ],
+  "reason": "Cannot establish applicability from the supplied facts.",
+  "source": {
+    "url": "https://github.com/Kong/charts/blob/main/charts/kong/UPGRADE.md#2260",
+    "git_blob_sha": "893527759a66e5293aded6999f8c6879b634c6d6",
+    "retrieved_on": "2026-10-20",
+    "rule_authorship": "human-authored prototype; not model-generated"
+  },
+  "rule_id": "kong-2.26-separate-controller-readiness-v0",
+  "limitation": "File hashes bind observations to local bytes. They authenticate neither a cluster nor the caller, capture time, controller relationship, rendered-chart provenance or runtime behavior."
+}

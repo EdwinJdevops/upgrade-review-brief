@@ -1,0 +1,11 @@
+__pycache__/
+*.pyc
+.venv/
+.brief-venv/
+.models/
+model-evaluation/sources/
+model-evaluation/local-results.json
+experiment/tools/
+experiment/inputs/*.tgz
+experiment/inputs/*index.yaml
+runner-brief.json

@@ -1,0 +1,436 @@
+{
+  "contract_sha256": "937626a1c4da821c65214351f3125c1a98c8271f57e2239bf7e193e577d2184d",
+  "queries": 6,
+  "model_unique_first_matches": 5,
+  "lexical_unique_first_matches": 5,
+  "process_peak_rss_mib": 1109.9,
+  "results": [
+    {
+      "id": "probe-literal",
+      "expected_first": "kong-readiness",
+      "ranking": [
+        "kong-readiness",
+        "ksm-health",
+        "kong-filesystem",
+        "synthetic-injection",
+        "synthetic-empty-notes"
+      ],
+      "model_unique_first_match": true,
+      "lexical_top": [
+        "kong-readiness"
+      ],
+      "lexical_unique_first_match": true,
+      "scores": [
+        {
+          "id": "kong-readiness",
+          "lexical_score": 9,
+          "score": 4.909398,
+          "model_executed": true,
+          "input_tokens": 310,
+          "inference_seconds": 0.2907,
+          "reason": "relative_relevance_only_not_confidence_or_upgrade_approval"
+        },
+        {
+          "id": "kong-filesystem",
+          "lexical_score": 2,
+          "score": -7.192231,
+          "model_executed": true,
+          "input_tokens": 223,
+          "inference_seconds": 0.2243,
+          "reason": "relative_relevance_only_not_confidence_or_upgrade_approval"
+        },
+        {
+          "id": "ksm-health",
+          "lexical_score": 4,
+          "score": -4.166412,
+          "model_executed": true,
+          "input_tokens": 235,
+          "inference_seconds": 0.2288,
+          "reason": "relative_relevance_only_not_confidence_or_upgrade_approval"
+        },
+        {
+          "id": "eso-stored-version",
+          "lexical_score": 4,
+          "score": null,
+          "model_executed": false,
+          "input_tokens": 606,
+          "reason": "token_limit_no_silent_truncation"
+        },
+        {
+          "id": "synthetic-injection",
+          "lexical_score": 0,
+          "score": -9.834266,
+          "model_executed": true,
+          "input_tokens": 59,
+          "inference_seconds": 0.0843,
+          "reason": "relative_relevance_only_not_confidence_or_upgrade_approval"
+        },
+        {
+          "id": "synthetic-empty-notes",
+          "lexical_score": 0,
+          "score": -10.196325,
+          "model_executed": true,
+          "input_tokens": 44,
+          "inference_seconds": 0.0522,
+          "reason": "relative_relevance_only_not_confidence_or_upgrade_approval"
+        }
+      ]
+    },
+    {
+      "id": "probe-paraphrase",
+      "expected_first": "kong-readiness",
+      "ranking": [
+        "kong-readiness",
+        "synthetic-empty-notes",
+        "kong-filesystem",
+        "synthetic-injection",
+        "ksm-health"
+      ],
+      "model_unique_first_match": true,
+      "lexical_top": [
+        "kong-readiness"
+      ],
+      "lexical_unique_first_match": true,
+      "scores": [
+        {
+          "id": "kong-readiness",
+          "lexical_score": 8,
+          "score": -8.950451,
+          "model_executed": true,
+          "input_tokens": 305,
+          "inference_seconds": 0.2575,
+          "reason": "relative_relevance_only_not_confidence_or_upgrade_approval"
+        },
+        {
+          "id": "kong-filesystem",
+          "lexical_score": 2,
+          "score": -10.196388,
+          "model_executed": true,
+          "input_tokens": 218,
+          "inference_seconds": 0.1959,
+          "reason": "relative_relevance_only_not_confidence_or_upgrade_approval"
+        },
+        {
+          "id": "ksm-health",
+          "lexical_score": 4,
+          "score": -10.196811,
+          "model_executed": true,
+          "input_tokens": 230,
+          "inference_seconds": 0.1939,
+          "reason": "relative_relevance_only_not_confidence_or_upgrade_approval"
+        },
+        {
+          "id": "eso-stored-version",
+          "lexical_score": 3,
+          "score": null,
+          "model_executed": false,
+          "input_tokens": 601,
+          "reason": "token_limit_no_silent_truncation"
+        },
+        {
+          "id": "synthetic-injection",
+          "lexical_score": 1,
+          "score": -10.19658,
+          "model_executed": true,
+          "input_tokens": 54,
+          "inference_seconds": 0.0686,
+          "reason": "relative_relevance_only_not_confidence_or_upgrade_approval"
+        },
+        {
+          "id": "synthetic-empty-notes",
+          "lexical_score": 1,
+          "score": -10.17041,
+          "model_executed": true,
+          "input_tokens": 39,
+          "inference_seconds": 0.0537,
+          "reason": "relative_relevance_only_not_confidence_or_upgrade_approval"
+        }
+      ]
+    },
+    {
+      "id": "disk-literal",
+      "expected_first": "kong-filesystem",
+      "ranking": [
+        "kong-filesystem",
+        "kong-readiness",
+        "synthetic-injection",
+        "ksm-health",
+        "synthetic-empty-notes"
+      ],
+      "model_unique_first_match": true,
+      "lexical_top": [
+        "kong-filesystem"
+      ],
+      "lexical_unique_first_match": true,
+      "scores": [
+        {
+          "id": "kong-readiness",
+          "lexical_score": 4,
+          "score": -4.023462,
+          "model_executed": true,
+          "input_tokens": 300,
+          "inference_seconds": 0.2834,
+          "reason": "relative_relevance_only_not_confidence_or_upgrade_approval"
+        },
+        {
+          "id": "kong-filesystem",
+          "lexical_score": 8,
+          "score": 5.039488,
+          "model_executed": true,
+          "input_tokens": 213,
+          "inference_seconds": 0.1927,
+          "reason": "relative_relevance_only_not_confidence_or_upgrade_approval"
+        },
+        {
+          "id": "ksm-health",
+          "lexical_score": 1,
+          "score": -10.196604,
+          "model_executed": true,
+          "input_tokens": 225,
+          "inference_seconds": 0.23,
+          "reason": "relative_relevance_only_not_confidence_or_upgrade_approval"
+        },
+        {
+          "id": "eso-stored-version",
+          "lexical_score": 2,
+          "score": null,
+          "model_executed": false,
+          "input_tokens": 596,
+          "reason": "token_limit_no_silent_truncation"
+        },
+        {
+          "id": "synthetic-injection",
+          "lexical_score": 0,
+          "score": -9.214265,
+          "model_executed": true,
+          "input_tokens": 49,
+          "inference_seconds": 0.0835,
+          "reason": "relative_relevance_only_not_confidence_or_upgrade_approval"
+        },
+        {
+          "id": "synthetic-empty-notes",
+          "lexical_score": 0,
+          "score": -10.196846,
+          "model_executed": true,
+          "input_tokens": 34,
+          "inference_seconds": 0.0747,
+          "reason": "relative_relevance_only_not_confidence_or_upgrade_approval"
+        }
+      ]
+    },
+    {
+      "id": "disk-paraphrase",
+      "expected_first": "kong-filesystem",
+      "ranking": [
+        "kong-filesystem",
+        "synthetic-empty-notes",
+        "ksm-health",
+        "synthetic-injection",
+        "kong-readiness"
+      ],
+      "model_unique_first_match": true,
+      "lexical_top": [
+        "kong-filesystem"
+      ],
+      "lexical_unique_first_match": true,
+      "scores": [
+        {
+          "id": "kong-readiness",
+          "lexical_score": 4,
+          "score": -10.196596,
+          "model_executed": true,
+          "input_tokens": 303,
+          "inference_seconds": 0.3416,
+          "reason": "relative_relevance_only_not_confidence_or_upgrade_approval"
+        },
+        {
+          "id": "kong-filesystem",
+          "lexical_score": 7,
+          "score": -6.670681,
+          "model_executed": true,
+          "input_tokens": 216,
+          "inference_seconds": 0.2916,
+          "reason": "relative_relevance_only_not_confidence_or_upgrade_approval"
+        },
+        {
+          "id": "ksm-health",
+          "lexical_score": 5,
+          "score": -10.195728,
+          "model_executed": true,
+          "input_tokens": 228,
+          "inference_seconds": 0.3045,
+          "reason": "relative_relevance_only_not_confidence_or_upgrade_approval"
+        },
+        {
+          "id": "eso-stored-version",
+          "lexical_score": 2,
+          "score": null,
+          "model_executed": false,
+          "input_tokens": 599,
+          "reason": "token_limit_no_silent_truncation"
+        },
+        {
+          "id": "synthetic-injection",
+          "lexical_score": 1,
+          "score": -10.196362,
+          "model_executed": true,
+          "input_tokens": 52,
+          "inference_seconds": 0.075,
+          "reason": "relative_relevance_only_not_confidence_or_upgrade_approval"
+        },
+        {
+          "id": "synthetic-empty-notes",
+          "lexical_score": 1,
+          "score": -7.817536,
+          "model_executed": true,
+          "input_tokens": 37,
+          "inference_seconds": 0.0565,
+          "reason": "relative_relevance_only_not_confidence_or_upgrade_approval"
+        }
+      ]
+    },
+    {
+      "id": "ksm-telemetry",
+      "expected_first": "ksm-health",
+      "ranking": [
+        "ksm-health",
+        "kong-readiness",
+        "synthetic-empty-notes",
+        "kong-filesystem",
+        "synthetic-injection"
+      ],
+      "model_unique_first_match": true,
+      "lexical_top": [
+        "ksm-health"
+      ],
+      "lexical_unique_first_match": true,
+      "scores": [
+        {
+          "id": "kong-readiness",
+          "lexical_score": 5,
+          "score": -6.973121,
+          "model_executed": true,
+          "input_tokens": 309,
+          "inference_seconds": 0.2679,
+          "reason": "relative_relevance_only_not_confidence_or_upgrade_approval"
+        },
+        {
+          "id": "kong-filesystem",
+          "lexical_score": 2,
+          "score": -10.194775,
+          "model_executed": true,
+          "input_tokens": 222,
+          "inference_seconds": 0.1876,
+          "reason": "relative_relevance_only_not_confidence_or_upgrade_approval"
+        },
+        {
+          "id": "ksm-health",
+          "lexical_score": 8,
+          "score": 2.907092,
+          "model_executed": true,
+          "input_tokens": 234,
+          "inference_seconds": 0.2466,
+          "reason": "relative_relevance_only_not_confidence_or_upgrade_approval"
+        },
+        {
+          "id": "eso-stored-version",
+          "lexical_score": 2,
+          "score": null,
+          "model_executed": false,
+          "input_tokens": 605,
+          "reason": "token_limit_no_silent_truncation"
+        },
+        {
+          "id": "synthetic-injection",
+          "lexical_score": 2,
+          "score": -10.196777,
+          "model_executed": true,
+          "input_tokens": 58,
+          "inference_seconds": 0.09,
+          "reason": "relative_relevance_only_not_confidence_or_upgrade_approval"
+        },
+        {
+          "id": "synthetic-empty-notes",
+          "lexical_score": 1,
+          "score": -10.194562,
+          "model_executed": true,
+          "input_tokens": 43,
+          "inference_seconds": 0.0733,
+          "reason": "relative_relevance_only_not_confidence_or_upgrade_approval"
+        }
+      ]
+    },
+    {
+      "id": "eso-crd",
+      "expected_first": "eso-stored-version",
+      "ranking": [
+        "synthetic-injection",
+        "kong-readiness",
+        "ksm-health",
+        "kong-filesystem",
+        "synthetic-empty-notes"
+      ],
+      "model_unique_first_match": false,
+      "lexical_top": [
+        "kong-readiness",
+        "eso-stored-version"
+      ],
+      "lexical_unique_first_match": false,
+      "scores": [
+        {
+          "id": "kong-readiness",
+          "lexical_score": 4,
+          "score": -10.155505,
+          "model_executed": true,
+          "input_tokens": 300,
+          "inference_seconds": 0.2881,
+          "reason": "relative_relevance_only_not_confidence_or_upgrade_approval"
+        },
+        {
+          "id": "kong-filesystem",
+          "lexical_score": 3,
+          "score": -10.196329,
+          "model_executed": true,
+          "input_tokens": 213,
+          "inference_seconds": 0.1783,
+          "reason": "relative_relevance_only_not_confidence_or_upgrade_approval"
+        },
+        {
+          "id": "ksm-health",
+          "lexical_score": 2,
+          "score": -10.188516,
+          "model_executed": true,
+          "input_tokens": 225,
+          "inference_seconds": 0.19,
+          "reason": "relative_relevance_only_not_confidence_or_upgrade_approval"
+        },
+        {
+          "id": "eso-stored-version",
+          "lexical_score": 4,
+          "score": null,
+          "model_executed": false,
+          "input_tokens": 596,
+          "reason": "token_limit_no_silent_truncation"
+        },
+        {
+          "id": "synthetic-injection",
+          "lexical_score": 0,
+          "score": -8.118872,
+          "model_executed": true,
+          "input_tokens": 49,
+          "inference_seconds": 0.058,
+          "reason": "relative_relevance_only_not_confidence_or_upgrade_approval"
+        },
+        {
+          "id": "synthetic-empty-notes",
+          "lexical_score": 0,
+          "score": -10.196845,
+          "model_executed": true,
+          "input_tokens": 34,
+          "inference_seconds": 0.0505,
+          "reason": "relative_relevance_only_not_confidence_or_upgrade_approval"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,46 @@
+{
+  "model": "BAAI/bge-reranker-base",
+  "revision": "2cfc18c9415c912f9d8155881c133215df768a70",
+  "candidate_sha256": {
+    "kong-readiness": "d9c747f9c518fc9c4d17cd266ef5f8f8d287fe839566b77d0a5d7039c9a43ff4",
+    "kong-filesystem": "9c3fa8b3f0c9eabd8693742ee8425a7e10d3d90ba762b6aff9e246fd2e6c8689",
+    "ksm-health": "5f6eac9be0cd61c4d7d301290b2f1fb6175edadc25c32f29b2d56a7efc3aacd2",
+    "eso-stored-version": "806eee60d4b8f11d90c42ed922b243561535fb1ff7cc616504ebb24064bf8fba",
+    "synthetic-injection": "8715c794eb54a5824cddad172f1a957253bdc0025d39b9abde43841724a58493",
+    "synthetic-empty-notes": "3922f9b00931be462c7ecdb309083b132a374634a06af647c8515795df8a5570"
+  },
+  "queries": [
+    {
+      "id": "probe-literal",
+      "query": "Kong readinessProbe.httpGet.path changes from /status to /status/ready. What readiness prerequisites need review?",
+      "expected_first": "kong-readiness"
+    },
+    {
+      "id": "probe-paraphrase",
+      "query": "After the gateway rollout, traffic handling instances might never become healthy when the configuration manager runs elsewhere. Which migration note explains this?",
+      "expected_first": "kong-readiness"
+    },
+    {
+      "id": "disk-literal",
+      "query": "Custom Kong plugins write local files but readOnlyRootFilesystem changes from false to true. What changed?",
+      "expected_first": "kong-filesystem"
+    },
+    {
+      "id": "disk-paraphrase",
+      "query": "An extension needs to create temporary files inside a container whose filesystem has become immutable. Which migration note concerns that?",
+      "expected_first": "kong-filesystem"
+    },
+    {
+      "id": "ksm-telemetry",
+      "query": "kube-state-metrics is being updated. Which listener serves the readiness healthcheck: the metrics endpoint or self telemetry?",
+      "expected_first": "ksm-health"
+    },
+    {
+      "id": "eso-crd",
+      "query": "Before upgrading external-secrets, which stored custom-resource API version has to be checked?",
+      "expected_first": "eso-stored-version"
+    }
+  ],
+  "scope": "Six author-defined queries over four public passages plus two synthetic distractors. Not held out, independent, representative or a security certification.",
+  "baseline": "Unique highest count of shared lowercase alphanumeric/underscore tokens; ties are not a unique first-place match"
+}

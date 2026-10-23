@@ -1,0 +1,4 @@
+image:
+  tag: v2.14.0
+selfMonitor:
+  enabled: true

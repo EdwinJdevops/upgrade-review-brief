@@ -1,0 +1,14 @@
+{
+  "clean_archive_extraction": true,
+  "source_fetched_and_identity_verified": true,
+  "source_preparation_stdout": "Pinned Kong demo source verified.",
+  "model_weights_reused_from_separate_pinned_local_cache": true,
+  "model_calls": 5,
+  "passage_count": 5,
+  "passages_omitted": 0,
+  "focused_changes_match_original": true,
+  "ranking_order_matches_original": true,
+  "process_wall_seconds_including_model_load": 6.635,
+  "live_cluster_validation": false,
+  "customer_validation": false
+}

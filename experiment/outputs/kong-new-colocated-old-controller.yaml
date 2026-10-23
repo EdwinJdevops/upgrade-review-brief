@@ -1,0 +1,806 @@
+---
+# Source: kong/templates/service-account.yaml
+apiVersion: v1
+kind: ServiceAccount
+metadata:
+  name: upgrade-review-kong
+  namespace: review
+  labels:
+    app.kubernetes.io/name: kong
+    helm.sh/chart: kong-2.26.0
+    app.kubernetes.io/instance: "upgrade-review"
+    app.kubernetes.io/managed-by: "Helm"
+    app.kubernetes.io/version: "3.3"
+---
+# Source: kong/templates/admission-webhook.yaml
+apiVersion: v1
+kind: Secret
+metadata:
+  name: upgrade-review-kong-validation-webhook-ca-keypair
+  namespace:  review
+  labels:
+    app.kubernetes.io/name: kong
+    helm.sh/chart: kong-2.26.0
+    app.kubernetes.io/instance: "upgrade-review"
+    app.kubernetes.io/managed-by: "Helm"
+    app.kubernetes.io/version: "3.3"
+type: kubernetes.io/tls
+data:
+    tls.crt: LS0tLS1CRUdJTiBDRVJUSUZJQ0FURS0tLS0tCk1JSURKRENDQWd5Z0F3SUJBZ0lSQVBPMFFuQkgva09RS1hGZTNVd0cvU2d3RFFZSktvWklodmNOQVFFTEJRQXcKSERFYU1CZ0dBMVVFQXhNUmEyOXVaeTFoWkcxcGMzTnBiMjR0WTJFd0hoY05Nall4TURJd01EZ3hNekkwV2hjTgpNell4TURFM01EZ3hNekkwV2pBY01Sb3dHQVlEVlFRREV4RnJiMjVuTFdGa2JXbHpjMmx2YmkxallUQ0NBU0l3CkRRWUpLb1pJaHZjTkFRRUJCUUFEZ2dFUEFEQ0NBUW9DZ2dFQkFNVFNNMTk5UURQbVgyNHYreEhXL3ZLQTRJVDAKMjRzSFM0NTQ2TVNWeVNBNUNMZ1hBMnpxeW5YRVNTVmF6Vk9WN05YMFlvRVJZZzJ3ck1iYlBxWXZnVWZHaDVUSAorY0dzK2VnT2hoaG4wOVVMZVNBTzJTbzhRZTIvOVp4N0hEanNRV0hOempDZUxFZ09TWkI1a2IxQjFBQTlyMHlqCjJ1NUJBRHFXVlZydjVuamxxei9KM29LR1FCTGdLenR3NW1EVk0yK29EYnFUL3RlZzM2Wi9RaFljQXFvN0htS0IKMXUxaWJHVkNsYVEvUEpWeGhER0xJUmpuSFdSSkZqajE5Qmc4QjFTeElNYzRxNm9INkFnRzkweVhoWGZ3RzBqcQpTU3piSHZNaG44VGhVaGZ5L1Z6NzJWdnpucWM1VDRzaXdiRzdCcURHT1d1UFZ1d2JpNjhtUmRTQUYxY0NBd0VBCkFhTmhNRjh3RGdZRFZSMFBBUUgvQkFRREFnS2tNQjBHQTFVZEpRUVdNQlFHQ0NzR0FRVUZCd01CQmdnckJnRUYKQlFjREFqQVBCZ05WSFJNQkFmOEVCVEFEQVFIL01CMEdBMVVkRGdRV0JCUVc0M1hCenZjc3FHeCs5VGQ1SmJNNQpxU05EbGpBTkJna3Foa2lHOXcwQkFRc0ZBQU9DQVFFQW84c1FzSzhScHpiUjYzUVZERVJrak9GZWFTaVBPK2VVClo4QWwvTXJsb2IzL2dHTEpwNytVTEtUYjhia3FMVW5EeWs4dm5DV2ZBTW1uNmc1TzFTTm5vK1dWZE02RzJydUEKMDlHYy9LektvdXhaWGxnN3gwSWQ1eGcyMVJFNWl6NVkvNW9IeHNoOGl5NFlEVnhjaTM1a2lrWFBGelY5cjNvawpaRnRXcjFuYXNVWFpGV0grTkNMbWpPTzJpSDhxOUlnLzYrZVVmclpDdGZMWmthbWFzWmxNempoMlp2VGN0d2IyCllDYTVyejI1Sk04OVp5enhzVmd4TU4zZmwwb0tENzh2WE5CcmV0NTMxSVhPOHo1UVJvTENNU3dTV2xpK0kySlMKQXRVdlZZNUMycXRkTXhqbzB1WStSaTNuTEdDZlBHRERMYUVPNkpRaUhYek5nQllsYlZyaTNBPT0KLS0tLS1FTkQgQ0VSVElGSUNBVEUtLS0tLQo=
+    tls.key: LS0tLS1CRUdJTiBSU0EgUFJJVkFURSBLRVktLS0tLQpNSUlFcFFJQkFBS0NBUUVBeE5JelgzMUFNK1pmYmkvN0VkYis4b0RnaFBUYml3ZExqbmpveEpYSklEa0l1QmNECmJPcktkY1JKSlZyTlU1WHMxZlJpZ1JGaURiQ3N4dHMrcGkrQlI4YUhsTWY1d2F6NTZBNkdHR2ZUMVF0NUlBN1oKS2p4QjdiLzFuSHNjT094QlljM09NSjRzU0E1SmtIbVJ2VUhVQUQydlRLUGE3a0VBT3BaVld1L21lT1dyUDhuZQpnb1pBRXVBck8zRG1ZTlV6YjZnTnVwUCsxNkRmcG45Q0Zod0NxanNlWW9IVzdXSnNaVUtWcEQ4OGxYR0VNWXNoCkdPY2RaRWtXT1BYMEdEd0hWTEVneHppcnFnZm9DQWIzVEplRmQvQWJTT3BKTE5zZTh5R2Z4T0ZTRi9MOVhQdloKVy9PZXB6bFBpeUxCc2JzR29NWTVhNDlXN0J1THJ5WkYxSUFYVndJREFRQUJBb0lCQVFDQVFVRjh6ZytTUW1LWgpXT2JRbnpzUEozQW04N0JFam9KcjJ0cERrQis1d2JDdTFVQkVMMU96SGk5VUNqR1djREllMGR1R281OHpzSmRHCkZnUmpJcjJwMmZMcnZzdy9xc3BHcjRBdVV5bzB2LzgwSnJqWXp0OWZZQ0ZhME5aNU9XcjVvclRqOVk2QmZkM3UKS1dvUTI5NmNNWllUNlFwM0N5QnREUjJkM29wZTZKWE52SkJHQ0ROZnJGN0hSUU0vVHdrNCtMMVNjNnEzNmgxRgp6QTEyZ1JMaG1scFNBamxZZXoxc2E0Q0tsaVpncHhpK3N4RXZzMzNKTWZ3Mi9GWUpYUlM5Ry84c3Jmdi9zMjRpCkYveFFlZkpUbTZBRGYrMlNoMXpleG5EcmR6NDJvdUZPZXdVU0UzRHUxejFSRWtEdVh1dXVWc0tzYVZUSVNkemsKU3ZsbzNrUXhBb0dCQU5pYWxudnl2aEFIb0Fjakh3WEdEUjlhMmxsOVdQcHc4NkRpc3lMWWVhcFdVSXhJcDBzVgpEbkFZa2ZHN3R4QUh1QmtEQitySThsaVQ4UTdZOUlXMTFVWGxPT3NGWG9OTlZSU1M5NlpXdm9sZnIxLy9KSk9WCmxVaTdrVTk1a05NL0F1dzh5MEc4SkYwNWg4S3RORVV2ZFRyVEc4STNqVjRRck5KaTM0aWRNMlJ6QW9HQkFPaWUKZnllMFR6a0dRTENWYWV5UlVoRnJiNWJNbHFSR3RZN3lpOXFOZ0ZZSXFvL3F0YnRwdHVzOXlEMmhUU3V2Z3lYNApnT01SaG82M01VS1ZKamdacUdIckdGNWZLZ2swYURoRFlIMndOdGRtTkkyWGIrTFNqWE5Mb0JmS2RNekp6Umh4ClhYSVVqZzI2LzB3eVdTME42N2tMak5qTVU4Y0xuTHIycHUyZzJpeU5Bb0dCQUtoMHFaNWlMaERYYlV5L3NzdlIKdUxqdTlxdnNnWHZjeG8wVVlrOHlYb1RzTmg2MERtK2xRNkpJYVpDLzllSmdybnU5VUxYM2JBc1ptN3Q1WGNwegpuUmVMNnhWVkNxbEJSbThHMGRXcTF1cU40UjNlbDNxME5mTG45VjRDNUhCMksvYkFYUytWZkE2SXhKM1NDTG5aCjYrbEE3L0MvTlpHM2xFRFhKcFBmOW0wakFvR0JBTTlOK05uRWVkbkM5Y0dvMWtZcVYrNElSZUVwSUpMMEpQZG8KdGpRbWFKbkRqV1ZHY1lDOHZIUTJrZzVDZ3NpTTJKN3RNTWVycGJQb0ZIRlhCRUY0dERQWFZOYzlqZk80RGEwZQpkbzVzak9NM1JWeHQraHMxTXpQdDBKV0RLc1lhamJuYnhjQldDeWEzWUs5aUsxRFltQnRIN05TRWU2RG1lMTJ2ClZLSnUrQ0E5QW9HQWZMcU1BYUF6MW1NeG5YT3lGd29XWFp6Q0pqN011aHRLbUdacGxkSnAxclBQSHJQK2ZPSFUKWGd2UDQ4NmpOQUpZQTA0RCt2T3FUc3VLMWc3ZlZtVVZ4QzZ0QnJmMHhIK08zSHlUYUJMcmhSNXAxd3gyZFNCVApnV1I1Y0d2OThvdStERjZ3d1d5THNqN2h6dEdZcjY1OW85ak9CZVhpajB5Nkk2elp3OVlxdW9JPQotLS0tLUVORCBSU0EgUFJJVkFURSBLRVktLS0tLQo=
+---
+# Source: kong/templates/admission-webhook.yaml
+apiVersion: v1
+kind: Secret
+metadata:
+  name: upgrade-review-kong-validation-webhook-keypair
+  namespace:  review
+  labels:
+    app.kubernetes.io/name: kong
+    helm.sh/chart: kong-2.26.0
+    app.kubernetes.io/instance: "upgrade-review"
+    app.kubernetes.io/managed-by: "Helm"
+    app.kubernetes.io/version: "3.3"
+type: kubernetes.io/tls
+data:
+  tls.crt: LS0tLS1CRUdJTiBDRVJUSUZJQ0FURS0tLS0tCk1JSURnekNDQW11Z0F3SUJBZ0lSQUowMTc5cGRUQTlic2JuaFpXMzRrc0F3RFFZSktvWklodmNOQVFFTEJRQXcKSERFYU1CZ0dBMVVFQXhNUmEyOXVaeTFoWkcxcGMzTnBiMjR0WTJFd0hoY05Nall4TURJd01EZ3hNekkwV2hjTgpNell4TURFM01EZ3hNekkwV2pBOE1Ub3dPQVlEVlFRREV6RjFjR2R5WVdSbExYSmxkbWxsZHkxcmIyNW5MWFpoCmJHbGtZWFJwYjI0dGQyVmlhRzl2YXk1eVpYWnBaWGN1YzNaak1JSUJJakFOQmdrcWhraUc5dzBCQVFFRkFBT0MKQVE4QU1JSUJDZ0tDQVFFQXY5NkU5VkM4RDBESEo2ZWxMclFmaWtuR3MyZWNtbUlTQm1IZjU5bERJTXlXY3lRawpVZ2RoS0tDOThvaWQ2SmtTek5VZ1ZlSmFkM0g2QmpNU1J1ZHRuS3hUVGg4YWNBcGM3QTdHZ1RwRkl6TE50R3VrCk1FR2pFVzJmUG11Nm5VZmNGYzIyZXQxT0hRSllPcVlLdmswaDB2TmJUZW03ZStZZjNUZGM1UUZLNWVhOTJCdzEKdVVpREpHQkxYNlZTdzByWlluTlNrbXJSYldxbm55RXZMRGp5UmlHczFKNlIrdXZiVTRZaktjUjgxVy9Jd3NBRApidGVFTjBOUkg3clVubWNrSWJtaXRueGkxVU9sWUZkZ1U4NXdIMTNFRUhza3doUnQ3amgzUUpTYVF3endKUEFiCnFleGk3M3lUK1hJTHowYW91VzFtQklvdUU1a0RhNmpFbXBRa1F3SURBUUFCbzRHZk1JR2NNQTRHQTFVZER3RUIKL3dRRUF3SUZvREFkQmdOVkhTVUVGakFVQmdnckJnRUZCUWNEQVFZSUt3WUJCUVVIQXdJd0RBWURWUjBUQVFILwpCQUl3QURBZkJnTlZIU01FR0RBV2dCUVc0M1hCenZjc3FHeCs5VGQ1SmJNNXFTTkRsakE4QmdOVkhSRUVOVEF6CmdqRjFjR2R5WVdSbExYSmxkbWxsZHkxcmIyNW5MWFpoYkdsa1lYUnBiMjR0ZDJWaWFHOXZheTV5WlhacFpYY3UKYzNaak1BMEdDU3FHU0liM0RRRUJDd1VBQTRJQkFRQmh6QzR3NWFGZFNPdEl0UlhadXlFSVBBQWg4WnIzb3Nvcgoxa3E3SXFpdFdDa1BHT05aamd4aFBEcWtpZHM3UyswVEVvNlgvRDk3Q1g5bmJGVW1TTWtFK1VmYXpHNWRjNjRhCmpSRFNzcWRsR0NSK0lza2V4ajRDRXE1NkhWUW5STmI3ZC9JSUVKZHJUamFBUm11TmZBN3YyNy8ySlhsc2tYSnYKb2x5Sm1MK2VGM2xmKzZEOVljUUFEbFRNMkJmc0o4NEIyWU1tU3RUaEdveURpazJGeWtSc2N5d3ppQ0lLaEwyUQpiMWErSDMzNmQyMkNya0VqMU5VaG9lSGtVUlhsaUd4ZDNoTENXbEVXTjVUUVJNc1dCbDR0UHYrdEswbmFaWXE4CmVZeWVuTkdyS0JXZU9nTFI3MndMaWZ6L0FLQU9PdERHTS9QRmdWRDlpVnNrZHcxNUNxSmkKLS0tLS1FTkQgQ0VSVElGSUNBVEUtLS0tLQo=
+  tls.key: LS0tLS1CRUdJTiBSU0EgUFJJVkFURSBLRVktLS0tLQpNSUlFcEFJQkFBS0NBUUVBdjk2RTlWQzhEMERISjZlbExyUWZpa25HczJlY21tSVNCbUhmNTlsRElNeVdjeVFrClVnZGhLS0M5OG9pZDZKa1N6TlVnVmVKYWQzSDZCak1TUnVkdG5LeFRUaDhhY0FwYzdBN0dnVHBGSXpMTnRHdWsKTUVHakVXMmZQbXU2blVmY0ZjMjJldDFPSFFKWU9xWUt2azBoMHZOYlRlbTdlK1lmM1RkYzVRRks1ZWE5MkJ3MQp1VWlESkdCTFg2VlN3MHJaWW5OU2ttclJiV3FubnlFdkxEanlSaUdzMUo2Uit1dmJVNFlqS2NSODFXL0l3c0FECmJ0ZUVOME5SSDdyVW5tY2tJYm1pdG54aTFVT2xZRmRnVTg1d0gxM0VFSHNrd2hSdDdqaDNRSlNhUXd6d0pQQWIKcWV4aTczeVQrWElMejBhb3VXMW1CSW91RTVrRGE2akVtcFFrUXdJREFRQUJBb0lCQURLd2RPdmljbXlOTHBBNQphQmhZbWVTTTdTUEVnY2ovazhkLzRBbCtpbytGdlZHYUFNWnpFS1lOSVdHTDJqdnpCTlo4ajloZ3ZvbkQ0TXYyCmZpT2hUSUlSdk1oc3l5MUNiNTRsb1NmTzN5a1hhT1Q3Y3hzVW5DSWtsZWVGeW4xMjJKd2lCczJhM2VJb0Ztc1kKSnNwejBqWEsrUm95WDhleDJrVTFOU09ESGVoeWdXc3NqRmVFR3pnVHNwZExtOE83K2ZFYXFBNE5MVGZNaU1QRApzUldmamdvemUxNXZuWVR0aVNJM002dTlOSUZVdHJtZG9mck9KWmVFbXd0M0pyNHRDM3pMMlBwamZSZHJiRUk3CldxTUQ3T0w3N3R0eVhSOW5EdkFJV2c2eWlldDVIRUZ2bm9IZlZuMlJSSVRGOVdyWlhHYnZFdHUzSlpwcFVxS2kKOXozazhxRUNnWUVBOTliMlRROXNPRnZ2aHpxaGM2ci93VUZHR3JxRFUzTmNOWi80bmpmdDZmV205K25aUTBqNQpuQVVqbVQrOGpCVDlSM1kzS1FkVkptdHQydUh5RXNrdGVISjRyQ01rRDNFdWZmYng3MHFRdUR4NEs2Y01KMFI0ClF4Rm9oajk3M25qT1lHSkllM3lnNSs3akpidmNWL1YyT2ZNRXRXclk5bEJUbmsvOGdmUXBUMnNDZ1lFQXhpL0kKWWFzK1pqajUwZWtDLzR0anBMSSt5OGRpbTl2dFFmOXlpcHRHQ2pYbTA0WlU0SjlGWnJxRjBiTWlLcXlkeS8zVwo5UkpBdmRIVmU2NXkwY2dvWitqQUg2MG5iQmxvT1pMY2RDcExMTDA5ZzN3RUZMeStEU0NLbUZWbFg2VXRGcjcxCjBEend2L3FvdDhFcnI2UEdrU0g0U3JjT2Z3bFhlaW5mZ214RzdJa0NnWUVBcEs0K2pPZlJsZ1ZvdktkMXZtRUMKZmt3OEkraUkrTHR2cXVZNEVoSEIwYkw4RmtGWnJ6N2ZOUStwSHR4ZUVZcWszWVlza3VPZmJkNzJhUG0zbTBuNApIOCtZWlhFWU5mYVQyUGxzdXY4RitKV2RtQXZ3cEdyM3FrRDMvalJTdjNud1Q5VWVxb2NlZDk2aEttS1F3QldIClVHd3RWY3JBamJMRVRTNkM3MnJveEM4Q2dZRUF1YnZRTkZCVEkyUGtKR2dXU2oxc3ZjM2FjZ25ERFVSWUh4RHkKWEpuV1V2MWUvUCtZamdaVitVZDI0Q2JjTDFna2JpZlBpMDkyNHk1Q3Z5Mm5KNWxJM05EUk5SNkdvcFZSQ3h2cQpoT2VhR2l5aitKU0NFcGtzRjR0V3VCclg3WUlVTm92eVBSelBsMnVuTU1iVlZUN01lZmwzQXpaNVhHNzV6MkJzCnVvTVZHTmtDZ1lCMU9oNkk3NW9Lb3plQmNwV01ZUlJtNG5jMFk1cU0yZEFzMkVHQktPZGhWWHVSdzZxVnAvdHgKOTFnakZWdHNqYmVEZnpVUXRwR3dTRy9rMVNTM3dKZXkrM0tQSGRGbkw4SzVqbzVHV2YzcjN2WU91Qkt5TENlOQpYNEV1K3luRkROdTBCdXl0T2NRNVF1N2RpTm1QUGFrS1QydWgyNlB5ZXA4c1orbGUrYTNyd0E9PQotLS0tLUVORCBSU0EgUFJJVkFURSBLRVktLS0tLQo=
+---
+# Source: kong/templates/controller-rbac-resources.yaml
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRole
+metadata:
+  labels:
+    app.kubernetes.io/name: kong
+    helm.sh/chart: kong-2.26.0
+    app.kubernetes.io/instance: "upgrade-review"
+    app.kubernetes.io/managed-by: "Helm"
+    app.kubernetes.io/version: "3.3"
+  name: upgrade-review-kong
+rules:
+
+- apiGroups:
+  - ""
+  resources:
+  - events
+  verbs:
+  - create
+  - patch
+- apiGroups:
+  - ""
+  resources:
+  - nodes
+  verbs:
+  - list
+  - watch
+- apiGroups:
+  - ""
+  resources:
+  - pods
+  verbs:
+  - get
+  - list
+  - watch
+- apiGroups:
+  - ""
+  resources:
+  - secrets
+  verbs:
+  - list
+  - watch
+- apiGroups:
+  - ""
+  resources:
+  - services
+  verbs:
+  - get
+  - list
+  - watch
+- apiGroups:
+  - ""
+  resources:
+  - services/status
+  verbs:
+  - get
+  - patch
+  - update
+- apiGroups:
+  - configuration.konghq.com
+  resources:
+  - ingressclassparameterses
+  verbs:
+  - get
+  - list
+  - watch
+- apiGroups:
+  - configuration.konghq.com
+  resources:
+  - kongconsumers
+  verbs:
+  - get
+  - list
+  - watch
+- apiGroups:
+  - configuration.konghq.com
+  resources:
+  - kongconsumers/status
+  verbs:
+  - get
+  - patch
+  - update
+- apiGroups:
+  - configuration.konghq.com
+  resources:
+  - kongingresses
+  verbs:
+  - get
+  - list
+  - watch
+- apiGroups:
+  - configuration.konghq.com
+  resources:
+  - kongingresses/status
+  verbs:
+  - get
+  - patch
+  - update
+- apiGroups:
+  - configuration.konghq.com
+  resources:
+  - kongplugins
+  verbs:
+  - get
+  - list
+  - watch
+- apiGroups:
+  - configuration.konghq.com
+  resources:
+  - kongplugins/status
+  verbs:
+  - get
+  - patch
+  - update
+- apiGroups:
+  - configuration.konghq.com
+  resources:
+  - tcpingresses
+  verbs:
+  - get
+  - list
+  - watch
+- apiGroups:
+  - configuration.konghq.com
+  resources:
+  - tcpingresses/status
+  verbs:
+  - get
+  - patch
+  - update
+- apiGroups:
+  - configuration.konghq.com
+  resources:
+  - udpingresses
+  verbs:
+  - get
+  - list
+  - watch
+- apiGroups:
+  - configuration.konghq.com
+  resources:
+  - udpingresses/status
+  verbs:
+  - get
+  - patch
+  - update
+- apiGroups:
+  - extensions
+  resources:
+  - ingresses
+  verbs:
+  - get
+  - list
+  - watch
+- apiGroups:
+  - extensions
+  resources:
+  - ingresses/status
+  verbs:
+  - get
+  - patch
+  - update
+- apiGroups:
+  - networking.k8s.io
+  resources:
+  - ingresses
+  verbs:
+  - get
+  - list
+  - watch
+- apiGroups:
+  - networking.k8s.io
+  resources:
+  - ingresses/status
+  verbs:
+  - get
+  - patch
+  - update
+- apiGroups:
+  - discovery.k8s.io
+  resources:
+  - endpointslices
+  verbs:
+  - get
+  - list
+  - watch
+- apiGroups:
+  - configuration.konghq.com
+  resources:
+  - kongclusterplugins
+  verbs:
+  - get
+  - list
+  - watch
+- apiGroups:
+  - configuration.konghq.com
+  resources:
+  - kongclusterplugins/status
+  verbs:
+  - get
+  - patch
+  - update
+- apiGroups:
+  - apiextensions.k8s.io
+  resources:
+  - customresourcedefinitions
+  verbs:
+  - list
+  - watch
+- apiGroups:
+  - networking.k8s.io
+  resources:
+  - ingressclasses
+  verbs:
+  - get
+  - list
+  - watch
+---
+# Source: kong/templates/controller-rbac-resources.yaml
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRoleBinding
+metadata:
+  name: upgrade-review-kong
+  labels:
+    app.kubernetes.io/name: kong
+    helm.sh/chart: kong-2.26.0
+    app.kubernetes.io/instance: "upgrade-review"
+    app.kubernetes.io/managed-by: "Helm"
+    app.kubernetes.io/version: "3.3"
+roleRef:
+  apiGroup: rbac.authorization.k8s.io
+  kind: ClusterRole
+  name: upgrade-review-kong
+subjects:
+  - kind: ServiceAccount
+    name: upgrade-review-kong
+    namespace: review
+---
+# Source: kong/templates/controller-rbac-resources.yaml
+apiVersion: rbac.authorization.k8s.io/v1
+kind: Role
+metadata:
+  name: upgrade-review-kong
+  namespace: review
+  labels:
+    app.kubernetes.io/name: kong
+    helm.sh/chart: kong-2.26.0
+    app.kubernetes.io/instance: "upgrade-review"
+    app.kubernetes.io/managed-by: "Helm"
+    app.kubernetes.io/version: "3.3"
+rules:
+  - apiGroups:
+      - ""
+    resources:
+      - configmaps
+      - pods
+      - secrets
+      - namespaces
+    verbs:
+      - get
+  - apiGroups:
+      - ""
+    resources:
+      - configmaps
+    resourceNames:
+      # Defaults to "<election-id>-<ingress-class>"
+      # Here: "<kong-ingress-controller-leader-nginx>-<nginx>"
+      # This has to be adapted if you change either parameter
+      # when launching the nginx-ingress-controller.
+      - "kong-ingress-controller-leader-kong-kong"
+    verbs:
+      - get
+      - update
+  - apiGroups:
+      - ""
+    resources:
+      - configmaps
+    verbs:
+      - create
+  # Begin KIC 2.x leader permissions
+  - apiGroups:
+      - ""
+      - coordination.k8s.io
+    resources:
+      - configmaps
+      - leases
+    verbs:
+      - get
+      - list
+      - watch
+      - create
+      - update
+      - patch
+      - delete
+  - apiGroups:
+      - ""
+    resources:
+      - events
+    verbs:
+      - create
+      - patch
+  - apiGroups:
+      - ""
+    resources:
+      - services
+    verbs:
+      - get
+---
+# Source: kong/templates/controller-rbac-resources.yaml
+apiVersion: rbac.authorization.k8s.io/v1
+kind: RoleBinding
+metadata:
+  name: upgrade-review-kong
+  namespace: review
+  labels:
+    app.kubernetes.io/name: kong
+    helm.sh/chart: kong-2.26.0
+    app.kubernetes.io/instance: "upgrade-review"
+    app.kubernetes.io/managed-by: "Helm"
+    app.kubernetes.io/version: "3.3"
+roleRef:
+  apiGroup: rbac.authorization.k8s.io
+  kind: Role
+  name: upgrade-review-kong
+subjects:
+  - kind: ServiceAccount
+    name: upgrade-review-kong
+    namespace: review
+---
+# Source: kong/templates/admission-webhook.yaml
+apiVersion: v1
+kind: Service
+metadata:
+  name: upgrade-review-kong-validation-webhook
+  namespace: review
+  labels:
+    app.kubernetes.io/name: kong
+    helm.sh/chart: kong-2.26.0
+    app.kubernetes.io/instance: "upgrade-review"
+    app.kubernetes.io/managed-by: "Helm"
+    app.kubernetes.io/version: "3.3"
+spec:
+  ports:
+  - name: webhook
+    port: 443
+    protocol: TCP
+    targetPort: webhook
+  selector:
+    app.kubernetes.io/name: kong
+    helm.sh/chart: kong-2.26.0
+    app.kubernetes.io/instance: "upgrade-review"
+    app.kubernetes.io/managed-by: "Helm"
+    app.kubernetes.io/version: "3.3"
+    app.kubernetes.io/component: app
+---
+# Source: kong/templates/service-kong-proxy.yaml
+apiVersion: v1
+kind: Service
+metadata:
+  name: upgrade-review-kong-proxy
+  namespace: review
+  labels:
+    app.kubernetes.io/name: kong
+    helm.sh/chart: kong-2.26.0
+    app.kubernetes.io/instance: "upgrade-review"
+    app.kubernetes.io/managed-by: "Helm"
+    app.kubernetes.io/version: "3.3"
+    enable-metrics: "true"
+spec:
+  type: LoadBalancer
+  ports:
+  - name: kong-proxy
+    port: 80
+    targetPort: 8000
+    protocol: TCP
+  - name: kong-proxy-tls
+    port: 443
+    targetPort: 8443
+    protocol: TCP
+  selector:
+    app.kubernetes.io/name: kong
+    app.kubernetes.io/component: app
+    app.kubernetes.io/instance: "upgrade-review"
+---
+# Source: kong/templates/deployment.yaml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: upgrade-review-kong
+  namespace:  review
+  labels:
+    app.kubernetes.io/name: kong
+    helm.sh/chart: kong-2.26.0
+    app.kubernetes.io/instance: "upgrade-review"
+    app.kubernetes.io/managed-by: "Helm"
+    app.kubernetes.io/version: "3.3"
+    app.kubernetes.io/component: app
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app.kubernetes.io/name: kong
+      app.kubernetes.io/component: app
+      app.kubernetes.io/instance: "upgrade-review"
+
+  template:
+    metadata:
+      annotations:
+        kuma.io/service-account-token-volume: upgrade-review-kong-token
+        kuma.io/gateway: "enabled"
+        traffic.sidecar.istio.io/includeInboundPorts: ""
+      labels:
+        app.kubernetes.io/name: kong
+        helm.sh/chart: kong-2.26.0
+        app.kubernetes.io/instance: "upgrade-review"
+        app.kubernetes.io/managed-by: "Helm"
+        app.kubernetes.io/version: "3.3"
+        app.kubernetes.io/component: app
+        app: upgrade-review-kong
+        version: "3.3"
+    spec:
+      serviceAccountName: upgrade-review-kong
+      automountServiceAccountToken: false
+      
+      initContainers:
+      - name: clear-stale-pid
+        image: kong:3.3.0
+        imagePullPolicy: IfNotPresent
+        securityContext:
+        
+          readOnlyRootFilesystem: true
+        resources:
+          {}
+        command:
+        - "rm"
+        - "-vrf"
+        - "$KONG_PREFIX/pids"
+        env:
+         
+        - name: KONG_ADMIN_ACCESS_LOG
+          value: "/dev/stdout"
+        - name: KONG_ADMIN_ERROR_LOG
+          value: "/dev/stderr"
+        - name: KONG_ADMIN_GUI_ACCESS_LOG
+          value: "/dev/stdout"
+        - name: KONG_ADMIN_GUI_ERROR_LOG
+          value: "/dev/stderr"
+        - name: KONG_ADMIN_LISTEN
+          value: "127.0.0.1:8444 http2 ssl"
+        - name: KONG_CLUSTER_LISTEN
+          value: "off"
+        - name: KONG_DATABASE
+          value: "off"
+        - name: KONG_KIC
+          value: "on"
+        - name: KONG_LUA_PACKAGE_PATH
+          value: "/opt/?.lua;/opt/?/init.lua;;"
+        - name: KONG_NGINX_WORKER_PROCESSES
+          value: "2"
+        - name: KONG_PLUGINS
+          value: "bundled"
+        - name: KONG_PORTAL_API_ACCESS_LOG
+          value: "/dev/stdout"
+        - name: KONG_PORTAL_API_ERROR_LOG
+          value: "/dev/stderr"
+        - name: KONG_PORT_MAPS
+          value: "80:8000, 443:8443"
+        - name: KONG_PREFIX
+          value: "/kong_prefix/"
+        - name: KONG_PROXY_ACCESS_LOG
+          value: "/dev/stdout"
+        - name: KONG_PROXY_ERROR_LOG
+          value: "/dev/stderr"
+        - name: KONG_PROXY_LISTEN
+          value: "0.0.0.0:8000, 0.0.0.0:8443 http2 ssl"
+        - name: KONG_PROXY_STREAM_ACCESS_LOG
+          value: "/dev/stdout basic"
+        - name: KONG_PROXY_STREAM_ERROR_LOG
+          value: "/dev/stderr"
+        - name: KONG_ROUTER_FLAVOR
+          value: "traditional"
+        - name: KONG_STATUS_ACCESS_LOG
+          value: "off"
+        - name: KONG_STATUS_ERROR_LOG
+          value: "/dev/stderr"
+        - name: KONG_STATUS_LISTEN
+          value: "0.0.0.0:8100"
+        - name: KONG_STREAM_LISTEN
+          value: "off"
+        volumeMounts:
+        - name: upgrade-review-kong-prefix-dir
+          mountPath: /kong_prefix/
+        - name: upgrade-review-kong-tmp
+          mountPath: /tmp
+      containers:
+      - name: ingress-controller
+        securityContext:
+      
+          readOnlyRootFilesystem: true
+        args:
+        
+        ports:
+        - name: webhook
+          containerPort: 8080
+          protocol: TCP
+        - name: cmetrics
+          containerPort: 10255
+          protocol: TCP
+        env:
+        - name: POD_NAME
+          valueFrom:
+            fieldRef:
+              apiVersion: v1
+              fieldPath: metadata.name
+        - name: POD_NAMESPACE
+          valueFrom:
+            fieldRef:
+              apiVersion: v1
+              fieldPath: metadata.namespace  
+        
+        
+        
+        
+        
+        
+        - name: CONTROLLER_ADMISSION_WEBHOOK_LISTEN
+          value: "0.0.0.0:8080"
+        - name: CONTROLLER_ELECTION_ID
+          value: "kong-ingress-controller-leader-kong"
+        - name: CONTROLLER_INGRESS_CLASS
+          value: "kong"
+        - name: CONTROLLER_KONG_ADMIN_TLS_SKIP_VERIFY
+          value: "true"
+        - name: CONTROLLER_KONG_ADMIN_URL
+          value: "https://localhost:8444"
+        - name: CONTROLLER_PUBLISH_SERVICE
+          value: "review/upgrade-review-kong-proxy"
+        image: kong/kubernetes-ingress-controller:2.10.4
+        imagePullPolicy: IfNotPresent
+      
+        readinessProbe:
+          failureThreshold: 3
+          httpGet:
+            path: /readyz
+            port: 10254
+            scheme: HTTP
+          initialDelaySeconds: 5
+          periodSeconds: 10
+          successThreshold: 1
+          timeoutSeconds: 5
+        livenessProbe:
+          failureThreshold: 3
+          httpGet:
+            path: /healthz
+            port: 10254
+            scheme: HTTP
+          initialDelaySeconds: 5
+          periodSeconds: 10
+          successThreshold: 1
+          timeoutSeconds: 5
+        resources:
+          {}
+        volumeMounts:
+        - name: webhook-cert
+          mountPath: /admission-webhook
+          readOnly: true
+        - name: upgrade-review-kong-token
+          mountPath: /var/run/secrets/kubernetes.io/serviceaccount
+          readOnly: true
+        
+        
+      
+      - name: "proxy"
+        image: kong:3.3.0
+        imagePullPolicy: IfNotPresent
+        securityContext:
+        
+          readOnlyRootFilesystem: true
+        env:
+         
+        - name: KONG_ADMIN_ACCESS_LOG
+          value: "/dev/stdout"
+        - name: KONG_ADMIN_ERROR_LOG
+          value: "/dev/stderr"
+        - name: KONG_ADMIN_GUI_ACCESS_LOG
+          value: "/dev/stdout"
+        - name: KONG_ADMIN_GUI_ERROR_LOG
+          value: "/dev/stderr"
+        - name: KONG_ADMIN_LISTEN
+          value: "127.0.0.1:8444 http2 ssl"
+        - name: KONG_CLUSTER_LISTEN
+          value: "off"
+        - name: KONG_DATABASE
+          value: "off"
+        - name: KONG_KIC
+          value: "on"
+        - name: KONG_LUA_PACKAGE_PATH
+          value: "/opt/?.lua;/opt/?/init.lua;;"
+        - name: KONG_NGINX_WORKER_PROCESSES
+          value: "2"
+        - name: KONG_PLUGINS
+          value: "bundled"
+        - name: KONG_PORTAL_API_ACCESS_LOG
+          value: "/dev/stdout"
+        - name: KONG_PORTAL_API_ERROR_LOG
+          value: "/dev/stderr"
+        - name: KONG_PORT_MAPS
+          value: "80:8000, 443:8443"
+        - name: KONG_PREFIX
+          value: "/kong_prefix/"
+        - name: KONG_PROXY_ACCESS_LOG
+          value: "/dev/stdout"
+        - name: KONG_PROXY_ERROR_LOG
+          value: "/dev/stderr"
+        - name: KONG_PROXY_LISTEN
+          value: "0.0.0.0:8000, 0.0.0.0:8443 http2 ssl"
+        - name: KONG_PROXY_STREAM_ACCESS_LOG
+          value: "/dev/stdout basic"
+        - name: KONG_PROXY_STREAM_ERROR_LOG
+          value: "/dev/stderr"
+        - name: KONG_ROUTER_FLAVOR
+          value: "traditional"
+        - name: KONG_STATUS_ACCESS_LOG
+          value: "off"
+        - name: KONG_STATUS_ERROR_LOG
+          value: "/dev/stderr"
+        - name: KONG_STATUS_LISTEN
+          value: "0.0.0.0:8100"
+        - name: KONG_STREAM_LISTEN
+          value: "off"
+        - name: KONG_NGINX_DAEMON
+          value: "off"
+        lifecycle:
+          preStop:
+            exec:
+              command:
+              - kong
+              - quit
+              - --wait=15
+        ports:
+        - name: proxy
+          containerPort: 8000
+          protocol: TCP
+        - name: proxy-tls
+          containerPort: 8443
+          protocol: TCP
+        - name: status
+          containerPort: 8100
+          protocol: TCP
+        volumeMounts:
+          - name: upgrade-review-kong-prefix-dir
+            mountPath: /kong_prefix/
+          - name: upgrade-review-kong-tmp
+            mountPath: /tmp
+          
+        readinessProbe:
+          failureThreshold: 3
+          httpGet:
+            path: /status
+            port: status
+            scheme: HTTP
+          initialDelaySeconds: 5
+          periodSeconds: 10
+          successThreshold: 1
+          timeoutSeconds: 5
+        livenessProbe:
+          failureThreshold: 3
+          httpGet:
+            path: /status
+            port: status
+            scheme: HTTP
+          initialDelaySeconds: 5
+          periodSeconds: 10
+          successThreshold: 1
+          timeoutSeconds: 5
+        resources:
+          {} 
+      securityContext:
+        {}
+      terminationGracePeriodSeconds: 30
+      volumes:
+        - name: upgrade-review-kong-prefix-dir
+          emptyDir:
+            sizeLimit: 256Mi
+        - name: upgrade-review-kong-tmp
+          emptyDir:
+            sizeLimit: 1Gi
+        - name: webhook-cert
+          secret:
+            secretName: upgrade-review-kong-validation-webhook-keypair
+        
+        - name: upgrade-review-kong-token
+          projected:
+            sources:
+            - serviceAccountToken:
+                expirationSeconds: 3607
+                path: token
+            - configMap:
+                items:
+                - key: ca.crt
+                  path: ca.crt
+                name: kube-root-ca.crt
+            - downwardAPI:
+                items:
+                - fieldRef:
+                    apiVersion: v1
+                    fieldPath: metadata.namespace
+                  path: namespace
+---
+# Source: kong/templates/admission-webhook.yaml
+kind: ValidatingWebhookConfiguration
+apiVersion: admissionregistration.k8s.io/v1
+metadata:
+  name: upgrade-review-kong-validations
+  namespace: review
+  labels:
+    app.kubernetes.io/name: kong
+    helm.sh/chart: kong-2.26.0
+    app.kubernetes.io/instance: "upgrade-review"
+    app.kubernetes.io/managed-by: "Helm"
+    app.kubernetes.io/version: "3.3"
+webhooks:
+- name: validations.kong.konghq.com
+  objectSelector:
+    matchExpressions:
+    - key: owner
+      operator: NotIn
+      values:
+      - helm
+  failurePolicy: Ignore
+  sideEffects: None
+  admissionReviewVersions: ["v1beta1"]
+  rules:
+  - apiGroups:
+    - configuration.konghq.com
+    apiVersions:
+    - '*'
+    operations:
+    - CREATE
+    - UPDATE
+    resources:
+    - kongconsumers
+    - kongplugins
+    - kongclusterplugins
+    - kongingresses
+  - apiGroups:
+    - ''
+    apiVersions:
+    - 'v1'
+    operations:
+    - UPDATE
+    resources:
+    - secrets
+  clientConfig:
+    caBundle: LS0tLS1CRUdJTiBDRVJUSUZJQ0FURS0tLS0tCk1JSURKRENDQWd5Z0F3SUJBZ0lSQVBPMFFuQkgva09RS1hGZTNVd0cvU2d3RFFZSktvWklodmNOQVFFTEJRQXcKSERFYU1CZ0dBMVVFQXhNUmEyOXVaeTFoWkcxcGMzTnBiMjR0WTJFd0hoY05Nall4TURJd01EZ3hNekkwV2hjTgpNell4TURFM01EZ3hNekkwV2pBY01Sb3dHQVlEVlFRREV4RnJiMjVuTFdGa2JXbHpjMmx2YmkxallUQ0NBU0l3CkRRWUpLb1pJaHZjTkFRRUJCUUFEZ2dFUEFEQ0NBUW9DZ2dFQkFNVFNNMTk5UURQbVgyNHYreEhXL3ZLQTRJVDAKMjRzSFM0NTQ2TVNWeVNBNUNMZ1hBMnpxeW5YRVNTVmF6Vk9WN05YMFlvRVJZZzJ3ck1iYlBxWXZnVWZHaDVUSAorY0dzK2VnT2hoaG4wOVVMZVNBTzJTbzhRZTIvOVp4N0hEanNRV0hOempDZUxFZ09TWkI1a2IxQjFBQTlyMHlqCjJ1NUJBRHFXVlZydjVuamxxei9KM29LR1FCTGdLenR3NW1EVk0yK29EYnFUL3RlZzM2Wi9RaFljQXFvN0htS0IKMXUxaWJHVkNsYVEvUEpWeGhER0xJUmpuSFdSSkZqajE5Qmc4QjFTeElNYzRxNm9INkFnRzkweVhoWGZ3RzBqcQpTU3piSHZNaG44VGhVaGZ5L1Z6NzJWdnpucWM1VDRzaXdiRzdCcURHT1d1UFZ1d2JpNjhtUmRTQUYxY0NBd0VBCkFhTmhNRjh3RGdZRFZSMFBBUUgvQkFRREFnS2tNQjBHQTFVZEpRUVdNQlFHQ0NzR0FRVUZCd01CQmdnckJnRUYKQlFjREFqQVBCZ05WSFJNQkFmOEVCVEFEQVFIL01CMEdBMVVkRGdRV0JCUVc0M1hCenZjc3FHeCs5VGQ1SmJNNQpxU05EbGpBTkJna3Foa2lHOXcwQkFRc0ZBQU9DQVFFQW84c1FzSzhScHpiUjYzUVZERVJrak9GZWFTaVBPK2VVClo4QWwvTXJsb2IzL2dHTEpwNytVTEtUYjhia3FMVW5EeWs4dm5DV2ZBTW1uNmc1TzFTTm5vK1dWZE02RzJydUEKMDlHYy9LektvdXhaWGxnN3gwSWQ1eGcyMVJFNWl6NVkvNW9IeHNoOGl5NFlEVnhjaTM1a2lrWFBGelY5cjNvawpaRnRXcjFuYXNVWFpGV0grTkNMbWpPTzJpSDhxOUlnLzYrZVVmclpDdGZMWmthbWFzWmxNempoMlp2VGN0d2IyCllDYTVyejI1Sk04OVp5enhzVmd4TU4zZmwwb0tENzh2WE5CcmV0NTMxSVhPOHo1UVJvTENNU3dTV2xpK0kySlMKQXRVdlZZNUMycXRkTXhqbzB1WStSaTNuTEdDZlBHRERMYUVPNkpRaUhYek5nQllsYlZyaTNBPT0KLS0tLS1FTkQgQ0VSVElGSUNBVEUtLS0tLQo=
+    service:
+      name: upgrade-review-kong-validation-webhook
+      namespace: review

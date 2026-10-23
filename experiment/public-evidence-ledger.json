@@ -1,0 +1,77 @@
+{
+  "method": "Targeted purposive search of public upstream reports and a project migration guide. Six selected records; not a random sample or a frequency estimate. Summaries separate claims, upstream response and our own reproduction.",
+  "records": [
+    {
+      "source_url": "https://github.com/prometheus-community/helm-charts/issues/3792",
+      "opened_at": "2023-09-12T19:31:37Z",
+      "updated_at": "2025-06-27T03:46:07Z",
+      "state_at_retrieval": "closed",
+      "state_reason": "completed",
+      "retrieved_on": "2026-10-20",
+      "classification": "user report corroborated by another commenter; closed for inactivity",
+      "finding": "Reporter said chart 5.0 removed custom-query behavior and that the documentation could be mistaken for a configuration rename. Another commenter reported the same difficulty.",
+      "implication": "Distinguish feature removal from schema renaming; renamed fields do not establish behavior preservation.",
+      "limit": "Historical report, closed by stale automation; no independent reproduction or current incident-rate estimate."
+    },
+    {
+      "source_url": "https://github.com/external-secrets/external-secrets/issues/4662",
+      "opened_at": "2025-04-14T17:14:27Z",
+      "updated_at": "2026-02-04T05:40:08Z",
+      "state_at_retrieval": "closed",
+      "state_reason": "completed",
+      "retrieved_on": "2026-10-20",
+      "classification": "project migration guide, not an incident report",
+      "finding": "The published promotion guide calls for checking old stored API versions and distinguishes CRDs managed with the chart from CRDs installed separately.",
+      "implication": "Some prerequisites require live-state evidence and ownership context beyond target rendering.",
+      "limit": "Guide establishes requirements, not how frequently teams miss them or what they would pay."
+    },
+    {
+      "source_url": "https://github.com/external-secrets/external-secrets/issues/4816",
+      "opened_at": "2025-05-21T11:04:14Z",
+      "updated_at": "2025-08-13T09:59:25Z",
+      "state_at_retrieval": "closed",
+      "state_reason": "completed",
+      "retrieved_on": "2026-10-20",
+      "classification": "user report; disputed root cause",
+      "finding": "Reporter associated an ESO version jump with missing SecretStores. A project member questioned the upgrade path and said a product bug had not been reproduced.",
+      "implication": "Preserve observed symptoms separately from claimed causes and proposed fixes.",
+      "limit": "Do not encode a general data-loss rule from the title; not reproduced here."
+    },
+    {
+      "source_url": "https://github.com/prometheus-community/helm-charts/issues/4981",
+      "opened_at": "2024-11-08T21:00:19Z",
+      "updated_at": "2025-09-09T21:11:37Z",
+      "state_at_retrieval": "closed",
+      "state_reason": "completed",
+      "retrieved_on": "2026-10-20",
+      "classification": "user report with linked fix and later counterexample",
+      "finding": "Reporter described a kube-state-metrics image upgrade breaking readiness. A comment links a fix; a later comment questions behavior when self-monitoring is disabled.",
+      "implication": "Probe requirements depend on application version and effective configuration.",
+      "limit": "We reproduced the manifest-level probe/image combination only, not HTTP behavior or the linked fix."
+    },
+    {
+      "source_url": "https://github.com/external-secrets/external-secrets/issues/5478",
+      "opened_at": "2025-10-17T07:57:38Z",
+      "updated_at": "2026-03-05T15:11:11Z",
+      "state_at_retrieval": "closed",
+      "state_reason": "completed",
+      "retrieved_on": "2026-10-20",
+      "classification": "user report; causal interpretation disputed in discussion",
+      "finding": "Reporter described GitOps drift during ESO API migration. A project member attributed the symptom to client-side version fetching; later comments also reported differences between distribution artifacts. Neither account was reproduced here.",
+      "implication": "Chart version alone may be insufficient; include distribution identity and actual served APIs.",
+      "limit": "Closed thread with mixed explanations; not a verified universal ESO bug or quantified buyer demand."
+    },
+    {
+      "source_url": "https://github.com/prometheus-community/helm-charts/issues/7230",
+      "opened_at": "2026-09-02T16:11:49Z",
+      "updated_at": "2026-09-06T22:40:25Z",
+      "state_at_retrieval": "closed",
+      "state_reason": "completed",
+      "retrieved_on": "2026-10-20",
+      "classification": "recent user report; closed without a verified resolution in retrieved discussion",
+      "finding": "Reporter described file-based ServiceMonitor credentials being rejected by stricter collectors, including an Alloy version change. The retrieved reply requests a contribution.",
+      "implication": "A dependency outside the chart can invalidate existing manifest assumptions.",
+      "limit": "Not reproduced here. Closure does not establish a fix; no conclusion about current affected releases."
+    }
+  ]
+}

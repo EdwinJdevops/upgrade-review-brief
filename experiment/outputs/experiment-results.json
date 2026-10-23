@@ -1,0 +1,337 @@
+{
+  "helm_version": "v3.12.3+g3a31588",
+  "python_version": "3.12.14",
+  "pyyaml_version": "6.0.3",
+  "cases": 9,
+  "observation_assertions_passed": 9,
+  "model_calls": 0,
+  "cluster_runtime_tests": 0,
+  "configuration_origin": "author-controlled lab inputs using official published chart packages",
+  "results": [
+    {
+      "case": "kong-old-proxy-only",
+      "input_chart": "inputs/kong-2.25.0.tgz",
+      "input_sha256": "16c38cfb76ffc4d103c7a1becb5b358ef0970eecfb75ac2a0fea74fe0e40fdf5",
+      "values_sha256": "250b0113e0f99ba8bbe823ef19563c05be8d6fda3bf25afbed972cef3b9b709c",
+      "output": "outputs/kong-old-proxy-only.yaml",
+      "output_sha256": "2f68c0a298dab25e39f780e6af5f84a332ba4abadb42cd92dfe15094d80d66b8",
+      "command": [
+        "tools/helm",
+        "template",
+        "upgrade-review",
+        "inputs/kong-2.25.0.tgz",
+        "--namespace",
+        "review",
+        "--kube-version",
+        "1.27.3",
+        "--is-upgrade",
+        "--values",
+        "inputs/kong-old-proxy-only.yaml"
+      ],
+      "kube_version": "1.27.3",
+      "runtime_verified": false,
+      "rendered_readiness": {
+        "path": "/status",
+        "port": "status",
+        "scheme": "HTTP"
+      },
+      "image": "kong:3.3.0",
+      "assertion": "rendered readiness path equals documented case expectation",
+      "observation_pass": true,
+      "controller_colocated": false,
+      "external_controller_verified": false,
+      "note": "A disabled controller image setting is not evidence of an external deployment."
+    },
+    {
+      "case": "kong-new-proxy-only",
+      "input_chart": "inputs/kong-2.26.0.tgz",
+      "input_sha256": "c28136139149b21ea1e7ef82bd64d8b8021b221ecc4a8668a7e447631c9a1203",
+      "values_sha256": "250b0113e0f99ba8bbe823ef19563c05be8d6fda3bf25afbed972cef3b9b709c",
+      "output": "outputs/kong-new-proxy-only.yaml",
+      "output_sha256": "afe264e2482874ef8ce7c728dca3a95cb0569d74164d7367ee79b8b93e483450",
+      "command": [
+        "tools/helm",
+        "template",
+        "upgrade-review",
+        "inputs/kong-2.26.0.tgz",
+        "--namespace",
+        "review",
+        "--kube-version",
+        "1.27.3",
+        "--is-upgrade",
+        "--values",
+        "inputs/kong-new-proxy-only.yaml"
+      ],
+      "kube_version": "1.27.3",
+      "runtime_verified": false,
+      "rendered_readiness": {
+        "path": "/status/ready",
+        "port": "status",
+        "scheme": "HTTP"
+      },
+      "image": "kong:3.3.0",
+      "assertion": "rendered readiness path equals documented case expectation",
+      "observation_pass": true,
+      "controller_colocated": false,
+      "external_controller_verified": false,
+      "note": "A disabled controller image setting is not evidence of an external deployment."
+    },
+    {
+      "case": "kong-new-override",
+      "input_chart": "inputs/kong-2.26.0.tgz",
+      "input_sha256": "c28136139149b21ea1e7ef82bd64d8b8021b221ecc4a8668a7e447631c9a1203",
+      "values_sha256": "78444e4a9cef0875781e56cb6320af1e566ce1b7efc3fdf20978c9dc4e7a9d69",
+      "output": "outputs/kong-new-override.yaml",
+      "output_sha256": "b9b980f2d8302e7df36fb535d2c472db9538af29c5bca1680a0b5c5ed8cc1590",
+      "command": [
+        "tools/helm",
+        "template",
+        "upgrade-review",
+        "inputs/kong-2.26.0.tgz",
+        "--namespace",
+        "review",
+        "--kube-version",
+        "1.27.3",
+        "--is-upgrade",
+        "--values",
+        "inputs/kong-new-override.yaml"
+      ],
+      "kube_version": "1.27.3",
+      "runtime_verified": false,
+      "rendered_readiness": {
+        "path": "/status",
+        "port": "status",
+        "scheme": "HTTP"
+      },
+      "image": "kong:3.3.0",
+      "assertion": "rendered readiness path equals documented case expectation",
+      "observation_pass": true,
+      "controller_colocated": false,
+      "external_controller_verified": false,
+      "note": "A disabled controller image setting is not evidence of an external deployment."
+    },
+    {
+      "case": "kong-new-colocated-old-controller",
+      "input_chart": "inputs/kong-2.26.0.tgz",
+      "input_sha256": "c28136139149b21ea1e7ef82bd64d8b8021b221ecc4a8668a7e447631c9a1203",
+      "values_sha256": "2928e54bd9caeaa094fca492b0be968492c69dd00f4c9cd699705f2fcd7f73a5",
+      "output": "outputs/kong-new-colocated-old-controller.yaml",
+      "output_sha256": "233ece0cebe3fb67fb28ff37116f3e9d7d273dd542431418ffeded6f3122c14f",
+      "command": [
+        "tools/helm",
+        "template",
+        "upgrade-review",
+        "inputs/kong-2.26.0.tgz",
+        "--namespace",
+        "review",
+        "--kube-version",
+        "1.27.3",
+        "--is-upgrade",
+        "--values",
+        "inputs/kong-new-colocated-old-controller.yaml"
+      ],
+      "kube_version": "1.27.3",
+      "runtime_verified": false,
+      "rendered_readiness": {
+        "path": "/status",
+        "port": "status",
+        "scheme": "HTTP"
+      },
+      "image": "kong:3.3.0",
+      "assertion": "rendered readiness path equals documented case expectation",
+      "observation_pass": true,
+      "controller_colocated": true,
+      "external_controller_verified": false,
+      "note": "A disabled controller image setting is not evidence of an external deployment."
+    },
+    {
+      "case": "kong-new-older-proxy",
+      "input_chart": "inputs/kong-2.26.0.tgz",
+      "input_sha256": "c28136139149b21ea1e7ef82bd64d8b8021b221ecc4a8668a7e447631c9a1203",
+      "values_sha256": "a610bf686bd460206a6427f8c8f96b03c04aa43ff9e5901292944b903ca4d5a3",
+      "output": "outputs/kong-new-older-proxy.yaml",
+      "output_sha256": "9803ed6f0c955195acb55d57556353286bb71915e69cf1dd2f81c3c8f2cf1e69",
+      "command": [
+        "tools/helm",
+        "template",
+        "upgrade-review",
+        "inputs/kong-2.26.0.tgz",
+        "--namespace",
+        "review",
+        "--kube-version",
+        "1.27.3",
+        "--is-upgrade",
+        "--values",
+        "inputs/kong-new-older-proxy.yaml"
+      ],
+      "kube_version": "1.27.3",
+      "runtime_verified": false,
+      "rendered_readiness": {
+        "path": "/status",
+        "port": "status",
+        "scheme": "HTTP"
+      },
+      "image": "kong:3.2.0",
+      "assertion": "rendered readiness path equals documented case expectation",
+      "observation_pass": true,
+      "controller_colocated": false,
+      "external_controller_verified": false,
+      "note": "A disabled controller image setting is not evidence of an external deployment."
+    },
+    {
+      "case": "kong-new-proxy-only-new-controller-setting",
+      "input_chart": "inputs/kong-2.26.0.tgz",
+      "input_sha256": "c28136139149b21ea1e7ef82bd64d8b8021b221ecc4a8668a7e447631c9a1203",
+      "values_sha256": "a8dddbbeb6300d083751fb8b56808bccd6536606960c7889f6d8702bb8fe121b",
+      "output": "outputs/kong-new-proxy-only-new-controller-setting.yaml",
+      "output_sha256": "afe264e2482874ef8ce7c728dca3a95cb0569d74164d7367ee79b8b93e483450",
+      "command": [
+        "tools/helm",
+        "template",
+        "upgrade-review",
+        "inputs/kong-2.26.0.tgz",
+        "--namespace",
+        "review",
+        "--kube-version",
+        "1.27.3",
+        "--is-upgrade",
+        "--values",
+        "inputs/kong-new-proxy-only-new-controller-setting.yaml"
+      ],
+      "kube_version": "1.27.3",
+      "runtime_verified": false,
+      "rendered_readiness": {
+        "path": "/status/ready",
+        "port": "status",
+        "scheme": "HTTP"
+      },
+      "image": "kong:3.3.0",
+      "assertion": "rendered readiness path equals documented case expectation",
+      "observation_pass": true,
+      "controller_colocated": false,
+      "external_controller_verified": false,
+      "note": "A disabled controller image setting is not evidence of an external deployment."
+    },
+    {
+      "case": "ksm-default",
+      "input_chart": "inputs/kube-state-metrics-5.26.0.tgz",
+      "input_sha256": "42f77a34db334d0acf2a5f60998b738c5cdd94df14afa93354b83eec23416c6b",
+      "values_sha256": "ca3d163bab055381827226140568f3bef7eaac187cebd76878e0b63e9e442356",
+      "output": "outputs/ksm-default.yaml",
+      "output_sha256": "b43ca2bf72ed9103a39bb8ddbb904242d811ca964ad861e1f1592885aa88931b",
+      "command": [
+        "tools/helm",
+        "template",
+        "upgrade-review",
+        "inputs/kube-state-metrics-5.26.0.tgz",
+        "--namespace",
+        "review",
+        "--kube-version",
+        "1.29.10",
+        "--is-upgrade",
+        "--values",
+        "inputs/ksm-default.yaml"
+      ],
+      "kube_version": "1.29.10",
+      "runtime_verified": false,
+      "image": "registry.k8s.io/kube-state-metrics/kube-state-metrics:v2.13.0",
+      "rendered_readiness": {
+        "httpHeaders": null,
+        "path": "/readyz",
+        "port": 8080,
+        "scheme": "HTTP"
+      },
+      "container_ports": [
+        {
+          "containerPort": 8080,
+          "name": "http"
+        }
+      ],
+      "observation_pass": true,
+      "assertion": "rendered image is expected and readiness remains /readyz on 8080",
+      "note": "This confirms manifest configuration, not HTTP behavior or a universal remedy."
+    },
+    {
+      "case": "ksm-image-override",
+      "input_chart": "inputs/kube-state-metrics-5.26.0.tgz",
+      "input_sha256": "42f77a34db334d0acf2a5f60998b738c5cdd94df14afa93354b83eec23416c6b",
+      "values_sha256": "2e1152a1286c22e4df376919bf00b6f8459391da13d2f06cbd5b70bfe30edd60",
+      "output": "outputs/ksm-image-override.yaml",
+      "output_sha256": "53d2f540efea5823745632ed3e9dd4d261f8f17439906f2ae0d1df31bdd7bdd0",
+      "command": [
+        "tools/helm",
+        "template",
+        "upgrade-review",
+        "inputs/kube-state-metrics-5.26.0.tgz",
+        "--namespace",
+        "review",
+        "--kube-version",
+        "1.29.10",
+        "--is-upgrade",
+        "--values",
+        "inputs/ksm-image-override.yaml"
+      ],
+      "kube_version": "1.29.10",
+      "runtime_verified": false,
+      "image": "registry.k8s.io/kube-state-metrics/kube-state-metrics:v2.14.0",
+      "rendered_readiness": {
+        "httpHeaders": null,
+        "path": "/readyz",
+        "port": 8080,
+        "scheme": "HTTP"
+      },
+      "container_ports": [
+        {
+          "containerPort": 8080,
+          "name": "http"
+        }
+      ],
+      "observation_pass": true,
+      "assertion": "rendered image is expected and readiness remains /readyz on 8080",
+      "note": "This confirms manifest configuration, not HTTP behavior or a universal remedy."
+    },
+    {
+      "case": "ksm-self-monitor",
+      "input_chart": "inputs/kube-state-metrics-5.26.0.tgz",
+      "input_sha256": "42f77a34db334d0acf2a5f60998b738c5cdd94df14afa93354b83eec23416c6b",
+      "values_sha256": "90c4a152047b7a74d1d2dd02bde8329937c3a2d0ea2b28a675bf9fcd36ee7056",
+      "output": "outputs/ksm-self-monitor.yaml",
+      "output_sha256": "593dd1d25f7d9955a57117939a0092290a9fb9f37fe98ecd2e278a340db10487",
+      "command": [
+        "tools/helm",
+        "template",
+        "upgrade-review",
+        "inputs/kube-state-metrics-5.26.0.tgz",
+        "--namespace",
+        "review",
+        "--kube-version",
+        "1.29.10",
+        "--is-upgrade",
+        "--values",
+        "inputs/ksm-self-monitor.yaml"
+      ],
+      "kube_version": "1.29.10",
+      "runtime_verified": false,
+      "image": "registry.k8s.io/kube-state-metrics/kube-state-metrics:v2.14.0",
+      "rendered_readiness": {
+        "httpHeaders": null,
+        "path": "/readyz",
+        "port": 8080,
+        "scheme": "HTTP"
+      },
+      "container_ports": [
+        {
+          "containerPort": 8080,
+          "name": "http"
+        },
+        {
+          "containerPort": 8081,
+          "name": "metrics"
+        }
+      ],
+      "observation_pass": true,
+      "assertion": "rendered image is expected and readiness remains /readyz on 8080",
+      "note": "This confirms manifest configuration, not HTTP behavior or a universal remedy."
+    }
+  ]
+}

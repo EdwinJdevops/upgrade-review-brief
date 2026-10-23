@@ -1,0 +1,27 @@
+{
+  "reviewed_commit": "b67c4a8694749418f42385b2aa1b36ef1e4c48a0",
+  "repository": "https://github.com/thc1006/shiftscope",
+  "scope": "Read-only source inspection; no execution, adoption or commercial-performance benchmark",
+  "files": [
+    {
+      "path": "src/shiftscope/core/models.py",
+      "git_blob_sha": "c8f92f09e5e17f95efdb340eebd7cf5ee1682a37",
+      "url": "https://github.com/thc1006/shiftscope/blob/main/src/shiftscope/core/models.py"
+    },
+    {
+      "path": "src/shiftscope/core/rule.py",
+      "git_blob_sha": "315ddc4e5aac20671ef6354d80c732c330a4f636",
+      "url": "https://github.com/thc1006/shiftscope/blob/main/src/shiftscope/core/rule.py"
+    },
+    {
+      "path": "src/shiftscope/ai/augment.py",
+      "git_blob_sha": "82a68a7838eb86496b85cb4b967dd35ae6b85216",
+      "url": "https://github.com/thc1006/shiftscope/blob/main/src/shiftscope/ai/augment.py"
+    }
+  ],
+  "other_primary_sources": [
+    "https://github.com/imneeteeshyadav98/kubepreflight",
+    "https://docs.camunda.io/docs/8.8/self-managed/deployment/helm/operational-tasks/camunda-helm-toolkit/"
+  ],
+  "note": "A snapshot of overlapping capabilities does not establish exact equivalence for every application migration."
+}

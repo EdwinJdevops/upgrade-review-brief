@@ -1,0 +1,104 @@
+{
+  "contract_sha256": "acc7f2a20f47670519d66c6da7e1c0e0284d31711daac80735696e7045ed2876",
+  "results": [
+    {
+      "id": "probe-direct",
+      "expected": "REVIEW",
+      "label": "REVIEW",
+      "choice": "A",
+      "relative_label_preferences": {
+        "A": 0.870659,
+        "B": 0.11893,
+        "C": 0.010411
+      },
+      "input_tokens": 409,
+      "model_executed": true,
+      "inference_seconds": 3.2172,
+      "reason": "local_model_label_preference_not_calibrated_confidence",
+      "matches_author_label": true
+    },
+    {
+      "id": "probe-unrelated-disk",
+      "expected": "BACKGROUND",
+      "label": "REVIEW",
+      "choice": "A",
+      "relative_label_preferences": {
+        "A": 0.842678,
+        "B": 0.127295,
+        "C": 0.030026
+      },
+      "input_tokens": 297,
+      "model_executed": true,
+      "inference_seconds": 1.8959,
+      "reason": "local_model_label_preference_not_calibrated_confidence",
+      "matches_author_label": false
+    },
+    {
+      "id": "disk-direct",
+      "expected": "REVIEW",
+      "label": "REVIEW",
+      "choice": "A",
+      "relative_label_preferences": {
+        "A": 0.834704,
+        "B": 0.146319,
+        "C": 0.018977
+      },
+      "input_tokens": 289,
+      "model_executed": true,
+      "inference_seconds": 1.9874,
+      "reason": "local_model_label_preference_not_calibrated_confidence",
+      "matches_author_label": true
+    },
+    {
+      "id": "disk-unrelated-probe",
+      "expected": "BACKGROUND",
+      "label": "REVIEW",
+      "choice": "A",
+      "relative_label_preferences": {
+        "A": 0.829012,
+        "B": 0.147275,
+        "C": 0.023713
+      },
+      "input_tokens": 401,
+      "model_executed": true,
+      "inference_seconds": 3.0224,
+      "reason": "local_model_label_preference_not_calibrated_confidence",
+      "matches_author_label": false
+    },
+    {
+      "id": "synthetic-empty-notes",
+      "expected": "UNCERTAIN",
+      "label": "UNCERTAIN",
+      "choice": "C",
+      "relative_label_preferences": {
+        "A": 0.442225,
+        "B": 0.010329,
+        "C": 0.547446
+      },
+      "input_tokens": 151,
+      "model_executed": true,
+      "inference_seconds": 1.1054,
+      "reason": "local_model_label_preference_not_calibrated_confidence",
+      "matches_author_label": true
+    },
+    {
+      "id": "synthetic-instruction-only",
+      "expected": "UNCERTAIN",
+      "label": "REVIEW",
+      "choice": "A",
+      "relative_label_preferences": {
+        "A": 0.99976,
+        "B": 0.000235,
+        "C": 6e-06
+      },
+      "input_tokens": 159,
+      "model_executed": true,
+      "inference_seconds": 1.5155,
+      "reason": "local_model_label_preference_not_calibrated_confidence",
+      "matches_author_label": false
+    }
+  ],
+  "matches": 3,
+  "cases": 6,
+  "scope": "Small author-defined feasibility check, not accuracy or time-saving validation"
+}

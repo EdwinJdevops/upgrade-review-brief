@@ -1,0 +1,45 @@
+{
+  "status": "LOCAL_CONTENT_CHECKED",
+  "applicability": "NOT_APPLICABLE",
+  "satisfaction": "UNKNOWN",
+  "evidence": [
+    {
+      "path": "experiment/outputs/kong-new-colocated-old-controller.yaml",
+      "sha256": "233ece0cebe3fb67fb28ff37116f3e9d7d273dd542431418ffeded6f3122c14f",
+      "captured_at": "2026-10-20T08:00:00+00:00",
+      "capture_time_asserted_by_caller": true
+    }
+  ],
+  "facts": {
+    "proxy_version": {
+      "value": "3.3.0",
+      "reference": "experiment/outputs/kong-new-colocated-old-controller.yaml#document=9/spec/template/spec/containers/1/image"
+    },
+    "target_readiness_path": {
+      "value": "/status",
+      "reference": "experiment/outputs/kong-new-colocated-old-controller.yaml#document=9/spec/template/spec/containers/1/readinessProbe/httpGet/path"
+    },
+    "separate_deployments": {
+      "value": false,
+      "reference": "experiment/outputs/kong-new-colocated-old-controller.yaml#document=9/spec/template/spec/containers/1"
+    },
+    "controller_version": {
+      "value": "2.10.4",
+      "reference": "experiment/outputs/kong-new-colocated-old-controller.yaml#document=9/spec/template/spec/containers/0/image"
+    }
+  },
+  "errors": [],
+  "live_identity_verified": false,
+  "chart_render_binding_verified": false,
+  "scope": "One Kong requirement; local content and asserted capture times only",
+  "missing_evidence": [],
+  "reason": "Supplied facts exclude this specific documented condition.",
+  "source": {
+    "url": "https://github.com/Kong/charts/blob/main/charts/kong/UPGRADE.md#2260",
+    "git_blob_sha": "893527759a66e5293aded6999f8c6879b634c6d6",
+    "retrieved_on": "2026-10-20",
+    "rule_authorship": "human-authored prototype; not model-generated"
+  },
+  "rule_id": "kong-2.26-separate-controller-readiness-v0",
+  "limitation": "File hashes bind observations to local bytes. They authenticate neither a cluster nor the caller, capture time, controller relationship, rendered-chart provenance or runtime behavior."
+}

@@ -1,0 +1,46 @@
+[
+  {
+    "url": "https://charts.konghq.com/index.yaml",
+    "path": "inputs/kong-index.yaml",
+    "bytes": 225898,
+    "sha256": "fe29b9b35268dbf8d8ca2d568bccf53cd9d68f26cca58752db42787130941b17"
+  },
+  {
+    "url": "https://github.com/Kong/charts/releases/download/kong-2.25.0/kong-2.25.0.tgz",
+    "path": "inputs/kong-2.25.0.tgz",
+    "bytes": 155975,
+    "sha256": "16c38cfb76ffc4d103c7a1becb5b358ef0970eecfb75ac2a0fea74fe0e40fdf5"
+  },
+  {
+    "url": "https://github.com/Kong/charts/releases/download/kong-2.26.0/kong-2.26.0.tgz",
+    "path": "inputs/kong-2.26.0.tgz",
+    "bytes": 156763,
+    "sha256": "c28136139149b21ea1e7ef82bd64d8b8021b221ecc4a8668a7e447631c9a1203"
+  },
+  {
+    "url": "https://get.helm.sh/helm-v3.12.3-linux-amd64.tar.gz",
+    "path": "tools/helm-v3.12.3-linux-amd64.tar.gz",
+    "bytes": 16028423,
+    "sha256": "1b2313cd198d45eab00cc37c38f6b1ca0a948ba279c29e322bdf426d406129b5"
+  },
+  {
+    "url": "https://get.helm.sh/helm-v3.12.3-linux-amd64.tar.gz.sha256sum",
+    "path": "tools/helm-v3.12.3-linux-amd64.tar.gz.sha256sum",
+    "bytes": 98,
+    "sha256": "6188bd8d7521f92b02a78fc43b3c174364d6b79b9cb925cb178a2b20e2306b07"
+  },
+  {
+    "path": "tools/helm",
+    "bytes": 50597888,
+    "sha256": "31895cbbc131017b16aa67d6a61ec6df474527a73d61f5a7be72d2d038b38c1d",
+    "source": "official Helm archive member linux-amd64/helm"
+  },
+  {
+    "url": "https://github.com/prometheus-community/helm-charts/releases/download/kube-state-metrics-5.26.0/kube-state-metrics-5.26.0.tgz",
+    "path": "inputs/kube-state-metrics-5.26.0.tgz",
+    "bytes": 14232,
+    "sha256": "42f77a34db334d0acf2a5f60998b738c5cdd94df14afa93354b83eec23416c6b",
+    "index_url": "https://prometheus-community.github.io/helm-charts/index.yaml",
+    "index_sha256": "9bc605d3c7da910531e06397731f42e90f6470cd24d3914738208a52c6805d87"
+  }
+]

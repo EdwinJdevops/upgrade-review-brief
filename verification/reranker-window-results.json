@@ -1,0 +1,598 @@
+{
+  "contract_sha256": "8f1b55996ef3d27b4f2535af292f3c76a9714fb6f6c812c22735f12e448c20f1",
+  "queries": 6,
+  "model_unique_first_matches": 6,
+  "lexical_unique_first_matches": 5,
+  "process_peak_rss_mib": 1135.6,
+  "results": [
+    {
+      "id": "probe-literal",
+      "expected_first": "kong-readiness",
+      "ranking": [
+        "kong-readiness",
+        "eso-stored-version",
+        "ksm-health",
+        "kong-filesystem",
+        "synthetic-injection",
+        "synthetic-empty-notes"
+      ],
+      "model_unique_first_match": true,
+      "lexical_top": [
+        "kong-readiness"
+      ],
+      "lexical_unique_first_match": true,
+      "scores": [
+        {
+          "id": "kong-readiness",
+          "lexical_score": 9,
+          "score": 4.909398,
+          "model_executed": true,
+          "window_count": 1,
+          "window_scores": [
+            4.909398
+          ],
+          "input_tokens_including_overlap": 310,
+          "inference_seconds": 0.3686,
+          "reason": "relative_relevance_only_not_confidence_or_upgrade_approval"
+        },
+        {
+          "id": "kong-filesystem",
+          "lexical_score": 2,
+          "score": -7.192231,
+          "model_executed": true,
+          "window_count": 1,
+          "window_scores": [
+            -7.192231
+          ],
+          "input_tokens_including_overlap": 223,
+          "inference_seconds": 0.2129,
+          "reason": "relative_relevance_only_not_confidence_or_upgrade_approval"
+        },
+        {
+          "id": "ksm-health",
+          "lexical_score": 4,
+          "score": -4.166412,
+          "model_executed": true,
+          "window_count": 1,
+          "window_scores": [
+            -4.166412
+          ],
+          "input_tokens_including_overlap": 235,
+          "inference_seconds": 0.2854,
+          "reason": "relative_relevance_only_not_confidence_or_upgrade_approval"
+        },
+        {
+          "id": "eso-stored-version",
+          "lexical_score": 4,
+          "score": -0.058778,
+          "model_executed": true,
+          "window_count": 2,
+          "window_scores": [
+            -6.333658,
+            -0.058778
+          ],
+          "input_tokens_including_overlap": 676,
+          "inference_seconds": 1.1906,
+          "reason": "relative_relevance_only_not_confidence_or_upgrade_approval"
+        },
+        {
+          "id": "synthetic-injection",
+          "lexical_score": 0,
+          "score": -9.834266,
+          "model_executed": true,
+          "window_count": 1,
+          "window_scores": [
+            -9.834266
+          ],
+          "input_tokens_including_overlap": 59,
+          "inference_seconds": 0.0946,
+          "reason": "relative_relevance_only_not_confidence_or_upgrade_approval"
+        },
+        {
+          "id": "synthetic-empty-notes",
+          "lexical_score": 0,
+          "score": -10.196325,
+          "model_executed": true,
+          "window_count": 1,
+          "window_scores": [
+            -10.196325
+          ],
+          "input_tokens_including_overlap": 44,
+          "inference_seconds": 0.0754,
+          "reason": "relative_relevance_only_not_confidence_or_upgrade_approval"
+        }
+      ]
+    },
+    {
+      "id": "probe-paraphrase",
+      "expected_first": "kong-readiness",
+      "ranking": [
+        "kong-readiness",
+        "eso-stored-version",
+        "synthetic-empty-notes",
+        "kong-filesystem",
+        "synthetic-injection",
+        "ksm-health"
+      ],
+      "model_unique_first_match": true,
+      "lexical_top": [
+        "kong-readiness"
+      ],
+      "lexical_unique_first_match": true,
+      "scores": [
+        {
+          "id": "kong-readiness",
+          "lexical_score": 8,
+          "score": -8.950451,
+          "model_executed": true,
+          "window_count": 1,
+          "window_scores": [
+            -8.950451
+          ],
+          "input_tokens_including_overlap": 305,
+          "inference_seconds": 0.3741,
+          "reason": "relative_relevance_only_not_confidence_or_upgrade_approval"
+        },
+        {
+          "id": "kong-filesystem",
+          "lexical_score": 2,
+          "score": -10.196388,
+          "model_executed": true,
+          "window_count": 1,
+          "window_scores": [
+            -10.196388
+          ],
+          "input_tokens_including_overlap": 218,
+          "inference_seconds": 0.2892,
+          "reason": "relative_relevance_only_not_confidence_or_upgrade_approval"
+        },
+        {
+          "id": "ksm-health",
+          "lexical_score": 4,
+          "score": -10.196811,
+          "model_executed": true,
+          "window_count": 1,
+          "window_scores": [
+            -10.196811
+          ],
+          "input_tokens_including_overlap": 230,
+          "inference_seconds": 0.2969,
+          "reason": "relative_relevance_only_not_confidence_or_upgrade_approval"
+        },
+        {
+          "id": "eso-stored-version",
+          "lexical_score": 3,
+          "score": -10.028398,
+          "model_executed": true,
+          "window_count": 2,
+          "window_scores": [
+            -10.028398,
+            -10.179529
+          ],
+          "input_tokens_including_overlap": 666,
+          "inference_seconds": 1.3079,
+          "reason": "relative_relevance_only_not_confidence_or_upgrade_approval"
+        },
+        {
+          "id": "synthetic-injection",
+          "lexical_score": 1,
+          "score": -10.19658,
+          "model_executed": true,
+          "window_count": 1,
+          "window_scores": [
+            -10.19658
+          ],
+          "input_tokens_including_overlap": 54,
+          "inference_seconds": 0.0908,
+          "reason": "relative_relevance_only_not_confidence_or_upgrade_approval"
+        },
+        {
+          "id": "synthetic-empty-notes",
+          "lexical_score": 1,
+          "score": -10.17041,
+          "model_executed": true,
+          "window_count": 1,
+          "window_scores": [
+            -10.17041
+          ],
+          "input_tokens_including_overlap": 39,
+          "inference_seconds": 0.0729,
+          "reason": "relative_relevance_only_not_confidence_or_upgrade_approval"
+        }
+      ]
+    },
+    {
+      "id": "disk-literal",
+      "expected_first": "kong-filesystem",
+      "ranking": [
+        "kong-filesystem",
+        "eso-stored-version",
+        "kong-readiness",
+        "synthetic-injection",
+        "ksm-health",
+        "synthetic-empty-notes"
+      ],
+      "model_unique_first_match": true,
+      "lexical_top": [
+        "kong-filesystem"
+      ],
+      "lexical_unique_first_match": true,
+      "scores": [
+        {
+          "id": "kong-readiness",
+          "lexical_score": 4,
+          "score": -4.023462,
+          "model_executed": true,
+          "window_count": 1,
+          "window_scores": [
+            -4.023462
+          ],
+          "input_tokens_including_overlap": 300,
+          "inference_seconds": 0.3413,
+          "reason": "relative_relevance_only_not_confidence_or_upgrade_approval"
+        },
+        {
+          "id": "kong-filesystem",
+          "lexical_score": 8,
+          "score": 5.039488,
+          "model_executed": true,
+          "window_count": 1,
+          "window_scores": [
+            5.039488
+          ],
+          "input_tokens_including_overlap": 213,
+          "inference_seconds": 0.1988,
+          "reason": "relative_relevance_only_not_confidence_or_upgrade_approval"
+        },
+        {
+          "id": "ksm-health",
+          "lexical_score": 1,
+          "score": -10.196604,
+          "model_executed": true,
+          "window_count": 1,
+          "window_scores": [
+            -10.196604
+          ],
+          "input_tokens_including_overlap": 225,
+          "inference_seconds": 0.2352,
+          "reason": "relative_relevance_only_not_confidence_or_upgrade_approval"
+        },
+        {
+          "id": "eso-stored-version",
+          "lexical_score": 2,
+          "score": -3.699535,
+          "model_executed": true,
+          "window_count": 2,
+          "window_scores": [
+            -8.116234,
+            -3.699535
+          ],
+          "input_tokens_including_overlap": 656,
+          "inference_seconds": 1.2381,
+          "reason": "relative_relevance_only_not_confidence_or_upgrade_approval"
+        },
+        {
+          "id": "synthetic-injection",
+          "lexical_score": 0,
+          "score": -9.214265,
+          "model_executed": true,
+          "window_count": 1,
+          "window_scores": [
+            -9.214265
+          ],
+          "input_tokens_including_overlap": 49,
+          "inference_seconds": 0.0924,
+          "reason": "relative_relevance_only_not_confidence_or_upgrade_approval"
+        },
+        {
+          "id": "synthetic-empty-notes",
+          "lexical_score": 0,
+          "score": -10.196846,
+          "model_executed": true,
+          "window_count": 1,
+          "window_scores": [
+            -10.196846
+          ],
+          "input_tokens_including_overlap": 34,
+          "inference_seconds": 0.0663,
+          "reason": "relative_relevance_only_not_confidence_or_upgrade_approval"
+        }
+      ]
+    },
+    {
+      "id": "disk-paraphrase",
+      "expected_first": "kong-filesystem",
+      "ranking": [
+        "kong-filesystem",
+        "synthetic-empty-notes",
+        "eso-stored-version",
+        "ksm-health",
+        "synthetic-injection",
+        "kong-readiness"
+      ],
+      "model_unique_first_match": true,
+      "lexical_top": [
+        "kong-filesystem"
+      ],
+      "lexical_unique_first_match": true,
+      "scores": [
+        {
+          "id": "kong-readiness",
+          "lexical_score": 4,
+          "score": -10.196596,
+          "model_executed": true,
+          "window_count": 1,
+          "window_scores": [
+            -10.196596
+          ],
+          "input_tokens_including_overlap": 303,
+          "inference_seconds": 0.3322,
+          "reason": "relative_relevance_only_not_confidence_or_upgrade_approval"
+        },
+        {
+          "id": "kong-filesystem",
+          "lexical_score": 7,
+          "score": -6.670681,
+          "model_executed": true,
+          "window_count": 1,
+          "window_scores": [
+            -6.670681
+          ],
+          "input_tokens_including_overlap": 216,
+          "inference_seconds": 0.2246,
+          "reason": "relative_relevance_only_not_confidence_or_upgrade_approval"
+        },
+        {
+          "id": "ksm-health",
+          "lexical_score": 5,
+          "score": -10.195728,
+          "model_executed": true,
+          "window_count": 1,
+          "window_scores": [
+            -10.195728
+          ],
+          "input_tokens_including_overlap": 228,
+          "inference_seconds": 0.1907,
+          "reason": "relative_relevance_only_not_confidence_or_upgrade_approval"
+        },
+        {
+          "id": "eso-stored-version",
+          "lexical_score": 2,
+          "score": -9.000812,
+          "model_executed": true,
+          "window_count": 2,
+          "window_scores": [
+            -9.947375,
+            -9.000812
+          ],
+          "input_tokens_including_overlap": 662,
+          "inference_seconds": 1.0442,
+          "reason": "relative_relevance_only_not_confidence_or_upgrade_approval"
+        },
+        {
+          "id": "synthetic-injection",
+          "lexical_score": 1,
+          "score": -10.196362,
+          "model_executed": true,
+          "window_count": 1,
+          "window_scores": [
+            -10.196362
+          ],
+          "input_tokens_including_overlap": 52,
+          "inference_seconds": 0.0632,
+          "reason": "relative_relevance_only_not_confidence_or_upgrade_approval"
+        },
+        {
+          "id": "synthetic-empty-notes",
+          "lexical_score": 1,
+          "score": -7.817536,
+          "model_executed": true,
+          "window_count": 1,
+          "window_scores": [
+            -7.817536
+          ],
+          "input_tokens_including_overlap": 37,
+          "inference_seconds": 0.0525,
+          "reason": "relative_relevance_only_not_confidence_or_upgrade_approval"
+        }
+      ]
+    },
+    {
+      "id": "ksm-telemetry",
+      "expected_first": "ksm-health",
+      "ranking": [
+        "ksm-health",
+        "eso-stored-version",
+        "kong-readiness",
+        "synthetic-empty-notes",
+        "kong-filesystem",
+        "synthetic-injection"
+      ],
+      "model_unique_first_match": true,
+      "lexical_top": [
+        "ksm-health"
+      ],
+      "lexical_unique_first_match": true,
+      "scores": [
+        {
+          "id": "kong-readiness",
+          "lexical_score": 5,
+          "score": -6.973121,
+          "model_executed": true,
+          "window_count": 1,
+          "window_scores": [
+            -6.973121
+          ],
+          "input_tokens_including_overlap": 309,
+          "inference_seconds": 0.2706,
+          "reason": "relative_relevance_only_not_confidence_or_upgrade_approval"
+        },
+        {
+          "id": "kong-filesystem",
+          "lexical_score": 2,
+          "score": -10.194775,
+          "model_executed": true,
+          "window_count": 1,
+          "window_scores": [
+            -10.194775
+          ],
+          "input_tokens_including_overlap": 222,
+          "inference_seconds": 0.2486,
+          "reason": "relative_relevance_only_not_confidence_or_upgrade_approval"
+        },
+        {
+          "id": "ksm-health",
+          "lexical_score": 8,
+          "score": 2.907092,
+          "model_executed": true,
+          "window_count": 1,
+          "window_scores": [
+            2.907092
+          ],
+          "input_tokens_including_overlap": 234,
+          "inference_seconds": 0.2763,
+          "reason": "relative_relevance_only_not_confidence_or_upgrade_approval"
+        },
+        {
+          "id": "eso-stored-version",
+          "lexical_score": 2,
+          "score": -6.160027,
+          "model_executed": true,
+          "window_count": 2,
+          "window_scores": [
+            -9.431448,
+            -6.160027
+          ],
+          "input_tokens_including_overlap": 674,
+          "inference_seconds": 1.0137,
+          "reason": "relative_relevance_only_not_confidence_or_upgrade_approval"
+        },
+        {
+          "id": "synthetic-injection",
+          "lexical_score": 2,
+          "score": -10.196777,
+          "model_executed": true,
+          "window_count": 1,
+          "window_scores": [
+            -10.196777
+          ],
+          "input_tokens_including_overlap": 58,
+          "inference_seconds": 0.07,
+          "reason": "relative_relevance_only_not_confidence_or_upgrade_approval"
+        },
+        {
+          "id": "synthetic-empty-notes",
+          "lexical_score": 1,
+          "score": -10.194562,
+          "model_executed": true,
+          "window_count": 1,
+          "window_scores": [
+            -10.194562
+          ],
+          "input_tokens_including_overlap": 43,
+          "inference_seconds": 0.0582,
+          "reason": "relative_relevance_only_not_confidence_or_upgrade_approval"
+        }
+      ]
+    },
+    {
+      "id": "eso-crd",
+      "expected_first": "eso-stored-version",
+      "ranking": [
+        "eso-stored-version",
+        "synthetic-injection",
+        "kong-readiness",
+        "ksm-health",
+        "kong-filesystem",
+        "synthetic-empty-notes"
+      ],
+      "model_unique_first_match": true,
+      "lexical_top": [
+        "kong-readiness",
+        "eso-stored-version"
+      ],
+      "lexical_unique_first_match": false,
+      "scores": [
+        {
+          "id": "kong-readiness",
+          "lexical_score": 4,
+          "score": -10.155505,
+          "model_executed": true,
+          "window_count": 1,
+          "window_scores": [
+            -10.155505
+          ],
+          "input_tokens_including_overlap": 300,
+          "inference_seconds": 0.2935,
+          "reason": "relative_relevance_only_not_confidence_or_upgrade_approval"
+        },
+        {
+          "id": "kong-filesystem",
+          "lexical_score": 3,
+          "score": -10.196329,
+          "model_executed": true,
+          "window_count": 1,
+          "window_scores": [
+            -10.196329
+          ],
+          "input_tokens_including_overlap": 213,
+          "inference_seconds": 0.2153,
+          "reason": "relative_relevance_only_not_confidence_or_upgrade_approval"
+        },
+        {
+          "id": "ksm-health",
+          "lexical_score": 2,
+          "score": -10.188516,
+          "model_executed": true,
+          "window_count": 1,
+          "window_scores": [
+            -10.188516
+          ],
+          "input_tokens_including_overlap": 225,
+          "inference_seconds": 0.197,
+          "reason": "relative_relevance_only_not_confidence_or_upgrade_approval"
+        },
+        {
+          "id": "eso-stored-version",
+          "lexical_score": 4,
+          "score": -2.642576,
+          "model_executed": true,
+          "window_count": 2,
+          "window_scores": [
+            -2.642576,
+            -3.461972
+          ],
+          "input_tokens_including_overlap": 656,
+          "inference_seconds": 0.8996,
+          "reason": "relative_relevance_only_not_confidence_or_upgrade_approval"
+        },
+        {
+          "id": "synthetic-injection",
+          "lexical_score": 0,
+          "score": -8.118872,
+          "model_executed": true,
+          "window_count": 1,
+          "window_scores": [
+            -8.118872
+          ],
+          "input_tokens_including_overlap": 49,
+          "inference_seconds": 0.0633,
+          "reason": "relative_relevance_only_not_confidence_or_upgrade_approval"
+        },
+        {
+          "id": "synthetic-empty-notes",
+          "lexical_score": 0,
+          "score": -10.196845,
+          "model_executed": true,
+          "window_count": 1,
+          "window_scores": [
+            -10.196845
+          ],
+          "input_tokens_including_overlap": 34,
+          "inference_seconds": 0.05,
+          "reason": "relative_relevance_only_not_confidence_or_upgrade_approval"
+        }
+      ]
+    }
+  ]
+}

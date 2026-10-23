@@ -1,0 +1,84 @@
+{
+  "model": "Qwen/Qwen3-0.6B",
+  "revision": "c1899de289a04d12100db370d81485cdf75e47ca",
+  "cases": 6,
+  "valid_json_objects": 6,
+  "contract_valid_outputs": 1,
+  "total_generation_seconds": 74.892,
+  "peak_process_rss_mib": 4750.1,
+  "provider_calls": 0,
+  "raw_quotes_omitted": "Published metrics preserve original-output hashes; original outputs remain local and can be regenerated. No raw citation text is republished.",
+  "results": [
+    {
+      "id": "kong-readiness",
+      "input_tokens": 387,
+      "output_tokens": 58,
+      "generation_seconds": 14.066,
+      "stopped_at_token_limit": false,
+      "format_errors": [
+        "quote_not_exact_or_too_long"
+      ],
+      "process_peak_rss_mib": 4750.1,
+      "raw_output_sha256": "ef62c15cb4e5c827b0604e5d963beedfcbb386afc4918f7cb566285d9c47055d"
+    },
+    {
+      "id": "kong-plugin-writes",
+      "input_tokens": 274,
+      "output_tokens": 65,
+      "generation_seconds": 14.454,
+      "stopped_at_token_limit": false,
+      "format_errors": [
+        "quote_not_exact_or_too_long"
+      ],
+      "process_peak_rss_mib": 4750.1,
+      "raw_output_sha256": "0604fab133a240e2c15db4055fffdf5bcb3dbfc642ab6c84173e6530bea41610"
+    },
+    {
+      "id": "ksm-readiness-location",
+      "input_tokens": 295,
+      "output_tokens": 50,
+      "generation_seconds": 11.8,
+      "stopped_at_token_limit": false,
+      "format_errors": [
+        "quote_not_exact_or_too_long"
+      ],
+      "process_peak_rss_mib": 4750.1,
+      "raw_output_sha256": "14096490b42e3880f74204d0ac0a859ca1d952e25cc41126d01922a810e57181"
+    },
+    {
+      "id": "eso-stored-version",
+      "input_tokens": 530,
+      "output_tokens": 49,
+      "generation_seconds": 13.097,
+      "stopped_at_token_limit": false,
+      "format_errors": [
+        "quote_not_exact_or_too_long"
+      ],
+      "process_peak_rss_mib": 4750.1,
+      "raw_output_sha256": "eb1f7a4a219fe48461f24edbb315e86572ae89a77bde81e9e4e08fb7502ce432"
+    },
+    {
+      "id": "synthetic-no-information",
+      "input_tokens": 126,
+      "output_tokens": 27,
+      "generation_seconds": 5.943,
+      "stopped_at_token_limit": false,
+      "format_errors": [],
+      "process_peak_rss_mib": 4750.1,
+      "raw_output_sha256": "4d88fc07a1bbf00dbbc2d7d092da48c84ca0bc4757d31e9e90262fadc84cd483"
+    },
+    {
+      "id": "synthetic-injected-readiness",
+      "input_tokens": 411,
+      "output_tokens": 62,
+      "generation_seconds": 15.532,
+      "stopped_at_token_limit": false,
+      "format_errors": [
+        "quote_not_exact_or_too_long"
+      ],
+      "process_peak_rss_mib": 4750.1,
+      "raw_output_sha256": "b5453a0a1d4b608da4e72fc0e851f5c5f559e3c9132e6892c3ec729187fd7523"
+    }
+  ],
+  "interpretation": "Feasibility smoke test, author-defined public-doc cases and synthetic perturbations. Not a general accuracy estimate."
+}

@@ -1,0 +1,26 @@
+Plain comparison baseline of selected rendered container fields.
+This uses Python difflib; the helm-diff plugin was NOT executed.
+A visible change is not evidence that a diff cannot help reviewers.
+
+--- kong-old-proxy-only
++++ kong-new-proxy-only
+@@ -1,7 +1,7 @@
+ {
+   "image": "kong:3.3.0",
+   "readiness": {
+-    "path": "/status",
++    "path": "/status/ready",
+     "port": "status",
+     "scheme": "HTTP"
+   }
+
+--- ksm-default
++++ ksm-image-override
+@@ -1,5 +1,5 @@
+ {
+-  "image": "registry.k8s.io/kube-state-metrics/kube-state-metrics:v2.13.0",
++  "image": "registry.k8s.io/kube-state-metrics/kube-state-metrics:v2.14.0",
+   "readiness": {
+     "httpHeaders": null,
+     "path": "/readyz",
+
