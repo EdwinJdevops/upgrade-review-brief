@@ -58,6 +58,7 @@ def main():
     root = Path(__file__).resolve().parents[1]
     # Fixture contains deliberate fake sentinels, never customer credentials.
     import sys
+    sys.path.insert(0, str(root))
     sys.path.insert(0, str(root / "tests"))
     from test_brief import BEFORE, AFTER
     secret = '\n---\napiVersion: v1\nkind: Secret\nmetadata:\n  name: example-credentials\ndata:\n  sensitive-key-sentinel: fake-old-sentinel\n'

@@ -1,0 +1,43 @@
+{
+  "application_commit": "cc516074e570961088db688a677fca3be58729a0",
+  "deployment": {
+    "id": "dep-dbdo11nf3r2c73da1qqg",
+    "status": "live",
+    "finished_at": "2026-10-23T15:45:34.178988Z",
+    "service_id": "srv-dbdl4ca9lscs73c4urq0",
+    "url": "https://upgrade-review-brief.onrender.com"
+  },
+  "ci": {
+    "id": 39975786774,
+    "commit": "cc516074e570961088db688a677fca3be58729a0",
+    "status": "completed",
+    "conclusion": "success",
+    "url": "https://github.com/EdwinJdevops/upgrade-review-brief/actions/runs/39975786774"
+  },
+  "tests": {
+    "count": 85,
+    "local_evidence": "verification/manifest-coverage-tests-2026-10-23.json",
+    "test_scorers": "doubles; not model quality"
+  },
+  "actual_runtime_evidence": [
+    "verification/render-manifest-coverage-2026-10-23.json",
+    "verification/render-coverage-browser-2026-10-23.json"
+  ],
+  "initial_verification_issues": [
+    {
+      "issue": "Verification script omitted repository root from Python import path",
+      "resolution": "Corrected in verification/verify_manifest_coverage.py and rerun successfully; application source unchanged"
+    },
+    {
+      "issue": "Chromium lacked the trusted execution proxy CA",
+      "resolution": "Recorded browser-only proxy certificate exception; separate HTTP health and inference requests used system TLS validation. Product TLS settings unchanged"
+    }
+  ],
+  "boundaries": [
+    "No independent relevance evaluation or measured reviewer-time benefit",
+    "No customer interviews, purchasing commitments or production adoption",
+    "No authentication, tenant isolation, new sponsor service or infrastructure added",
+    "DEV article remains unpublished; opening editor returned sign-in screen"
+  ],
+  "verification_scripts_corrected_after_application_release": true
+}

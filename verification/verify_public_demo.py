@@ -52,7 +52,7 @@ with sync_playwright() as p:
     assert demo['model_calls'] == 5 and demo['passage_count'] == 5 and demo['passages_omitted'] == 0
     assert demo['status'] == 'REVIEW_REQUIRED' and demo['generated_actions'] == []
     assert demo['model']['name'] == 'BAAI/bge-reranker-base'
-    assert '/status/ready' in page.locator('table').inner_text()
+    assert '/status/ready' in page.locator('table').first.inner_text()
     with page.expect_download() as download:
         page.get_by_role('button', name='Download JSON').click()
     assert json.loads(Path(download.value.path()).read_text())['model_calls'] == 5
@@ -92,6 +92,10 @@ with sync_playwright() as p:
         assert ranged['model_calls']==32 and ranged['passage_count']==16
         assert ranged['coverage']['unscored_query_passage_pairs']==0
         assert ranged['status']=='REVIEW_REQUIRED' and ranged['generated_actions']==[]
+        assert ranged['input_provenance']=='packaged_demo'
+        assert ranged['manifest_inventory']['outside_scope_changed_resources']==3
+        assert page.locator('#manifest-coverage table tbody tr').count()==3
+        assert page.locator('#manifest-coverage').is_visible()
         assert page.evaluate('document.documentElement.scrollWidth <= innerWidth')
         assert page.locator('a[href="#source-L124-L132"]').count()>=1
         with page.expect_download() as range_download:
@@ -100,7 +104,7 @@ with sync_playwright() as p:
         page.screenshot(path=str(root/'verification/range-mobile.png'),full_page=True)
         page.set_viewport_size({'width':1440,'height':1000})
         page.screenshot(path=str(root/'verification/range-desktop.png'),full_page=True)
-        range_summary={key:ranged[key] for key in ('changes','coverage','model_calls','passage_count','reading_tasks','processing_seconds')}
+        range_summary={key:ranged[key] for key in ('changes','coverage','model_calls','passage_count','reading_tasks','manifest_inventory','processing_seconds')}
     assert not errors
     result = {'checked_at':datetime.now(timezone.utc).isoformat(),'url':base,'actual_model':True,'test_double':False,'system_tls_health_checked':True,'browser_proxy_tls_exception':tls_exception,'health_status':health.status,'demo_status':review_response.value.status,'upload_status':response.value.status,'csrf_without_token_status':denied.status,'secure_session_cookie_checked':True,'json_download_checked':True,'markdown_download_checked':True,'desktop_viewport':[1440,1000],'mobile_viewport':[390,844],'browser_errors':errors,'demo_report':demo,'upload_model_calls':upload['model_calls']}
     if range_summary is not None: result['range_review']=range_summary

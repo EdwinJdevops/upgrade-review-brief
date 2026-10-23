@@ -40,7 +40,7 @@ The report now inventories every named resource in both supplied renders and mar
 
 For the selected Deployment, fixed categories identify other edited settings, such as replicas, environment/probe configuration, volumes or init containers. Their values and arbitrary field names are withheld from exports and model queries. Resource identifiers remain visible. Duplicate identities, unexpanded Kubernetes Lists and non-JSON YAML are rejected before inference. Namespace/API-version interpretation is literal; this is not Kubernetes semantic validation. Unchanged resources can still carry migration obligations.
 
-The update passes **85 unit tests**, including the real CLI exit behavior and browser redaction boundaries. These use scorer doubles, not accuracy measurements. Dated results for preceding releases below remain historical.
+The update passes **85 unit tests**, including the real CLI exit behavior and browser redaction boundaries. [GitHub Actions](https://github.com/EdwinJdevops/upgrade-review-brief/actions/runs/39975786774) passed. These tests use scorer doubles, not accuracy measurements. The same application revision is live on Render; [separate actual-model HTTP checks](verification/render-manifest-coverage-2026-10-23.json) verify the range inventory and sanitized Secret/replica-change upload with system TLS validation. [Public desktop/mobile checks](verification/render-coverage-browser-2026-10-23.json) also passed with real inference and both downloads; the browser proxy certificate exception is recorded. Dated results for preceding releases below remain historical.
 
 ## Current assessment
 
