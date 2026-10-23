@@ -1,0 +1,80 @@
+{
+  "checked_at": "2026-10-23T13:05:26.453096+00:00",
+  "kind": "author_run_same_input_ablation_not_independent_benchmark",
+  "case_sha256": "f2429cd0ae8fb12ee7b0b4cd85bd96f4aef7ff0859059c9ee2bad4dbb7f6b4d4",
+  "input_identities": {
+    "before": {
+      "path": "experiment/outputs/kong-old-proxy-only.yaml",
+      "sha256": "2f68c0a298dab25e39f780e6af5f84a332ba4abadb42cd92dfe15094d80d66b8"
+    },
+    "after": {
+      "path": "experiment/outputs/kong-new-proxy-only.yaml",
+      "sha256": "afe264e2482874ef8ce7c728dca3a95cb0569d74164d7367ee79b8b93e483450"
+    },
+    "notes": {
+      "path": "model-evaluation/sources/kong-guide.md",
+      "sha256": "327a5710b6d529d1b24e1200d8eaf60bf50a478a0ecf541b227e92394091248d",
+      "section": "2.26.0",
+      "url": "https://github.com/Kong/charts/blob/main/charts/kong/UPGRADE.md#2260"
+    }
+  },
+  "input_hashes": {
+    "before": "2f68c0a298dab25e39f780e6af5f84a332ba4abadb42cd92dfe15094d80d66b8",
+    "after": "afe264e2482874ef8ce7c728dca3a95cb0569d74164d7367ee79b8b93e483450",
+    "notes": "327a5710b6d529d1b24e1200d8eaf60bf50a478a0ecf541b227e92394091248d"
+  },
+  "model": {
+    "name": "BAAI/bge-reranker-base",
+    "revision": "2cfc18c9415c912f9d8155881c133215df768a70"
+  },
+  "model_initialized_and_executed": true,
+  "source_order": [
+    "L89-L97",
+    "L99-L99",
+    "L101-L105",
+    "L107-L111",
+    "L113-L114"
+  ],
+  "lexical_order": [
+    "L101-L105",
+    "L89-L97",
+    "L107-L111",
+    "L113-L114",
+    "L99-L99"
+  ],
+  "model_order": [
+    "L101-L105",
+    "L89-L97",
+    "L113-L114",
+    "L107-L111",
+    "L99-L99"
+  ],
+  "same_top_passage": true,
+  "identical_full_order": false,
+  "same_non_ranking_report_fields": [
+    "status",
+    "scope",
+    "deployment",
+    "from_chart",
+    "to_chart",
+    "input_identities",
+    "focused_change_query",
+    "changes",
+    "unresolved",
+    "passage_count",
+    "passages_omitted",
+    "generated_actions",
+    "live_identity_verified"
+  ],
+  "same_passage_identities": true,
+  "passages_retained_per_arm": 5,
+  "passages_omitted_per_arm": 0,
+  "model_windows": 5,
+  "local_timing_seconds": {
+    "lexical_report": 0.05,
+    "model_initialization_including_file_verification": 4.8878,
+    "model_report_after_initialization": 0.994
+  },
+  "timing_scope": "One local execution, lexical first; not a speed benchmark, Render measurement, or total reviewer time.",
+  "conclusion_boundary": "The model's demonstrated contribution is reading order and relevance scores/previews. Manifest findings, unknowns and source coverage are deterministic and unchanged. No relevance labels or reviewer outcomes were collected; an order difference cannot establish usefulness."
+}

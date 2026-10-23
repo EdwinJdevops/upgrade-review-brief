@@ -50,6 +50,8 @@ The test suite now has 58 passing tests covering these boundaries and the browse
 
 Earlier generative-model experiments were unsuccessful. A separate relevance-label trial matched only three of six author-defined labels. I retained those results. The replacement reranker placed the expected passage uniquely first for six author-defined queries; a shared-token baseline did so for five and tied on the remaining one. That small, non-independent check established feasibility for this prototype. It does not establish general accuracy or superiority over existing tools.
 
+A [same-input demo ablation](https://github.com/EdwinJdevops/upgrade-review-brief/blob/main/verification/demo-ablation-2026-10-23.json) also checks what the model actually adds. Keyword ranking and BGE chose the same first passage and swapped two lower passages. The diff, unanswered questions and source coverage stayed the same. That limits my claim to model-based reading order; it does not demonstrate that AI improves this review.
+
 ## Why Does Open Innovation Matter?
 
 The ranking step runs from inspectable, pinned open weights. It needs no model API key and can execute in an operator-controlled environment after the initial download. The application uses built-in model classes, verified safetensors files and an explicit revision rather than downloading remote model code at request time.
@@ -68,7 +70,7 @@ The migration guidance and chart belong to [Kong](https://github.com/Kong/charts
 
 ## Prize Categories
 
-I am entering **Best Use of Render**. Render hosts the live Python application and the BGE CPU inference runtime on one `1c-2g` service. It builds the pinned dependencies, verifies and loads the model weights, processes sanitized uploads and serves exportable review reports. The deployment has no database or persistent disk, and automatic deployments are disabled. The published compute price is $25/month before other usage charges; remaining promotional credits are not available through MCP, so I do not claim a verified balance or cost per user.
+I am entering **Best Use of Render**. Render hosts the live Python application and the BGE CPU inference runtime on one `1c-2g` service. It builds the pinned dependencies, verifies and loads the model weights, processes sanitized uploads and serves exportable review reports. The deployment has no database or persistent disk, and automatic deployments are disabled. The published compute price is $25/month before other usage charges; account credit was checked privately in the Dashboard. I do not publish private billing details or claim a measured cost per user. The platform HTTP health check now uses `/healthz`, confirmed through the Dashboard and service API.
 
 I am entering **Best Use of GitHub Copilot** through the challenge description's explicit GitHub Actions option. Actions automates tests, verified model preparation, CPU inference and publication of the review brief to the run summary. The workflow also includes an actual-model browser-route check when its optional model job is requested.
 

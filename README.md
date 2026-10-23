@@ -16,6 +16,10 @@ Open [Actions](https://github.com/EdwinJdevops/upgrade-review-brief/actions) and
 
 A push to main with `[model-demo]` in its commit message also requests the model job. Normal pushes run fast tests only. This keeps model downloads explicit. Standard public-repository GitHub-hosted runners are used; account policies and external download availability can still block a run.
 
+## Current assessment
+
+A working contest prototype; commercial adoption and useful incremental AI value remain unvalidated. [Current audit and next steps](AUDIT_AND_NEXT_STEPS.md) records seven concrete weaknesses and a new same-input ablation: keyword matching and BGE chose the same first demo passage. The model changed the lower reading order, not the manifest findings. Original application code has no selected LICENSE yet; upstream model and dependency terms are separate.
+
 ## Current evidence
 
 - The Render deployment is live. Public desktop/mobile checks exercised real inference: five evaluated windows and five retained passages per example/upload. [Public browser evidence](verification/render-public-browser-2026-10-23.json) records the checks and the execution proxy certificate exception.
