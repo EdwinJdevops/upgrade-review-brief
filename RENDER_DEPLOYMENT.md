@@ -1,6 +1,6 @@
 # Deploy the browser review on Render
 
-Status: code/configuration prepared; no live deployment or redeemed credit balance is claimed. The Render account connection is still required.
+Status, October 23: the MCP connection is verified. The inventory lists four free-plan web services, one static site and no Postgres/Key Value instances. No new service has been created. The session has no selected workspace; workspace selection is still required before deployment. The user reports claiming $50, but remaining credits cannot be verified through the exposed MCP tools. See verification/render-preflight-2026-10-23.json.
 
 ## Service definition
 
