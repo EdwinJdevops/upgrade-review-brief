@@ -27,8 +27,8 @@ class RequestScorer:
         self.model = model
         self.remaining = 32
 
-    def score(self, query, passage):
-        result = self.model.score(query, passage, window_limit=self.remaining)
+    def score(self, query, passage, window_limit=32):
+        result = self.model.score(query, passage, window_limit=min(self.remaining, window_limit))
         self.remaining -= result.get("window_count", 0)
         return result
 
@@ -96,7 +96,11 @@ def create_app(scorer=None, config=None):
             case[key] = {"path": filename, "sha256": hashlib.sha256(raw).hexdigest()}
             if key != "notes":
                 case["from_chart" if key == "before" else "to_chart"] = snapshot(text, selector)["chart_label"]
-        case["notes"].update(url=field("source_url", 2048), section=field("section"))
+        section = request.form.get("section", "").strip()
+        if section:
+            case["notes"].update(url=field("source_url", 2048), section=field("section"))
+        else:
+            case["notes"].update(url=field("source_url", 2048), selection="version_range")
         return case
 
     @app.post("/review")
@@ -121,6 +125,9 @@ def create_app(scorer=None, config=None):
                 if request.form.get("mode") == "demo":
                     root = ROOT
                     case = json.loads((ROOT / "brief-cases/kong-readiness.json").read_text())
+                elif request.form.get("mode") == "demo_range":
+                    root = ROOT
+                    case = json.loads((ROOT / "brief-cases/kong-range.json").read_text())
                 elif request.form.get("mode") == "upload":
                     root = Path(temp)
                     case = uploaded_case(root)
@@ -141,7 +148,7 @@ def create_app(scorer=None, config=None):
             return rendered
         except (EvidenceError, UnicodeError, yaml.YAMLError, TypeError, KeyError, RecursionError):
             # Parser errors can contain source text. Never put them in logs or responses.
-            return fail("Input validation failed. Check the Deployment selector, Helm labels, UTF-8 files, HTTPS source URL and unique level-two section heading.", 400)
+            return fail("Input validation failed. Check the Deployment selector, stable increasing Helm versions, UTF-8 files, HTTPS source URL and unique level-two guide headings. For unsupported version formats, supply an explicit section.", 400)
         except (OSError, ValueError, RuntimeError):
             app.logger.error("review_failed operational_error")
             return fail("The review could not finish. No approval or substitute model result was generated.", 503)

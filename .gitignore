@@ -13,3 +13,5 @@ runner-web-result.json
 runner-browser-server.log
 runner-browser-recording/
 docs/demo/browser-demo.webm
+
+runner-range-server.log

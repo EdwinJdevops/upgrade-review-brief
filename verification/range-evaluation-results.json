@@ -1,0 +1,135 @@
+{
+  "checked_at": "2026-10-23T13:45:59.914761+00:00",
+  "contract_sha256": "dbd485eaa030450baca072fbc5945f6d3767568e126651274c12c7df9a25f9c9",
+  "model": {
+    "name": "BAAI/bge-reranker-base",
+    "revision": "2cfc18c9415c912f9d8155881c133215df768a70"
+  },
+  "actual_model": true,
+  "test_double": false,
+  "combined_model": {
+    "reading_slots": [
+      "L101-L105",
+      "L118-L122",
+      "L89-L97",
+      "L124-L132"
+    ],
+    "prerequisite_passages_covered": [
+      "L124-L132",
+      "L89-L97"
+    ]
+  },
+  "per_change_model": {
+    "reading_slots": [
+      "L118-L122",
+      "L124-L132",
+      "L101-L105",
+      "L89-L97"
+    ],
+    "prerequisite_passages_covered": [
+      "L124-L132",
+      "L89-L97"
+    ],
+    "per_field_hit_at_2": {
+      "containers/proxy/readOnlyRootFilesystem": true,
+      "containers/proxy/readinessProbe.httpGet.path": true
+    },
+    "ranking_by_field": {
+      "containers/proxy/readOnlyRootFilesystem": [
+        "L118-L122",
+        "L124-L132",
+        "L56-L60",
+        "L62-L64",
+        "L107-L111",
+        "L41-L47",
+        "L49-L54",
+        "L101-L105",
+        "L74-L82",
+        "L113-L114",
+        "L84-L85",
+        "L99-L99",
+        "L89-L97",
+        "L134-L134",
+        "L72-L72",
+        "L66-L70"
+      ],
+      "containers/proxy/readinessProbe.httpGet.path": [
+        "L101-L105",
+        "L89-L97",
+        "L107-L111",
+        "L56-L60",
+        "L41-L47",
+        "L62-L64",
+        "L113-L114",
+        "L49-L54",
+        "L74-L82",
+        "L118-L122",
+        "L84-L85",
+        "L99-L99",
+        "L124-L132",
+        "L72-L72",
+        "L134-L134",
+        "L66-L70"
+      ]
+    }
+  },
+  "per_change_lexical": {
+    "reading_slots": [
+      "L118-L122",
+      "L49-L54",
+      "L89-L97",
+      "L101-L105"
+    ],
+    "prerequisite_passages_covered": [
+      "L89-L97"
+    ],
+    "per_field_hit_at_2": {
+      "containers/proxy/readOnlyRootFilesystem": false,
+      "containers/proxy/readinessProbe.httpGet.path": true
+    },
+    "ranking_by_field": {
+      "containers/proxy/readOnlyRootFilesystem": [
+        "L118-L122",
+        "L49-L54",
+        "L101-L105",
+        "L107-L111",
+        "L41-L47",
+        "L89-L97",
+        "L124-L132",
+        "L62-L64",
+        "L66-L70",
+        "L74-L82",
+        "L113-L114",
+        "L56-L60",
+        "L84-L85",
+        "L99-L99",
+        "L72-L72",
+        "L134-L134"
+      ],
+      "containers/proxy/readinessProbe.httpGet.path": [
+        "L89-L97",
+        "L101-L105",
+        "L49-L54",
+        "L41-L47",
+        "L107-L111",
+        "L118-L122",
+        "L56-L60",
+        "L113-L114",
+        "L124-L132",
+        "L62-L64",
+        "L74-L82",
+        "L66-L70",
+        "L84-L85",
+        "L99-L99",
+        "L72-L72",
+        "L134-L134"
+      ]
+    }
+  },
+  "selected_passages": 16,
+  "passages_omitted": 0,
+  "model_windows": 32,
+  "unscored_query_passage_pairs": 0,
+  "local_report_seconds_excluding_model_initialization": 7.255,
+  "scope": "One controlled same-chart historical render; author labels, no independent engineer or timing outcomes. Not general accuracy or incident prevention."
+}

@@ -166,6 +166,11 @@ def build_brief(case, root, scorer=None):
             or parsed_url.scheme != "https" or not parsed_url.hostname or parsed_url.username or parsed_url.password):
         raise EvidenceError("Source URL must be HTTPS without embedded credentials")
     text = read_checked(root, source, 200_000)
+    if source.get("selection") == "version_range":
+        from review_plan import build_range_brief
+        return build_range_brief(case, old, new, source, text, scorer)
+    if source.get("selection") not in (None, "section"):
+        raise EvidenceError("Unknown source selection mode")
     passages = note_passages(text, source.get("section"))
     changes = difference(old, new)
     # Narrow query: no Secrets, env values, annotations, headers, commands or full manifest bodies.
@@ -218,7 +223,19 @@ def markdown(report):
         lines.append(f"- `{safe(change['field'])}`: `{safe(json.dumps(change['before']))}` → `{safe(json.dumps(change['after']))}`")
     if not report["changes"]:
         lines.append("No difference in the limited selected fields. Other changes may exist.")
-    lines += ["", "## Migration passages, ordered for review", "", "All selected-section passages are retained. Scores are relative relevance, not confidence.", ""]
+    if "reading_tasks" in report:
+        lines += ["", "## Reading for each change", "", "Scores are comparable only within each task. Every task still requires human review.", ""]
+        for task in report["reading_tasks"]:
+            lines += [f"### {safe(task['field'])}", "", safe(task["query"])]
+            for item in task["readings"][:3]:
+                lines.append(f"- {safe(item['id'])}: {safe(item['score'])}; {safe(item['reason'])}")
+            lines.append(f"Scored: {task['scored_passages']}; unscored: {task['unscored_passages']}.")
+        lines += ["", "## Source selection ledger", "", safe(report["coverage"]["warning"])]
+        for item in report["coverage"]["sections"]:
+            lines.append(f"- {safe(item['heading'])}: {'included' if item['included'] else 'excluded'} ({safe(item['reason'])})")
+        if report["coverage"]["changes_without_dedicated_query"]:
+            lines.append("Changes without a dedicated query: " + safe(report["coverage"]["changes_without_dedicated_query"]))
+    lines += ["", "## Migration source passages", "", "All selected passages are retained. Scores are relative relevance, not confidence.", ""]
     for passage in report["source_passages"]:
         lines += [f"- **{safe(passage['id'])}** · score `{passage['score']}` · `{safe(passage['source_path'])}`", 
                   f"  Source: {safe(passage['source_url'])}", f"  Excerpt preview: {safe(passage['exact_excerpt'])}" if passage["exact_excerpt"] else "  Read the recorded source lines; excerpt budget exhausted."]

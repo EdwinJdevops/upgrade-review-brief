@@ -1,0 +1,25 @@
+{
+  "checked_at": "2026-10-23T13:53:33.138432+00:00",
+  "local_only": true,
+  "actual_model": true,
+  "test_double": false,
+  "desktop": [
+    1440,
+    1000
+  ],
+  "mobile": [
+    390,
+    844
+  ],
+  "model_windows_per_review": 32,
+  "passages_per_review": 16,
+  "per_change_queries": 2,
+  "unscored_pairs": 0,
+  "automatic_upload_selection": true,
+  "json_download": true,
+  "markdown_download": true,
+  "no_horizontal_overflow": true,
+  "page_errors": [],
+  "request_processing_seconds": 8.115,
+  "status": "REVIEW_REQUIRED"
+}

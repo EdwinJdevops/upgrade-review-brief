@@ -1,0 +1,84 @@
+{
+  "kind": "controlled_official_chart_render_not_live_upgrade",
+  "chart_index": "https://charts.konghq.com/index.yaml",
+  "historical_before_archive": "https://github.com/Kong/charts/releases/download/kong-2.18.0/kong-2.18.0.tgz",
+  "before_archive_sha256": "85e687471e16bf4b1c7887aae53d0e2c29111105f33ac963c813dc6ad67d52f9",
+  "values_path": "experiment/inputs/kong-new-proxy-only.yaml",
+  "values_sha256": "250b0113e0f99ba8bbe823ef19563c05be8d6fda3bf25afbed972cef3b9b709c",
+  "helm": "v3.12.3+g3a31588",
+  "runtime_verified": false,
+  "records": [
+    {
+      "role": "before",
+      "path": "experiment/outputs/kong-range-before.yaml",
+      "sha256": "d33e6e87d29a42913c8b9f91540f76af7b12d1f7ea95ff42233891e4260ba85b",
+      "chart_archive_sha256": "85e687471e16bf4b1c7887aae53d0e2c29111105f33ac963c813dc6ad67d52f9",
+      "snapshot": {
+        "chart_label": "kong-2.18.0",
+        "document_index": 2,
+        "containers": {
+          "proxy": {
+            "image": "kong:3.3.0",
+            "readOnlyRootFilesystem": null,
+            "readinessProbe.httpGet.path": "/status",
+            "readinessProbe.httpGet.port": "status",
+            "livenessProbe.httpGet.path": "/status",
+            "livenessProbe.httpGet.port": "status",
+            "startupProbe.httpGet.path": null,
+            "startupProbe.httpGet.port": null
+          }
+        }
+      },
+      "command": [
+        "experiment/tools/helm",
+        "template",
+        "upgrade-review",
+        "experiment/inputs/kong-2.18.0.tgz",
+        "--namespace",
+        "review",
+        "--kube-version",
+        "1.27.3",
+        "--is-upgrade",
+        "--values",
+        "experiment/inputs/kong-new-proxy-only.yaml"
+      ],
+      "stderr": "WARNING: Kubernetes configuration file is group-readable. This is insecure. Location: /dev/null\nWARNING: Kubernetes configuration file is world-readable. This is insecure. Location: /dev/null\n"
+    },
+    {
+      "role": "after",
+      "path": "experiment/outputs/kong-range-after.yaml",
+      "sha256": "afe264e2482874ef8ce7c728dca3a95cb0569d74164d7367ee79b8b93e483450",
+      "chart_archive_sha256": "c28136139149b21ea1e7ef82bd64d8b8021b221ecc4a8668a7e447631c9a1203",
+      "snapshot": {
+        "chart_label": "kong-2.26.0",
+        "document_index": 2,
+        "containers": {
+          "proxy": {
+            "image": "kong:3.3.0",
+            "readOnlyRootFilesystem": true,
+            "readinessProbe.httpGet.path": "/status/ready",
+            "readinessProbe.httpGet.port": "status",
+            "livenessProbe.httpGet.path": "/status",
+            "livenessProbe.httpGet.port": "status",
+            "startupProbe.httpGet.path": null,
+            "startupProbe.httpGet.port": null
+          }
+        }
+      },
+      "command": [
+        "experiment/tools/helm",
+        "template",
+        "upgrade-review",
+        "experiment/inputs/kong-2.26.0.tgz",
+        "--namespace",
+        "review",
+        "--kube-version",
+        "1.27.3",
+        "--is-upgrade",
+        "--values",
+        "experiment/inputs/kong-new-proxy-only.yaml"
+      ],
+      "stderr": "WARNING: Kubernetes configuration file is group-readable. This is insecure. Location: /dev/null\nWARNING: Kubernetes configuration file is world-readable. This is insecure. Location: /dev/null\n"
+    }
+  ]
+}

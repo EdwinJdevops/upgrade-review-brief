@@ -1,5 +1,6 @@
 """Browser boundary tests. Scorer doubles do not establish model quality."""
 import html
+import hashlib
 import io
 import json
 from pathlib import Path
@@ -71,6 +72,45 @@ class WebTests(unittest.TestCase):
             data["csrf"] = csrf
             self.assertEqual(self.client.post("/review", data=data).status_code, 403)
         self.assertEqual(self.scorer.calls, [])
+
+    def test_blank_section_selects_version_range_and_emits_reading_coverage(self):
+        data = self.data("## General notes\nCheck prerequisites.\n## 2.26.0\nReadiness changes.\n## 2.27.0\nFuture material.")
+        data["section"] = ""
+        response = self.client.post("/review", data=data)
+        self.assertEqual(response.status_code,200)
+        report = self.report(response)
+        self.assertEqual(report["coverage"]["mode"],"version_range")
+        self.assertEqual({p["section"] for p in report["source_passages"]},{"General notes","2.26.0"})
+        self.assertEqual(len(report["reading_tasks"]),1)
+        self.assertFalse(report["coverage"]["version_history_complete_verified"])
+
+    def test_range_demo_uses_two_actual_render_changes(self):
+        # Network-free test: real committed renders, synthetic guide and scorer.
+        from webapp import ROOT
+        case=json.loads((ROOT/"brief-cases/kong-range.json").read_text())
+        with tempfile.TemporaryDirectory() as temp:
+            root=Path(temp)
+            for key in ("before","after"):
+                dest=root/case[key]["path"]
+                dest.parent.mkdir(parents=True,exist_ok=True)
+                dest.write_bytes((ROOT/case[key]["path"]).read_bytes())
+            guide="## General notes\nGeneral prerequisites.\n## 2.19.0\nFilesystem conditions.\n## 2.26.0\nHealth conditions.\n"
+            dest=root/case["notes"]["path"]
+            dest.parent.mkdir(parents=True,exist_ok=True)
+            dest.write_text(guide)
+            case["notes"]["sha256"]=hashlib.sha256(guide.encode()).hexdigest()
+            (root/"brief-cases").mkdir()
+            (root/"brief-cases/kong-range.json").write_text(json.dumps(case))
+            with patch("webapp.ROOT",root):
+                response = self.client.post("/review",data={"csrf":self.csrf,"mode":"demo_range"})
+        self.assertEqual(response.status_code,200)
+        report = self.report(response)
+        self.assertEqual(report["from_chart"],"kong-2.18.0")
+        self.assertEqual(report["to_chart"],"kong-2.26.0")
+        self.assertEqual(len(report["changes"]),2)
+        self.assertEqual(report["model_calls"],6)
+        self.assertEqual(report["coverage"]["unscored_query_passage_pairs"],0)
+        self.assertEqual(report["status"],"REVIEW_REQUIRED")
 
     def test_alias_yaml_rejected_before_inference(self):
         data = self.data()

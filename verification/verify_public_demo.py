@@ -11,6 +11,8 @@ from playwright.sync_api import sync_playwright
 
 parser = argparse.ArgumentParser(description=__doc__)
 parser.add_argument('url')
+parser.add_argument('--output',type=Path,help='New evidence path; preserve historical records')
+parser.add_argument('--check-range',action='store_true',help='Also exercise the version-range review with actual inference')
 parser.add_argument('--allow-proxy-certificate', action='store_true', help='Only for a trusted execution proxy whose CA is absent from Chromium; system TLS health verification remains mandatory.')
 args = parser.parse_args()
 base = args.url.rstrip('/')
@@ -79,9 +81,31 @@ with sync_playwright() as p:
     assert upload['input_provenance'] == 'user_supplied_bytes_not_authenticated'
     assert upload['model_calls'] == 5 and upload['passages_omitted'] == 0
     assert page.evaluate('document.documentElement.scrollWidth <= innerWidth')
+    range_summary = None
+    if args.check_range:
+        page.goto(base+'/',wait_until='networkidle')
+        with page.expect_navigation(wait_until='networkidle',timeout=90000) as range_response:
+            page.get_by_role('button',name='Review the version range').click()
+        assert range_response.value.status == 200
+        ranged=json.loads(page.locator('#report-json').input_value())
+        assert len(ranged['reading_tasks'])==2 and len(ranged['changes'])==2
+        assert ranged['model_calls']==32 and ranged['passage_count']==16
+        assert ranged['coverage']['unscored_query_passage_pairs']==0
+        assert ranged['status']=='REVIEW_REQUIRED' and ranged['generated_actions']==[]
+        assert page.evaluate('document.documentElement.scrollWidth <= innerWidth')
+        assert page.locator('a[href="#source-L124-L132"]').count()>=1
+        with page.expect_download() as range_download:
+            page.get_by_role('button',name='Download JSON').click()
+        assert len(json.loads(Path(range_download.value.path()).read_text())['coverage']['sections'])>=3
+        page.screenshot(path=str(root/'verification/range-mobile.png'),full_page=True)
+        page.set_viewport_size({'width':1440,'height':1000})
+        page.screenshot(path=str(root/'verification/range-desktop.png'),full_page=True)
+        range_summary={key:ranged[key] for key in ('changes','coverage','model_calls','passage_count','reading_tasks','processing_seconds')}
     assert not errors
     result = {'checked_at':datetime.now(timezone.utc).isoformat(),'url':base,'actual_model':True,'test_double':False,'system_tls_health_checked':True,'browser_proxy_tls_exception':tls_exception,'health_status':health.status,'demo_status':review_response.value.status,'upload_status':response.value.status,'csrf_without_token_status':denied.status,'secure_session_cookie_checked':True,'json_download_checked':True,'markdown_download_checked':True,'desktop_viewport':[1440,1000],'mobile_viewport':[390,844],'browser_errors':errors,'demo_report':demo,'upload_model_calls':upload['model_calls']}
-    (root/'verification/render-public-browser-2026-10-23.json').write_text(json.dumps(result,indent=2)+'\n')
+    if range_summary is not None: result['range_review']=range_summary
+    output=args.output or (root/'verification/render-public-browser-2026-10-23.json')
+    output.write_text(json.dumps(result,indent=2)+'\n')
     print(json.dumps({k:v for k,v in result.items() if k!='demo_report'},indent=2))
     context.close()
     browser.close()

@@ -1,5 +1,7 @@
 # Product and contest audit — October 23, 2026
 
+Update: the subsequent version-range/per-change feature, local checks and frozen comparison are documented in PRODUCT_EVOLUTION.md. The historical single-section ablation below remains valid; it does not describe every later feature. Commercial validation is still outstanding.
+
 ## Decision
 
 Continue the bounded Week 3 submission. Do not call the product commercially validated or ready for broad adoption. The deployable feature prepares migration reading for a platform engineer reviewing a Helm change. Its model contribution and customer value still need stronger evidence.

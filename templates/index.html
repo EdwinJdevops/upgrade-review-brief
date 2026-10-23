@@ -1,6 +1,6 @@
 {% extends 'base.html' %}
 {% block content %}
-<div class="eyebrow">HELM MIGRATION REVIEW / RESEARCH PROTOTYPE</div>
+<div class="eyebrow">HELM MIGRATION REVIEW / SOURCE-LINKED EVIDENCE</div>
 <section class="hero">
   <h1>Less digging.<br><span>More context.</span></h1>
   <div class="intro"><p>Turn a deployment diff and migration guide into a source-linked review brief.</p><p class="muted">An open-weight model orders the reading. You make the upgrade decision.</p></div>
@@ -14,8 +14,16 @@
     <small>Real CPU inference. No model API key.</small>
   </form>
 </section>
+<section class="demo card">
+  <div><div class="eyebrow">REVIEW ACROSS SKIPPED RELEASES</div><h2>One upgrade.<br>Several migration questions.</h2><p>Kong 2.18.0 → 2.26.0. Select the intervening release notes and general guidance automatically, then prepare separate reading for the readiness and filesystem changes.</p></div>
+  <form action="/review" method="post" data-review-form>
+    <input type="hidden" name="csrf" value="{{ session.csrf }}"><input type="hidden" name="mode" value="demo_range">
+    <button type="submit" {% if not model_ready %}disabled{% endif %}>Review the version range <span>↗</span></button>
+    <small>Controlled chart renders. No live-cluster approval.</small>
+  </form>
+</section>
 <section class="workspace">
-  <div class="workspace-heading"><div class="eyebrow">02 / BRING YOUR OWN EVIDENCE</div><h2>Prepare your review.</h2><p class="muted">One Deployment. One selected migration section. Every source passage retained.</p></div>
+  <div class="workspace-heading"><div class="eyebrow">02 / BRING YOUR OWN EVIDENCE</div><h2>Prepare your review.</h2><p class="muted">One Deployment. Automatic version-range selection or an explicit guide section. Separate reading for each change.</p></div>
   <form action="/review" method="post" enctype="multipart/form-data" class="card upload" data-review-form>
     <input type="hidden" name="csrf" value="{{ session.csrf }}"><input type="hidden" name="mode" value="upload">
     <div class="file-grid">
@@ -26,7 +34,7 @@
     <div class="field-grid">
       <label>Deployment name<input name="deployment" maxlength="200" required autocomplete="off"></label>
       <label>Namespace<input name="namespace" maxlength="200" required autocomplete="off"></label>
-      <label>Migration section heading<input name="section" maxlength="200" placeholder="2.26.0" required><small>Exact text after a ## heading</small></label>
+      <label>Migration section heading (optional)<input name="section" maxlength="200" placeholder="Automatic from chart versions"><small>Leave blank for stable X.Y.Z release headings and general context, or enter exact text after ##.</small></label>
       <label>Documentation source URL<input type="url" name="source_url" maxlength="2048" placeholder="https://…" required><small>Recorded as provenance; never fetched</small></label>
     </div>
     <p class="privacy">Files are sent to this server for processing and deleted from its temporary directory afterward. No hosted model API is called. Use sanitized inputs; do not upload secrets.</p>

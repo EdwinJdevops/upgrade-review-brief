@@ -1,0 +1,6 @@
+{
+  "tests": 68,
+  "result": "passed",
+  "guide_directory_absent_during_run": true,
+  "scorer_doubles_not_model_accuracy": true
+}

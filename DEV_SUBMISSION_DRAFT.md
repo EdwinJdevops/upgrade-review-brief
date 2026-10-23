@@ -16,6 +16,8 @@ Upgrade Review Brief prepares that reading for a platform engineer. Give it the 
 
 The part I want to automate is collecting and arranging the evidence before the review. The decision remains with the engineer.
 
+The expanded workflow also handles a controlled Kong 2.18.0 → 2.26.0 review. The official chart renders change both the read-only-root setting and readiness path. Instead of asking the reviewer to know the relevant section, it selects intervening stable release headings and general guidance, creates separate reading questions for the two changes, and records what it excluded or could not score. The CLI accepts the three files directly and calculates their input identities.
+
 ## Demo
 
 [Try the live application on Render](https://upgrade-review-brief.onrender.com). Choose the controlled example, or upload sanitized inputs for one selected Deployment. The server runs the open-weight relevance model itself; there is no hosted model API call in the ranking path.
@@ -46,11 +48,13 @@ BAAI's `bge-reranker-base`, running through PyTorch and Transformers, scores the
 
 Configuration examples stay with their preceding conditions. Long passages use overlapping token windows. The browser adapter allows at most 32 model windows per request and one inference request at a time. Files are processed in a temporary directory and removed afterward. Supplied source URLs are recorded rather than fetched; supplied filenames never become server paths. Inputs are identified by hashes, which establish byte correspondence rather than publisher authenticity.
 
-The test suite now has 58 passing tests covering these boundaries and the browser adapter. Browser testing found a multipart size limit that rejected the supplied guide; I corrected it and added a regression test. I also moved excerpt allocation after ranking so the most relevant passage receives a preview rather than losing it to earlier source order.
+The test suite now has 68 passing tests covering these boundaries and the browser adapter. Browser testing found a multipart size limit that rejected the supplied guide; I corrected it and added a regression test. I also moved excerpt allocation after ranking so the most relevant passage receives a preview rather than losing it to earlier source order.
 
 Earlier generative-model experiments were unsuccessful. A separate relevance-label trial matched only three of six author-defined labels. I retained those results. The replacement reranker placed the expected passage uniquely first for six author-defined queries; a shared-token baseline did so for five and tied on the remaining one. That small, non-independent check established feasibility for this prototype. It does not establish general accuracy or superiority over existing tools.
 
 A [same-input demo ablation](https://github.com/EdwinJdevops/upgrade-review-brief/blob/main/verification/demo-ablation-2026-10-23.json) also checks what the model actually adds. Keyword ranking and BGE chose the same first passage and swapped two lower passages. The diff, unanswered questions and source coverage stayed the same. That limits my claim to model-based reading order; it does not demonstrate that AI improves this review.
+
+A later [frozen multi-change evaluation](https://github.com/EdwinJdevops/upgrade-review-brief/blob/main/verification/range-evaluation-results.json) tests the expanded workflow on 16 passages selected from the same pinned guide. Within two reading slots for each of two changed fields, BGE surfaced both author-labeled prerequisite passages; keyword matching surfaced one. A combined BGE query also found both within four slots. The improvement over keyword matching is specific to this controlled case. No independent engineer, complete-review timing or live upgrade outcome was measured.
 
 ## Why Does Open Innovation Matter?
 
@@ -62,7 +66,7 @@ The browser version makes a different hosting trade-off from running the CLI you
 
 The application assembles the selected diff, ordered reading and unanswered questions in one exportable brief. That is the work it currently automates. I have not measured total engineer time saved, production readiness or customer demand.
 
-Only one Deployment, selected fields and an explicitly chosen documentation section are covered. Other resources and skipped releases can contain essential migration requirements. A successful report always says **REVIEW REQUIRED**; it never authorizes a deployment.
+Only one Deployment and selected fields are compared. The reviewer can choose a section or use stable-heading version-range selection; the latter retains general guidance and reports all section decisions. It does not prove complete history or applicability. Other resources and skipped releases can contain essential migration requirements. A successful report always says **REVIEW REQUIRED**; it never authorizes a deployment.
 
 ## Attribution
 
