@@ -1,0 +1,7 @@
+Operation: cua.createBrowserTab for the authorized Render service dashboard.
+Observed URL: https://dashboard.render.com/login?next=%2Fweb%2Fsrv-dbdl4ca9lscs73c4urq0
+Observed title: Render Dashboard
+Visible heading: Sign In to Render
+Visible sign-in methods: GitHub, GitLab, Bitbucket, Google, Email and Password.
+No credentials entered. No temporary service created.
+The connected Render MCP works for deployments and logs but exposes no restart or delete operation in this session.

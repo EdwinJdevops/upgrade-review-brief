@@ -15,6 +15,7 @@ from flask import Flask, jsonify, render_template, request, session
 import yaml
 
 from download_reranker import MODEL, REVISION
+from memory_measurement import observe_inference_rss
 from review_artifacts import EvidenceError
 from upgrade_brief import build_brief, markdown, snapshot
 
@@ -138,7 +139,8 @@ def create_app(scorer=None, config=None):
                     raise EvidenceError("Choose the example or three-file review")
                 # Complete validation before any model computation.
                 build_brief(case, root)
-                report = build_brief(case, root, RequestScorer(model))
+                with observe_inference_rss() as memory:
+                    report = build_brief(case, root, RequestScorer(model))
                 report["model"] = {"name": MODEL, "revision": REVISION, "runtime": "server_cpu_float32"}
                 report["processing_seconds"] = round(time.monotonic() - now, 3)
                 report["input_provenance"] = "packaged_demo" if request.form.get("mode") in ("demo", "demo_range") else "user_supplied_bytes_not_authenticated"
@@ -148,6 +150,8 @@ def create_app(scorer=None, config=None):
                 rendered = render_template("report.html", report=report, report_markdown=markdown(report))
             app.logger.info("review_complete passages=%d model_windows=%d elapsed_seconds=%.3f",
                             report["passage_count"], report["model_calls"], report["processing_seconds"])
+            app.logger.info("inference_memory sampled_peak_rss_bytes=%s sampling_interval_ms=%s process_lifetime_peak_rss_bytes=%s",
+                            memory["sampled_peak_rss_bytes"], memory["sampling_interval_ms"], memory["process_lifetime_peak_rss_bytes"])
             return rendered
         except (EvidenceError, UnicodeError, yaml.YAMLError, TypeError, KeyError, RecursionError):
             # Parser errors can contain source text. Never put them in logs or responses.

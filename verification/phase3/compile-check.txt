@@ -1,0 +1,2 @@
+$ py_compile memory_measurement.py verification/measure_render.py
+exit_code=0

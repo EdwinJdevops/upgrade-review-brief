@@ -1,0 +1,47 @@
+{
+  "artifact_id": 12568014171,
+  "zip_sha256": "9cce107d8000859c8cbc036d2ffab7fb7a64bab5f436cd8292ee622790473ce5",
+  "normalized_differences": [
+    {
+      "path": "/source_passages/0/score",
+      "local": 4.337753,
+      "github": 4.337754
+    },
+    {
+      "path": "/source_passages/0/window_scores/0",
+      "local": 4.337753,
+      "github": 4.337754
+    },
+    {
+      "path": "/source_passages/1/score",
+      "local": 0.323547,
+      "github": 0.323546
+    },
+    {
+      "path": "/source_passages/1/window_scores/0",
+      "local": 0.323547,
+      "github": 0.323546
+    },
+    {
+      "path": "/source_passages/3/score",
+      "local": -0.899069,
+      "github": -0.899068
+    },
+    {
+      "path": "/source_passages/3/window_scores/0",
+      "local": -0.899069,
+      "github": -0.899068
+    },
+    {
+      "path": "/source_passages/4/score",
+      "local": -6.618974,
+      "github": -6.618956
+    },
+    {
+      "path": "/source_passages/4/window_scores/0",
+      "local": -6.618974,
+      "github": -6.618956
+    }
+  ],
+  "note": "Full JSON hashes differ. No scores were rounded or removed to make them match."
+}

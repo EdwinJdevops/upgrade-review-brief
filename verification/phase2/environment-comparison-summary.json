@@ -1,0 +1,7 @@
+{
+  "maximum_absolute_score_difference": 1.7999999999851468e-05,
+  "differing_fields": 8,
+  "only_score_and_window_score_fields_differ": true,
+  "general_determinism_claim": "DROPPED",
+  "completed_at_utc": "2026-10-24T17:25:22.926722+00:00"
+}

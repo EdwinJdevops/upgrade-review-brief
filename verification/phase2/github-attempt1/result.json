@@ -1,0 +1,42 @@
+{
+  "checked_at_utc": "2026-10-24T17:22:55.813313+00:00",
+  "runs": [
+    {
+      "run": 1,
+      "command": [
+        "/opt/hostedtoolcache/Python/3.12.15/x64/bin/python",
+        "upgrade_brief.py",
+        "brief-cases/kong-readiness.json",
+        "--root",
+        ".",
+        "--model-dir",
+        "/home/runner/work/upgrade-review-brief/upgrade-review-brief/.models/bge-reranker-base",
+        "--format",
+        "json"
+      ],
+      "exit_code": 0,
+      "normalized_sha256": "eaadf7b38e31b26c42e06317abec6a98da99538614cb4cdd107bd90d050eef54"
+    }
+  ],
+  "removed_keys_only": [
+    "checked_at",
+    "created_at",
+    "elapsed_seconds",
+    "generated_at",
+    "inference_seconds",
+    "processing_seconds",
+    "timestamp"
+  ],
+  "python": "3.12.15 (main, Oct  1 2026, 02:35:59) [GCC 13.3.0]",
+  "machine": "x86_64",
+  "platform": "Linux-6.17.0-1022-azure-x86_64-with-glibc2.39",
+  "environment_settings": {
+    "RERANKER_CPU_THREADS": "1",
+    "TOKENIZERS_PARALLELISM": "false",
+    "OMP_NUM_THREADS": "1"
+  },
+  "all_hashes_match": true,
+  "expected_hash": "59fe287518e29c37dc810687281a384bcbfd46fa7ec6bba37b19c405f7ec518e",
+  "expected_hash_match": false,
+  "scope": "Only these executions of the fixed Kong input on the recorded environment; no guarantee for other inputs or hardware."
+}

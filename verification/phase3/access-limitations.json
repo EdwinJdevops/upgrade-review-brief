@@ -1,0 +1,9 @@
+{
+  "render_connector_missing_operations": [
+    "restart service",
+    "delete service",
+    "rollback deployment"
+  ],
+  "local_browser_runtime": "No Browser extension js tool exposed in current ALL_TOOLS discovery",
+  "fallback": "Check the authorized Render dashboard in the available cloud browser before creating a temporary service."
+}

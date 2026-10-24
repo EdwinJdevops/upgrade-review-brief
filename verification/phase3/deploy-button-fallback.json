@@ -1,0 +1,7 @@
+{
+  "result": "NOT RUN",
+  "button_removed": true,
+  "reason": "Dashboard is signed out; no connector operation can delete the paid temporary service. No temporary service was created.",
+  "deviation": "Applied fallback immediately on an access blocker instead of spending thirty minutes repeating sign-in attempts.",
+  "observed_at_utc": "2026-10-24T17:28:07.322039+00:00"
+}

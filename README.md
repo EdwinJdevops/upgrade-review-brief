@@ -22,9 +22,7 @@ python prepare_brief_source.py
 python upgrade_brief.py brief-cases/kong-readiness.json --root . --lexical-baseline
 ```
 
-[![Deploy to Render](https://render.com/images/deploy-to-render-button.svg)](https://dashboard.render.com/blueprint/new?repo=https://github.com/EdwinJdevops/upgrade-review-brief)
-
-Deploy button verification is pending. The existing hosted service was created separately from the Blueprint.
+Fresh-service Blueprint verification is blocked by dashboard sign-in and unavailable connector cleanup operations. The Deploy button is omitted until that check is completed. The existing hosted service was created separately from the Blueprint.
 
 ## Scope and limits
 

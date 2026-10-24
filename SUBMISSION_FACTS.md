@@ -40,6 +40,19 @@ Only claims with evidence belong in the submission. Historical documents are not
 | Same-machine CLI repetition | 10 actual model CLI runs; all stripped hashes match: 59fe287518e29c37dc810687281a384bcbfd46fa7ec6bba37b19c405f7ec518e | verification/phase2/local/result.json and run-*.stdout.json | .venv/bin/python verification/check_determinism.py --runs 10 --model-dir .models/bge-reranker-base --output-directory verification/phase2/local |
 | Determinism normalization | Removes named timing/timestamp fields only; retains scores and order | verification/phase2/normalization-test.txt | .venv/bin/python -m unittest discover -s tests -p test_determinism_normalization.py -v |
 
+| GitHub hash comparison | MISMATCH; actual CLI exit 0, comparison script exit 1 | verification/phase2/github-attempt1/result.json and github-job-attempt1.log | GitHub run 40115767782; python verification/check_determinism.py --runs 1 --model-dir .models/bge-reranker-base --output-directory verification/phase2/github --expected-hash 59fe287518e29c37dc810687281a384bcbfd46fa7ec6bba37b19c405f7ec518e |
+| General determinism claim | DROPPED under Phase 2 fallback; score floats differ across tested environments | verification/phase2/environment-comparison.json and verdict.md | Recursive comparison of normalized JSON artifacts |
+
+| Dashboard access for cold restart and disposable service | NOT RUN beyond sign-in wall; no temporary paid service created | verification/phase3/dashboard-access.txt and access-limitations.json | cua.createBrowserTab authorized Render dashboard; current connector capability discovery |
+| Public compute price | 1c-2g web compute listed at USD 25 per month; not a credit-balance statement | verification/phase3/pricing.txt and pricing.http.json | urllib GET https://render.com/pricing; HTML text extraction |
+
+| Current Phase 3 clock and working test status | See raw timestamp and test summary | verification/phase3/status-clock.json and working-tests.txt | Python datetime UTC subtraction and .venv/bin/python -m unittest discover -s tests -v |
+| Phase 3 instrumentation | RSS observation code and HTTP measurement harness written locally; not deployed or measured yet | memory_measurement.py and verification/measure_render.py | Local file creation; live execution pending |
+
+| Phase 2 main SHA | de6f883e55e78b9e08a9c894f02044d3fbad4434 | verification/phase2/github-jobs-attempt1.json | GitHub GET workflow jobs |
+| Phase 3 release snapshot tests | 103 tests; exit 0 | verification/phase3/snapshot-tests.txt | git archive HEAD, copy named instrumentation files, .venv/bin/python -m unittest discover -s tests -v |
+| Deploy button | Removed; fresh-service test NOT RUN due sign-in and cleanup capability blocker | verification/phase3/deploy-button-fallback.json | README edit following access observation |
+
 ## May claim
 
 - The official deadline and internal schedule above.
@@ -60,4 +73,4 @@ Only claims with evidence belong in the submission. Historical documents are not
 
 ## Work not yet measured
 
-Phases 0 and 1 completed, with the documented conditional Docker skip and metadata handoff. Phase 2 is in progress. Phases 3 through 8 are NOT RUN under this directive. Earlier work must not be relabelled as a newly executed phase. Every subsequent measurement adds its command and raw output here.
+Phases 0 and 1 completed, with the documented conditional Docker skip and metadata handoff. Phase 2 execution completed with the mismatch fallback and general determinism claim dropped. Phases 3 through 8 are NOT RUN under this directive. Earlier work must not be relabelled as a newly executed phase. Every subsequent measurement adds its command and raw output here.
