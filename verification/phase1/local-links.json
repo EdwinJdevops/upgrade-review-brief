@@ -1,0 +1,263 @@
+{
+  "command": "Python pathlib existence check for Markdown links in README.md and docs/**/*.md",
+  "checked": [
+    {
+      "source": "README.md",
+      "target": "docs/demo/report-desktop.png",
+      "exists": true
+    },
+    {
+      "source": "README.md",
+      "target": "SUBMISSION_FACTS.md",
+      "exists": true
+    },
+    {
+      "source": "README.md",
+      "target": "evaluation/PROTOCOL.md",
+      "exists": true
+    },
+    {
+      "source": "README.md",
+      "target": "SUBMISSION_FACTS.md",
+      "exists": true
+    },
+    {
+      "source": "README.md",
+      "target": "docs/demo/browser-demo.mp4",
+      "exists": true
+    },
+    {
+      "source": "README.md",
+      "target": "SUBMISSION_FACTS.md",
+      "exists": true
+    },
+    {
+      "source": "README.md",
+      "target": "docs/SUBMISSION_CHECKLIST.md",
+      "exists": true
+    },
+    {
+      "source": "README.md",
+      "target": "RENDER_DEPLOYMENT.md",
+      "exists": true
+    },
+    {
+      "source": "README.md",
+      "target": "docs/EVIDENCE.md",
+      "exists": true
+    },
+    {
+      "source": "README.md",
+      "target": "docs/KNOWN_WEAKNESSES.md",
+      "exists": true
+    },
+    {
+      "source": "README.md",
+      "target": "docs/PRODUCT_EVOLUTION.md",
+      "exists": true
+    },
+    {
+      "source": "README.md",
+      "target": "evaluation/PROTOCOL.md",
+      "exists": true
+    },
+    {
+      "source": "README.md",
+      "target": "THIRD_PARTY_NOTICES.md",
+      "exists": true
+    },
+    {
+      "source": "README.md",
+      "target": "LICENSE",
+      "exists": true
+    },
+    {
+      "source": "docs/SUBMISSION_CHECKLIST.md",
+      "target": "../verification/phase0/official-web-fetch.json",
+      "exists": true
+    },
+    {
+      "source": "docs/SUBMISSION_CHECKLIST.md",
+      "target": "../verification/phase0/official-template.md",
+      "exists": true
+    },
+    {
+      "source": "docs/SUBMISSION_CHECKLIST.md",
+      "target": "../verification/phase0/clock.json",
+      "exists": true
+    },
+    {
+      "source": "docs/INVESTIGATION.md",
+      "target": "../SUBMISSION_FACTS.md",
+      "exists": true
+    },
+    {
+      "source": "docs/AUDIT_AND_NEXT_STEPS.md",
+      "target": "../SUBMISSION_FACTS.md",
+      "exists": true
+    },
+    {
+      "source": "docs/HACKATHON_BUILD.md",
+      "target": "../SUBMISSION_FACTS.md",
+      "exists": true
+    },
+    {
+      "source": "docs/EVIDENCE.md",
+      "target": "../SUBMISSION_FACTS.md",
+      "exists": true
+    },
+    {
+      "source": "docs/EVIDENCE.md",
+      "target": "../RENDER_DEPLOYMENT.md",
+      "exists": true
+    },
+    {
+      "source": "docs/EVIDENCE.md",
+      "target": "../verification/render-deployment-2026-10-23.json",
+      "exists": true
+    },
+    {
+      "source": "docs/EVIDENCE.md",
+      "target": "CONTEST_READINESS.md",
+      "exists": true
+    },
+    {
+      "source": "docs/EVIDENCE.md",
+      "target": "../verification/range-evaluation-results.json",
+      "exists": true
+    },
+    {
+      "source": "docs/EVIDENCE.md",
+      "target": "PRODUCT_EVOLUTION.md",
+      "exists": true
+    },
+    {
+      "source": "docs/EVIDENCE.md",
+      "target": "../verification/render-manifest-coverage-2026-10-23.json",
+      "exists": true
+    },
+    {
+      "source": "docs/EVIDENCE.md",
+      "target": "../verification/render-coverage-browser-2026-10-23.json",
+      "exists": true
+    },
+    {
+      "source": "docs/EVIDENCE.md",
+      "target": "../verification/kong-source-binding-2026-10-23.json",
+      "exists": true
+    },
+    {
+      "source": "docs/EVIDENCE.md",
+      "target": "JUDGE_AND_COMPETITOR_REVIEW.md",
+      "exists": true
+    },
+    {
+      "source": "docs/EVIDENCE.md",
+      "target": "AUDIT_AND_NEXT_STEPS.md",
+      "exists": true
+    },
+    {
+      "source": "docs/EVIDENCE.md",
+      "target": "../verification/render-range-release-2026-10-23.json",
+      "exists": true
+    },
+    {
+      "source": "docs/EVIDENCE.md",
+      "target": "../verification/render-public-browser-2026-10-23.json",
+      "exists": true
+    },
+    {
+      "source": "docs/EVIDENCE.md",
+      "target": "../verification/web-browser-2026-10-23.json",
+      "exists": true
+    },
+    {
+      "source": "docs/EVIDENCE.md",
+      "target": "demo/browser-demo.mp4",
+      "exists": true
+    },
+    {
+      "source": "docs/EVIDENCE.md",
+      "target": "demo/home-desktop.png",
+      "exists": true
+    },
+    {
+      "source": "docs/EVIDENCE.md",
+      "target": "demo/report-desktop.png",
+      "exists": true
+    },
+    {
+      "source": "docs/EVIDENCE.md",
+      "target": "../verification/demo-brief.md",
+      "exists": true
+    },
+    {
+      "source": "docs/EVIDENCE.md",
+      "target": "../verification/demo-brief.json",
+      "exists": true
+    },
+    {
+      "source": "docs/EVIDENCE.md",
+      "target": "HACKATHON_BUILD.md",
+      "exists": true
+    },
+    {
+      "source": "docs/EVIDENCE.md",
+      "target": "../DEV_SUBMISSION_DRAFT.md",
+      "exists": true
+    },
+    {
+      "source": "docs/EVIDENCE.md",
+      "target": "../THIRD_PARTY_NOTICES.md",
+      "exists": true
+    },
+    {
+      "source": "docs/BROWSER_START.md",
+      "target": "../SUBMISSION_FACTS.md",
+      "exists": true
+    },
+    {
+      "source": "docs/PRODUCT_EVOLUTION.md",
+      "target": "../SUBMISSION_FACTS.md",
+      "exists": true
+    },
+    {
+      "source": "docs/JUDGE_AND_COMPETITOR_REVIEW.md",
+      "target": "KNOWN_WEAKNESSES.md",
+      "exists": true
+    },
+    {
+      "source": "docs/KNOWN_WEAKNESSES.md",
+      "target": "../SUBMISSION_FACTS.md",
+      "exists": true
+    },
+    {
+      "source": "docs/FINAL_VERIFICATION.md",
+      "target": "../SUBMISSION_FACTS.md",
+      "exists": true
+    },
+    {
+      "source": "docs/BUILD_BRIEF.md",
+      "target": "../SUBMISSION_FACTS.md",
+      "exists": true
+    },
+    {
+      "source": "docs/CONTEST_READINESS.md",
+      "target": "../SUBMISSION_FACTS.md",
+      "exists": true
+    },
+    {
+      "source": "docs/CONTEST_READINESS.md",
+      "target": "KNOWN_WEAKNESSES.md",
+      "exists": true
+    },
+    {
+      "source": "docs/CONTEST_READINESS.md",
+      "target": "AUDIT_AND_NEXT_STEPS.md",
+      "exists": true
+    }
+  ],
+  "errors": [],
+  "license_sha256": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30",
+  "completed_at_utc": "2026-10-24T17:12:33.113953+00:00"
+}

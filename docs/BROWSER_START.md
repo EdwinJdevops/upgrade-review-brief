@@ -1,8 +1,10 @@
+> Historical working notes. Current submission claims require evidence in [SUBMISSION_FACTS.md](../SUBMISSION_FACTS.md).
+
 # Run and submit from a browser
 
 Repository: https://github.com/EdwinJdevops/upgrade-review-brief
 
-[Successful test and CPU model demonstration](https://github.com/EdwinJdevops/upgrade-review-brief/actions/runs/39942834494) — 45 tests passed, followed by five actual BGE evaluations and a generated report with no passages omitted. Source/model files were checked against pinned identities. No WSL or model API key was required.
+[Successful test and CPU model demonstration](https://github.com/EdwinJdevops/upgrade-review-brief/actions/runs/39942834494) ; 45 tests passed, followed by five actual BGE evaluations and a generated report with no passages omitted. Source/model files were checked against pinned identities. No WSL or model API key was required.
 
 ## Inspect or repeat the demonstration
 

@@ -1,0 +1,10 @@
+{
+  "content": [
+    {
+      "type": "text",
+      "text": "{\"commit\":{\"createdAt\":\"2026-10-24T16:46:20Z\",\"id\":\"86b9f0265e0a60414ed0df70cf05dc29b4f5450e\",\"message\":\"Record contest baseline and expose deployed revision in health check\"},\"createdAt\":\"2026-10-24T17:06:10.063608Z\",\"id\":\"dep-dbeeb0ivcj2c73cmed60\",\"startedAt\":\"2026-10-24T17:06:10.035268Z\",\"status\":\"build_in_progress\",\"trigger\":\"api\",\"updatedAt\":\"2026-10-24T17:06:10.063608Z\"}"
+    }
+  ],
+  "structuredContent": null,
+  "isError": false
+}

@@ -1,6 +1,8 @@
-# Week 3 readiness audit — October 23, 2026
+> Historical working notes. Current submission claims require evidence in [SUBMISSION_FACTS.md](../SUBMISSION_FACTS.md).
 
-Rechecked against the official challenge, contest-specific rules and general rules on October 23. The latest critique and concrete changes are in [JUDGE_AND_COMPETITOR_REVIEW.md](JUDGE_AND_COMPETITOR_REVIEW.md).
+# Week 3 readiness audit ; October 23, 2026
+
+Rechecked against the official challenge, contest-specific rules and general rules on October 23. The latest critique and concrete changes are in [JUDGE_AND_COMPETITOR_REVIEW.md](KNOWN_WEAKNESSES.md).
 
 This is a working research prototype. It is not a submitted entry, a certified upgrade checker or a validated commercial platform. [The current product audit](AUDIT_AND_NEXT_STEPS.md) records the same-input model ablation, seven weaknesses and the next validation steps.
 

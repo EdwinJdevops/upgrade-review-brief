@@ -1,0 +1,10 @@
+{
+  "content": [
+    {
+      "type": "text",
+      "text": "[{\"commit\":{\"createdAt\":\"2026-10-23T15:09:02Z\",\"id\":\"cc516074e570961088db688a677fca3be58729a0\",\"message\":\"Expose manifest edits outside review scope and add an opt-in CI guard\"},\"createdAt\":\"2026-10-23T15:43:03.038693Z\",\"finishedAt\":\"2026-10-23T15:45:34.178988Z\",\"id\":\"dep-dbdo11nf3r2c73da1qqg\",\"startedAt\":\"2026-10-23T15:43:03.005103Z\",\"status\":\"live\",\"trigger\":\"api\",\"updatedAt\":\"2026-10-23T15:46:07.69528Z\"},{\"commit\":{\"createdAt\":\"2026-10-23T14:20:17Z\",\"id\":\"8f518bd4c55eba69451cfc9a7bb8b2338acdec40\",\"message\":\"Correct preamble line numbering and retain BM25 comparison evidence\"},\"createdAt\":\"2026-10-23T14:21:11.936622Z\",\"finishedAt\":\"2026-10-23T14:23:44.765526Z\",\"id\":\"dep-dbdmqloae00c738oama0\",\"startedAt\":\"2026-10-23T14:21:11.908517Z\",\"status\":\"deactivated\",\"trigger\":\"api\",\"updatedAt\":\"2026-10-23T15:45:34.178062Z\"}]\n\n cursor: GnhiV2DTL-hxbG9hZTAwYzczOG9hbWEw"
+    }
+  ],
+  "structuredContent": null,
+  "isError": false
+}

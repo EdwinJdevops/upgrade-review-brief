@@ -12,19 +12,32 @@ Only claims with evidence belong in the submission. Historical documents are not
 | Render health path | /healthz | verification/phase0/render-service.json | Render get_service service srv-dbdl4ca9lscs73c4urq0 |
 | Automatic deployment setting | off | verification/phase0/render-service.json | Render get_service |
 | Render commit environment variable | RENDER_GIT_COMMIT | verification/phase0/render-env.raw | urllib GET https://render.com/docs/environment-variables.md |
-| Original code licence decision | Apache-2.0, owner instructed and may overrule | docs/SUBMISSION_CHECKLIST.md and owner directive in conversation | Owner directive R9; licence file not yet added |
+| Original code licence decision | Apache-2.0, owner instructed and may overrule | docs/SUBMISSION_CHECKLIST.md and owner directive in conversation | Owner directive R9; file added in Phase 1 workspace |
 | Prior uncommitted work exists | Action, CLI and documentation changes precede this directive | verification/phase0/git-status.txt | git status --short |
 | Source retrieval limitation | Direct DEV HTTP requests returned 403; web retrieval used instead | verification/phase0/source-fetch-errors.txt and official-web-fetch.json | urllib GET, then search_service.web_run |
-
 | baseline-tests | 98 tests; exit 0 | verification/phase0/baseline-tests.txt | .venv/bin/python -m unittest discover -s tests -v |
 | phase0-snapshot-tests | 100 tests; exit 0 | verification/phase0/phase0-snapshot-tests.txt | .venv/bin/python -m unittest discover -s tests -v |
 | working-tests | 114 tests; exit 0 | verification/phase0/working-tests.txt | .venv/bin/python -m unittest discover -s tests -v |
+| Phase 0 pushed SHA | 86b9f0265e0a60414ed0df70cf05dc29b4f5450e | verification/phase0/resume-main.json | GitHub GET branches/main |
+| Phase 0 CI | run 40113113412 concluded success | verification/phase0/resume-ci.json | GitHub GET actions/runs?per_page=1 |
+| Resume time and remaining time | see raw UTC values in resume-clock.json | verification/phase0/resume-clock.json | Python datetime UTC subtraction |
+| Phase 0 deploy request | dep-dbeeb0ivcj2c73cmed60 accepted; terminal status recorded separately below | verification/phase0/deploy-trigger.json | Render trigger_deploy |
+| Phase 0 health identity | git_sha equals 86b9f0265e0a60414ed0df70cf05dc29b4f5450e; HTTP 200 | verification/phase0/health-after.json | urllib GET /healthz and exact SHA assertion |
+| Phase 0 live examples | Original, range and sanitised upload checks completed with real inference | verification/phase0/live-example-command.txt and live-example.json | .venv/bin/python verification/verify_manifest_coverage.py --commit 86b9f0265e0a60414ed0df70cf05dc29b4f5450e --output verification/phase0/live-example.json |
+| Phase 0 deploy status | live | verification/phase0/deploy-live.json | Render get_deploy dep-dbeeb0ivcj2c73cmed60 |
+| Apache-2.0 licence file | Downloaded official licence text; original code only | verification/phase1/license-fetch.json and local-links.json | urllib GET https://www.apache.org/licenses/LICENSE-2.0.txt; hashlib.sha256 LICENSE |
+| Documentation links | 51 local file targets checked; no missing files | verification/phase1/local-links.json | Python pathlib existence check over README.md and docs/**/*.md |
+| Quickstart comparison | Lexical report generated; not model inference | verification/phase1/quickstart-report.txt and quickstart-source.txt | .venv/bin/python prepare_brief_source.py; .venv/bin/python upgrade_brief.py brief-cases/kong-readiness.json --root . --lexical-baseline |
+| Repo metadata proposal | Description and topics recorded; remote metadata NOT SET | verification/phase1/repository-metadata.json | Local JSON generation; no metadata-write capability exposed |
+| Docker build | NOT RUN; Docker executable absent; no Dockerfile added | verification/phase0/tool-availability.json | shutil.which docker |
+
+| Phase completion clock | see UTC and remaining seconds | verification/phase1/completion-clock.json | Python datetime UTC subtraction |
 
 ## May claim
 
 - The official deadline and internal schedule above.
 - The baseline repository and Render settings above, clearly identified as baseline.
-- Apache-2.0 is the owner's instructed licence decision, not an inferred permission grant. File addition remains pending.
+- Apache-2.0 is the owner's instructed licence decision, not an inferred permission grant. File added in the Phase 1 workspace; publication is recorded separately.
 
 ## Must NOT claim
 
@@ -40,4 +53,4 @@ Only claims with evidence belong in the submission. Historical documents are not
 
 ## Work not yet measured
 
-Phases 1 through 8 are NOT RUN under this directive. Earlier work must not be relabelled as a newly executed phase. Phase 0 is in progress. Every subsequent measurement adds its command and raw output here.
+Phase 0 checks completed. Phase 1 is in progress. Phases 2 through 8 are NOT RUN under this directive. Earlier work must not be relabelled as a newly executed phase. Every subsequent measurement adds its command and raw output here.

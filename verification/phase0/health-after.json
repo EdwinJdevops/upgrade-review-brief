@@ -1,0 +1,8 @@
+{
+  "status": 200,
+  "body": {
+    "git_sha": "86b9f0265e0a60414ed0df70cf05dc29b4f5450e",
+    "status": "ready"
+  },
+  "observed_at_utc": "2026-10-24T17:11:15.558131+00:00"
+}

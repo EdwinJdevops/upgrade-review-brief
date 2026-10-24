@@ -33,13 +33,13 @@ with sync_playwright() as p:
     # The execution proxy's CA is trusted by urllib but not this Chromium profile.
     # Validate health with the system TLS trust first; record the browser exception.
     with urllib.request.urlopen(base + '/healthz', timeout=30) as tls_health:
-        assert tls_health.status == 200 and json.loads(tls_health.read()) == {'status':'ready'}
+        assert tls_health.status == 200 and json.loads(tls_health.read())['status'] == 'ready'
     context = browser.new_context(viewport={'width':1440,'height':1000},ignore_https_errors=tls_exception)
     page = context.new_page()
     errors = []
     page.on('pageerror', lambda error: errors.append(str(error)))
     health = page.request.get(base + '/healthz', timeout=30000)
-    assert health.status == 200 and health.json() == {'status':'ready'}
+    assert health.status == 200 and health.json()['status'] == 'ready'
     home = page.goto(base + '/', wait_until='networkidle', timeout=60000)
     assert home.status == 200
     assert 'frame-ancestors' in home.headers['content-security-policy']

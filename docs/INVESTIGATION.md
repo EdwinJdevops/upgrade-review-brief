@@ -1,3 +1,5 @@
+> Historical working notes. Current submission claims require evidence in [SUBMISSION_FACTS.md](../SUBMISSION_FACTS.md).
+
 # Upgrade-review investigation and executed evidence
 
 Research and execution date: October 20, 2026. Prepared for Edwin Jonathan.
@@ -132,12 +134,12 @@ International credibility would come from reproducible cases, measured limits an
 ## Source list
 
 1. https://github.com/external-secrets/external-secrets/issues/4662
-2. https://github.com/external-secrets/external-secrets/issues/5478 — body and discussion reviewed.
-3. https://github.com/external-secrets/external-secrets/issues/4816 — body and discussion reviewed.
-4. https://github.com/prometheus-community/helm-charts/issues/4981 — body and discussion reviewed; linked fix not executed.
+2. https://github.com/external-secrets/external-secrets/issues/5478 ; body and discussion reviewed.
+3. https://github.com/external-secrets/external-secrets/issues/4816 ; body and discussion reviewed.
+4. https://github.com/prometheus-community/helm-charts/issues/4981 ; body and discussion reviewed; linked fix not executed.
 5. https://github.com/prometheus-community/helm-charts/issues/3792
-6. https://github.com/prometheus-community/helm-charts/issues/7230 — body and available discussion reviewed.
-7. https://github.com/kubernetes/kube-state-metrics/blob/v2.14.0/README.md — blob `0108cede906f11d049a07b3d095b622ec5a4d957`; Kong guide blob `893527759a66e5293aded6999f8c6879b634c6d6`: https://github.com/Kong/charts/blob/main/charts/kong/UPGRADE.md#2260
+6. https://github.com/prometheus-community/helm-charts/issues/7230 ; body and available discussion reviewed.
+7. https://github.com/kubernetes/kube-state-metrics/blob/v2.14.0/README.md ; blob `0108cede906f11d049a07b3d095b622ec5a4d957`; Kong guide blob `893527759a66e5293aded6999f8c6879b634c6d6`: https://github.com/Kong/charts/blob/main/charts/kong/UPGRADE.md#2260
 8. https://www.plural.sh/products/upgrade-management
 9. https://docs.plural.sh/plural-features/k8s-upgrade-assistant/addon-compatibilities
 10. https://kubegrade.com/

@@ -1,4 +1,6 @@
-# Build decision — Helm upgrade review
+> Historical working notes. Current submission claims require evidence in [SUBMISSION_FACTS.md](../SUBMISSION_FACTS.md).
+
+# Build decision ; Helm upgrade review
 
 Decision date: October 20, 2026. Working description, not a cleared product brand.
 
@@ -96,7 +98,7 @@ Post-event, test a bounded paid review/pilot before an unlimited subscription. T
 
 1. Week 3 prompt and partner requirements: https://dev.to/challenges/hacktoberfest-week3-2026-10-19
 2. Specific entry period and rules: https://dev.to/page/hacktoberfest-week3-2026-10-19-contest-rules
-3. Kong guide: https://github.com/Kong/charts/blob/main/charts/kong/UPGRADE.md#2260 — file Git blob SHA `893527759a66e5293aded6999f8c6879b634c6d6`, not a commit ID.
+3. Kong guide: https://github.com/Kong/charts/blob/main/charts/kong/UPGRADE.md#2260 ; file Git blob SHA `893527759a66e5293aded6999f8c6879b634c6d6`, not a commit ID.
 4. Qwen model card: https://huggingface.co/Qwen/Qwen3-8B
 5. Backboard model catalog and explicit routing: https://docs.backboard.io/concepts/models
 6. Tinker supported models and pricing: https://tinker-docs.thinkingmachines.ai/tinker/models/models_and_pricing/

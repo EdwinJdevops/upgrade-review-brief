@@ -1,4 +1,6 @@
-# Product and contest audit — October 23, 2026
+> Historical working notes. Current submission claims require evidence in [SUBMISSION_FACTS.md](../SUBMISSION_FACTS.md).
+
+# Product and contest audit ; October 23, 2026
 
 Update: the subsequent version-range/per-change feature, local checks and frozen comparison are documented in PRODUCT_EVOLUTION.md. The historical single-section ablation below remains valid; it does not describe every later feature. Commercial validation is still outstanding.
 

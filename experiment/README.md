@@ -1,4 +1,4 @@
-# Chart rendering experiment — October 20, 2026
+# Chart rendering experiment ; October 20, 2026
 
 This directory records nine executed render observations across two chart families. All configurations are controlled lab inputs. They are not customer deployments or production failures. No Kubernetes runtime, model inference, paid service or cloud deployment was exercised.
 

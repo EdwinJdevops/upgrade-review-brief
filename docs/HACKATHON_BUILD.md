@@ -1,4 +1,6 @@
-# Upgrade review brief — bounded Hacktoberfest build
+> Historical working notes. Current submission claims require evidence in [SUBMISSION_FACTS.md](../SUBMISSION_FACTS.md).
+
+# Upgrade review brief ; bounded Hacktoberfest build
 
 Browser implementation update, October 23: the project now includes a Flask browser interface, bounded sanitized uploads, JSON/Markdown downloads, Render configuration and 58 passing tests. An actual-model browser-route check passed locally (five evaluated windows, all five passages retained). Render is now live and publicly verified; DEV publication remains unfinished. See verification/render-deployment-2026-10-23.json. See CONTEST_READINESS.md for current requirement/category status; the sections below retain earlier implementation-stage history.
 

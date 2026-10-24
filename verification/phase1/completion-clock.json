@@ -1,0 +1,9 @@
+{
+  "observed_at_utc": "2026-10-24T17:13:57.593165+00:00",
+  "phase0_completed_at_utc": "2026-10-24T17:13:57.593165+00:00",
+  "phase1_completed_at_utc": "2026-10-24T17:13:57.593165+00:00",
+  "freeze_utc": "2026-10-26T00:59:00+00:00",
+  "deadline_utc": "2026-10-26T06:59:00+00:00",
+  "seconds_before_freeze": 114302.406835,
+  "seconds_before_deadline": 135902.406835
+}

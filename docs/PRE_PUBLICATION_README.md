@@ -1,4 +1,4 @@
-# Helm upgrade review — local evidence brief
+# Helm upgrade review ; local evidence brief
 
 Created October 20, 2026, during the published Week 3 entry period.
 

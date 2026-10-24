@@ -24,7 +24,9 @@ def main():
     base = args.base_url.rstrip("/")
     opener = urllib.request.build_opener(urllib.request.HTTPCookieProcessor(http.cookiejar.CookieJar()))
     with opener.open(base + "/healthz", timeout=30) as response:
-        assert response.status == 200 and json.load(response) == {"status": "ready"}
+        health = json.load(response)
+        assert response.status == 200 and health["status"] == "ready"
+        assert health["git_sha"] == args.commit
 
     def token():
         with opener.open(base + "/", timeout=30) as response:

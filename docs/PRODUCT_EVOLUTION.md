@@ -1,4 +1,6 @@
-# Version-range migration review — October 23, 2026
+> Historical working notes. Current submission claims require evidence in [SUBMISSION_FACTS.md](../SUBMISSION_FACTS.md).
+
+# Version-range migration review ; October 23, 2026
 
 This implementation addresses two measured limitations of the original reading brief: users had to identify a section themselves, and all changes shared one reading order. It keeps the engine local/CI-capable and the hosted deployment within the existing single-instance configuration.
 
@@ -64,3 +66,11 @@ The direct CLI accepts `--fail-on-unreviewed-changes`: emit the normal report, t
 85 unit tests pass, including CLI subprocess exits, changed Secrets with withheld payloads/keys, unsupported Deployment settings, init containers, probe timing/actions, API-version/namespace changes, YAML type changes, duplicate identities, browser output redaction and pre-inference validation. These are software tests using scorer doubles. `verification/verify_manifest_coverage.py` separately exercises real hosted inference and the new inventory with sanitized fixtures; its execution result must be read separately rather than assumed from the script's presence.
 
 The deployed coverage revision is `cc516074e570961088db688a677fca3be58729a0`; its Actions test job succeeded and optional model-download job was skipped. Public actual-model HTTP and desktop/mobile checks passed, including the full range example, sanitized uploads and exports. See verification/render-coverage-release-2026-10-23.json for the exact revision and evidence. The first HTTP harness attempt found an import-path omission, corrected before the successful rerun. Chromium lacked the execution proxy CA; the browser-only exception is recorded separately from successful system-TLS HTTP checks. These verification fixes required no application redeploy.
+
+## Local CI draft before the master directive
+
+The following implementation remained local and unverified on a runner at the start of the directive. It is not a deployed-release claim.
+
+The direct-file CLI now emits a complete REVIEW_REQUIRED report and exits 3 by default, even when focused fields are unchanged. `--report-only` explicitly returns 0 for successful informational generation; `--fail-on-unreviewed-changes` can additionally enforce coverage in that mode. Exit 2 denotes failure. This deliberately changes the previous default and never creates an APPROVED outcome. The case-file CLI remains a report generator.
+
+A composite Action consumes already-rendered files and runs this contract on an Ubuntu CPU runner, with model mode by default and explicit lexical comparison. Inputs are passed as data, workspace paths are bounded, model preparation is temporary, failures have no lexical fallback, and reports/runner outputs are preserved before the review-required exit. It does not execute charts, write PR comments or access a cluster. The parser wheel hashes are locked; the full model/web transitive environment and container supply-chain artifacts remain separate work. See CI_USAGE.md and REVIEWER_FEEDBACK_DECISIONS.md.

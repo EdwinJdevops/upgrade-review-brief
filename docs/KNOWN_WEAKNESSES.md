@@ -1,4 +1,6 @@
-# Judge and competitor review — October 23, 2026
+> Historical working notes. Current submission claims require evidence in [SUBMISSION_FACTS.md](../SUBMISSION_FACTS.md).
+
+# Judge and competitor review ; October 23, 2026
 
 ## Verdict
 
@@ -37,7 +39,7 @@ The criteria name writing as the strongest factor but publish no numeric weights
 
 ## Seven competitor attacks
 
-1. **“Remove the model and most of the product remains.”** The diff, section selection, inventory, checksums and unknowns are deterministic. The original demo selected the same top passage without BGE. The range experiment is stronger—both author-labeled conditions surfaced versus one for token overlap—but a combined model query also found both. Defend only the observed ranking behavior. A stronger lexical system or normal engineer review could still be equivalent or better.
+1. **“Remove the model and most of the product remains.”** The diff, section selection, inventory, checksums and unknowns are deterministic. The original demo selected the same top passage without BGE. The range experiment is stronger;both author-labeled conditions surfaced versus one for token overlap;but a combined model query also found both. Defend only the observed ranking behavior. A stronger lexical system or normal engineer review could still be equivalent or better.
 
 2. **“Your evaluation is too small and self-authored.”** Two conditions in one chart family are not an independent benchmark. The author assembled the inputs and labels; BM25 was added post hoc. The source is historical. Freeze new tasks and expected prerequisites before inspecting outputs, involve an independent engineer, retain failures and include more chart families. Do not relabel the existing experiment as held-out evidence.
 
@@ -57,7 +59,7 @@ The strongest investor objection is willingness to pay: a real technical workflo
 
 1. **Finish the entry:** publish the truthful, shorter DEV draft before the deadline, with the live app/code, attribution and actual categories. Verify receipt/visibility. Owner-controlled sign-in and binding entry acceptance remain separate from code deployment. Avoid extending the technical scope to postpone publication.
 2. **Fix the demonstrated trust defects:** immutable packaged citations, explicit reference warnings, precise single-section links and metadata/body distinctions are implemented in this revision. The guide bytes, model revision and original experiment labels/results are unchanged. New software tests and release checks identify their exact revision; they do not become new AI-benefit measurements.
-3. **Validate the task:** use CUSTOMER_REVIEW_INTAKE.md with authorized sanitized historical work. Compare the full existing workflow—including its search/assistant tools—with our local/CI brief. Freeze expected critical prerequisites first, counterbalance task order and record preparation, review and correction effort separately. Seek five reviewers across two teams and ten tasks across at least three chart families; these are practical research targets, not a statistical guarantee.
+3. **Validate the task:** use CUSTOMER_REVIEW_INTAKE.md with authorized sanitized historical work. Compare the full existing workflow;including its search/assistant tools;with our local/CI brief. Freeze expected critical prerequisites first, counterbalance task order and record preparation, review and correction effort separately. Seek five reviewers across two teams and ten tasks across at least three chart families; these are practical research targets, not a statistical guarantee.
 4. **Agree the success threshold before observing outcomes:** a proposed gate is at least 20% lower median total active effort, no increase in missed critical prerequisites, repeat use on a later task and a named budget owner willing to discuss a bounded paid pilot. The team must agree the threshold; no gate is currently passed. If a simpler method is equivalent, reduce or replace the model's role instead of defending it for contest fit.
 5. **Choose delivery from evidence:** start with local/CI review inside the existing PR. Build authenticated hosted private review only if users need it; then validate tenant isolation, independent quotas, cleanup/error handling, dependency management, load/cost behavior and operational recovery. Do not add queues, databases, multi-cloud deployment or sponsor SDKs without measured need.
 

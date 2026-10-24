@@ -1,0 +1,14 @@
+{
+  "description": "Link Helm Deployment changes to migration-guide evidence with local open-weight ranking.",
+  "topics": [
+    "helm",
+    "kubernetes",
+    "devops",
+    "render",
+    "open-source-ai",
+    "migration",
+    "python"
+  ],
+  "metadata_write": "NOT RUN: installed connector exposes no repository metadata update operation",
+  "docker": "NOT RUN: docker executable absent; no Dockerfile added"
+}

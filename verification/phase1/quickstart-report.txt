@@ -1,0 +1,52 @@
+# Upgrade review brief
+
+**REVIEW REQUIRED**
+
+One explicitly selected Deployment; image, HTTP probe path/port and read-only-root settings only
+
+kong-2.25.0 → kong-2.26.0
+
+## Focused manifest changes
+
+- `containers/proxy/readinessProbe.httpGet.path`: `"/status"` → `"/status/ready"`
+
+## Manifest coverage inventory
+
+Inventory detects supplied content changes, not their risk or applicability. Unchanged resources may still need migration review. Identifiers are shown; unselected field values and keys are withheld. A null namespace means omitted, not an inferred default. API-version changes appear as removal plus addition. Lists must be expanded before upload. Sequence order can create content changes; resource document order, mapping order and YAML comments do not.
+
+Resources with changes outside the focused scope: 3.
+- apps/v1 Deployment review/upgrade-review-kong: modified; content areas: metadata, resource_body; outside focused scope; pod_metadata_and_template_fields
+- v1 Service review/upgrade-review-kong-proxy: modified; content areas: metadata; outside focused scope
+- v1 ServiceAccount review/upgrade-review-kong: modified; content areas: metadata; outside focused scope
+
+## Migration source passages
+
+All selected passages are retained. Scores are relative relevance, not confidence.
+
+Source link uses a full Git commit reference. This review checks supplied file hashes; it does not fetch the link or authenticate its contents.
+
+- **L101-L105** · score `8` · `model-evaluation/sources/kong-guide.md`
+  Source: https://github.com/Kong/charts/blob/b39300d09d6d70297dc437015d4a49e484b7b77d/charts/kong/UPGRADE.md#L101-L105
+  Excerpt preview: 2.26 changes the default proxy readiness
+- **L89-L97** · score `7` · `model-evaluation/sources/kong-guide.md`
+  Source: https://github.com/Kong/charts/blob/b39300d09d6d70297dc437015d4a49e484b7b77d/charts/kong/UPGRADE.md#L89-L97
+  Excerpt preview: If you are using controller version
+- **L107-L111** · score `3` · `model-evaluation/sources/kong-guide.md`
+  Source: https://github.com/Kong/charts/blob/b39300d09d6d70297dc437015d4a49e484b7b77d/charts/kong/UPGRADE.md#L107-L111
+  Read the recorded source lines; excerpt budget exhausted.
+- **L113-L114** · score `3` · `model-evaluation/sources/kong-guide.md`
+  Source: https://github.com/Kong/charts/blob/b39300d09d6d70297dc437015d4a49e484b7b77d/charts/kong/UPGRADE.md#L113-L114
+  Read the recorded source lines; excerpt budget exhausted.
+- **L99-L99** · score `0` · `model-evaluation/sources/kong-guide.md`
+  Source: https://github.com/Kong/charts/blob/b39300d09d6d70297dc437015d4a49e484b7b77d/charts/kong/UPGRADE.md#L99-L99
+  Read the recorded source lines; excerpt budget exhausted.
+
+## Unresolved
+
+- This brief does not verify a live cluster, a supported upgrade path or runtime readiness.
+- Only the explicitly selected source section and Deployment fields were considered.
+- Every source passage remains listed; relevance scores are neither applicability nor approval.
+- No colocated ingress-controller appears in the selected Deployment. An external controller's version and relationship are not established by this input.
+
+Mode: lexical_baseline; model calls: 0; omitted passages: 0.
+

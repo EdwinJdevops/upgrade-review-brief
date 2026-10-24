@@ -1,4 +1,6 @@
-# Verification verdict — October 20, 2026
+> Historical working notes. Current submission claims require evidence in [SUBMISSION_FACTS.md](../SUBMISSION_FACTS.md).
+
+# Verification verdict ; October 20, 2026
 
 Current status: CONTEST_READINESS.md supersedes this document for contest requirements and sponsor decisions. HACKATHON_BUILD.md records the later bounded CLI/browser implementation, 58 passing tests and executed open-weight inference. The commercial NO-GO below remains. Its earlier extraction failure is not a reason to block the separate, narrower hackathon build. The original tables below describe the historical checker/extraction stage; the complete contest submission remains unpublished.
 

@@ -1,4 +1,4 @@
-# Existing-tool comparison — October 20, 2026
+# Existing-tool comparison ; October 20, 2026
 
 ## Decision
 
