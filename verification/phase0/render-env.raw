@@ -1,0 +1,299 @@
+# Default Environment Variables
+
+Render automatically sets the values of certain environment variables for your service.
+
+Unless otherwise noted, these environment variables are available at both build time and runtime.
+
+> *Environment variable values are always strings.*
+>
+> In your application logic, perform any necessary conversions for variable values that represent other data types, such as `"false"` or `"10000"`.
+
+## By runtime
+
+### All runtimes
+
+###### `IS_PULL_REQUEST`
+
+This value is `true` for [pull request previews](service-previews) and `false` otherwise.
+
+Note that these are the _string_ values `"true"` and `"false"`. Convert to booleans as needed.
+
+###### `RENDER`
+
+This value is always `true`. Your code can check this value to detect whether it's running on Render.
+
+###### `RENDER_CPU_COUNT`
+
+The service's CPU count, based on its compute plan.
+
+For example, this value is `0.5` for the `0.5c-512mb` compute plan and `2` for the `2c-4g` compute plan. Note that these are the _string_ values `"0.5"` and `"2"`. Convert to numbers as needed.
+
+###### `RENDER_DISCOVERY_SERVICE`
+
+The Render DNS name used to discover all running instances of a [scaled service](scaling). Has the format `$RENDER_SERVICE_NAME-discovery`.
+
+###### `RENDER_EXTERNAL_HOSTNAME`
+
+For a web service or static site, this is the service's `onrender.com` hostname (such as `myapp.onrender.com`).
+
+For other service types, this value is empty.
+
+###### `RENDER_EXTERNAL_URL`
+
+For a web service or static site, this is the service's full `onrender.com` URL (such as `https://myapp.onrender.com`).
+
+For other service types, this value is empty.
+
+###### `RENDER_GIT_BRANCH`
+
+The Git branch for a service or deploy.
+
+###### `RENDER_GIT_COMMIT`
+
+The commit SHA for a service or deploy.
+
+###### `RENDER_GIT_REPO_SLUG`
+
+Has the format `$username/$reponame`.
+
+###### `RENDER_INSTANCE_ID`
+
+The unique identifier of the current service instance. Useful for [scaled services](scaling) with multiple instances.
+
+###### `RENDER_SERVICE_ID`
+
+The service's unique identifier. Used in the [Render API](api).
+
+###### `RENDER_SERVICE_NAME`
+
+A unique, human-readable identifier for a service.
+
+###### `RENDER_SERVICE_TYPE`
+
+The current service's [type](service-types). One of `web`, `pserv`, `cron`, `worker`, `static`.
+
+###### `RENDER_WEB_CONCURRENCY`
+
+For a web service or private service, this is the recommended number of concurrent web processes for handling requests. This is based on the CPU count for the service's [compute plan](/pricing#services).
+
+For example, this value is `1` for the `0.5c-512mb` compute plan and `2` for the `2c-4g` compute plan. Note that these are the _string_ values `"1"` and `"2"`. Convert to numbers as needed.
+
+This is only available at runtime. At build time or for other service types, this value is empty.
+
+###### `WEB_CONCURRENCY`
+
+For a web service or private service created after December 8th 2025, this defaults to the recommended number of concurrent web processes for handling requests. This is based on the CPU count for the service's [compute plan](/pricing#services).
+
+For example, this value is `1` for the `0.5c-512mb` compute plan and `2` for the `2c-4g` compute plan. Note that these are the _string_ values `"1"` and `"2"`. Convert to numbers as needed.
+
+This is only available at runtime. At build time, for other service types, or for web and private services created before the cutoff date, this value is empty.
+
+> *Other environment variables starting with `RENDER_` might be present in your build and runtime environments.*
+>
+> However, variables not listed above are strictly for internal use and might change without warning.
+
+### Docker
+
+Render does not provide additional environment variables on top of what's listed under [All runtimes](#all-runtimes).
+
+### Elixir
+
+###### `MIX_ENV`
+
+`prod`
+
+###### `RELEASE_DISTRIBUTION`
+
+`name`
+
+### Go
+
+###### `GO111MODULE`
+
+`on`
+
+###### `GOPATH`
+
+`/opt/render/project/go`
+
+### Node.js
+
+###### `NODE_ENV`
+
+`production` (runtime only)
+
+###### `NODE_MODULES_CACHE`
+
+`true`
+
+### Python 3
+
+###### `CI`
+
+`true` (build time only)
+
+###### `FORWARDED_ALLOW_IPS`
+
+`*`
+
+###### `GUNICORN_CMD_ARGS`
+
+`--preload --access-logfile - --bind=0.0.0.0:10000`
+
+###### `PIPENV_YES`
+
+`true`
+
+###### `VENV_ROOT`
+
+`/opt/render/project/src/.venv`
+
+### Ruby
+
+###### `BUNDLE_APP_CONFIG`
+
+`/opt/render/project/.gems`
+
+###### `BUNDLE_BIN`
+
+`/opt/render/project/.gems/bin`
+
+###### `BUNDLE_DEPLOYMENT`
+
+`true`
+
+###### `BUNDLE_PATH`
+
+`/opt/render/project/.gems`
+
+###### `GEM_PATH`
+
+`/opt/render/project/.gems`
+
+###### `MALLOC_ARENA_MAX`
+
+`2`
+
+###### `PASSENGER_ENGINE`
+
+`builtin`
+
+###### `PASSENGER_ENVIRONMENT`
+
+`production`
+
+###### `PASSENGER_PORT`
+
+`10000`
+
+###### `PIDFILE`
+
+`/tmp/puma-server.pid`
+
+###### `RAILS_ENV`
+
+`production`
+
+###### `RAILS_SERVE_STATIC_FILES`
+
+`true`
+
+###### `RAILS_LOG_TO_STDOUT`
+
+`true`
+
+### Rust
+
+###### `CARGO_HOME`
+
+`/opt/render/project/.cargo`
+
+###### `ROCKET_ENV`
+
+`prod`
+
+###### `ROCKET_PORT`
+
+`10000` (runtime only)
+
+###### `RUSTUP_HOME`
+
+`/opt/render/project/.rustup`
+
+## Optional environment variables
+
+You can set these environment variables to modify the default behavior for your services.
+
+### All runtimes
+
+###### `PORT`
+
+For [web services](web-services), specify the port that your HTTP server binds to.
+
+The default port is `10000`.
+
+### Elixir
+
+###### `ELIXIR_VERSION`
+
+See [Setting Your Elixir and Erlang Versions](elixir-erlang-versions).
+
+###### `ERLANG_VERSION`
+
+See [Setting Your Elixir and Erlang Versions](elixir-erlang-versions).
+
+### Node.js
+
+###### `SKIP_INSTALL_DEPS`
+
+Set this to `true` to skip running `yarn`/`npm install` during build.
+
+###### `NODE_VERSION`
+
+See [Setting Your Node.js Version](node-version).
+
+###### `BUN_VERSION`
+
+See [Setting Your Bun Version](bun-version).
+
+### Python 3
+
+###### `PYTHON_VERSION`
+
+See [Setting Your Python Version](python-version).
+
+###### `POETRY_VERSION`
+
+See [Setting Your Poetry Version](poetry-version).
+
+###### `UV_VERSION`
+
+See [Setting Your uv Version](uv-version).
+
+### Rust
+
+###### `RUSTUP_TOOLCHAIN`
+
+See [Specifying a Rust Toolchain](rust-toolchain).
+
+## How to set environment variables
+
+See [Environment Variables and Secrets](configure-environment-variables).
+
+---
+
+##### Appendix: Glossary definitions
+
+###### compute plan
+
+Specifies the CPU and RAM available to your service's *instances*.
+
+Common compute plans for a new web service include:
+
+- *`free`*: 0.1 CPU / 512 MB RAM
+- *`0.5c-512mb`*: 0.5 CPU / 512 MB RAM
+- *`1c-2g`*: 1 CPU / 2 GB RAM
+
+Compute plans were previously known as *instance types*.
+
+Related article: https://render.com/docs/compute-plans.md

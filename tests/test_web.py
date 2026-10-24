@@ -203,7 +203,9 @@ class WebTests(unittest.TestCase):
         self.assertIn("frame-ancestors 'none'", response.headers["Content-Security-Policy"])
         self.assertEqual(response.headers["Cache-Control"], "no-store")
         self.assertEqual(response.headers["X-Content-Type-Options"], "nosniff")
-        self.assertEqual(self.client.get("/healthz").json, {"status": "ready"})
+        health = self.client.get("/healthz").json
+        self.assertEqual(health["status"], "ready")
+        self.assertIn("git_sha", health)
 
     def test_request_window_budget_and_core_zero_window_guard(self):
         bounded = RequestScorer(self.scorer)

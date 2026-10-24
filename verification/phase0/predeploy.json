@@ -1,0 +1,9 @@
+{
+  "recorded_at_utc": "2026-10-24T16:45:54.965419+00:00",
+  "last_known_good_sha": "cc516074e570961088db688a677fca3be58729a0",
+  "last_known_good_deploy": "dep-dbdo11nf3r2c73da1qqg",
+  "auto_deploy": "off",
+  "freeze_utc": "2026-10-26T00:59:00+00:00",
+  "deployment_permitted_before_freeze": true,
+  "rollback_method": "Render Dashboard rollback to recorded deploy, or commit restoring previous application tree and redeploy if connector lacks rollback"
+}

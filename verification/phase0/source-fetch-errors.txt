@@ -1,0 +1,4 @@
+Direct urllib GET returned HTTP 403 for challenge, specific rules and general rules.
+Fallback: search_service.web_run open and click; full returned content preserved in official-web-fetch.json.
+Initial baseline runner could not find the old .venv/bin/python. Recreated .venv and saved pip output in environment-install.txt.
+First test attempts resolved the venv Python symlink to the base interpreter, which lacked Flask. Retained attempt1 output. Reran with the venv path without resolving the symlink. No application change was made for that environment error.

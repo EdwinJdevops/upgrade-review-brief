@@ -62,7 +62,10 @@ def create_app(scorer=None, config=None):
     @app.get("/healthz")
     def health():
         ready = app.extensions["review_scorer"] is not None
-        return jsonify(status="ready" if ready else "model_unavailable"), 200 if ready else 503
+        return jsonify(
+            status="ready" if ready else "model_unavailable",
+            git_sha=os.environ.get("RENDER_GIT_COMMIT", "unknown"),
+        ), 200 if ready else 503
 
     @app.get("/")
     def index():

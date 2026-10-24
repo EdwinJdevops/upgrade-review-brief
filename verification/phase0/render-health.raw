@@ -1,0 +1,159 @@
+# Health Checks — Render makes sure your services are ready for incoming traffic.
+
+Every few seconds, Render sends *health checks* to each running web service and private service instance to confirm it's healthy and able to receive traffic:
+
+```mermaid
+flowchart LR
+  subgraph "<b>Render</b>"
+    direction LR
+    healthProbe{{"Health probe"}}
+    webService["Web Service"]
+    healthProbe requestEdge@-->|"All good?"| webService;
+    webService responseEdge@-->|"All good!"| healthProbe;
+    requestEdge@{animation: slow}
+    responseEdge@{animation: slow}
+  end
+```
+
+Render runs health checks on:
+
+- *Newly deployed instances* to confirm they start successfully and are ready to receive traffic.
+- *Running instances* to confirm they're still responsive, automatically restarting them if they're not.
+
+> *Health checks only apply to web services and private services.*
+>
+> These checks are specific to service types that receive incoming network traffic.
+
+By default, health checks are TCP socket probes to one of your service's open ports. For web services, this is usually the port of your public-facing HTTP server (default `10000`).
+
+Web services can enable [HTTP health checks](#http-health-checks-web-services-only) to determine application-level readiness. Private services only support default TCP checks.
+
+## HTTP health checks (web services only)
+
+Web services can receive health checks as HTTP GET requests to a path you specify:
+
+```mermaid
+flowchart LR
+  subgraph "<b>Render</b>"
+    direction LR
+    healthProbe{{"Health probe"}}
+    webService["Web Service"]
+    healthProbe requestEdge@-->|"GET /health"| webService;
+    webService responseEdge@-->|"200 OK"| healthProbe;
+    requestEdge@{animation: slow}
+    responseEdge@{animation: slow}
+  end
+```
+
+By defining a health check endpoint in your service, you can execute custom logic to verify instance health:
+
+- To indicate a healthy instance, your endpoint can respond with any `2xx` or `3xx` status code.
+- To indicate an unhealthy instance, your endpoint can respond with any `4xx` or `5xx` status code.
+
+If your service has any verified [custom domains](custom-domains), Render sets one of those domains as the value of the `Host` header for all HTTP health checks. Otherwise, Render uses the service's `onrender.com` subdomain.
+
+> *How should my endpoint verify instance health?*
+>
+> This varies from service to service. We recommend performing operation-critical checks, such as executing a simple database query to confirm connectivity.
+
+### Setup
+
+Enable HTTP health checks in any of the following ways:
+
+**Tab: Render Dashboard**
+
+1. In the [Render Dashboard](https://dashboard.render.com), scroll down to the *Health Checks* section of your web service's *Settings* page:
+
+    [image: Setting health check path in the Render Dashboard]
+
+2. Click *Edit*.
+3. Specify a path starting with a `/` character.
+4. Click *Save Changes*.
+
+**Tab: Blueprint (render.yaml)**
+
+In your Blueprint YAML file, add the [`healthCheckPath`](blueprint-spec#healthcheckpath) field to your web service's definition:
+
+```yaml
+services:
+  - type: web
+    runtime: node
+    name: my-service
+    healthCheckPath: /health
+    # …
+```
+
+## Success criteria
+
+*For default TCP checks,* Render considers a check successful if the instance accepts the attempted TCP connection within five seconds.
+
+*For [HTTP checks](#http-health-checks-web-services-only),* Render considers a check successful if the instance responds with a `2xx` or `3xx` status code within five seconds.
+
+In all other cases, Render considers the check failed.
+
+## Handling failures
+
+Render handles health check failures for new deploys and actively running services in different ways:
+
+**Tab: New deploy**
+
+Whenever you deploy a new version of your service, Render does _not_ immediately start routing traffic to the new instances. Instead, Render starts sending them health checks:
+
+```mermaid
+flowchart LR
+  lb{{"Load<br/>balancer"}};
+  hp{{"Health<br/>probe"}};
+  subgraph " ";
+    direction LR;
+    instance1@{ shape: procs, label: "Original instances<br/>(v1)" }
+    instance2@{ shape: procs, label: "New instances<br/>(v2)" }
+    class instance2 success;
+  end;
+  lb edge1@-->|"Incoming traffic"| instance1;
+  hp edge2@-->|"Health checks"| instance2;
+  edge1@{animation: slow}
+  edge2@{animation: slow}
+```
+
+- Whenever _all_ of the new instances are passing their health checks _at the same time_, Render considers the deploy successful and starts routing traffic to the new instances.
+- If this condition is not met within 15 minutes, Render cancels the deploy and continues routing traffic to your service's existing instances.
+    - In this case, Render [notifies you](notifications) according to your settings.
+
+Learn more about [zero-downtime deploys](/deploys#zero-downtime-deploys).
+
+**Tab: Running service**
+
+- If a running service instance fails consecutive health checks for 15 seconds, Render temporarily stops routing traffic to it to give it an opportunity to recover.
+  - If your service has other instances that are healthy, Render continues routing traffic to them.
+- If an instance fails consecutive health checks for 60 seconds, Render automatically [restarts the instance](/deploys#restarting-a-service).
+  - In this case, Render [notifies you](notifications) according to your settings.
+
+For details on specific health check errors and causes, see [Troubleshooting deploys](troubleshooting-deploys#health-check-errors).
+
+---
+
+##### Appendix: Glossary definitions
+
+###### web service
+
+Deploy this *service type* to host a dynamic application at a public URL.
+
+Ideal for full-stack web apps and API servers.
+
+Related article: https://render.com/docs/web-services.md
+
+###### private service
+
+Deploy this *service type* to host a dynamic application that is not internet-reachable.
+
+Ideal for internal apps that only your other Render services can access.
+
+Related article: https://render.com/docs/private-services.md
+
+###### service type
+
+When you deploy code on Render, you select a *service type* based on the capabilities you need.
+
+For example, you create a *web service* to host a dynamic web app at a public URL.
+
+Related article: https://render.com/docs/service-types.md

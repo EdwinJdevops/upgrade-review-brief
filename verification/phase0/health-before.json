@@ -1,0 +1,6 @@
+{
+  "url": "https://upgrade-review-brief.onrender.com/healthz",
+  "status": 200,
+  "body": "{\"status\":\"ready\"}\n",
+  "observed_at_utc": "2026-10-24T16:42:56.229287+00:00"
+}

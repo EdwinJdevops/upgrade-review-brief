@@ -1,0 +1,20 @@
+$ git status --short
+ M .github/workflows/review.yml
+ M .gitignore
+ M DEV_SUBMISSION_DRAFT.md
+ M PRODUCT_EVOLUTION.md
+ M README.md
+ M review_change.py
+ M tests/test_manifest_coverage.py
+?? CI_USAGE.md
+?? REVIEWER_FEEDBACK_DECISIONS.md
+?? action.yml
+?? ci_action.py
+?? evaluation/
+?? requirements-parser.lock
+?? tests/test_ci_action.py
+?? verification/phase0/
+?? verification/range-desktop.png
+?? verification/range-mobile.png
+
+exit_code=0

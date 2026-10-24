@@ -1,0 +1,10 @@
+{
+  "content": [
+    {
+      "type": "text",
+      "text": "{\"autoDeploy\":\"no\",\"autoDeployTrigger\":\"off\",\"branch\":\"main\",\"createdAt\":\"2026-10-23T12:25:22.169915Z\",\"dashboardUrl\":\"https://dashboard.render.com/web/srv-dbdl4ca9lscs73c4urq0\",\"id\":\"srv-dbdl4ca9lscs73c4urq0\",\"name\":\"upgrade-review-brief\",\"notifyOnFail\":\"default\",\"ownerId\":\"tea-d8hbg5t8nd3s73c5kjp0\",\"repo\":\"https://github.com/EdwinJdevops/upgrade-review-brief\",\"rootDir\":\"\",\"serviceDetails\":{\"buildPlan\":\"starter\",\"cache\":{\"profile\":\"no-cache\"},\"env\":\"python\",\"envSpecificDetails\":{\"buildCommand\":\"bash render-build.sh\",\"startCommand\":\"gunicorn wsgi:app --bind 0.0.0.0:$PORT --workers 1 --threads 2 --timeout 180 --no-control-socket --access-logfile -\"},\"healthCheckPath\":\"/healthz\",\"ipAllowList\":[{\"cidrBlock\":\"0.0.0.0/0\",\"description\":\"everywhere\"}],\"maintenanceMode\":{\"enabled\":false,\"uri\":\"\"},\"numInstances\":1,\"openPorts\":[{\"port\":10000,\"protocol\":\"TCP\"}],\"plan\":\"1c-2g\",\"previews\":{\"generation\":\"off\"},\"pullRequestPreviewsEnabled\":\"no\",\"region\":\"frankfurt\",\"renderSubdomainPolicy\":\"enabled\",\"runtime\":\"python\",\"sshAddress\":\"srv-dbdl4ca9lscs73c4urq0@ssh.frankfurt.render.com\",\"url\":\"https://upgrade-review-brief.onrender.com\"},\"slug\":\"upgrade-review-brief\",\"suspended\":\"not_suspended\",\"suspenders\":[],\"type\":\"web_service\",\"updatedAt\":\"2026-10-23T15:45:34.180872Z\"}"
+    }
+  ],
+  "structuredContent": null,
+  "isError": false
+}
