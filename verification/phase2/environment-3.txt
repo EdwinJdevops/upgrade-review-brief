@@ -1,0 +1,4 @@
+$ .venv/bin/python -m pip show torch transformers
+WARNING: Package(s) not found: torch, transformers
+
+exit_code=1

@@ -78,3 +78,35 @@ jobs:
           with open(os.environ['GITHUB_STEP_SUMMARY'], 'a') as output:
               output.write('\n## Actual browser-route inference\n\n```json\n' + Path('runner-web-result.json').read_text() + '```\n')
           PY
+
+  determinism:
+    if: github.event_name == 'push' && github.ref == 'refs/heads/main' && contains(github.event.head_commit.message, '[determinism]')
+    needs: tests
+    runs-on: ubuntu-24.04
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0
+        with:
+          python-version: '3.12'
+      - name: Install CPU dependencies
+        run: |
+          python -m pip install -r requirements-web.txt
+          python -m pip install torch==2.14.1+cpu --index-url https://download.pytorch.org/whl/cpu
+          python -m pip install transformers==4.57.1
+      - name: Prepare pinned inputs
+        run: |
+          python prepare_brief_source.py
+          python download_reranker.py .models/bge-reranker-base
+      - name: Compare CLI output with the local frozen hash
+        run: python verification/check_determinism.py --runs 1 --model-dir .models/bge-reranker-base --output-directory verification/phase2/github --expected-hash 59fe287518e29c37dc810687281a384bcbfd46fa7ec6bba37b19c405f7ec518e
+      - name: Preserve actual runner outputs
+        if: always()
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        with:
+          name: determinism-raw-output
+          path: verification/phase2/github/
+          if-no-files-found: error
+          retention-days: 7

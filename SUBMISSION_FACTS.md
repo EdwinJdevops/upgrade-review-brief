@@ -33,6 +33,13 @@ Only claims with evidence belong in the submission. Historical documents are not
 
 | Phase completion clock | see UTC and remaining seconds | verification/phase1/completion-clock.json | Python datetime UTC subtraction |
 
+| Phase 1 pushed SHA | 168e1c887a75ab9c1edb9090d5a3783adc3e4f27 | verification/phase1/pushed-main.json | GitHub GET branches/main |
+
+| Current progress clock | UTC, Lagos and remaining seconds recorded | verification/phase2/progress-clock.json | Python datetime UTC subtraction |
+
+| Same-machine CLI repetition | 10 actual model CLI runs; all stripped hashes match: 59fe287518e29c37dc810687281a384bcbfd46fa7ec6bba37b19c405f7ec518e | verification/phase2/local/result.json and run-*.stdout.json | .venv/bin/python verification/check_determinism.py --runs 10 --model-dir .models/bge-reranker-base --output-directory verification/phase2/local |
+| Determinism normalization | Removes named timing/timestamp fields only; retains scores and order | verification/phase2/normalization-test.txt | .venv/bin/python -m unittest discover -s tests -p test_determinism_normalization.py -v |
+
 ## May claim
 
 - The official deadline and internal schedule above.
@@ -53,4 +60,4 @@ Only claims with evidence belong in the submission. Historical documents are not
 
 ## Work not yet measured
 
-Phase 0 checks completed. Phase 1 is in progress. Phases 2 through 8 are NOT RUN under this directive. Earlier work must not be relabelled as a newly executed phase. Every subsequent measurement adds its command and raw output here.
+Phases 0 and 1 completed, with the documented conditional Docker skip and metadata handoff. Phase 2 is in progress. Phases 3 through 8 are NOT RUN under this directive. Earlier work must not be relabelled as a newly executed phase. Every subsequent measurement adds its command and raw output here.

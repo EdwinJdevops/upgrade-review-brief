@@ -1,0 +1,6 @@
+$ free -m
+               total        used        free      shared  buff/cache   available
+Mem:            9967         630        8899           0         708        9337
+Swap:              0           0           0
+
+exit_code=0

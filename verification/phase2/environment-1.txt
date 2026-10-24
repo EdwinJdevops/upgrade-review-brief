@@ -1,0 +1,5 @@
+$ df -h .
+Filesystem      Size  Used Avail Use% Mounted on
+overlay          32G  637M   30G   3% /
+
+exit_code=0

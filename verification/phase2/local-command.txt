@@ -1,0 +1,196 @@
+{"run": 1, "command": ["/workspace/scratch/645590c62369/upgrade-review-brief/.venv/bin/python", "upgrade_brief.py", "brief-cases/kong-readiness.json", "--root", ".", "--model-dir", "/workspace/scratch/645590c62369/upgrade-review-brief/.models/bge-reranker-base", "--format", "json"], "exit_code": 0, "normalized_sha256": "59fe287518e29c37dc810687281a384bcbfd46fa7ec6bba37b19c405f7ec518e"}
+{"run": 2, "command": ["/workspace/scratch/645590c62369/upgrade-review-brief/.venv/bin/python", "upgrade_brief.py", "brief-cases/kong-readiness.json", "--root", ".", "--model-dir", "/workspace/scratch/645590c62369/upgrade-review-brief/.models/bge-reranker-base", "--format", "json"], "exit_code": 0, "normalized_sha256": "59fe287518e29c37dc810687281a384bcbfd46fa7ec6bba37b19c405f7ec518e"}
+{"run": 3, "command": ["/workspace/scratch/645590c62369/upgrade-review-brief/.venv/bin/python", "upgrade_brief.py", "brief-cases/kong-readiness.json", "--root", ".", "--model-dir", "/workspace/scratch/645590c62369/upgrade-review-brief/.models/bge-reranker-base", "--format", "json"], "exit_code": 0, "normalized_sha256": "59fe287518e29c37dc810687281a384bcbfd46fa7ec6bba37b19c405f7ec518e"}
+{"run": 4, "command": ["/workspace/scratch/645590c62369/upgrade-review-brief/.venv/bin/python", "upgrade_brief.py", "brief-cases/kong-readiness.json", "--root", ".", "--model-dir", "/workspace/scratch/645590c62369/upgrade-review-brief/.models/bge-reranker-base", "--format", "json"], "exit_code": 0, "normalized_sha256": "59fe287518e29c37dc810687281a384bcbfd46fa7ec6bba37b19c405f7ec518e"}
+{"run": 5, "command": ["/workspace/scratch/645590c62369/upgrade-review-brief/.venv/bin/python", "upgrade_brief.py", "brief-cases/kong-readiness.json", "--root", ".", "--model-dir", "/workspace/scratch/645590c62369/upgrade-review-brief/.models/bge-reranker-base", "--format", "json"], "exit_code": 0, "normalized_sha256": "59fe287518e29c37dc810687281a384bcbfd46fa7ec6bba37b19c405f7ec518e"}
+{"run": 6, "command": ["/workspace/scratch/645590c62369/upgrade-review-brief/.venv/bin/python", "upgrade_brief.py", "brief-cases/kong-readiness.json", "--root", ".", "--model-dir", "/workspace/scratch/645590c62369/upgrade-review-brief/.models/bge-reranker-base", "--format", "json"], "exit_code": 0, "normalized_sha256": "59fe287518e29c37dc810687281a384bcbfd46fa7ec6bba37b19c405f7ec518e"}
+{"run": 7, "command": ["/workspace/scratch/645590c62369/upgrade-review-brief/.venv/bin/python", "upgrade_brief.py", "brief-cases/kong-readiness.json", "--root", ".", "--model-dir", "/workspace/scratch/645590c62369/upgrade-review-brief/.models/bge-reranker-base", "--format", "json"], "exit_code": 0, "normalized_sha256": "59fe287518e29c37dc810687281a384bcbfd46fa7ec6bba37b19c405f7ec518e"}
+{"run": 8, "command": ["/workspace/scratch/645590c62369/upgrade-review-brief/.venv/bin/python", "upgrade_brief.py", "brief-cases/kong-readiness.json", "--root", ".", "--model-dir", "/workspace/scratch/645590c62369/upgrade-review-brief/.models/bge-reranker-base", "--format", "json"], "exit_code": 0, "normalized_sha256": "59fe287518e29c37dc810687281a384bcbfd46fa7ec6bba37b19c405f7ec518e"}
+{"run": 9, "command": ["/workspace/scratch/645590c62369/upgrade-review-brief/.venv/bin/python", "upgrade_brief.py", "brief-cases/kong-readiness.json", "--root", ".", "--model-dir", "/workspace/scratch/645590c62369/upgrade-review-brief/.models/bge-reranker-base", "--format", "json"], "exit_code": 0, "normalized_sha256": "59fe287518e29c37dc810687281a384bcbfd46fa7ec6bba37b19c405f7ec518e"}
+{"run": 10, "command": ["/workspace/scratch/645590c62369/upgrade-review-brief/.venv/bin/python", "upgrade_brief.py", "brief-cases/kong-readiness.json", "--root", ".", "--model-dir", "/workspace/scratch/645590c62369/upgrade-review-brief/.models/bge-reranker-base", "--format", "json"], "exit_code": 0, "normalized_sha256": "59fe287518e29c37dc810687281a384bcbfd46fa7ec6bba37b19c405f7ec518e"}
+{
+  "checked_at_utc": "2026-10-24T17:19:51.458053+00:00",
+  "runs": [
+    {
+      "run": 1,
+      "command": [
+        "/workspace/scratch/645590c62369/upgrade-review-brief/.venv/bin/python",
+        "upgrade_brief.py",
+        "brief-cases/kong-readiness.json",
+        "--root",
+        ".",
+        "--model-dir",
+        "/workspace/scratch/645590c62369/upgrade-review-brief/.models/bge-reranker-base",
+        "--format",
+        "json"
+      ],
+      "exit_code": 0,
+      "normalized_sha256": "59fe287518e29c37dc810687281a384bcbfd46fa7ec6bba37b19c405f7ec518e"
+    },
+    {
+      "run": 2,
+      "command": [
+        "/workspace/scratch/645590c62369/upgrade-review-brief/.venv/bin/python",
+        "upgrade_brief.py",
+        "brief-cases/kong-readiness.json",
+        "--root",
+        ".",
+        "--model-dir",
+        "/workspace/scratch/645590c62369/upgrade-review-brief/.models/bge-reranker-base",
+        "--format",
+        "json"
+      ],
+      "exit_code": 0,
+      "normalized_sha256": "59fe287518e29c37dc810687281a384bcbfd46fa7ec6bba37b19c405f7ec518e"
+    },
+    {
+      "run": 3,
+      "command": [
+        "/workspace/scratch/645590c62369/upgrade-review-brief/.venv/bin/python",
+        "upgrade_brief.py",
+        "brief-cases/kong-readiness.json",
+        "--root",
+        ".",
+        "--model-dir",
+        "/workspace/scratch/645590c62369/upgrade-review-brief/.models/bge-reranker-base",
+        "--format",
+        "json"
+      ],
+      "exit_code": 0,
+      "normalized_sha256": "59fe287518e29c37dc810687281a384bcbfd46fa7ec6bba37b19c405f7ec518e"
+    },
+    {
+      "run": 4,
+      "command": [
+        "/workspace/scratch/645590c62369/upgrade-review-brief/.venv/bin/python",
+        "upgrade_brief.py",
+        "brief-cases/kong-readiness.json",
+        "--root",
+        ".",
+        "--model-dir",
+        "/workspace/scratch/645590c62369/upgrade-review-brief/.models/bge-reranker-base",
+        "--format",
+        "json"
+      ],
+      "exit_code": 0,
+      "normalized_sha256": "59fe287518e29c37dc810687281a384bcbfd46fa7ec6bba37b19c405f7ec518e"
+    },
+    {
+      "run": 5,
+      "command": [
+        "/workspace/scratch/645590c62369/upgrade-review-brief/.venv/bin/python",
+        "upgrade_brief.py",
+        "brief-cases/kong-readiness.json",
+        "--root",
+        ".",
+        "--model-dir",
+        "/workspace/scratch/645590c62369/upgrade-review-brief/.models/bge-reranker-base",
+        "--format",
+        "json"
+      ],
+      "exit_code": 0,
+      "normalized_sha256": "59fe287518e29c37dc810687281a384bcbfd46fa7ec6bba37b19c405f7ec518e"
+    },
+    {
+      "run": 6,
+      "command": [
+        "/workspace/scratch/645590c62369/upgrade-review-brief/.venv/bin/python",
+        "upgrade_brief.py",
+        "brief-cases/kong-readiness.json",
+        "--root",
+        ".",
+        "--model-dir",
+        "/workspace/scratch/645590c62369/upgrade-review-brief/.models/bge-reranker-base",
+        "--format",
+        "json"
+      ],
+      "exit_code": 0,
+      "normalized_sha256": "59fe287518e29c37dc810687281a384bcbfd46fa7ec6bba37b19c405f7ec518e"
+    },
+    {
+      "run": 7,
+      "command": [
+        "/workspace/scratch/645590c62369/upgrade-review-brief/.venv/bin/python",
+        "upgrade_brief.py",
+        "brief-cases/kong-readiness.json",
+        "--root",
+        ".",
+        "--model-dir",
+        "/workspace/scratch/645590c62369/upgrade-review-brief/.models/bge-reranker-base",
+        "--format",
+        "json"
+      ],
+      "exit_code": 0,
+      "normalized_sha256": "59fe287518e29c37dc810687281a384bcbfd46fa7ec6bba37b19c405f7ec518e"
+    },
+    {
+      "run": 8,
+      "command": [
+        "/workspace/scratch/645590c62369/upgrade-review-brief/.venv/bin/python",
+        "upgrade_brief.py",
+        "brief-cases/kong-readiness.json",
+        "--root",
+        ".",
+        "--model-dir",
+        "/workspace/scratch/645590c62369/upgrade-review-brief/.models/bge-reranker-base",
+        "--format",
+        "json"
+      ],
+      "exit_code": 0,
+      "normalized_sha256": "59fe287518e29c37dc810687281a384bcbfd46fa7ec6bba37b19c405f7ec518e"
+    },
+    {
+      "run": 9,
+      "command": [
+        "/workspace/scratch/645590c62369/upgrade-review-brief/.venv/bin/python",
+        "upgrade_brief.py",
+        "brief-cases/kong-readiness.json",
+        "--root",
+        ".",
+        "--model-dir",
+        "/workspace/scratch/645590c62369/upgrade-review-brief/.models/bge-reranker-base",
+        "--format",
+        "json"
+      ],
+      "exit_code": 0,
+      "normalized_sha256": "59fe287518e29c37dc810687281a384bcbfd46fa7ec6bba37b19c405f7ec518e"
+    },
+    {
+      "run": 10,
+      "command": [
+        "/workspace/scratch/645590c62369/upgrade-review-brief/.venv/bin/python",
+        "upgrade_brief.py",
+        "brief-cases/kong-readiness.json",
+        "--root",
+        ".",
+        "--model-dir",
+        "/workspace/scratch/645590c62369/upgrade-review-brief/.models/bge-reranker-base",
+        "--format",
+        "json"
+      ],
+      "exit_code": 0,
+      "normalized_sha256": "59fe287518e29c37dc810687281a384bcbfd46fa7ec6bba37b19c405f7ec518e"
+    }
+  ],
+  "removed_keys_only": [
+    "checked_at",
+    "created_at",
+    "elapsed_seconds",
+    "generated_at",
+    "inference_seconds",
+    "processing_seconds",
+    "timestamp"
+  ],
+  "python": "3.12.14 (main, Aug 25 2026, 14:00:49) [Clang 22.1.3 ]",
+  "machine": "x86_64",
+  "platform": "Linux-6.18.55-x86_64-with-glibc2.39",
+  "environment_settings": {
+    "RERANKER_CPU_THREADS": "1",
+    "TOKENIZERS_PARALLELISM": "false",
+    "OMP_NUM_THREADS": "1"
+  },
+  "all_hashes_match": true,
+  "expected_hash": null,
+  "expected_hash_match": null,
+  "scope": "Only these executions of the fixed Kong input on the recorded environment; no guarantee for other inputs or hardware."
+}

@@ -1,0 +1,6 @@
+test_only_timing_metadata_removed (test_determinism_normalization.DeterminismNormalizationTests.test_only_timing_metadata_removed) ... ok
+
+----------------------------------------------------------------------
+Ran 1 test in 0.000s
+
+OK
