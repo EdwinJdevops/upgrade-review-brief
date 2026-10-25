@@ -1,0 +1,15 @@
+{
+  "description": "Link Helm Deployment changes to migration-guide evidence with local open-weight ranking.",
+  "topics": [
+    "helm",
+    "kubernetes",
+    "devops",
+    "render",
+    "open-source-ai",
+    "migration",
+    "python"
+  ],
+  "remote_updated": false,
+  "reason": "No repository metadata update operation exposed by the connected tool.",
+  "description_characters": 88
+}

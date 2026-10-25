@@ -1,0 +1,16 @@
+{
+  "command": "Python draft structure and wording inspection",
+  "required_sections": {
+    "What I Built": true,
+    "Demo": true,
+    "Code": true,
+    "How I Built It": true,
+    "Why Does Open Innovation Matter?": true,
+    "Prize Categories": true
+  },
+  "tags_present": true,
+  "unpublished_frontmatter": true,
+  "prohibited_wording": [],
+  "words": 1045,
+  "measurement_placeholder_remains": true
+}

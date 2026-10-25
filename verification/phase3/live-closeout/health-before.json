@@ -1,0 +1,9 @@
+{
+  "status": 200,
+  "seconds": 5.440399900000102,
+  "error": null,
+  "body": {
+    "git_sha": "3cc347f04f127ccc295645ffb7a3481573f0abe2",
+    "status": "ready"
+  }
+}

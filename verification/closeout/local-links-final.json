@@ -1,0 +1,91 @@
+{
+  "command": "pathlib.exists for README and draft Markdown local targets",
+  "targets": [
+    {
+      "document": "README.md",
+      "target": "docs/demo/report-desktop.png",
+      "exists": true
+    },
+    {
+      "document": "README.md",
+      "target": "verification/closeout/",
+      "exists": true
+    },
+    {
+      "document": "README.md",
+      "target": "verification/closeout/live-functional.json",
+      "exists": true
+    },
+    {
+      "document": "README.md",
+      "target": "verification/phase2/local/result.json",
+      "exists": true
+    },
+    {
+      "document": "README.md",
+      "target": "verification/phase2/verdict.md",
+      "exists": true
+    },
+    {
+      "document": "README.md",
+      "target": "verification/backtest/verdict.md",
+      "exists": true
+    },
+    {
+      "document": "README.md",
+      "target": "SUBMISSION_FACTS.md",
+      "exists": true
+    },
+    {
+      "document": "README.md",
+      "target": "docs/demo/browser-demo.mp4",
+      "exists": true
+    },
+    {
+      "document": "README.md",
+      "target": "SUBMISSION_FACTS.md",
+      "exists": true
+    },
+    {
+      "document": "README.md",
+      "target": "docs/SUBMISSION_CHECKLIST.md",
+      "exists": true
+    },
+    {
+      "document": "README.md",
+      "target": "RENDER_DEPLOYMENT.md",
+      "exists": true
+    },
+    {
+      "document": "README.md",
+      "target": "docs/EVIDENCE.md",
+      "exists": true
+    },
+    {
+      "document": "README.md",
+      "target": "docs/KNOWN_WEAKNESSES.md",
+      "exists": true
+    },
+    {
+      "document": "README.md",
+      "target": "docs/PRODUCT_EVOLUTION.md",
+      "exists": true
+    },
+    {
+      "document": "README.md",
+      "target": "model-evaluation/README.md",
+      "exists": true
+    },
+    {
+      "document": "README.md",
+      "target": "THIRD_PARTY_NOTICES.md",
+      "exists": true
+    },
+    {
+      "document": "README.md",
+      "target": "LICENSE",
+      "exists": true
+    }
+  ],
+  "all_exist": true
+}

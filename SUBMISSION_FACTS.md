@@ -30,25 +30,17 @@ Only claims with evidence belong in the submission. Historical documents are not
 | Quickstart comparison | Lexical report generated; not model inference | verification/phase1/quickstart-report.txt and quickstart-source.txt | .venv/bin/python prepare_brief_source.py; .venv/bin/python upgrade_brief.py brief-cases/kong-readiness.json --root . --lexical-baseline |
 | Repo metadata proposal | Description and topics recorded; remote metadata NOT SET | verification/phase1/repository-metadata.json | Local JSON generation; no metadata-write capability exposed |
 | Docker build | NOT RUN; Docker executable absent; no Dockerfile added | verification/phase0/tool-availability.json | shutil.which docker |
-
 | Phase completion clock | see UTC and remaining seconds | verification/phase1/completion-clock.json | Python datetime UTC subtraction |
-
 | Phase 1 pushed SHA | 168e1c887a75ab9c1edb9090d5a3783adc3e4f27 | verification/phase1/pushed-main.json | GitHub GET branches/main |
-
 | Current progress clock | UTC, Lagos and remaining seconds recorded | verification/phase2/progress-clock.json | Python datetime UTC subtraction |
-
 | Same-machine CLI repetition | 10 actual model CLI runs; all stripped hashes match: 59fe287518e29c37dc810687281a384bcbfd46fa7ec6bba37b19c405f7ec518e | verification/phase2/local/result.json and run-*.stdout.json | .venv/bin/python verification/check_determinism.py --runs 10 --model-dir .models/bge-reranker-base --output-directory verification/phase2/local |
 | Determinism normalization | Removes named timing/timestamp fields only; retains scores and order | verification/phase2/normalization-test.txt | .venv/bin/python -m unittest discover -s tests -p test_determinism_normalization.py -v |
-
 | GitHub hash comparison | MISMATCH; actual CLI exit 0, comparison script exit 1 | verification/phase2/github-attempt1/result.json and github-job-attempt1.log | GitHub run 40115767782; python verification/check_determinism.py --runs 1 --model-dir .models/bge-reranker-base --output-directory verification/phase2/github --expected-hash 59fe287518e29c37dc810687281a384bcbfd46fa7ec6bba37b19c405f7ec518e |
 | General determinism claim | DROPPED under Phase 2 fallback; score floats differ across tested environments | verification/phase2/environment-comparison.json and verdict.md | Recursive comparison of normalized JSON artifacts |
-
 | Dashboard access for cold restart and disposable service | NOT RUN beyond sign-in wall; no temporary paid service created | verification/phase3/dashboard-access.txt and access-limitations.json | cua.createBrowserTab authorized Render dashboard; current connector capability discovery |
 | Public compute price | 1c-2g web compute listed at USD 25 per month; not a credit-balance statement | verification/phase3/pricing.txt and pricing.http.json | urllib GET https://render.com/pricing; HTML text extraction |
-
 | Current Phase 3 clock and working test status | See raw timestamp and test summary | verification/phase3/status-clock.json and working-tests.txt | Python datetime UTC subtraction and .venv/bin/python -m unittest discover -s tests -v |
 | Phase 3 instrumentation | RSS observation code and HTTP measurement harness written locally; not deployed or measured yet | memory_measurement.py and verification/measure_render.py | Local file creation; live execution pending |
-
 | Phase 2 main SHA | de6f883e55e78b9e08a9c894f02044d3fbad4434 | verification/phase2/github-jobs-attempt1.json | GitHub GET workflow jobs |
 | Phase 3 release snapshot tests | 103 tests; exit 0 | verification/phase3/snapshot-tests.txt | git archive HEAD, copy named instrumentation files, .venv/bin/python -m unittest discover -s tests -v |
 | Deploy button | Removed; fresh-service test NOT RUN due sign-in and cleanup capability blocker | verification/phase3/deploy-button-fallback.json | README edit following access observation |
@@ -73,4 +65,66 @@ Only claims with evidence belong in the submission. Historical documents are not
 
 ## Work not yet measured
 
-Phases 0 and 1 completed, with the documented conditional Docker skip and metadata handoff. Phase 2 execution completed with the mismatch fallback and general determinism claim dropped. Phases 3 through 8 are NOT RUN under this directive. Earlier work must not be relabelled as a newly executed phase. Every subsequent measurement adds its command and raw output here.
+Phases 0 and 1 completed, with the documented conditional Docker skip and metadata handoff. Phase 2 execution completed with the mismatch fallback and general determinism claim dropped. Phase 3 has instrumentation and a closeout deployment; measurements and final checks are recorded in the closeout ledger. Phase 4 is NOT RUN. Later phases remain partial until their outputs are recorded. Earlier work must not be relabelled as a newly executed phase. Every subsequent measurement adds its command and raw output here.
+
+## Closeout observations, October 25
+
+- Official rules rechecked: cutoff is October 25, 2026 at 23:59 Pacific daylight time, not one hour after this session began. Evidence: verification/closeout/clock.json and verification/phase0/official-web-fetch.json.
+- The owner requested a one-hour delivery target. This is a work limit, not a revised official deadline.
+- Docker, Podman and Buildah executables are absent. No Docker build failed because no Docker build was run. The alternative is the existing native Python Render build via render-build.sh. Evidence: verification/closeout/clock.json and render-service.json.
+- Main is 3cc347f04f127ccc295645ffb7a3481573f0abe2. Live remains 86b9f0265e0a60414ed0df70cf05dc29b4f5450e before closeout deployment. Evidence: verification/closeout/github-main.json and render-deploys.json.
+- Phase 3 deployment was interrupted previously. Instrumentation exists on main but has not yet been verified live. Benchmark, reusable Action and final annotated draft were not completed. They cannot be called passed.
+- The Phase 4 labels and benchmark do not exist. There is no pre-registration commit or full-set ranking verdict. A one-hour closeout cannot be presented as the specified four-hour investigation.
+- The cross-environment hash mismatch remains a recorded failure. The permitted fallback drops the general determinism claim; it does not turn the failed comparison into a pass.
+
+- Closeout test suite: 103 tests, exit 0. Evidence: verification/closeout/tests.txt. Command: .venv/bin/python -m unittest discover -s tests -v. These tests use scorer doubles where documented and do not establish ranking accuracy.
+- Local Playwright Chromium installation failed with a truncated ZIP archive. Evidence: verification/closeout/browser-install.txt. No local browser check is claimed from this attempt.
+
+- Native Render deployment dep-dbf79v2vcj2c73f3946g reached live at revision 3cc347f04f127ccc295645ffb7a3481573f0abe2. Evidence: verification/closeout/deploy-live.json. Operation: Render get_deploy.
+- Clean clone at revision 3cc347f04f127ccc295645ffb7a3481573f0abe2 passed 103 tests. Evidence: verification/closeout/clean-clone-tests.txt. The first attempt used the wrong working directory and failed; verification/closeout/clean-clone-tests-attempt1.txt is retained.
+- Desktop browser example displayed the readiness path change, model report and both download events. Evidence: verification/closeout/browser-observations.json and CUA transcript. This observation is not attributed to the new revision; fresh mobile and screenshot checks remain NOT RUN.
+
+## Closeout claim ledger
+
+| ID | Claim and value | Evidence | Command |
+| --- | --- | --- | --- |
+| C01 | The selected Deployment scope is images, HTTP probe paths/ports and readOnlyRootFilesystem; broader resource changes are inventoried, not semantically assessed. | verification/closeout/implementation-contract.json; verification/closeout/live-functional.json | Python source capture; verification/verify_manifest_coverage.py |
+| C02 | Actual hosted BAAI/bge-reranker-base execution uses pinned revision 2cfc18c9415c912f9d8155881c133215df768a70. Range example retains 16 passages and scores 32 windows. | verification/closeout/live-functional.json | .venv/bin/python verification/verify_manifest_coverage.py --commit 3cc347f04f127ccc295645ffb7a3481573f0abe2 --output verification/closeout/live-functional.json |
+| C03 | The Kong packaged source links target commit b39300d09d6d70297dc437015d4a49e484b7b77d; uploaded URLs are not authenticated. | verification/closeout/live-functional.json; verification/closeout/implementation-contract.json | Same functional check and Python source capture |
+| C04 | Model files are checked against the pinned identities; local_files_only and trust_remote_code=False are used at runtime. Input files are hashed; relevance scores do not approve upgrades or generate migration actions. | verification/closeout/implementation-contract.json; verification/closeout/live-functional.json | Python source capture; actual hosted report assertions |
+| C05 | One native Python Render service uses 1c-2g, one worker, two threads, /healthz and automatic deploys off. The listed compute price is USD 25/month, not total billing. | verification/closeout/render-service.json; verification/phase3/pricing.txt | Render get_service; urllib pricing fetch |
+| C06 | All reports require human review. Upload checks found the deliberate secret sentinels absent from the returned report; this is not a security audit. Hosted uploads reach the server; local inference calls no hosted model API. | verification/closeout/live-functional.json; verification/closeout/implementation-contract.json | Actual hosted functional assertions; Python source capture |
+| C07 | Cross-environment normalized JSON differed in score floats. Local repetition matched on ten runs. No general byte-identical ranking-output claim is supported. | verification/phase2/local/result.json; verification/phase2/environment-comparison-summary.json; verification/phase2/verdict.md | verification/check_determinism.py and artifact comparison |
+| C08 | The specified multi-chart backtest is NOT RUN; ranking advantage over BM25 is unknown. There is no reusable Action verified on a runner. | verification/closeout/backtest-inventory.json; verification/backtest/verdict.md | Git tree inspection and local file inventory |
+| C09 | Apache-2.0 is the owner's instructed application licence decision. AI coding assistance was used; no Copilot use or unused sponsor integration is claimed. | LICENSE; THIRD_PARTY_NOTICES.md; owner directive and execution record | Licence fetch and file inspection |
+| C10 | Cold start, fresh-service Blueprint installation, Docker image build and a fresh mobile browser check are NOT RUN. | verification/phase3/access-limitations.json; verification/closeout/browser-install.txt; verification/closeout/clock.json | Access discovery; tool availability; browser install attempt |
+| C11 | Fresh local and clean-clone suites each ran 103 tests with exit 0 at application revision 3cc347f04f127ccc295645ffb7a3481573f0abe2. These are functional tests, not ranking accuracy. | verification/closeout/tests.txt; verification/closeout/clean-clone-tests.txt | .venv/bin/python -m unittest discover -s tests -v |
+| C12 | The controlled example changes the readiness path from /status to /status/ready for Kong 2.25.0 to 2.26.0. No real customer incident or effort reduction has been established. | verification/closeout/browser-observations.json; experiment/outputs/kong-old-proxy-only.yaml; experiment/outputs/kong-new-proxy-only.yaml | Actual browser example; fresh functional check |
+
+The submission may describe the implemented preparation workflow and its design purpose. It must not infer measured time saved, safer upgrades, general ranking superiority, commercial demand, production readiness, or expected placement.
+
+- Repository is public and GitHub identifies the licence as Apache-2.0. Evidence: verification/closeout/repository.json. Operation: GitHub GET repository metadata.
+- Latest workflow for application revision 3cc347f04f127ccc295645ffb7a3481573f0abe2 is cancelled, not passed. Cancellation cause is unverified. Evidence: verification/closeout/latest-ci.json. Operation: GitHub GET actions/runs?per_page=1.
+- The native Render build completed and the new application revision is live; Docker image verification remains NOT RUN. Evidence: verification/closeout/deploy-live.json.
+- Per-inference memory logs are now emitted by the deployed process. The partial sample summary is verification/closeout/memory-summary-partial.json; it is not the final peak or whole-service RSS.
+- The new multi-chart backtest verdict is explicitly NOT RUN. It cannot support either a model-superiority thesis or a conclusion that BM25 won. Evidence: verification/backtest/verdict.md.
+
+- Link check attempt 1 fetched all external README/post URLs with HTTP 200 but found a missing local evaluation/PROTOCOL.md target. The README link was changed to the existing model-evaluation/README.md history. The failure remains in verification/closeout/link-check-attempt1.json; a final local-link check is required.
+
+## Completed hosted measurements
+
+Command: `python verification/measure_render.py --expected-sha 3cc347f04f127ccc295645ffb7a3481573f0abe2 --output-directory verification/phase3/live-closeout`. Raw: verification/phase3/live-closeout/requests.jsonl; summary.json. Every attempt is retained. Successful serial percentiles use nearest rank. These are client/network/application measurements, not model-only latency.
+
+| Claim | Value | Raw evidence | Command |
+| --- | --- | --- | --- |
+| Readiness example | 20 attempts; 0 failures; p50 10.300 s; p95 11.856 s | verification/phase3/live-closeout/summary.json and requests.jsonl | verification/measure_render.py command above |
+| Range review | 10 attempts; 0 failures; p50 19.403 s; p95 21.538 s | verification/phase3/live-closeout/summary.json and requests.jsonl | verification/measure_render.py command above |
+| Concurrent burst 2 | HTTP status counts: {"200": 1, "429": 1}; HTTP 429 responses display Another review is running. Try again when it finishes. | verification/phase3/live-closeout/summary.json and concurrent response HTML | verification/measure_render.py command above |
+| Concurrent burst 5 | HTTP status counts: {"200": 1, "429": 4}; HTTP 429 responses display Another review is running. Try again when it finishes. | verification/phase3/live-closeout/summary.json and concurrent response HTML | verification/measure_render.py command above |
+| Warm homepage | 10 successful requests; p50 4.654 s; p95 6.452 s | verification/phase3/live-closeout/summary.json | verification/measure_render.py command above |
+| Highest logged sampled inference RSS | 1075441664 bytes; 35 log records; 10 ms samples; not total service memory | verification/closeout/runtime-memory-logs-final.json and memory-summary.json | Render list_logs text=inference_memory startTime=2026-10-25T21:33:23Z; Python maximum |
+| Measurement revision | Health matched 3cc347f04f127ccc295645ffb7a3481573f0abe2 before and after the run | verification/phase3/live-closeout/health-before.json and health-after.json | verification/measure_render.py command above |
+| Link checks | External targets returned HTTP 200; final local file targets all exist after correcting one missing link | verification/closeout/link-check-attempt1.json and local-links-final.json | Python urllib GET and pathlib.exists |
+
+- Fresh desktop range browser observation at the measured release showed 32 model windows, 16 passages, REVIEW_REQUIRED and no horizontal overflow at 1363 by 936 CSS pixels. Evidence: verification/closeout/browser-range-observation.json and CUA transcript. This is not a fresh mobile-width check.
+- Git history starts with a public initial commit dated October 23, 2026. Evidence: verification/closeout/git-history.txt. This is a repository-history observation, not a personal eligibility certification.

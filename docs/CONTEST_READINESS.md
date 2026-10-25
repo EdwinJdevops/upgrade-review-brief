@@ -39,7 +39,7 @@ Deadline: **October 25, 2026, 23:59 PDT**, equivalent to **October 26, 2026, 07:
 | .tech domain | Add after deployment if the event domain is actually claimed | Need the claimed domain, DNS access, live resolution/TLS and its link in the article. No domain has been registered or configured here. |
 | Backboard | Do not add to this iteration | Existing local inference needs neither provider routing nor assistant memory. No use or category qualification is claimed. |
 | Tinker | Do not add to this iteration | No task dataset, fine-tuning run or credible improvement over a baseline has been established. Calling a model or redeeming credits would not qualify. |
-| GitHub category | Existing published Actions option is relevant | The challenge explicitly includes project automation with Actions under Best Use of GitHub Copilot. Actions was used; Copilot itself was not. Judges determine acceptance. |
+| GitHub category | Not entered | No Copilot use is claimed. A reusable Action was not delivered or verified under the closeout directive. Historical workflow results remain separate. |
 
 One entry may identify multiple categories it meaningfully qualifies for, but **a participant can win at most one prize in this contest**. Sponsor tools are optional for the overall prize. No award or numerical chance of winning is established.
 

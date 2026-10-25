@@ -1,0 +1,18 @@
+cd1c6269bbf36de0bdb7b3da12f1892878e6becc 2026-10-23T03:54:52-07:00 Initial commit
+14891d0a31aec44fe98a76c0fc292458c913091c 2026-10-23T03:58:26-07:00 Build source-linked Helm upgrade review with local BGE inference [model-demo]
+3c7867a4ce5d4e31ad9e1e21767b5d65e4efd04c 2026-10-23T04:02:16-07:00 Document successful GitHub model run and prepare linked DEV submission
+28ed490bc40fea2340348831703541ffd2de5c06 2026-10-23T05:00:35-07:00 Add bounded browser review, real model demo and Week 3 readiness audit
+12fb374a200ff5b60a2def67fcd3839b36c41c8d 2026-10-23T05:20:28-07:00 Record Render inventory and deployment prerequisites [skip ci]
+701d46f4aaefd664857706853586ef4b6caeb775 2026-10-23T05:35:54-07:00 Publish verified Render deployment evidence and submission links [skip ci]
+783bd43dc5030bece14dd00c093fa60321f2ef18 2026-10-23T13:56:30+01:00 Record verified Render HTTP readiness monitoring [skip ci]
+749d339b061d496298d230a9998c5f917ad0c14b 2026-10-23T14:06:58+01:00 Audit actual model value and contest gaps with reproducible ablation [skip ci]
+20487734b1a7d363de1d7e17176cb8a66a2c6df6 2026-10-23T14:55:36+01:00 Add version-range migration planning and per-change model reading
+8f518bd4c55eba69451cfc9a7bb8b2338acdec40 2026-10-23T15:20:17+01:00 Correct preamble line numbering and retain BM25 comparison evidence
+74919630db232102cf09db79a4d69450ec323477 2026-10-23T15:26:53+01:00 Record verified live range-review release and CI evidence [skip ci]
+cc516074e570961088db688a677fca3be58729a0 2026-10-23T16:09:02+01:00 Expose manifest edits outside review scope and add an opt-in CI guard
+616eb53478aedc93657e56e385739b8fa108c202 2026-10-23T16:56:12+01:00 Record coverage release, public checks and verification harness fixes [skip ci]
+b2a6fc1145c32c8aeaf1e2d1c075fd4133e9cf42 2026-10-23T18:49:48+01:00 Pin migration citations, clarify metadata coverage and recalibrate product claims
+86b9f0265e0a60414ed0df70cf05dc29b4f5450e 2026-10-24T17:46:20+01:00 Record contest baseline and expose deployed revision in health check
+168e1c887a75ab9c1edb9090d5a3783adc3e4f27 2026-10-24T18:14:27+01:00 Add Apache-2.0 licence and reorganize submission documentation [skip ci]
+de6f883e55e78b9e08a9c894f02044d3fbad4434 2026-10-24T18:21:35+01:00 Record repeated CLI hashes and compare on a GitHub runner [determinism]
+3cc347f04f127ccc295645ffb7a3481573f0abe2 2026-10-24T18:35:01+01:00 Log inference RSS and retain the failed cross-environment hash comparison

@@ -6,9 +6,15 @@ Helm upgrade reviewers must connect rendered Deployment changes to migration ins
 
 | Measurement | Result | Evidence |
 | --- | --- | --- |
-| Final release verification | Pending Phase 8 | [Submission facts](SUBMISSION_FACTS.md) |
-| Ranking backtest | NOT RUN under this directive | [Evaluation protocol](evaluation/PROTOCOL.md) |
-| Determinism and Render measurements | Pending execution | [Submission facts](SUBMISSION_FACTS.md) |
+| Fresh unit suite and clean-clone suite | 103 tests each, exit 0 at application revision `3cc347f` | [Raw outputs](verification/closeout/) |
+| Hosted readiness example | 20/20 HTTP 200; end-to-end p50 10.300 s, p95 11.856 s | [Raw HTTP run](verification/phase3/live-closeout/summary.json) |
+| Hosted range review | 10/10 HTTP 200; end-to-end p50 19.403 s, p95 21.538 s | [Every attempt](verification/phase3/live-closeout/requests.jsonl) |
+| Concurrent range requests | Bursts of 2 and 5: one completes in each; others receive HTTP 429 with a retry message | [Responses retained](verification/phase3/live-closeout/summary.json) |
+| Actual hosted inference | Original example, range review and sanitised upload checked | [Functional check](verification/closeout/live-functional.json) |
+| Same-machine CLI repetition | Matching normalized hashes on ten runs of the fixed example | [Raw repetition](verification/phase2/local/result.json) |
+| Cross-environment hash comparison | FAILED: score floats differ; general determinism claim dropped | [Failure retained](verification/phase2/verdict.md) |
+| Multi-chart ranking backtest | NOT RUN; model advantage over BM25 unknown | [Verdict](verification/backtest/verdict.md) |
+| Container image build | NOT RUN; deployment uses native Python on Render | [Submission facts](SUBMISSION_FACTS.md) |
 
 ## Quickstart
 
@@ -35,7 +41,7 @@ The brief compares one selected Deployment's container images, HTTP probe paths/
 - [Deployment and model setup](RENDER_DEPLOYMENT.md)
 - [Evidence history](docs/EVIDENCE.md)
 - [Known weaknesses](docs/KNOWN_WEAKNESSES.md)
-- [Product decisions](docs/PRODUCT_EVOLUTION.md) and [evaluation protocol](evaluation/PROTOCOL.md)
+- [Product decisions](docs/PRODUCT_EVOLUTION.md) and [earlier model experiments](model-evaluation/README.md)
 - [Third-party notices](THIRD_PARTY_NOTICES.md) and [Apache-2.0 licence](LICENSE)
 
-Apache-2.0 is the owner's instructed licence decision. Third-party licences remain separate. The DEV draft is unpublished.
+Apache-2.0 is the owner's instructed licence decision. Third-party licences remain separate. The DEV draft is prepared for owner review; it has not been published by this execution.

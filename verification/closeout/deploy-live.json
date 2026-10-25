@@ -1,0 +1,10 @@
+{
+  "content": [
+    {
+      "type": "text",
+      "text": "{\"commit\":{\"createdAt\":\"2026-10-24T17:35:01Z\",\"id\":\"3cc347f04f127ccc295645ffb7a3481573f0abe2\",\"message\":\"Log inference RSS and retain the failed cross-environment hash comparison\"},\"createdAt\":\"2026-10-25T21:30:36.739714Z\",\"finishedAt\":\"2026-10-25T21:33:23.248456Z\",\"id\":\"dep-dbf79v2vcj2c73f3946g\",\"startedAt\":\"2026-10-25T21:30:36.70832Z\",\"status\":\"live\",\"trigger\":\"api\",\"updatedAt\":\"2026-10-25T21:33:23.248655Z\"}"
+    }
+  ],
+  "structuredContent": null,
+  "isError": false
+}

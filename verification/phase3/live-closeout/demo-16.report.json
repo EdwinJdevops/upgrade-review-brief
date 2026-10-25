@@ -1,0 +1,227 @@
+{
+  "changes": [
+    {
+      "after": "/status/ready",
+      "before": "/status",
+      "field": "containers/proxy/readinessProbe.httpGet.path"
+    }
+  ],
+  "deployment": {
+    "name": "upgrade-review-kong",
+    "namespace": "review"
+  },
+  "focused_change_query": "Kubernetes Helm upgrade kong-2.25.0 to kong-2.26.0. containers/proxy/readinessProbe.httpGet.path changes from \"/status\" to \"/status/ready\"",
+  "from_chart": "kong-2.25.0",
+  "generated_actions": [],
+  "input_identities": {
+    "after": {
+      "path": "experiment/outputs/kong-new-proxy-only.yaml",
+      "sha256": "afe264e2482874ef8ce7c728dca3a95cb0569d74164d7367ee79b8b93e483450"
+    },
+    "before": {
+      "path": "experiment/outputs/kong-old-proxy-only.yaml",
+      "sha256": "2f68c0a298dab25e39f780e6af5f84a332ba4abadb42cd92dfe15094d80d66b8"
+    },
+    "notes": {
+      "path": "model-evaluation/sources/kong-guide.md",
+      "section": "2.26.0",
+      "sha256": "327a5710b6d529d1b24e1200d8eaf60bf50a478a0ecf541b227e92394091248d",
+      "url": "https://github.com/Kong/charts/blob/b39300d09d6d70297dc437015d4a49e484b7b77d/charts/kong/UPGRADE.md#2260"
+    }
+  },
+  "input_provenance": "packaged_demo",
+  "live_identity_verified": false,
+  "manifest_inventory": {
+    "after_resource_count": 3,
+    "before_resource_count": 3,
+    "comparison": "literal_typed_manifest_content",
+    "metadata_only_modified_resources": 2,
+    "outside_scope_changed_resources": 3,
+    "resource_changes": {
+      "added": 0,
+      "modified": 3,
+      "removed": 0,
+      "unchanged": 0
+    },
+    "resources": [
+      {
+        "after_document_index": 2,
+        "api_version": "apps/v1",
+        "before_document_index": 2,
+        "change": "modified",
+        "change_surfaces": [
+          "metadata",
+          "resource_body"
+        ],
+        "kind": "Deployment",
+        "name": "upgrade-review-kong",
+        "namespace": "review",
+        "outside_focused_scope": true,
+        "selected_deployment": true,
+        "unreviewed_categories": [
+          "pod_metadata_and_template_fields"
+        ]
+      },
+      {
+        "after_document_index": 1,
+        "api_version": "v1",
+        "before_document_index": 1,
+        "change": "modified",
+        "change_surfaces": [
+          "metadata"
+        ],
+        "kind": "Service",
+        "name": "upgrade-review-kong-proxy",
+        "namespace": "review",
+        "outside_focused_scope": true,
+        "selected_deployment": false,
+        "unreviewed_categories": []
+      },
+      {
+        "after_document_index": 0,
+        "api_version": "v1",
+        "before_document_index": 0,
+        "change": "modified",
+        "change_surfaces": [
+          "metadata"
+        ],
+        "kind": "ServiceAccount",
+        "name": "upgrade-review-kong",
+        "namespace": "review",
+        "outside_focused_scope": true,
+        "selected_deployment": false,
+        "unreviewed_categories": []
+      }
+    ],
+    "schema_version": 1,
+    "unselected_values_exported": false,
+    "warning": "Inventory detects supplied content changes, not their risk or applicability. Unchanged resources may still need migration review. Identifiers are shown; unselected field values and keys are withheld. A null namespace means omitted, not an inferred default. API-version changes appear as removal plus addition. Lists must be expanded before upload. Sequence order can create content changes; resource document order, mapping order and YAML comments do not."
+  },
+  "mode": "open_weight_reranker",
+  "model": {
+    "name": "BAAI/bge-reranker-base",
+    "revision": "2cfc18c9415c912f9d8155881c133215df768a70",
+    "runtime": "server_cpu_float32"
+  },
+  "model_calls": 5,
+  "passage_count": 5,
+  "passages_omitted": 0,
+  "processing_seconds": 1.42,
+  "scope": "One explicitly selected Deployment; image, HTTP probe path/port and read-only-root settings only",
+  "source_passages": [
+    {
+      "end_line": 105,
+      "exact_excerpt": "2.26 changes the default proxy readiness",
+      "id": "L101-L105",
+      "inference_seconds": 0.2812,
+      "input_tokens_including_overlap": 127,
+      "lexical_overlap": 8,
+      "model_executed": true,
+      "reason": "relative_relevance_only_not_confidence_or_upgrade_approval",
+      "score": 4.337754,
+      "sha256": "f5ea99f4af386feeecb0dde7b06e911aeaba643df985a45163e34e749da2b812",
+      "source_line_url": "https://github.com/Kong/charts/blob/b39300d09d6d70297dc437015d4a49e484b7b77d/charts/kong/UPGRADE.md#L101-L105",
+      "source_path": "model-evaluation/sources/kong-guide.md",
+      "source_url": "https://github.com/Kong/charts/blob/b39300d09d6d70297dc437015d4a49e484b7b77d/charts/kong/UPGRADE.md#2260",
+      "start_line": 101,
+      "window_count": 1,
+      "window_scores": [
+        4.337754
+      ]
+    },
+    {
+      "end_line": 97,
+      "exact_excerpt": "If you are using controller version",
+      "id": "L89-L97",
+      "inference_seconds": 0.346,
+      "input_tokens_including_overlap": 127,
+      "lexical_overlap": 7,
+      "model_executed": true,
+      "reason": "relative_relevance_only_not_confidence_or_upgrade_approval",
+      "score": 0.323546,
+      "sha256": "0c92e7303aed34d3681fce1a28f2358778e9575a4f6220802817d016f4ec1e76",
+      "source_line_url": "https://github.com/Kong/charts/blob/b39300d09d6d70297dc437015d4a49e484b7b77d/charts/kong/UPGRADE.md#L89-L97",
+      "source_path": "model-evaluation/sources/kong-guide.md",
+      "source_url": "https://github.com/Kong/charts/blob/b39300d09d6d70297dc437015d4a49e484b7b77d/charts/kong/UPGRADE.md#2260",
+      "start_line": 89,
+      "window_count": 1,
+      "window_scores": [
+        0.323546
+      ]
+    },
+    {
+      "end_line": 114,
+      "exact_excerpt": "",
+      "id": "L113-L114",
+      "inference_seconds": 0.1903,
+      "input_tokens_including_overlap": 84,
+      "lexical_overlap": 3,
+      "model_executed": true,
+      "reason": "relative_relevance_only_not_confidence_or_upgrade_approval",
+      "score": -0.457179,
+      "sha256": "ac96852da60bbc1014d56500c5caa86d77fc494b1b0a3e682c46199d0d601ded",
+      "source_line_url": "https://github.com/Kong/charts/blob/b39300d09d6d70297dc437015d4a49e484b7b77d/charts/kong/UPGRADE.md#L113-L114",
+      "source_path": "model-evaluation/sources/kong-guide.md",
+      "source_url": "https://github.com/Kong/charts/blob/b39300d09d6d70297dc437015d4a49e484b7b77d/charts/kong/UPGRADE.md#2260",
+      "start_line": 113,
+      "window_count": 1,
+      "window_scores": [
+        -0.457179
+      ]
+    },
+    {
+      "end_line": 111,
+      "exact_excerpt": "",
+      "id": "L107-L111",
+      "inference_seconds": 0.2691,
+      "input_tokens_including_overlap": 123,
+      "lexical_overlap": 3,
+      "model_executed": true,
+      "reason": "relative_relevance_only_not_confidence_or_upgrade_approval",
+      "score": -0.899068,
+      "sha256": "3863c68adbd2a30816ae530cab3a44a14e5377195cb282f98ab2cbda8c2e98b7",
+      "source_line_url": "https://github.com/Kong/charts/blob/b39300d09d6d70297dc437015d4a49e484b7b77d/charts/kong/UPGRADE.md#L107-L111",
+      "source_path": "model-evaluation/sources/kong-guide.md",
+      "source_url": "https://github.com/Kong/charts/blob/b39300d09d6d70297dc437015d4a49e484b7b77d/charts/kong/UPGRADE.md#2260",
+      "start_line": 107,
+      "window_count": 1,
+      "window_scores": [
+        -0.899068
+      ]
+    },
+    {
+      "end_line": 99,
+      "exact_excerpt": "",
+      "id": "L99-L99",
+      "inference_seconds": 0.199,
+      "input_tokens_including_overlap": 71,
+      "lexical_overlap": 0,
+      "model_executed": true,
+      "reason": "relative_relevance_only_not_confidence_or_upgrade_approval",
+      "score": -6.618956,
+      "sha256": "0e4c85d3f0b5ba9452cf0712ecd6c1d740623359bfba79d1efa6fcca2c83c720",
+      "source_line_url": "https://github.com/Kong/charts/blob/b39300d09d6d70297dc437015d4a49e484b7b77d/charts/kong/UPGRADE.md#L99-L99",
+      "source_path": "model-evaluation/sources/kong-guide.md",
+      "source_url": "https://github.com/Kong/charts/blob/b39300d09d6d70297dc437015d4a49e484b7b77d/charts/kong/UPGRADE.md#2260",
+      "start_line": 99,
+      "window_count": 1,
+      "window_scores": [
+        -6.618956
+      ]
+    }
+  ],
+  "source_reference": {
+    "commit": "b39300d09d6d70297dc437015d4a49e484b7b77d",
+    "reference_type": "github_commit",
+    "remote_content_verified_this_review": false,
+    "warning": "Source link uses a full Git commit reference. This review checks supplied file hashes; it does not fetch the link or authenticate its contents."
+  },
+  "status": "REVIEW_REQUIRED",
+  "to_chart": "kong-2.26.0",
+  "unresolved": [
+    "This brief does not verify a live cluster, a supported upgrade path or runtime readiness.",
+    "Only the explicitly selected source section and Deployment fields were considered.",
+    "Every source passage remains listed; relevance scores are neither applicability nor approval.",
+    "No colocated ingress-controller appears in the selected Deployment. An external controller's version and relationship are not established by this input."
+  ]
+}

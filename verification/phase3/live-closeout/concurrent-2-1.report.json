@@ -1,0 +1,957 @@
+{
+  "changes": [
+    {
+      "after": true,
+      "before": null,
+      "field": "containers/proxy/readOnlyRootFilesystem"
+    },
+    {
+      "after": "/status/ready",
+      "before": "/status",
+      "field": "containers/proxy/readinessProbe.httpGet.path"
+    }
+  ],
+  "coverage": {
+    "changes_queried": 2,
+    "changes_total": 2,
+    "changes_without_dedicated_query": [],
+    "from_chart": "kong-2.18.0",
+    "guide_authenticity_verified": false,
+    "mode": "version_range",
+    "model_window_budget": 32,
+    "rule": "Select stable X.Y.Z headings with from < heading <= to; retain all non-version sections except Table of contents.",
+    "sections": [
+      {
+        "end_line": 16,
+        "heading": "Document preamble",
+        "included": false,
+        "reason": "outside_level_two_sections_review_separately",
+        "start_line": 1
+      },
+      {
+        "end_line": 38,
+        "heading": "Table of contents",
+        "included": false,
+        "reason": "table_of_contents",
+        "start_line": 17
+      },
+      {
+        "end_line": 86,
+        "heading": "Upgrade considerations for all versions",
+        "included": true,
+        "reason": "unversioned_context_requires_review",
+        "start_line": 39
+      },
+      {
+        "end_line": 115,
+        "heading": "2.26.0",
+        "included": true,
+        "reason": "inside_declared_version_range",
+        "start_line": 87
+      },
+      {
+        "end_line": 135,
+        "heading": "2.19.0",
+        "included": true,
+        "reason": "inside_declared_version_range",
+        "start_line": 116
+      },
+      {
+        "end_line": 155,
+        "heading": "2.13.0",
+        "included": false,
+        "reason": "outside_declared_version_range",
+        "start_line": 136
+      },
+      {
+        "end_line": 204,
+        "heading": "2.8.0",
+        "included": false,
+        "reason": "outside_declared_version_range",
+        "start_line": 156
+      },
+      {
+        "end_line": 214,
+        "heading": "2.7.0",
+        "included": false,
+        "reason": "outside_declared_version_range",
+        "start_line": 205
+      },
+      {
+        "end_line": 290,
+        "heading": "2.4.0",
+        "included": false,
+        "reason": "outside_declared_version_range",
+        "start_line": 215
+      },
+      {
+        "end_line": 335,
+        "heading": "2.3.0",
+        "included": false,
+        "reason": "outside_declared_version_range",
+        "start_line": 291
+      },
+      {
+        "end_line": 348,
+        "heading": "2.2.0",
+        "included": false,
+        "reason": "outside_declared_version_range",
+        "start_line": 336
+      },
+      {
+        "end_line": 361,
+        "heading": "2.1.0",
+        "included": false,
+        "reason": "outside_declared_version_range",
+        "start_line": 349
+      },
+      {
+        "end_line": 398,
+        "heading": "2.0.0",
+        "included": false,
+        "reason": "outside_declared_version_range",
+        "start_line": 362
+      },
+      {
+        "end_line": 473,
+        "heading": "1.14.0",
+        "included": false,
+        "reason": "outside_declared_version_range",
+        "start_line": 399
+      },
+      {
+        "end_line": 529,
+        "heading": "1.11.0",
+        "included": false,
+        "reason": "outside_declared_version_range",
+        "start_line": 474
+      },
+      {
+        "end_line": 539,
+        "heading": "1.10.0",
+        "included": false,
+        "reason": "outside_declared_version_range",
+        "start_line": 530
+      },
+      {
+        "end_line": 583,
+        "heading": "1.9.0",
+        "included": false,
+        "reason": "outside_declared_version_range",
+        "start_line": 540
+      },
+      {
+        "end_line": 615,
+        "heading": "1.6.0",
+        "included": false,
+        "reason": "outside_declared_version_range",
+        "start_line": 584
+      },
+      {
+        "end_line": 657,
+        "heading": "1.5.0",
+        "included": false,
+        "reason": "outside_declared_version_range",
+        "start_line": 616
+      },
+      {
+        "end_line": 766,
+        "heading": "1.4.0",
+        "included": false,
+        "reason": "outside_declared_version_range",
+        "start_line": 658
+      },
+      {
+        "end_line": 807,
+        "heading": "1.3.0",
+        "included": false,
+        "reason": "outside_declared_version_range",
+        "start_line": 767
+      }
+    ],
+    "to_chart": "kong-2.26.0",
+    "unscored_query_passage_pairs": 0,
+    "version_history_complete_verified": false,
+    "warning": "Only supplied level-two sections are considered; document preamble is excluded and requires separate review. Missing releases, differently formatted headings and application-version prerequisites need human verification. Unversioned sections are retained, not declared applicable."
+  },
+  "deployment": {
+    "name": "upgrade-review-kong",
+    "namespace": "review"
+  },
+  "focused_change_query": "Independent queries per selected-field change; see reading_tasks.",
+  "from_chart": "kong-2.18.0",
+  "generated_actions": [],
+  "input_identities": {
+    "after": {
+      "path": "experiment/outputs/kong-range-after.yaml",
+      "sha256": "afe264e2482874ef8ce7c728dca3a95cb0569d74164d7367ee79b8b93e483450"
+    },
+    "before": {
+      "path": "experiment/outputs/kong-range-before.yaml",
+      "sha256": "d33e6e87d29a42913c8b9f91540f76af7b12d1f7ea95ff42233891e4260ba85b"
+    },
+    "notes": {
+      "path": "model-evaluation/sources/kong-guide.md",
+      "selection": "version_range",
+      "sha256": "327a5710b6d529d1b24e1200d8eaf60bf50a478a0ecf541b227e92394091248d",
+      "url": "https://github.com/Kong/charts/blob/b39300d09d6d70297dc437015d4a49e484b7b77d/charts/kong/UPGRADE.md"
+    }
+  },
+  "input_provenance": "packaged_demo",
+  "live_identity_verified": false,
+  "manifest_inventory": {
+    "after_resource_count": 3,
+    "before_resource_count": 3,
+    "comparison": "literal_typed_manifest_content",
+    "metadata_only_modified_resources": 2,
+    "outside_scope_changed_resources": 3,
+    "resource_changes": {
+      "added": 0,
+      "modified": 3,
+      "removed": 0,
+      "unchanged": 0
+    },
+    "resources": [
+      {
+        "after_document_index": 2,
+        "api_version": "apps/v1",
+        "before_document_index": 2,
+        "change": "modified",
+        "change_surfaces": [
+          "metadata",
+          "resource_body"
+        ],
+        "kind": "Deployment",
+        "name": "upgrade-review-kong",
+        "namespace": "review",
+        "outside_focused_scope": true,
+        "selected_deployment": true,
+        "unreviewed_categories": [
+          "resource_metadata",
+          "pod_metadata_and_template_fields",
+          "pod_settings_and_init_containers",
+          "unselected_container_fields_or_order"
+        ]
+      },
+      {
+        "after_document_index": 1,
+        "api_version": "v1",
+        "before_document_index": 1,
+        "change": "modified",
+        "change_surfaces": [
+          "metadata"
+        ],
+        "kind": "Service",
+        "name": "upgrade-review-kong-proxy",
+        "namespace": "review",
+        "outside_focused_scope": true,
+        "selected_deployment": false,
+        "unreviewed_categories": []
+      },
+      {
+        "after_document_index": 0,
+        "api_version": "v1",
+        "before_document_index": 0,
+        "change": "modified",
+        "change_surfaces": [
+          "metadata"
+        ],
+        "kind": "ServiceAccount",
+        "name": "upgrade-review-kong",
+        "namespace": "review",
+        "outside_focused_scope": true,
+        "selected_deployment": false,
+        "unreviewed_categories": []
+      }
+    ],
+    "schema_version": 1,
+    "unselected_values_exported": false,
+    "warning": "Inventory detects supplied content changes, not their risk or applicability. Unchanged resources may still need migration review. Identifiers are shown; unselected field values and keys are withheld. A null namespace means omitted, not an inferred default. API-version changes appear as removal plus addition. Lists must be expanded before upload. Sequence order can create content changes; resource document order, mapping order and YAML comments do not."
+  },
+  "mode": "open_weight_per_change",
+  "model": {
+    "name": "BAAI/bge-reranker-base",
+    "revision": "2cfc18c9415c912f9d8155881c133215df768a70",
+    "runtime": "server_cpu_float32"
+  },
+  "model_calls": 32,
+  "passage_count": 16,
+  "passages_omitted": 0,
+  "processing_seconds": 10.464,
+  "reading_tasks": [
+    {
+      "field": "containers/proxy/readOnlyRootFilesystem",
+      "query": "Helm chart kong-2.18.0 to kong-2.26.0. containers/proxy/readOnlyRootFilesystem: null -> true. Which migration conditions concern a container filesystem becoming read-only, extensions writing files, or required writable mounts?",
+      "readings": [
+        {
+          "id": "L118-L122",
+          "inference_seconds": 0.3976,
+          "input_tokens_including_overlap": 173,
+          "model_executed": true,
+          "reason": "relative_relevance_only_not_confidence_or_upgrade_approval",
+          "score": 3.697952,
+          "section": "2.19.0",
+          "window_count": 1,
+          "window_scores": [
+            3.697952
+          ]
+        },
+        {
+          "id": "L124-L132",
+          "inference_seconds": 0.3018,
+          "input_tokens_including_overlap": 137,
+          "model_executed": true,
+          "reason": "relative_relevance_only_not_confidence_or_upgrade_approval",
+          "score": 1.09032,
+          "section": "2.19.0",
+          "window_count": 1,
+          "window_scores": [
+            1.09032
+          ]
+        },
+        {
+          "id": "L56-L60",
+          "inference_seconds": 0.4071,
+          "input_tokens_including_overlap": 184,
+          "model_executed": true,
+          "reason": "relative_relevance_only_not_confidence_or_upgrade_approval",
+          "score": -1.097337,
+          "section": "Upgrade considerations for all versions",
+          "window_count": 1,
+          "window_scores": [
+            -1.097337
+          ]
+        },
+        {
+          "id": "L62-L64",
+          "inference_seconds": 0.2921,
+          "input_tokens_including_overlap": 113,
+          "model_executed": true,
+          "reason": "relative_relevance_only_not_confidence_or_upgrade_approval",
+          "score": -1.108157,
+          "section": "Upgrade considerations for all versions",
+          "window_count": 1,
+          "window_scores": [
+            -1.108157
+          ]
+        },
+        {
+          "id": "L107-L111",
+          "inference_seconds": 0.2924,
+          "input_tokens_including_overlap": 137,
+          "model_executed": true,
+          "reason": "relative_relevance_only_not_confidence_or_upgrade_approval",
+          "score": -1.346808,
+          "section": "2.26.0",
+          "window_count": 1,
+          "window_scores": [
+            -1.346808
+          ]
+        },
+        {
+          "id": "L41-L47",
+          "inference_seconds": 0.373,
+          "input_tokens_including_overlap": 180,
+          "model_executed": true,
+          "reason": "relative_relevance_only_not_confidence_or_upgrade_approval",
+          "score": -1.924326,
+          "section": "Upgrade considerations for all versions",
+          "window_count": 1,
+          "window_scores": [
+            -1.924326
+          ]
+        },
+        {
+          "id": "L49-L54",
+          "inference_seconds": 0.4893,
+          "input_tokens_including_overlap": 223,
+          "model_executed": true,
+          "reason": "relative_relevance_only_not_confidence_or_upgrade_approval",
+          "score": -2.080749,
+          "section": "Upgrade considerations for all versions",
+          "window_count": 1,
+          "window_scores": [
+            -2.080749
+          ]
+        },
+        {
+          "id": "L101-L105",
+          "inference_seconds": 0.3073,
+          "input_tokens_including_overlap": 141,
+          "model_executed": true,
+          "reason": "relative_relevance_only_not_confidence_or_upgrade_approval",
+          "score": -2.213609,
+          "section": "2.26.0",
+          "window_count": 1,
+          "window_scores": [
+            -2.213609
+          ]
+        },
+        {
+          "id": "L74-L82",
+          "inference_seconds": 0.4186,
+          "input_tokens_including_overlap": 205,
+          "model_executed": true,
+          "reason": "relative_relevance_only_not_confidence_or_upgrade_approval",
+          "score": -2.563387,
+          "section": "Upgrade considerations for all versions",
+          "window_count": 1,
+          "window_scores": [
+            -2.563387
+          ]
+        },
+        {
+          "id": "L113-L114",
+          "inference_seconds": 0.2176,
+          "input_tokens_including_overlap": 98,
+          "model_executed": true,
+          "reason": "relative_relevance_only_not_confidence_or_upgrade_approval",
+          "score": -3.451585,
+          "section": "2.26.0",
+          "window_count": 1,
+          "window_scores": [
+            -3.451585
+          ]
+        },
+        {
+          "id": "L84-L85",
+          "inference_seconds": 0.3068,
+          "input_tokens_including_overlap": 124,
+          "model_executed": true,
+          "reason": "relative_relevance_only_not_confidence_or_upgrade_approval",
+          "score": -3.709466,
+          "section": "Upgrade considerations for all versions",
+          "window_count": 1,
+          "window_scores": [
+            -3.709466
+          ]
+        },
+        {
+          "id": "L99-L99",
+          "inference_seconds": 0.1981,
+          "input_tokens_including_overlap": 85,
+          "model_executed": true,
+          "reason": "relative_relevance_only_not_confidence_or_upgrade_approval",
+          "score": -4.184448,
+          "section": "2.26.0",
+          "window_count": 1,
+          "window_scores": [
+            -4.184448
+          ]
+        },
+        {
+          "id": "L89-L97",
+          "inference_seconds": 0.3157,
+          "input_tokens_including_overlap": 141,
+          "model_executed": true,
+          "reason": "relative_relevance_only_not_confidence_or_upgrade_approval",
+          "score": -4.970664,
+          "section": "2.26.0",
+          "window_count": 1,
+          "window_scores": [
+            -4.970664
+          ]
+        },
+        {
+          "id": "L134-L134",
+          "inference_seconds": 0.1802,
+          "input_tokens_including_overlap": 73,
+          "model_executed": true,
+          "reason": "relative_relevance_only_not_confidence_or_upgrade_approval",
+          "score": -7.33181,
+          "section": "2.19.0",
+          "window_count": 1,
+          "window_scores": [
+            -7.33181
+          ]
+        },
+        {
+          "id": "L72-L72",
+          "inference_seconds": 0.1748,
+          "input_tokens_including_overlap": 74,
+          "model_executed": true,
+          "reason": "relative_relevance_only_not_confidence_or_upgrade_approval",
+          "score": -8.973975,
+          "section": "Upgrade considerations for all versions",
+          "window_count": 1,
+          "window_scores": [
+            -8.973975
+          ]
+        },
+        {
+          "id": "L66-L70",
+          "inference_seconds": 0.3176,
+          "input_tokens_including_overlap": 146,
+          "model_executed": true,
+          "reason": "relative_relevance_only_not_confidence_or_upgrade_approval",
+          "score": -9.673699,
+          "section": "Upgrade considerations for all versions",
+          "window_count": 1,
+          "window_scores": [
+            -9.673699
+          ]
+        }
+      ],
+      "scored_passages": 16,
+      "unscored_passages": 0
+    },
+    {
+      "field": "containers/proxy/readinessProbe.httpGet.path",
+      "query": "Helm chart kong-2.18.0 to kong-2.26.0. containers/proxy/readinessProbe.httpGet.path: \"/status\" -> \"/status/ready\". Which migration conditions concern changed health-check endpoints, readiness or liveness, and prerequisites for becoming healthy?",
+      "readings": [
+        {
+          "id": "L101-L105",
+          "inference_seconds": 0.3402,
+          "input_tokens_including_overlap": 153,
+          "model_executed": true,
+          "reason": "relative_relevance_only_not_confidence_or_upgrade_approval",
+          "score": -1.56451,
+          "section": "2.26.0",
+          "window_count": 1,
+          "window_scores": [
+            -1.56451
+          ]
+        },
+        {
+          "id": "L89-L97",
+          "inference_seconds": 0.3264,
+          "input_tokens_including_overlap": 153,
+          "model_executed": true,
+          "reason": "relative_relevance_only_not_confidence_or_upgrade_approval",
+          "score": -2.063894,
+          "section": "2.26.0",
+          "window_count": 1,
+          "window_scores": [
+            -2.063894
+          ]
+        },
+        {
+          "id": "L107-L111",
+          "inference_seconds": 0.322,
+          "input_tokens_including_overlap": 149,
+          "model_executed": true,
+          "reason": "relative_relevance_only_not_confidence_or_upgrade_approval",
+          "score": -2.427534,
+          "section": "2.26.0",
+          "window_count": 1,
+          "window_scores": [
+            -2.427534
+          ]
+        },
+        {
+          "id": "L56-L60",
+          "inference_seconds": 0.4512,
+          "input_tokens_including_overlap": 196,
+          "model_executed": true,
+          "reason": "relative_relevance_only_not_confidence_or_upgrade_approval",
+          "score": -2.518669,
+          "section": "Upgrade considerations for all versions",
+          "window_count": 1,
+          "window_scores": [
+            -2.518669
+          ]
+        },
+        {
+          "id": "L41-L47",
+          "inference_seconds": 0.3935,
+          "input_tokens_including_overlap": 192,
+          "model_executed": true,
+          "reason": "relative_relevance_only_not_confidence_or_upgrade_approval",
+          "score": -2.625326,
+          "section": "Upgrade considerations for all versions",
+          "window_count": 1,
+          "window_scores": [
+            -2.625326
+          ]
+        },
+        {
+          "id": "L62-L64",
+          "inference_seconds": 0.28,
+          "input_tokens_including_overlap": 125,
+          "model_executed": true,
+          "reason": "relative_relevance_only_not_confidence_or_upgrade_approval",
+          "score": -2.633819,
+          "section": "Upgrade considerations for all versions",
+          "window_count": 1,
+          "window_scores": [
+            -2.633819
+          ]
+        },
+        {
+          "id": "L113-L114",
+          "inference_seconds": 0.2395,
+          "input_tokens_including_overlap": 110,
+          "model_executed": true,
+          "reason": "relative_relevance_only_not_confidence_or_upgrade_approval",
+          "score": -3.187495,
+          "section": "2.26.0",
+          "window_count": 1,
+          "window_scores": [
+            -3.187495
+          ]
+        },
+        {
+          "id": "L49-L54",
+          "inference_seconds": 0.4981,
+          "input_tokens_including_overlap": 235,
+          "model_executed": true,
+          "reason": "relative_relevance_only_not_confidence_or_upgrade_approval",
+          "score": -3.288058,
+          "section": "Upgrade considerations for all versions",
+          "window_count": 1,
+          "window_scores": [
+            -3.288058
+          ]
+        },
+        {
+          "id": "L74-L82",
+          "inference_seconds": 0.4489,
+          "input_tokens_including_overlap": 217,
+          "model_executed": true,
+          "reason": "relative_relevance_only_not_confidence_or_upgrade_approval",
+          "score": -4.150509,
+          "section": "Upgrade considerations for all versions",
+          "window_count": 1,
+          "window_scores": [
+            -4.150509
+          ]
+        },
+        {
+          "id": "L118-L122",
+          "inference_seconds": 0.4499,
+          "input_tokens_including_overlap": 185,
+          "model_executed": true,
+          "reason": "relative_relevance_only_not_confidence_or_upgrade_approval",
+          "score": -5.062717,
+          "section": "2.19.0",
+          "window_count": 1,
+          "window_scores": [
+            -5.062717
+          ]
+        },
+        {
+          "id": "L84-L85",
+          "inference_seconds": 0.2981,
+          "input_tokens_including_overlap": 136,
+          "model_executed": true,
+          "reason": "relative_relevance_only_not_confidence_or_upgrade_approval",
+          "score": -5.508833,
+          "section": "Upgrade considerations for all versions",
+          "window_count": 1,
+          "window_scores": [
+            -5.508833
+          ]
+        },
+        {
+          "id": "L99-L99",
+          "inference_seconds": 0.2177,
+          "input_tokens_including_overlap": 97,
+          "model_executed": true,
+          "reason": "relative_relevance_only_not_confidence_or_upgrade_approval",
+          "score": -6.756021,
+          "section": "2.26.0",
+          "window_count": 1,
+          "window_scores": [
+            -6.756021
+          ]
+        },
+        {
+          "id": "L124-L132",
+          "inference_seconds": 0.3169,
+          "input_tokens_including_overlap": 149,
+          "model_executed": true,
+          "reason": "relative_relevance_only_not_confidence_or_upgrade_approval",
+          "score": -9.859467,
+          "section": "2.19.0",
+          "window_count": 1,
+          "window_scores": [
+            -9.859467
+          ]
+        },
+        {
+          "id": "L72-L72",
+          "inference_seconds": 0.1967,
+          "input_tokens_including_overlap": 86,
+          "model_executed": true,
+          "reason": "relative_relevance_only_not_confidence_or_upgrade_approval",
+          "score": -9.998254,
+          "section": "Upgrade considerations for all versions",
+          "window_count": 1,
+          "window_scores": [
+            -9.998254
+          ]
+        },
+        {
+          "id": "L134-L134",
+          "inference_seconds": 0.2035,
+          "input_tokens_including_overlap": 85,
+          "model_executed": true,
+          "reason": "relative_relevance_only_not_confidence_or_upgrade_approval",
+          "score": -10.165474,
+          "section": "2.19.0",
+          "window_count": 1,
+          "window_scores": [
+            -10.165474
+          ]
+        },
+        {
+          "id": "L66-L70",
+          "inference_seconds": 0.3338,
+          "input_tokens_including_overlap": 158,
+          "model_executed": true,
+          "reason": "relative_relevance_only_not_confidence_or_upgrade_approval",
+          "score": -10.196805,
+          "section": "Upgrade considerations for all versions",
+          "window_count": 1,
+          "window_scores": [
+            -10.196805
+          ]
+        }
+      ],
+      "scored_passages": 16,
+      "unscored_passages": 0
+    }
+  ],
+  "scope": "One explicitly selected Deployment; image, HTTP probe path/port and read-only-root settings only",
+  "source_passages": [
+    {
+      "end_line": 122,
+      "exact_excerpt": "2.19 sets a default [security context](https://kubernetes.io/docs/tasks/configure-pod-container/security-context/)",
+      "id": "L118-L122",
+      "model_executed": true,
+      "reason": "See independent per-change reading scores; scores from different queries are not combined.",
+      "score": null,
+      "section": "2.19.0",
+      "sha256": "719b88e2fb725ce5444b3d7ad4de65b07a871d47fa3cf2c545ad0f1c09d4ee63",
+      "source_line_url": "https://github.com/Kong/charts/blob/b39300d09d6d70297dc437015d4a49e484b7b77d/charts/kong/UPGRADE.md#L118-L122",
+      "source_path": "model-evaluation/sources/kong-guide.md",
+      "source_url": "https://github.com/Kong/charts/blob/b39300d09d6d70297dc437015d4a49e484b7b77d/charts/kong/UPGRADE.md",
+      "start_line": 118
+    },
+    {
+      "end_line": 105,
+      "exact_excerpt": "2.26 changes the default proxy readiness",
+      "id": "L101-L105",
+      "model_executed": true,
+      "reason": "See independent per-change reading scores; scores from different queries are not combined.",
+      "score": null,
+      "section": "2.26.0",
+      "sha256": "f5ea99f4af386feeecb0dde7b06e911aeaba643df985a45163e34e749da2b812",
+      "source_line_url": "https://github.com/Kong/charts/blob/b39300d09d6d70297dc437015d4a49e484b7b77d/charts/kong/UPGRADE.md#L101-L105",
+      "source_path": "model-evaluation/sources/kong-guide.md",
+      "source_url": "https://github.com/Kong/charts/blob/b39300d09d6d70297dc437015d4a49e484b7b77d/charts/kong/UPGRADE.md",
+      "start_line": 101
+    },
+    {
+      "end_line": 47,
+      "exact_excerpt": "",
+      "id": "L41-L47",
+      "model_executed": true,
+      "reason": "See independent per-change reading scores; scores from different queries are not combined.",
+      "score": null,
+      "section": "Upgrade considerations for all versions",
+      "sha256": "5d433b3dd4a55c40c443e56562b83fe9f501aeb5171e35a9db8aebc58c4736af",
+      "source_line_url": "https://github.com/Kong/charts/blob/b39300d09d6d70297dc437015d4a49e484b7b77d/charts/kong/UPGRADE.md#L41-L47",
+      "source_path": "model-evaluation/sources/kong-guide.md",
+      "source_url": "https://github.com/Kong/charts/blob/b39300d09d6d70297dc437015d4a49e484b7b77d/charts/kong/UPGRADE.md",
+      "start_line": 41
+    },
+    {
+      "end_line": 54,
+      "exact_excerpt": "",
+      "id": "L49-L54",
+      "model_executed": true,
+      "reason": "See independent per-change reading scores; scores from different queries are not combined.",
+      "score": null,
+      "section": "Upgrade considerations for all versions",
+      "sha256": "5d94e6f680912cd006b7a113e2adaa8e4ec93affa4dd30ce1d4365f9ef323585",
+      "source_line_url": "https://github.com/Kong/charts/blob/b39300d09d6d70297dc437015d4a49e484b7b77d/charts/kong/UPGRADE.md#L49-L54",
+      "source_path": "model-evaluation/sources/kong-guide.md",
+      "source_url": "https://github.com/Kong/charts/blob/b39300d09d6d70297dc437015d4a49e484b7b77d/charts/kong/UPGRADE.md",
+      "start_line": 49
+    },
+    {
+      "end_line": 60,
+      "exact_excerpt": "",
+      "id": "L56-L60",
+      "model_executed": true,
+      "reason": "See independent per-change reading scores; scores from different queries are not combined.",
+      "score": null,
+      "section": "Upgrade considerations for all versions",
+      "sha256": "3ff21f63fddf93c14981d5799fafbe1708f138383193e9c4239b3961c209fc7f",
+      "source_line_url": "https://github.com/Kong/charts/blob/b39300d09d6d70297dc437015d4a49e484b7b77d/charts/kong/UPGRADE.md#L56-L60",
+      "source_path": "model-evaluation/sources/kong-guide.md",
+      "source_url": "https://github.com/Kong/charts/blob/b39300d09d6d70297dc437015d4a49e484b7b77d/charts/kong/UPGRADE.md",
+      "start_line": 56
+    },
+    {
+      "end_line": 64,
+      "exact_excerpt": "",
+      "id": "L62-L64",
+      "model_executed": true,
+      "reason": "See independent per-change reading scores; scores from different queries are not combined.",
+      "score": null,
+      "section": "Upgrade considerations for all versions",
+      "sha256": "e6b196fa2fe04074b3551c29a5d4e7fd1e0bc1e98cd5547b00f08f40c4bc2974",
+      "source_line_url": "https://github.com/Kong/charts/blob/b39300d09d6d70297dc437015d4a49e484b7b77d/charts/kong/UPGRADE.md#L62-L64",
+      "source_path": "model-evaluation/sources/kong-guide.md",
+      "source_url": "https://github.com/Kong/charts/blob/b39300d09d6d70297dc437015d4a49e484b7b77d/charts/kong/UPGRADE.md",
+      "start_line": 62
+    },
+    {
+      "end_line": 70,
+      "exact_excerpt": "",
+      "id": "L66-L70",
+      "model_executed": true,
+      "reason": "See independent per-change reading scores; scores from different queries are not combined.",
+      "score": null,
+      "section": "Upgrade considerations for all versions",
+      "sha256": "525b9dce236ae39503707b70fb89e6f82bf8da1b8245ffe7567684bd52b423c9",
+      "source_line_url": "https://github.com/Kong/charts/blob/b39300d09d6d70297dc437015d4a49e484b7b77d/charts/kong/UPGRADE.md#L66-L70",
+      "source_path": "model-evaluation/sources/kong-guide.md",
+      "source_url": "https://github.com/Kong/charts/blob/b39300d09d6d70297dc437015d4a49e484b7b77d/charts/kong/UPGRADE.md",
+      "start_line": 66
+    },
+    {
+      "end_line": 72,
+      "exact_excerpt": "",
+      "id": "L72-L72",
+      "model_executed": true,
+      "reason": "See independent per-change reading scores; scores from different queries are not combined.",
+      "score": null,
+      "section": "Upgrade considerations for all versions",
+      "sha256": "3dd6446ff44d8cef7bfbf172e9bdd7094c6122d4114ad57f8eb257e421bc7dcc",
+      "source_line_url": "https://github.com/Kong/charts/blob/b39300d09d6d70297dc437015d4a49e484b7b77d/charts/kong/UPGRADE.md#L72-L72",
+      "source_path": "model-evaluation/sources/kong-guide.md",
+      "source_url": "https://github.com/Kong/charts/blob/b39300d09d6d70297dc437015d4a49e484b7b77d/charts/kong/UPGRADE.md",
+      "start_line": 72
+    },
+    {
+      "end_line": 82,
+      "exact_excerpt": "",
+      "id": "L74-L82",
+      "model_executed": true,
+      "reason": "See independent per-change reading scores; scores from different queries are not combined.",
+      "score": null,
+      "section": "Upgrade considerations for all versions",
+      "sha256": "9f991be248cdcf2f7aed8df24299a79fa3f18b9ed4c3eb4b2ec88404810b8223",
+      "source_line_url": "https://github.com/Kong/charts/blob/b39300d09d6d70297dc437015d4a49e484b7b77d/charts/kong/UPGRADE.md#L74-L82",
+      "source_path": "model-evaluation/sources/kong-guide.md",
+      "source_url": "https://github.com/Kong/charts/blob/b39300d09d6d70297dc437015d4a49e484b7b77d/charts/kong/UPGRADE.md",
+      "start_line": 74
+    },
+    {
+      "end_line": 85,
+      "exact_excerpt": "",
+      "id": "L84-L85",
+      "model_executed": true,
+      "reason": "See independent per-change reading scores; scores from different queries are not combined.",
+      "score": null,
+      "section": "Upgrade considerations for all versions",
+      "sha256": "619328d6f00bdef8fa873841d881586fd648231d02e3d82cb26d863bfbe31f12",
+      "source_line_url": "https://github.com/Kong/charts/blob/b39300d09d6d70297dc437015d4a49e484b7b77d/charts/kong/UPGRADE.md#L84-L85",
+      "source_path": "model-evaluation/sources/kong-guide.md",
+      "source_url": "https://github.com/Kong/charts/blob/b39300d09d6d70297dc437015d4a49e484b7b77d/charts/kong/UPGRADE.md",
+      "start_line": 84
+    },
+    {
+      "end_line": 97,
+      "exact_excerpt": "",
+      "id": "L89-L97",
+      "model_executed": true,
+      "reason": "See independent per-change reading scores; scores from different queries are not combined.",
+      "score": null,
+      "section": "2.26.0",
+      "sha256": "0c92e7303aed34d3681fce1a28f2358778e9575a4f6220802817d016f4ec1e76",
+      "source_line_url": "https://github.com/Kong/charts/blob/b39300d09d6d70297dc437015d4a49e484b7b77d/charts/kong/UPGRADE.md#L89-L97",
+      "source_path": "model-evaluation/sources/kong-guide.md",
+      "source_url": "https://github.com/Kong/charts/blob/b39300d09d6d70297dc437015d4a49e484b7b77d/charts/kong/UPGRADE.md",
+      "start_line": 89
+    },
+    {
+      "end_line": 99,
+      "exact_excerpt": "",
+      "id": "L99-L99",
+      "model_executed": true,
+      "reason": "See independent per-change reading scores; scores from different queries are not combined.",
+      "score": null,
+      "section": "2.26.0",
+      "sha256": "0e4c85d3f0b5ba9452cf0712ecd6c1d740623359bfba79d1efa6fcca2c83c720",
+      "source_line_url": "https://github.com/Kong/charts/blob/b39300d09d6d70297dc437015d4a49e484b7b77d/charts/kong/UPGRADE.md#L99-L99",
+      "source_path": "model-evaluation/sources/kong-guide.md",
+      "source_url": "https://github.com/Kong/charts/blob/b39300d09d6d70297dc437015d4a49e484b7b77d/charts/kong/UPGRADE.md",
+      "start_line": 99
+    },
+    {
+      "end_line": 111,
+      "exact_excerpt": "",
+      "id": "L107-L111",
+      "model_executed": true,
+      "reason": "See independent per-change reading scores; scores from different queries are not combined.",
+      "score": null,
+      "section": "2.26.0",
+      "sha256": "3863c68adbd2a30816ae530cab3a44a14e5377195cb282f98ab2cbda8c2e98b7",
+      "source_line_url": "https://github.com/Kong/charts/blob/b39300d09d6d70297dc437015d4a49e484b7b77d/charts/kong/UPGRADE.md#L107-L111",
+      "source_path": "model-evaluation/sources/kong-guide.md",
+      "source_url": "https://github.com/Kong/charts/blob/b39300d09d6d70297dc437015d4a49e484b7b77d/charts/kong/UPGRADE.md",
+      "start_line": 107
+    },
+    {
+      "end_line": 114,
+      "exact_excerpt": "",
+      "id": "L113-L114",
+      "model_executed": true,
+      "reason": "See independent per-change reading scores; scores from different queries are not combined.",
+      "score": null,
+      "section": "2.26.0",
+      "sha256": "ac96852da60bbc1014d56500c5caa86d77fc494b1b0a3e682c46199d0d601ded",
+      "source_line_url": "https://github.com/Kong/charts/blob/b39300d09d6d70297dc437015d4a49e484b7b77d/charts/kong/UPGRADE.md#L113-L114",
+      "source_path": "model-evaluation/sources/kong-guide.md",
+      "source_url": "https://github.com/Kong/charts/blob/b39300d09d6d70297dc437015d4a49e484b7b77d/charts/kong/UPGRADE.md",
+      "start_line": 113
+    },
+    {
+      "end_line": 132,
+      "exact_excerpt": "",
+      "id": "L124-L132",
+      "model_executed": true,
+      "reason": "See independent per-change reading scores; scores from different queries are not combined.",
+      "score": null,
+      "section": "2.19.0",
+      "sha256": "931443f26109932aa54fe8d3fc9774c0aeaa6898d2b170844db58c815058e58e",
+      "source_line_url": "https://github.com/Kong/charts/blob/b39300d09d6d70297dc437015d4a49e484b7b77d/charts/kong/UPGRADE.md#L124-L132",
+      "source_path": "model-evaluation/sources/kong-guide.md",
+      "source_url": "https://github.com/Kong/charts/blob/b39300d09d6d70297dc437015d4a49e484b7b77d/charts/kong/UPGRADE.md",
+      "start_line": 124
+    },
+    {
+      "end_line": 134,
+      "exact_excerpt": "",
+      "id": "L134-L134",
+      "model_executed": true,
+      "reason": "See independent per-change reading scores; scores from different queries are not combined.",
+      "score": null,
+      "section": "2.19.0",
+      "sha256": "7d8fe2235c2ac93e287d3d8abc94a4c5eee525a455ed71ad01a21ec3942611ca",
+      "source_line_url": "https://github.com/Kong/charts/blob/b39300d09d6d70297dc437015d4a49e484b7b77d/charts/kong/UPGRADE.md#L134-L134",
+      "source_path": "model-evaluation/sources/kong-guide.md",
+      "source_url": "https://github.com/Kong/charts/blob/b39300d09d6d70297dc437015d4a49e484b7b77d/charts/kong/UPGRADE.md",
+      "start_line": 134
+    }
+  ],
+  "source_reference": {
+    "commit": "b39300d09d6d70297dc437015d4a49e484b7b77d",
+    "reference_type": "github_commit",
+    "remote_content_verified_this_review": false,
+    "warning": "Source link uses a full Git commit reference. This review checks supplied file hashes; it does not fetch the link or authenticate its contents."
+  },
+  "status": "REVIEW_REQUIRED",
+  "to_chart": "kong-2.26.0",
+  "unresolved": [
+    "This brief does not verify a live cluster, a supported upgrade path or runtime readiness.",
+    "Version-range selection covers supplied stable release headings and unversioned context; it does not prove complete migration history.",
+    "External component versions, relationships and prerequisite completion are not established by the selected Deployment.",
+    "Per-change rankings are reading suggestions, not extracted obligations, applicability decisions or approval.",
+    "Inspect the section ledger and every unscored item; unsupported fields and other resources may contain essential changes."
+  ]
+}

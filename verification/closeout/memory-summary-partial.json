@@ -1,0 +1,6 @@
+{
+  "command": "Render list_logs text=inference_memory startTime=2026-10-25T21:33:23Z",
+  "log_records": 15,
+  "highest_sampled_peak_rss_bytes": 1054945280,
+  "limitations": "10 ms samples during inference; single Python process only. Not total service memory, not proof of production capacity. Snapshot taken while HTTP test still running."
+}

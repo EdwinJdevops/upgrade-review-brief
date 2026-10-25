@@ -1,0 +1,138 @@
+{
+  "expected_sha": "3cc347f04f127ccc295645ffb7a3481573f0abe2",
+  "ending_sha_match": true,
+  "percentile_method": "nearest rank; successful serial requests only; all failures remain in requests.jsonl",
+  "cold_start": "NOT RUN: restarting the service is not available through the connected API and dashboard sign-in is required",
+  "serial": {
+    "demo": {
+      "attempts": 20,
+      "failures": [],
+      "form_get_plus_review_post_seconds": {
+        "n": 20,
+        "p50": 10.300213270999848,
+        "p95": 11.85587050700019
+      },
+      "post_seconds": {
+        "n": 20,
+        "p50": 5.808166337000102,
+        "p95": 6.365186019000021
+      }
+    },
+    "demo_range": {
+      "attempts": 10,
+      "failures": [],
+      "form_get_plus_review_post_seconds": {
+        "n": 10,
+        "p50": 19.403118221000113,
+        "p95": 21.537716550999903
+      },
+      "post_seconds": {
+        "n": 10,
+        "p50": 14.832892051000044,
+        "p95": 16.422188406999794
+      }
+    }
+  },
+  "concurrent": {
+    "2": [
+      {
+        "id": "concurrent-2-2",
+        "kind": "demo_range",
+        "form_get_seconds": 4.245747528000038,
+        "post_seconds": 4.96791254499999,
+        "end_to_end_seconds": 4.968023287000051,
+        "concurrent_prepared_form": true,
+        "status": 429,
+        "error": null,
+        "response_sha256": "c4622ddfce374ac1c190ca49ef1763adaf8c5a628a3e772cc860e4e4f450149f",
+        "observed_at_utc": "2026-10-25T21:43:11.098864+00:00",
+        "visible_message": "Upgrade Review Brief URB Upgrade Review Brief View source \u2197 REVIEW NOT PRODUCED Pause here. Another review is running. Try again when it finishes. Return to the start page \u2197 Built for the review before the rollout. Open weights \u00b7 Source locations \u00b7 Human decision"
+      },
+      {
+        "id": "concurrent-2-1",
+        "kind": "demo_range",
+        "form_get_seconds": 6.32581826899991,
+        "post_seconds": 15.422082203999935,
+        "end_to_end_seconds": 15.422180798999989,
+        "concurrent_prepared_form": true,
+        "status": 200,
+        "error": null,
+        "response_sha256": "062e0328a941b41b9acc647e66c7d3a7b2740df483704a670116cd34431c8974",
+        "observed_at_utc": "2026-10-25T21:43:21.553755+00:00",
+        "model_windows": 32
+      }
+    ],
+    "5": [
+      {
+        "id": "concurrent-5-1",
+        "kind": "demo_range",
+        "form_get_seconds": 4.957327384000109,
+        "post_seconds": 4.2500391680000575,
+        "end_to_end_seconds": 4.250104340999997,
+        "concurrent_prepared_form": true,
+        "status": 429,
+        "error": null,
+        "response_sha256": "c4622ddfce374ac1c190ca49ef1763adaf8c5a628a3e772cc860e4e4f450149f",
+        "observed_at_utc": "2026-10-25T21:44:50.745215+00:00",
+        "visible_message": "Upgrade Review Brief URB Upgrade Review Brief View source \u2197 REVIEW NOT PRODUCED Pause here. Another review is running. Try again when it finishes. Return to the start page \u2197 Built for the review before the rollout. Open weights \u00b7 Source locations \u00b7 Human decision"
+      },
+      {
+        "id": "concurrent-5-2",
+        "kind": "demo_range",
+        "form_get_seconds": 4.569908979000047,
+        "post_seconds": 4.252322667000044,
+        "end_to_end_seconds": 4.252421929999855,
+        "concurrent_prepared_form": true,
+        "status": 429,
+        "error": null,
+        "response_sha256": "c4622ddfce374ac1c190ca49ef1763adaf8c5a628a3e772cc860e4e4f450149f",
+        "observed_at_utc": "2026-10-25T21:44:50.748290+00:00",
+        "visible_message": "Upgrade Review Brief URB Upgrade Review Brief View source \u2197 REVIEW NOT PRODUCED Pause here. Another review is running. Try again when it finishes. Return to the start page \u2197 Built for the review before the rollout. Open weights \u00b7 Source locations \u00b7 Human decision"
+      },
+      {
+        "id": "concurrent-5-5",
+        "kind": "demo_range",
+        "form_get_seconds": 4.303066389000151,
+        "post_seconds": 4.258809836999944,
+        "end_to_end_seconds": 4.25894029799997,
+        "concurrent_prepared_form": true,
+        "status": 429,
+        "error": null,
+        "response_sha256": "c4622ddfce374ac1c190ca49ef1763adaf8c5a628a3e772cc860e4e4f450149f",
+        "observed_at_utc": "2026-10-25T21:44:50.753245+00:00",
+        "visible_message": "Upgrade Review Brief URB Upgrade Review Brief View source \u2197 REVIEW NOT PRODUCED Pause here. Another review is running. Try again when it finishes. Return to the start page \u2197 Built for the review before the rollout. Open weights \u00b7 Source locations \u00b7 Human decision"
+      },
+      {
+        "id": "concurrent-5-4",
+        "kind": "demo_range",
+        "form_get_seconds": 4.30294618500011,
+        "post_seconds": 4.259409547999894,
+        "end_to_end_seconds": 4.259526153000024,
+        "concurrent_prepared_form": true,
+        "status": 429,
+        "error": null,
+        "response_sha256": "c4622ddfce374ac1c190ca49ef1763adaf8c5a628a3e772cc860e4e4f450149f",
+        "observed_at_utc": "2026-10-25T21:44:50.756036+00:00",
+        "visible_message": "Upgrade Review Brief URB Upgrade Review Brief View source \u2197 REVIEW NOT PRODUCED Pause here. Another review is running. Try again when it finishes. Return to the start page \u2197 Built for the review before the rollout. Open weights \u00b7 Source locations \u00b7 Human decision"
+      },
+      {
+        "id": "concurrent-5-3",
+        "kind": "demo_range",
+        "form_get_seconds": 4.550983689000077,
+        "post_seconds": 14.596155783999848,
+        "end_to_end_seconds": 14.596215153000003,
+        "concurrent_prepared_form": true,
+        "status": 200,
+        "error": null,
+        "response_sha256": "f51e05ff8e51df1a5992b28552fc5005399780b780d17c5f57f436b1d9918da1",
+        "observed_at_utc": "2026-10-25T21:45:01.093357+00:00",
+        "model_windows": 32
+      }
+    ]
+  },
+  "warm_homepage_seconds": {
+    "n": 10,
+    "p50": 4.6543339279999145,
+    "p95": 6.451860991000103
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "command": "Python inspect draft sections, annotations, wording and local links",
+  "annotated_matches_clean": true,
+  "required_sections": {
+    "What I Built": true,
+    "Demo": true,
+    "Code": true,
+    "How I Built It": true,
+    "Why Does Open Innovation Matter?": true,
+    "Prize Categories": true
+  },
+  "tags_present": true,
+  "published_false": true,
+  "measurement_placeholder_remains": false,
+  "word_count": 1204,
+  "prohibited_wording": []
+}

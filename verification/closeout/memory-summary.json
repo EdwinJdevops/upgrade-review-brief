@@ -1,0 +1,7 @@
+{
+  "records": 35,
+  "highest_sampled_peak_rss_bytes": 1075441664,
+  "sampling_interval_ms": 10,
+  "has_more": false,
+  "scope": "Python-process RSS sampled during observed requests, not total service memory or exact instantaneous peak"
+}

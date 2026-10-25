@@ -1,5 +1,5 @@
 ---
-title: "Upgrade Review Brief: prepare the migration reading before a Helm review"
+title: "A readiness path changed. Prepare the migration reading before the rollout."
 published: false
 tags: devchallenge, hf26challenge
 ---
@@ -8,68 +8,85 @@ tags: devchallenge, hf26challenge
 
 ## What I Built
 
-Upgrade Review Brief prepares migration evidence for a platform engineer reviewing a Helm change. It combines a focused manifest diff, source-linked reading ordered by an open-weight model, and a record of what remains unreviewed.
+Kong 2.25.0 to 2.26.0 changes the proxy readiness path from `/status` to `/status/ready` in the packaged example. A manifest diff shows the path. The migration guide adds the controller question that the supplied manifests cannot answer.
 
-The example is deliberately reproducible: two official historical Kong charts, rendered with controlled values. In the 2.18.0 → 2.26.0 case, the selected container's read-only-root setting changes from unspecified to true, and its readiness path changes from `/status` to `/status/ready`. The migration guide contains conditions that need more context than those two fields provide.
-
-The tool prepares the reading. It does not establish whether a condition applies to a cluster or approve an upgrade. This is a controlled historical experiment, not a customer incident.
+Upgrade Review Brief prepares that reading for a platform engineer: a focused Deployment diff, migration passages ordered by an open-weight relevance model, input hashes, recorded source lines and a list of what still needs review. The automation assembles the review material; the engineer makes the upgrade decision. That is my interpretation of Slow and Steady: prepare the repetitive work before the human review.
 
 ## Demo
 
-[Open the live Render application](https://upgrade-review-brief.onrender.com) and choose **Review the version range**. It runs BAAI's BGE relevance model on the server, retains 16 source passages and evaluates 32 model windows for two separate reading questions. JSON and Markdown downloads carry the result into a review.
+[Open the live Render application](https://upgrade-review-brief.onrender.com/). Choose **Run the model review** for the readiness example, or **Review the version range** for the broader Kong example. The range retains 16 passages and evaluates 32 model windows. Reports have JSON and Markdown export controls.
 
-The report also inventories all named resources. This example has three resources with edits outside the focused review: Deployment, Service and ServiceAccount. Two have changes confined to metadata. That distinction is now explicit; metadata can affect behavior, so neither a count nor a metadata label assigns safety.
-
-The original five-passage example remains available. [This earlier browser recording](https://github.com/EdwinJdevops/upgrade-review-brief/blob/main/docs/demo/browser-demo.mp4) shows that original workflow running locally with real inference. It predates version-range selection and the coverage/source-link improvements.
-
-Only sanitized inputs belong in the public demo. The local CLI processes files on the operator's machine after dependency and model preparation. Hosted uploads go to the app server, even though it calls no external model API.
+[The recorded demonstration](https://github.com/EdwinJdevops/upgrade-review-brief/blob/main/docs/demo/browser-demo.mp4) shows the earlier local single-section workflow with actual model inference. It predates the range and source-link improvements; the live demo shows the current hosted application.
 
 ## Code
 
-[Repository, tests and verification records](https://github.com/EdwinJdevops/upgrade-review-brief).
-
-Implementation records begin October 20, within this challenge window; the public repository was created October 23. Earlier failed experiments remain recorded. The model, charts and migration documentation are prior work and credited below.
+[Source, Apache-2.0 licence and verification records](https://github.com/EdwinJdevops/upgrade-review-brief). The application licence is separate from the model and dependency licences. **AI coding assistance was used in development.**
 
 ## How I Built It
 
-Python compares selected fields in one explicitly chosen Deployment: images, HTTP probe paths/ports and container read-only-root settings. It does not send environment values, probe headers, Secret contents or whole manifests into the ranking query.
+```text
+Rendered before/after manifests + migration guide
+  -> validate bytes and select one Deployment
+  -> compare the supported fields; inventory other resource changes
+  -> select guide sections and form change-specific reading questions
+  -> BGE relevance ranking on CPU
+  -> source-linked report + hashes + unresolved questions
+```
 
-Stable, increasing chart-version labels select intervening release headings and unversioned guide sections. A ledger records excluded sections, including the document preamble. The engine creates up to six separate reading questions and shares a 32-window inference budget between them. Unscored material stays visible. Rankings from different questions are never combined into a confidence score.
+The supported fields are container images, HTTP probe paths and ports, and `readOnlyRootFilesystem`. The inventory exposes other changed resources without claiming to understand their consequences. The model is `BAAI/bge-reranker-base`, pinned to revision `2cfc18c9415c912f9d8155881c133215df768a70`. It scores relevance between a question and source text. It does not write migration commands.
 
-`BAAI/bge-reranker-base` scores query–passage relevance through PyTorch and Transformers. It is a relevance model, not a generator of migration commands. Deterministic code produces the diff and coverage inventory; the model orders the source reading.
+### Why a chat window alone is insufficient
 
-A review of my own implementation found a citation problem: the packaged guide bytes were pinned, but links pointed at mutable `main` lines. The demo now links to the exact Kong repository commit. I checked its contents through GitHub's API against both the Git blob identity and the existing SHA-256. Single-section and range reports now link to recorded lines. User-supplied URLs are still unverified; a commit-looking URL alone never authenticates uploaded bytes.
+A chat conversation can help interpret a diff. The artifact needed here is more specific: a fixed field comparison bound to supplied bytes, source line links, a section-selection ledger and retained unscored material. Generated migration advice would need to be checked against the guide. This application instead ranks the guide and records the unresolved questions. A chat-based system could implement similar controls; the interface alone does not provide them.
 
-The latest local suite passes 98 tests. Earlier releases also passed GitHub Actions and public actual-model desktop/mobile checks; dated records identify their exact revisions. Unit tests use scorer doubles and do not measure model accuracy. New release verification is recorded separately when completed.
+### What the validation does and does not show
 
-## What the Model Actually Added
+The fresh local suite and a clean clone each ran 103 tests successfully at application revision `3cc347f04f127ccc295645ffb7a3481573f0abe2`. Tests with scorer doubles check contracts and boundaries, not model accuracy. A separate live check exercised actual inference for the original example, range review and a sanitised upload, including source-link and secret-sentinel assertions.
 
-I compared model and non-model reading orders using the same inputs. In the original example, BGE and keyword matching chose the same first passage. That is retained as negative evidence against claiming that every review needs the model.
+The specified pre-registered multi-chart backtest is unfinished. No full-set comparison with BM25 or token overlap was run, so ranking superiority is unknown. Earlier controlled Kong experiments are preserved in the repository, but they are not a substitute for that benchmark.
 
-In the larger range example, four reading slots surfaced both author-labeled prerequisite passages with BGE, versus one with token overlap. An exploratory BM25 comparison also surfaced one; it was added after seeing the first comparison and is explicitly post hoc. A single combined BGE query also found both within four slots, so separate questions improved organization without a demonstrated accuracy advantage over that combined query.
+| Required backtest | BGE | BM25 | Token overlap |
+| --- | --- | --- | --- |
+| Pre-registered multi-chart cases | NOT RUN | NOT RUN | NOT RUN |
+| Top-1 / top-3 / top-4 / MRR | Unavailable | Unavailable | Unavailable |
 
-These are two labeled conditions in one chart family, assembled by the project author. They are not independent accuracy, saved engineer time or evidence that an upgrade would succeed. The historical results and frozen inputs remain unchanged after the citation fix.
+A separate reproducibility check found a real limit. Ten same-machine CLI runs produced matching normalized hashes. The GitHub runner comparison failed because score floats differed. Passage order matched in that comparison, but I dropped the general determinism claim. Neither pinned weights nor a fixed seed guarantees identical floating-point output across environments. The failure and both outputs remain in the repository.
+
+The supported thesis is a source-pinned, hash-bound review artifact whose workflow can be rerun. The broader ranking experiment has not established that the model beats keyword search, and cross-environment byte-identical output is not claimed.
+
+### Render decisions
+
+Render runs the Python application and actual CPU inference in the same service. The configured plan is `1c-2g`, listed at $25 per month for compute before other charges. It runs one worker with two threads and allows one inference at a time. The model loads at boot, and `/healthz` reports readiness and the deployed git revision. Automatic deployment is off.
+
+The following are end-to-end HTTP measurements from this test client, including the form GET and review POST. Percentiles use successful serial requests only; every failed attempt remains in the raw log. They include client/network overhead and are not model-only timings.
+
+| Request | Attempts | Failures | p50 | p95 |
+| --- | --- | --- | --- | --- |
+| Readiness example | 20 | 0 | 10.300 s | 11.856 s |
+| Range review | 10 | 0 | 19.403 s | 21.538 s |
+
+The raw concurrency results retain every response, including rejections. This is a bounded service check, not a production load test. In the two-request burst, 1 request returned HTTP 200 and 1 returned HTTP 429. In the five-request burst, 1 returned HTTP 200 and 4 returned HTTP 429. Rejected users saw: “Another review is running. Try again when it finishes.” The highest logged sampled Python-process RSS was 1075441664 bytes, sampled every 10 ms during inference. This does not measure total service memory or an exact instantaneous peak.
+
+The deployment uses Render’s native Python build, not a Docker image. Docker was unavailable in the development environment; no container build is claimed. A cold-start experiment and a fresh-service Blueprint test remain unrun, so the README does not include a tested Deploy button.
 
 ## Why Does Open Innovation Matter?
 
-Pinned open weights make the ranking step inspectable and runnable without a model API key after preparation. The runtime uses verified safetensors, built-in model classes and no downloaded remote model code. The local CLI lets an operator keep review inputs in their own environment; the hosted demo makes a different privacy trade-off.
+The pinned weights and tokenizer make the ranking component available for local inspection and inference without a hosted model API key. The loader verifies the recorded file identities and uses local files with remote model code disabled. The packaged Kong guide links to a recorded upstream commit. These controls make inputs and sources inspectable; they do not prove that a passage applies to a cluster.
 
-The model weights are about 1.1 GB, and inference consumes CPU time. Running locally does not mean running without resource costs. The original application code's reuse license is still an owner decision; model/dependency licenses are separate.
+The local CLI lets the operator keep review inputs on their own machine after preparation. The public Render demo processes uploads on its server. Those are different privacy choices, so only sanitised material belongs in the public demo.
 
-## The Lazy Payoff
+### Scope and limits
 
-The implemented automation assembles the selected changes, migration reading, source identities and unreviewed areas in one exportable report. The direct-file CLI calculates hashes and supports an optional exit code when edits fall outside scope.
+This is a focused review-preparation tool, not an upgrade approval gate. It cannot infer live cluster state, assess every Helm change, authenticate an uploaded document against its URL or certify an upgrade path. All reports remain **REVIEW REQUIRED**. Independent reviewer benefit, ranking accuracy across charts and production capacity are unvalidated.
 
-I have not measured the complete task against a real team's process, including gathering files, reading the output and correcting omissions. That is the next validation gate before claiming time savings or a paid product. Every successful report remains **REVIEW REQUIRED**.
+### What is next
 
-## Attribution
+Next I will complete the pre-registered multi-chart benchmark and obtain independent labels before deciding whether model ranking earns its runtime cost. Then I will observe engineers reviewing their own upgrades, including missed prerequisites and the work required to prepare the inputs.
 
-[Kong charts and migration guidance](https://github.com/Kong/charts/blob/b39300d09d6d70297dc437015d4a49e484b7b77d/charts/kong/UPGRADE.md), [BAAI/bge-reranker-base](https://huggingface.co/BAAI/bge-reranker-base), PyTorch, Transformers, PyYAML, Flask, Jinja, Gunicorn, Helm and GitHub Actions supply upstream work. Playwright tests the browser. **AI coding assistance was used in development.** [THIRD_PARTY_NOTICES.md](https://github.com/EdwinJdevops/upgrade-review-brief/blob/main/THIRD_PARTY_NOTICES.md) records further attribution.
+### Attribution
+
+[Kong charts and migration guidance](https://github.com/Kong/charts/blob/b39300d09d6d70297dc437015d4a49e484b7b77d/charts/kong/UPGRADE.md), [BAAI’s BGE model](https://huggingface.co/BAAI/bge-reranker-base), PyTorch, Transformers, Helm, PyYAML, Flask, Jinja and Gunicorn supply upstream work. [Third-party notices](https://github.com/EdwinJdevops/upgrade-review-brief/blob/main/THIRD_PARTY_NOTICES.md) record attribution.
 
 ## Prize Categories
 
-**Best Use of Render:** the existing single Python service runs the actual BGE CPU inference runtime, handles bounded sanitized uploads, serves reports and exposes model readiness through `/healthz`. This is a working runtime integration, not proof of production scale.
-
-**Best Use of GitHub Copilot, through the published GitHub Actions option:** Actions automates tests and, when explicitly requested, pinned model preparation and actual-model CLI/browser-route checks. Copilot itself was not used. The organizers determine category acceptance.
-
-Backboard, Tinker and an event .tech domain are not used, so those categories are not claimed. No extra service was added to increase category count.
+**Best Use of Render.** Render is the deployed AI runtime: it loads and runs the open-weight model, accepts bounded uploads, serves the review report and reports readiness. The entry targets this category only.

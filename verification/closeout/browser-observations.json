@@ -1,0 +1,7 @@
+{
+  "surface": "cua_repl cloud browser",
+  "homepage_url": "https://upgrade-review-brief.onrender.com/",
+  "commands": ["cua.createBrowserTab(browser.browserId, 'https://upgrade-review-brief.onrender.com')", "tab.click(17); tab.getAXState()", "tab.playwright.waitForEvent('download'); Download JSON click; download.path()", "tab.playwright.waitForEvent('download'); Download Markdown click; download.path()", "tab.playwright.evaluate: read embedded report and viewport"],
+  "observed": {"status":"REVIEW REQUIRED", "before_path":"/status", "after_path":"/status/ready", "model_calls":5, "passages_retained":5, "json_download_created":true, "markdown_download_created":true, "viewport":{"width":1363,"height":936}},
+  "limits":"Example was inspected before deployment identity was rechecked; do not attribute it to the new release. Download events and embedded content were inspected; downloaded file bytes were not independently read. Mobile width and screenshot file capture are NOT RUN. Tool transcript contains the complete returned report."
+}

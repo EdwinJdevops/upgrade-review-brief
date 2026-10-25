@@ -1,0 +1,13 @@
+{
+  "status": "fulfilled",
+  "value": {
+    "content": [
+      {
+        "type": "text",
+        "text": "[{\"commit\":{\"createdAt\":\"2026-10-24T16:46:20Z\",\"id\":\"86b9f0265e0a60414ed0df70cf05dc29b4f5450e\",\"message\":\"Record contest baseline and expose deployed revision in health check\"},\"createdAt\":\"2026-10-24T17:06:10.063608Z\",\"finishedAt\":\"2026-10-24T17:08:38.39784Z\",\"id\":\"dep-dbeeb0ivcj2c73cmed60\",\"startedAt\":\"2026-10-24T17:06:10.035268Z\",\"status\":\"live\",\"trigger\":\"api\",\"updatedAt\":\"2026-10-24T17:09:09.159473Z\"},{\"commit\":{\"createdAt\":\"2026-10-23T15:09:02Z\",\"id\":\"cc516074e570961088db688a677fca3be58729a0\",\"message\":\"Expose manifest edits outside review scope and add an opt-in CI guard\"},\"createdAt\":\"2026-10-23T15:43:03.038693Z\",\"finishedAt\":\"2026-10-23T15:45:34.178988Z\",\"id\":\"dep-dbdo11nf3r2c73da1qqg\",\"startedAt\":\"2026-10-23T15:43:03.005103Z\",\"status\":\"deactivated\",\"trigger\":\"api\",\"updatedAt\":\"2026-10-24T17:08:38.396659Z\"}]\n\n cursor: rGBXMjpAREYxMW5mM3IyYzczZGExcXFn"
+      }
+    ],
+    "structuredContent": null,
+    "isError": false
+  }
+}

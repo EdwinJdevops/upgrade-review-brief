@@ -1,0 +1,6 @@
+{
+  "command": "git ls-tree -r --name-only 3cc347f04f127ccc295645ffb7a3481573f0abe2",
+  "labels_tracked": false,
+  "backtest_script_tracked": false,
+  "evaluated_cases_under_directive": []
+}

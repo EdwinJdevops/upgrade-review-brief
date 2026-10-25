@@ -1,0 +1,12 @@
+{
+  "now_utc": "2026-10-25T21:20:16.324159+00:00",
+  "deadline_utc": "2026-10-26T06:59:00+00:00",
+  "freeze_utc": "2026-10-26T00:59:00+00:00",
+  "remaining_deadline_seconds": 34723.675841,
+  "remaining_freeze_seconds": 13123.675841,
+  "tools": {
+    "docker": null,
+    "podman": null,
+    "buildah": null
+  }
+}

@@ -1,0 +1,185 @@
+{"id": "warm-home-01", "kind": "homepage", "status": 200, "seconds": 4.176698844999919, "error": null, "response_sha256": "81c1b7b55267648dd7a45e68a100c9f9680d699c05e4d44444ca24286517e642", "observed_at_utc": "2026-10-25T21:33:51.072486+00:00"}
+{"id": "warm-home-02", "kind": "homepage", "status": 200, "seconds": 4.636140042000079, "error": null, "response_sha256": "4be945859bbbdaf153324f456a42663e836400bdc75a30e157f3d98384b3c085", "observed_at_utc": "2026-10-25T21:33:55.711468+00:00"}
+{"id": "warm-home-03", "kind": "homepage", "status": 200, "seconds": 4.152812713000003, "error": null, "response_sha256": "000b09b7b3b27af6851a903b1e15d6456f2d60b8be83d99a8af5613529843823", "observed_at_utc": "2026-10-25T21:33:59.866592+00:00"}
+{"id": "warm-home-04", "kind": "homepage", "status": 200, "seconds": 5.64881907899985, "error": null, "response_sha256": "29d9e8fbf12ca97ebe9efaa9028d14104fcba5107f57f75bdbbf3f9c52c5caa9", "observed_at_utc": "2026-10-25T21:34:05.517687+00:00"}
+{"id": "warm-home-05", "kind": "homepage", "status": 200, "seconds": 4.280042764999962, "error": null, "response_sha256": "1a8192b562c4eab8e5bd39b8a3c03872766cec543d8dc69408052bbc57f22ab3", "observed_at_utc": "2026-10-25T21:34:09.799419+00:00"}
+{"id": "warm-home-06", "kind": "homepage", "status": 200, "seconds": 5.212686902000087, "error": null, "response_sha256": "4fc9bcdf8b4cd2a580cd63c97d7dfbaf9bf22395d76965e1b16570d55c4ebd6e", "observed_at_utc": "2026-10-25T21:34:15.013879+00:00"}
+{"id": "warm-home-07", "kind": "homepage", "status": 200, "seconds": 4.855497378000109, "error": null, "response_sha256": "90cd7a318aa24469f9ac4d418cf3324dd890fbe655ca683dd35163e48cfa135a", "observed_at_utc": "2026-10-25T21:34:19.870984+00:00"}
+{"id": "warm-home-08", "kind": "homepage", "status": 200, "seconds": 4.6543339279999145, "error": null, "response_sha256": "2f4ea7b31f5afb3f2b5d5f7cef1bcaa7287e85709264472028bb9e239324af67", "observed_at_utc": "2026-10-25T21:34:24.527704+00:00"}
+{"id": "warm-home-09", "kind": "homepage", "status": 200, "seconds": 6.451860991000103, "error": null, "response_sha256": "51a8aca6ddaa0f758401ad38787e5f92a7929429de1b1c2421c8d48d203b22c0", "observed_at_utc": "2026-10-25T21:34:30.981312+00:00"}
+{"id": "warm-home-10", "kind": "homepage", "status": 200, "seconds": 5.025439869000138, "error": null, "response_sha256": "7cc4ed0aab7631db9cb27a00906fb7777b78c5273a9788998f70d79c7ac1fefc", "observed_at_utc": "2026-10-25T21:34:36.008210+00:00"}
+{"id": "demo-01", "kind": "demo", "form_get_seconds": 4.5813182110000525, "post_seconds": 5.950896172000057, "end_to_end_seconds": 10.534502366000197, "concurrent_prepared_form": false, "status": 200, "error": null, "response_sha256": "5f2df3d4fd8993a80d8f91feba1b385cae23f3cf6323881e8447bde0ba5d147c", "observed_at_utc": "2026-10-25T21:34:46.542972+00:00", "model_windows": 5}
+{"id": "demo-02", "kind": "demo", "form_get_seconds": 4.490211104000082, "post_seconds": 5.704980808000073, "end_to_end_seconds": 10.196761347999882, "concurrent_prepared_form": false, "status": 200, "error": null, "response_sha256": "441fc4235553d41867a97667b338f28c51c3953cc8b256647d0391fd80ac4380", "observed_at_utc": "2026-10-25T21:34:58.205397+00:00", "model_windows": 5}
+{"id": "demo-03", "kind": "demo", "form_get_seconds": 4.3133799019999515, "post_seconds": 5.900434718000042, "end_to_end_seconds": 10.216538390000096, "concurrent_prepared_form": false, "status": 200, "error": null, "response_sha256": "94d9680231c8b4127084e6a82f76d5cbbd1312e52b4039c8c871e8cfddba90fe", "observed_at_utc": "2026-10-25T21:35:10.225360+00:00", "model_windows": 5}
+{"id": "demo-04", "kind": "demo", "form_get_seconds": 4.5779979950000325, "post_seconds": 5.816488513999957, "end_to_end_seconds": 10.396565986000041, "concurrent_prepared_form": false, "status": 200, "error": null, "response_sha256": "0b0be2d4fd2827e642ca9560578b8aa0cce3919e689b4c05ee23a9cbf490e315", "observed_at_utc": "2026-10-25T21:35:22.405770+00:00", "model_windows": 5}
+{"id": "demo-05", "kind": "demo", "form_get_seconds": 5.277908307999951, "post_seconds": 5.596159509000017, "end_to_end_seconds": 10.876342066999996, "concurrent_prepared_form": false, "status": 200, "error": null, "response_sha256": "c9f174bbe980f37b2be903a2a9cb089e820ba4799b21a74eb494e218906f1376", "observed_at_utc": "2026-10-25T21:35:34.885602+00:00", "model_windows": 5}
+{"id": "demo-06", "kind": "demo", "form_get_seconds": 4.159232975000123, "post_seconds": 5.783014209000157, "end_to_end_seconds": 9.944432183000117, "concurrent_prepared_form": false, "status": 200, "error": null, "response_sha256": "b3e012d3343eaeb53d039187d62b0ec8c1d057cd3380e4cf17510a32b6b21c7d", "observed_at_utc": "2026-10-25T21:35:45.953833+00:00", "model_windows": 5}
+{"id": "demo-07", "kind": "demo", "form_get_seconds": 4.391180222999992, "post_seconds": 7.462787159999834, "end_to_end_seconds": 11.85587050700019, "concurrent_prepared_form": false, "status": 200, "error": null, "response_sha256": "17f0e3354fae9b01315c8a721e94bdf7c881805f7453db3697c9442d1a6410ea", "observed_at_utc": "2026-10-25T21:35:59.865406+00:00", "model_windows": 5}
+{"id": "demo-08", "kind": "demo", "form_get_seconds": 4.077433051000071, "post_seconds": 5.7678584469999805, "end_to_end_seconds": 9.847672187999933, "concurrent_prepared_form": false, "status": 200, "error": null, "response_sha256": "397d725b58b9c7b232107a52897f3a4975cb6c63d70db5e081e92edc86a1c444", "observed_at_utc": "2026-10-25T21:36:09.857402+00:00", "model_windows": 5}
+{"id": "demo-09", "kind": "demo", "form_get_seconds": 4.228634041000078, "post_seconds": 5.617099803999963, "end_to_end_seconds": 9.847218985999916, "concurrent_prepared_form": false, "status": 200, "error": null, "response_sha256": "64d83d1c912dcd6cae5a062d22b2a172f7add6e6a8ce3bf9ca3543927be1a9a0", "observed_at_utc": "2026-10-25T21:36:21.857416+00:00", "model_windows": 5}
+{"id": "demo-10", "kind": "demo", "form_get_seconds": 4.655578287000026, "post_seconds": 5.809532116000128, "end_to_end_seconds": 10.467378292000149, "concurrent_prepared_form": false, "status": 200, "error": null, "response_sha256": "4ea23d3713da7c9fb8108f88e87d2dc390c9aa9d6a4d7a0eac63aa52faaaf4e7", "observed_at_utc": "2026-10-25T21:36:34.477436+00:00", "model_windows": 5}
+{"id": "demo-11", "kind": "demo", "form_get_seconds": 4.846780304000049, "post_seconds": 5.863533638000035, "end_to_end_seconds": 10.711774748000153, "concurrent_prepared_form": false, "status": 200, "error": null, "response_sha256": "a188608c0ac36d6ded738e599770806606b191f42d01489092066615bcca1d49", "observed_at_utc": "2026-10-25T21:36:46.722038+00:00", "model_windows": 5}
+{"id": "demo-12", "kind": "demo", "form_get_seconds": 4.920477891000019, "post_seconds": 6.247944190999988, "end_to_end_seconds": 11.177128983999864, "concurrent_prepared_form": false, "status": 200, "error": null, "response_sha256": "65024a6ee5b72dd73b9dd16510fbc05242c58ea43deebf28e645570736b233b1", "observed_at_utc": "2026-10-25T21:36:59.193741+00:00", "model_windows": 5}
+{"id": "demo-13", "kind": "demo", "form_get_seconds": 4.246471963999966, "post_seconds": 6.365186019000021, "end_to_end_seconds": 10.613327492000053, "concurrent_prepared_form": false, "status": 200, "error": null, "response_sha256": "58d0ffebe25b1cdedeab7e27cfc3eb44ff686c56978c00208f0548e288b79c4a", "observed_at_utc": "2026-10-25T21:37:10.629978+00:00", "model_windows": 5}
+{"id": "demo-14", "kind": "demo", "form_get_seconds": 4.733942171000081, "post_seconds": 5.841416103999791, "end_to_end_seconds": 10.576929575000122, "concurrent_prepared_form": false, "status": 200, "error": null, "response_sha256": "f0b5516088176731041c7b5b5fa42efd552bd75ed19270efd8ebddd249ee8710", "observed_at_utc": "2026-10-25T21:37:22.593725+00:00", "model_windows": 5}
+{"id": "demo-15", "kind": "demo", "form_get_seconds": 4.685972960999834, "post_seconds": 5.61138919799987, "end_to_end_seconds": 10.300213270999848, "concurrent_prepared_form": false, "status": 200, "error": null, "response_sha256": "1660fd94a13ab2aef92103468af80d17ec3a81e5d06e5e6a921ea4b895558a95", "observed_at_utc": "2026-10-25T21:37:34.317399+00:00", "model_windows": 5}
+{"id": "demo-16", "kind": "demo", "form_get_seconds": 4.242887130000099, "post_seconds": 5.734791452000081, "end_to_end_seconds": 9.979893893999815, "concurrent_prepared_form": false, "status": 200, "error": null, "response_sha256": "237f96f199b074658904ad273498f7dabee3ef817d8328d625d5cefb73f478c0", "observed_at_utc": "2026-10-25T21:37:45.997295+00:00", "model_windows": 5}
+{"id": "demo-17", "kind": "demo", "form_get_seconds": 4.218668836999996, "post_seconds": 5.771689656000035, "end_to_end_seconds": 9.991836288000059, "concurrent_prepared_form": false, "status": 200, "error": null, "response_sha256": "8543e80083e9d6b9f5b7fd1e04c850b3679d792a8a3c374a350fb27586c2949f", "observed_at_utc": "2026-10-25T21:37:58.009369+00:00", "model_windows": 5}
+{"id": "demo-18", "kind": "demo", "form_get_seconds": 4.240333297999996, "post_seconds": 5.697869029999993, "end_to_end_seconds": 9.939557025999875, "concurrent_prepared_form": false, "status": 200, "error": null, "response_sha256": "181c9a5a8ce930900efbe64e9fc6dee7eb27764314a0d76eab74cac0bc4b3c6f", "observed_at_utc": "2026-10-25T21:38:09.957174+00:00", "model_windows": 5}
+{"id": "demo-19", "kind": "demo", "form_get_seconds": 4.229437192999967, "post_seconds": 5.808166337000102, "end_to_end_seconds": 10.039419311999836, "concurrent_prepared_form": false, "status": 200, "error": null, "response_sha256": "7681aa6a2e59ddc834ce81aa9d1f4fb2287cf506877a035c4d9bca8a531ae37a", "observed_at_utc": "2026-10-25T21:38:22.057166+00:00", "model_windows": 5}
+{"id": "demo-20", "kind": "demo", "form_get_seconds": 7.443026424999971, "post_seconds": 5.879204743999935, "end_to_end_seconds": 13.323722288999988, "concurrent_prepared_form": false, "status": 200, "error": null, "response_sha256": "e61c2329ce500177cdcff41ed2d091998cdc42054d141e5cc779dad481c1f09a", "observed_at_utc": "2026-10-25T21:38:37.341581+00:00", "model_windows": 5}
+{"id": "demo_range-01", "kind": "demo_range", "form_get_seconds": 5.032056968999996, "post_seconds": 14.652815028000077, "end_to_end_seconds": 19.68654405799998, "concurrent_prepared_form": false, "status": 200, "error": null, "response_sha256": "812af821981fbc667ea53bfb6de9335398043c0d8e0fec605866de861f35db1e", "observed_at_utc": "2026-10-25T21:38:57.029228+00:00", "model_windows": 32}
+{"id": "demo_range-02", "kind": "demo_range", "form_get_seconds": 5.113784179000049, "post_seconds": 16.422188406999794, "end_to_end_seconds": 21.537716550999903, "concurrent_prepared_form": false, "status": 200, "error": null, "response_sha256": "3f48b0510aaf6c70f76ba31221572f5a2a1025f02cc067ae61a3c4f5da73b0c4", "observed_at_utc": "2026-10-25T21:39:18.569592+00:00", "model_windows": 32}
+{"id": "demo_range-03", "kind": "demo_range", "form_get_seconds": 4.367284455000117, "post_seconds": 14.753591025000105, "end_to_end_seconds": 19.12301593999996, "concurrent_prepared_form": false, "status": 200, "error": null, "response_sha256": "554f93da2f5ed8240dbf2f455e2d0bfa8332fe51ce69b7283185c5f317b05ab6", "observed_at_utc": "2026-10-25T21:39:37.696007+00:00", "model_windows": 32}
+{"id": "demo_range-04", "kind": "demo_range", "form_get_seconds": 4.947213048000094, "post_seconds": 14.61634666100008, "end_to_end_seconds": 19.565730629999962, "concurrent_prepared_form": false, "status": 200, "error": null, "response_sha256": "90b32bf48ba33617bf7b62557627940a5f8d74c42701654629e7314609d77a83", "observed_at_utc": "2026-10-25T21:39:57.265068+00:00", "model_windows": 32}
+{"id": "demo_range-05", "kind": "demo_range", "form_get_seconds": 3.969122551000055, "post_seconds": 15.007142695999846, "end_to_end_seconds": 18.977795919000073, "concurrent_prepared_form": false, "status": 200, "error": null, "response_sha256": "e3c047e3ddb27c81ff6ee8db63af970d9f7a94972e901fe6eb5ba6502768dc74", "observed_at_utc": "2026-10-25T21:40:16.245258+00:00", "model_windows": 32}
+{"id": "demo_range-06", "kind": "demo_range", "form_get_seconds": 4.347623782000028, "post_seconds": 14.832892051000044, "end_to_end_seconds": 19.18279725399998, "concurrent_prepared_form": false, "status": 200, "error": null, "response_sha256": "4183468e5cf0c03d1a4fcd2dd40e54529f74fa992c79f7345a285a07a9ca15c0", "observed_at_utc": "2026-10-25T21:40:35.430164+00:00", "model_windows": 32}
+{"id": "demo_range-07", "kind": "demo_range", "form_get_seconds": 4.284166266999819, "post_seconds": 15.693201787000135, "end_to_end_seconds": 19.9786954220001, "concurrent_prepared_form": false, "status": 200, "error": null, "response_sha256": "73d5091060d77317a77b5b5e33cb02da3505aeda1c4d9860098570dce5ab9e44", "observed_at_utc": "2026-10-25T21:40:55.411203+00:00", "model_windows": 32}
+{"id": "demo_range-08", "kind": "demo_range", "form_get_seconds": 4.281219713999917, "post_seconds": 15.120705138999938, "end_to_end_seconds": 19.403118221000113, "concurrent_prepared_form": false, "status": 200, "error": null, "response_sha256": "09d921f4cb763877639b8ea282f5ef3abbdefa1b844b48cfff0f621c5f2a8649", "observed_at_utc": "2026-10-25T21:41:14.816446+00:00", "model_windows": 32}
+{"id": "demo_range-09", "kind": "demo_range", "form_get_seconds": 4.441027196999812, "post_seconds": 14.419854851000082, "end_to_end_seconds": 18.862550313999918, "concurrent_prepared_form": false, "status": 200, "error": null, "response_sha256": "b3854195146917089041928724da18a5903a98ca996be172ec13f33f1184be12", "observed_at_utc": "2026-10-25T21:41:33.681105+00:00", "model_windows": 32}
+{"id": "demo_range-10", "kind": "demo_range", "form_get_seconds": 4.240278413999931, "post_seconds": 15.490725930000053, "end_to_end_seconds": 19.73327128699998, "concurrent_prepared_form": false, "status": 200, "error": null, "response_sha256": "16918517cdacac7629c13b296609a7e82e90eaf766a0087226214e120e3ed258", "observed_at_utc": "2026-10-25T21:41:53.417064+00:00", "model_windows": 32}
+{"id": "concurrent-2-2", "kind": "demo_range", "form_get_seconds": 4.245747528000038, "post_seconds": 4.96791254499999, "end_to_end_seconds": 4.968023287000051, "concurrent_prepared_form": true, "status": 429, "error": null, "response_sha256": "c4622ddfce374ac1c190ca49ef1763adaf8c5a628a3e772cc860e4e4f450149f", "observed_at_utc": "2026-10-25T21:43:11.098864+00:00", "visible_message": "Upgrade Review Brief URB Upgrade Review Brief View source \u2197 REVIEW NOT PRODUCED Pause here. Another review is running. Try again when it finishes. Return to the start page \u2197 Built for the review before the rollout. Open weights \u00b7 Source locations \u00b7 Human decision"}
+{"id": "concurrent-2-1", "kind": "demo_range", "form_get_seconds": 6.32581826899991, "post_seconds": 15.422082203999935, "end_to_end_seconds": 15.422180798999989, "concurrent_prepared_form": true, "status": 200, "error": null, "response_sha256": "062e0328a941b41b9acc647e66c7d3a7b2740df483704a670116cd34431c8974", "observed_at_utc": "2026-10-25T21:43:21.553755+00:00", "model_windows": 32}
+{"id": "concurrent-5-1", "kind": "demo_range", "form_get_seconds": 4.957327384000109, "post_seconds": 4.2500391680000575, "end_to_end_seconds": 4.250104340999997, "concurrent_prepared_form": true, "status": 429, "error": null, "response_sha256": "c4622ddfce374ac1c190ca49ef1763adaf8c5a628a3e772cc860e4e4f450149f", "observed_at_utc": "2026-10-25T21:44:50.745215+00:00", "visible_message": "Upgrade Review Brief URB Upgrade Review Brief View source \u2197 REVIEW NOT PRODUCED Pause here. Another review is running. Try again when it finishes. Return to the start page \u2197 Built for the review before the rollout. Open weights \u00b7 Source locations \u00b7 Human decision"}
+{"id": "concurrent-5-2", "kind": "demo_range", "form_get_seconds": 4.569908979000047, "post_seconds": 4.252322667000044, "end_to_end_seconds": 4.252421929999855, "concurrent_prepared_form": true, "status": 429, "error": null, "response_sha256": "c4622ddfce374ac1c190ca49ef1763adaf8c5a628a3e772cc860e4e4f450149f", "observed_at_utc": "2026-10-25T21:44:50.748290+00:00", "visible_message": "Upgrade Review Brief URB Upgrade Review Brief View source \u2197 REVIEW NOT PRODUCED Pause here. Another review is running. Try again when it finishes. Return to the start page \u2197 Built for the review before the rollout. Open weights \u00b7 Source locations \u00b7 Human decision"}
+{"id": "concurrent-5-5", "kind": "demo_range", "form_get_seconds": 4.303066389000151, "post_seconds": 4.258809836999944, "end_to_end_seconds": 4.25894029799997, "concurrent_prepared_form": true, "status": 429, "error": null, "response_sha256": "c4622ddfce374ac1c190ca49ef1763adaf8c5a628a3e772cc860e4e4f450149f", "observed_at_utc": "2026-10-25T21:44:50.753245+00:00", "visible_message": "Upgrade Review Brief URB Upgrade Review Brief View source \u2197 REVIEW NOT PRODUCED Pause here. Another review is running. Try again when it finishes. Return to the start page \u2197 Built for the review before the rollout. Open weights \u00b7 Source locations \u00b7 Human decision"}
+{"id": "concurrent-5-4", "kind": "demo_range", "form_get_seconds": 4.30294618500011, "post_seconds": 4.259409547999894, "end_to_end_seconds": 4.259526153000024, "concurrent_prepared_form": true, "status": 429, "error": null, "response_sha256": "c4622ddfce374ac1c190ca49ef1763adaf8c5a628a3e772cc860e4e4f450149f", "observed_at_utc": "2026-10-25T21:44:50.756036+00:00", "visible_message": "Upgrade Review Brief URB Upgrade Review Brief View source \u2197 REVIEW NOT PRODUCED Pause here. Another review is running. Try again when it finishes. Return to the start page \u2197 Built for the review before the rollout. Open weights \u00b7 Source locations \u00b7 Human decision"}
+{"id": "concurrent-5-3", "kind": "demo_range", "form_get_seconds": 4.550983689000077, "post_seconds": 14.596155783999848, "end_to_end_seconds": 14.596215153000003, "concurrent_prepared_form": true, "status": 200, "error": null, "response_sha256": "f51e05ff8e51df1a5992b28552fc5005399780b780d17c5f57f436b1d9918da1", "observed_at_utc": "2026-10-25T21:45:01.093357+00:00", "model_windows": 32}
+{
+  "expected_sha": "3cc347f04f127ccc295645ffb7a3481573f0abe2",
+  "ending_sha_match": true,
+  "percentile_method": "nearest rank; successful serial requests only; all failures remain in requests.jsonl",
+  "cold_start": "NOT RUN: restarting the service is not available through the connected API and dashboard sign-in is required",
+  "serial": {
+    "demo": {
+      "attempts": 20,
+      "failures": [],
+      "form_get_plus_review_post_seconds": {
+        "n": 20,
+        "p50": 10.300213270999848,
+        "p95": 11.85587050700019
+      },
+      "post_seconds": {
+        "n": 20,
+        "p50": 5.808166337000102,
+        "p95": 6.365186019000021
+      }
+    },
+    "demo_range": {
+      "attempts": 10,
+      "failures": [],
+      "form_get_plus_review_post_seconds": {
+        "n": 10,
+        "p50": 19.403118221000113,
+        "p95": 21.537716550999903
+      },
+      "post_seconds": {
+        "n": 10,
+        "p50": 14.832892051000044,
+        "p95": 16.422188406999794
+      }
+    }
+  },
+  "concurrent": {
+    "2": [
+      {
+        "id": "concurrent-2-2",
+        "kind": "demo_range",
+        "form_get_seconds": 4.245747528000038,
+        "post_seconds": 4.96791254499999,
+        "end_to_end_seconds": 4.968023287000051,
+        "concurrent_prepared_form": true,
+        "status": 429,
+        "error": null,
+        "response_sha256": "c4622ddfce374ac1c190ca49ef1763adaf8c5a628a3e772cc860e4e4f450149f",
+        "observed_at_utc": "2026-10-25T21:43:11.098864+00:00",
+        "visible_message": "Upgrade Review Brief URB Upgrade Review Brief View source \u2197 REVIEW NOT PRODUCED Pause here. Another review is running. Try again when it finishes. Return to the start page \u2197 Built for the review before the rollout. Open weights \u00b7 Source locations \u00b7 Human decision"
+      },
+      {
+        "id": "concurrent-2-1",
+        "kind": "demo_range",
+        "form_get_seconds": 6.32581826899991,
+        "post_seconds": 15.422082203999935,
+        "end_to_end_seconds": 15.422180798999989,
+        "concurrent_prepared_form": true,
+        "status": 200,
+        "error": null,
+        "response_sha256": "062e0328a941b41b9acc647e66c7d3a7b2740df483704a670116cd34431c8974",
+        "observed_at_utc": "2026-10-25T21:43:21.553755+00:00",
+        "model_windows": 32
+      }
+    ],
+    "5": [
+      {
+        "id": "concurrent-5-1",
+        "kind": "demo_range",
+        "form_get_seconds": 4.957327384000109,
+        "post_seconds": 4.2500391680000575,
+        "end_to_end_seconds": 4.250104340999997,
+        "concurrent_prepared_form": true,
+        "status": 429,
+        "error": null,
+        "response_sha256": "c4622ddfce374ac1c190ca49ef1763adaf8c5a628a3e772cc860e4e4f450149f",
+        "observed_at_utc": "2026-10-25T21:44:50.745215+00:00",
+        "visible_message": "Upgrade Review Brief URB Upgrade Review Brief View source \u2197 REVIEW NOT PRODUCED Pause here. Another review is running. Try again when it finishes. Return to the start page \u2197 Built for the review before the rollout. Open weights \u00b7 Source locations \u00b7 Human decision"
+      },
+      {
+        "id": "concurrent-5-2",
+        "kind": "demo_range",
+        "form_get_seconds": 4.569908979000047,
+        "post_seconds": 4.252322667000044,
+        "end_to_end_seconds": 4.252421929999855,
+        "concurrent_prepared_form": true,
+        "status": 429,
+        "error": null,
+        "response_sha256": "c4622ddfce374ac1c190ca49ef1763adaf8c5a628a3e772cc860e4e4f450149f",
+        "observed_at_utc": "2026-10-25T21:44:50.748290+00:00",
+        "visible_message": "Upgrade Review Brief URB Upgrade Review Brief View source \u2197 REVIEW NOT PRODUCED Pause here. Another review is running. Try again when it finishes. Return to the start page \u2197 Built for the review before the rollout. Open weights \u00b7 Source locations \u00b7 Human decision"
+      },
+      {
+        "id": "concurrent-5-5",
+        "kind": "demo_range",
+        "form_get_seconds": 4.303066389000151,
+        "post_seconds": 4.258809836999944,
+        "end_to_end_seconds": 4.25894029799997,
+        "concurrent_prepared_form": true,
+        "status": 429,
+        "error": null,
+        "response_sha256": "c4622ddfce374ac1c190ca49ef1763adaf8c5a628a3e772cc860e4e4f450149f",
+        "observed_at_utc": "2026-10-25T21:44:50.753245+00:00",
+        "visible_message": "Upgrade Review Brief URB Upgrade Review Brief View source \u2197 REVIEW NOT PRODUCED Pause here. Another review is running. Try again when it finishes. Return to the start page \u2197 Built for the review before the rollout. Open weights \u00b7 Source locations \u00b7 Human decision"
+      },
+      {
+        "id": "concurrent-5-4",
+        "kind": "demo_range",
+        "form_get_seconds": 4.30294618500011,
+        "post_seconds": 4.259409547999894,
+        "end_to_end_seconds": 4.259526153000024,
+        "concurrent_prepared_form": true,
+        "status": 429,
+        "error": null,
+        "response_sha256": "c4622ddfce374ac1c190ca49ef1763adaf8c5a628a3e772cc860e4e4f450149f",
+        "observed_at_utc": "2026-10-25T21:44:50.756036+00:00",
+        "visible_message": "Upgrade Review Brief URB Upgrade Review Brief View source \u2197 REVIEW NOT PRODUCED Pause here. Another review is running. Try again when it finishes. Return to the start page \u2197 Built for the review before the rollout. Open weights \u00b7 Source locations \u00b7 Human decision"
+      },
+      {
+        "id": "concurrent-5-3",
+        "kind": "demo_range",
+        "form_get_seconds": 4.550983689000077,
+        "post_seconds": 14.596155783999848,
+        "end_to_end_seconds": 14.596215153000003,
+        "concurrent_prepared_form": true,
+        "status": 200,
+        "error": null,
+        "response_sha256": "f51e05ff8e51df1a5992b28552fc5005399780b780d17c5f57f436b1d9918da1",
+        "observed_at_utc": "2026-10-25T21:45:01.093357+00:00",
+        "model_windows": 32
+      }
+    ]
+  },
+  "warm_homepage_seconds": {
+    "n": 10,
+    "p50": 4.6543339279999145,
+    "p95": 6.451860991000103
+  }
+}

@@ -1,0 +1,23 @@
+{
+  "tool": "cua_repl",
+  "commands": [
+    "tab.goto live homepage",
+    "tab.click Review the version range",
+    "tab.getAXState",
+    "tab.playwright.evaluate read embedded report and viewport"
+  ],
+  "observed_after_measurement_revision_confirmed": "3cc347f04f127ccc295645ffb7a3481573f0abe2",
+  "result": {
+    "status": "REVIEW_REQUIRED",
+    "model": "BAAI/bge-reranker-base",
+    "revision": "2cfc18c9415c912f9d8155881c133215df768a70",
+    "model_calls": 32,
+    "passage_count": 16,
+    "viewport": {
+      "width": 1363,
+      "height": 936
+    },
+    "horizontal_overflow": false
+  },
+  "limits": "Desktop observation only. Full tool-returned accessibility text remains in transcript. No saved screenshot file or fresh mobile viewport."
+}

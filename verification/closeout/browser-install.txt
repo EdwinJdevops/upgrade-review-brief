@@ -1,0 +1,60 @@
+Collecting playwright
+  Downloading playwright-1.64.1-py3-none-manylinux1_x86_64.whl.metadata (3.3 kB)
+Collecting pyee<15,>=13 (from playwright)
+  Downloading pyee-14.0.0-py3-none-any.whl.metadata (1.8 kB)
+Collecting greenlet<4.0.0,>=3.1.1 (from playwright)
+  Downloading greenlet-3.5.6-cp312-cp312-manylinux_2_24_x86_64.manylinux_2_28_x86_64.whl.metadata (3.8 kB)
+Collecting typing-extensions (from pyee<15,>=13->playwright)
+  Downloading typing_extensions-4.16.0-py3-none-any.whl.metadata (3.3 kB)
+Downloading playwright-1.64.1-py3-none-manylinux1_x86_64.whl (48.5 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 48.5/48.5 MB 55.5 MB/s eta 0:00:00
+Downloading greenlet-3.5.6-cp312-cp312-manylinux_2_24_x86_64.manylinux_2_28_x86_64.whl (621 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 621.4/621.4 kB 40.6 MB/s eta 0:00:00
+Downloading pyee-14.0.0-py3-none-any.whl (15 kB)
+Downloading typing_extensions-4.16.0-py3-none-any.whl (45 kB)
+Installing collected packages: typing-extensions, greenlet, pyee, playwright
+Successfully installed greenlet-3.5.6 playwright-1.64.1 pyee-14.0.0 typing-extensions-4.16.0
+
+[notice] A new release of pip is available: 25.0.1 -> 26.2.2
+[notice] To update, run: python -m pip install --upgrade pip
+Downloading Chrome for Testing 156.0.8078.4 (playwright chromium v1248)[2m from https://cdn.playwright.dev/builds/cft/156.0.8078.4/linux64/chrome-linux64.zip[22m
+|■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■| 100% of 0 MiB
+Error: End of central directory record signature not found. Either not a zip file, or file is truncated.
+    at /workspace/scratch/645590c62369/upgrade-review-brief/.venv/lib/python3.12/site-packages/playwright/driver/package/lib/utilsBundle.js:31441:18
+    at /workspace/scratch/645590c62369/upgrade-review-brief/.venv/lib/python3.12/site-packages/playwright/driver/package/lib/utilsBundle.js:31967:9
+    at /workspace/scratch/645590c62369/upgrade-review-brief/.venv/lib/python3.12/site-packages/playwright/driver/package/lib/utilsBundle.js:30864:11
+    at FSReqCallback.wrapper [as oncomplete] (node:fs:730:5)
+Downloading Chrome for Testing 156.0.8078.4 (playwright chromium v1248)[2m from https://cdn.playwright.dev/builds/cft/156.0.8078.4/linux64/chrome-linux64.zip[22m
+|■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■| 100% of 0 MiB
+Error: End of central directory record signature not found. Either not a zip file, or file is truncated.
+    at /workspace/scratch/645590c62369/upgrade-review-brief/.venv/lib/python3.12/site-packages/playwright/driver/package/lib/utilsBundle.js:31441:18
+    at /workspace/scratch/645590c62369/upgrade-review-brief/.venv/lib/python3.12/site-packages/playwright/driver/package/lib/utilsBundle.js:31967:9
+    at /workspace/scratch/645590c62369/upgrade-review-brief/.venv/lib/python3.12/site-packages/playwright/driver/package/lib/utilsBundle.js:30864:11
+    at FSReqCallback.wrapper [as oncomplete] (node:fs:730:5)
+Downloading Chrome for Testing 156.0.8078.4 (playwright chromium v1248)[2m from https://cdn.playwright.dev/builds/cft/156.0.8078.4/linux64/chrome-linux64.zip[22m
+|■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■| 100% of 0 MiB
+Error: End of central directory record signature not found. Either not a zip file, or file is truncated.
+    at /workspace/scratch/645590c62369/upgrade-review-brief/.venv/lib/python3.12/site-packages/playwright/driver/package/lib/utilsBundle.js:31441:18
+    at /workspace/scratch/645590c62369/upgrade-review-brief/.venv/lib/python3.12/site-packages/playwright/driver/package/lib/utilsBundle.js:31967:9
+    at /workspace/scratch/645590c62369/upgrade-review-brief/.venv/lib/python3.12/site-packages/playwright/driver/package/lib/utilsBundle.js:30864:11
+    at FSReqCallback.wrapper [as oncomplete] (node:fs:730:5)
+Downloading Chrome for Testing 156.0.8078.4 (playwright chromium v1248)[2m from https://cdn.playwright.dev/builds/cft/156.0.8078.4/linux64/chrome-linux64.zip[22m
+|■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■| 100% of 0 MiB
+Error: End of central directory record signature not found. Either not a zip file, or file is truncated.
+    at /workspace/scratch/645590c62369/upgrade-review-brief/.venv/lib/python3.12/site-packages/playwright/driver/package/lib/utilsBundle.js:31441:18
+    at /workspace/scratch/645590c62369/upgrade-review-brief/.venv/lib/python3.12/site-packages/playwright/driver/package/lib/utilsBundle.js:31967:9
+    at /workspace/scratch/645590c62369/upgrade-review-brief/.venv/lib/python3.12/site-packages/playwright/driver/package/lib/utilsBundle.js:30864:11
+    at FSReqCallback.wrapper [as oncomplete] (node:fs:730:5)
+Downloading Chrome for Testing 156.0.8078.4 (playwright chromium v1248)[2m from https://cdn.playwright.dev/builds/cft/156.0.8078.4/linux64/chrome-linux64.zip[22m
+|■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■| 100% of 0 MiB
+Error: End of central directory record signature not found. Either not a zip file, or file is truncated.
+    at /workspace/scratch/645590c62369/upgrade-review-brief/.venv/lib/python3.12/site-packages/playwright/driver/package/lib/utilsBundle.js:31441:18
+    at /workspace/scratch/645590c62369/upgrade-review-brief/.venv/lib/python3.12/site-packages/playwright/driver/package/lib/utilsBundle.js:31967:9
+    at /workspace/scratch/645590c62369/upgrade-review-brief/.venv/lib/python3.12/site-packages/playwright/driver/package/lib/utilsBundle.js:30864:11
+    at FSReqCallback.wrapper [as oncomplete] (node:fs:730:5)
+Failed to install browsers
+Error: Failed to download Chrome for Testing 156.0.8078.4 (playwright chromium v1248), caused by
+Error: Download failure, code=1
+    at ChildProcess.<anonymous> (/workspace/scratch/645590c62369/upgrade-review-brief/.venv/lib/python3.12/site-packages/playwright/driver/package/lib/coreBundle.js:33774:32)
+    at ChildProcess.emit (node:events:514:28)
+    at ChildProcess._handle.onexit (node:internal/child_process:324:12)
