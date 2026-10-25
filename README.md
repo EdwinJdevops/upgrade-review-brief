@@ -1,6 +1,10 @@
-# Upgrade Review Brief
+<p align="center"><img src="static/chart-ledger-logo.svg" alt="Chart Ledger" width="680"></p>
 
-Helm upgrade reviewers must connect rendered Deployment changes to migration instructions.
+# Chart Ledger
+
+Prepare a Helm Deployment diff, migration reading and source citations in one review report.
+
+**[Open the live example](https://upgrade-review-brief.onrender.com/) · [Read the measured results](SUBMISSION_FACTS.md) · [Run locally](#quickstart)**
 
 ![Example review report](docs/demo/report-desktop.png)
 

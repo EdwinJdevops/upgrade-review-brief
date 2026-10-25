@@ -21,7 +21,7 @@ try:
   errors=[];page.on('pageerror',lambda e: errors.append(str(e)))
   page.goto('http://127.0.0.1:8766/',wait_until='networkidle')
   page.screenshot(path=str(out/'home-desktop.png'),full_page=True)
-  assert page.locator('h1').inner_text()=='Less digging.\nMore context.'
+  assert page.locator('h1').inner_text()=='Trace changes.\nRead the source.'
   page.wait_for_timeout(3000)
   with page.expect_navigation(wait_until='networkidle'):
    page.get_by_role('button',name='Run the model review').click()

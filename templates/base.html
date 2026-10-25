@@ -2,12 +2,14 @@
 <html lang="en">
 <head>
   <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>{% block title %}Upgrade Review Brief{% endblock %}</title>
+  <title>{% block title %}Chart Ledger{% endblock %}</title>
+  <link rel="icon" type="image/svg+xml" href="{{ url_for('static', filename='chart-ledger-mark.svg') }}">
+  <meta name="description" content="Prepare a Helm Deployment diff, migration reading and source citations for human review.">
   <link rel="stylesheet" href="{{ url_for('static', filename='app.css') }}">
   <script src="{{ url_for('static', filename='app.js') }}" defer></script>
 </head>
 <body>
-  <header class="topbar"><a class="brand" href="/">URB<span>Upgrade Review Brief</span></a><a class="source" href="https://github.com/EdwinJdevops/upgrade-review-brief" target="_blank" rel="noopener noreferrer">View source ↗</a></header>
+  <header class="topbar"><a class="brand" href="/" aria-label="Chart Ledger home"><img src="{{ url_for('static', filename='chart-ledger-mark.svg') }}" width="40" height="40" alt=""><span>Chart Ledger</span></a><a class="source" href="https://github.com/EdwinJdevops/upgrade-review-brief" target="_blank" rel="noopener noreferrer">View source ↗</a></header>
   <main>{% block content %}{% endblock %}</main>
   <footer>Built for the review before the rollout. <span>Open weights · Source locations · Human decision</span></footer>
 </body>

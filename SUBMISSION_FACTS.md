@@ -128,3 +128,35 @@ Command: `python verification/measure_render.py --expected-sha 3cc347f04f127ccc2
 
 - Fresh desktop range browser observation at the measured release showed 32 model windows, 16 passages, REVIEW_REQUIRED and no horizontal overflow at 1363 by 936 CSS pixels. Evidence: verification/closeout/browser-range-observation.json and CUA transcript. This is not a fresh mobile-width check.
 - Git history starts with a public initial commit dated October 23, 2026. Evidence: verification/closeout/git-history.txt. This is a repository-history observation, not a personal eligibility certification.
+
+## Release confirmation ledger
+
+| Claim | Value | Evidence | Command |
+| --- | --- | --- | --- |
+| Main release revision | a971584b9662f810aefc24b34c69d6366c9268c0 | verification/closeout/release-ci.json | GitHub branch update with expected SHA; GitHub GET actions/runs |
+| Release clean clone | 103 tests, exit 0 | verification/closeout/release-clean-clone-tests.txt | Python unittest discover from clean checkout at a971584b9662f810aefc24b34c69d6366c9268c0 |
+| Release CI | Run 40237353226 concluded success | verification/closeout/release-ci.json | GitHub GET actions/runs?per_page=1 |
+| Tag publication | FAILED: terminal Git lacks authenticated push access; local tag exists only | verification/closeout/tag-push.txt | git tag v0.1.0 a971584b9662f810aefc24b34c69d6366c9268c0; git push origin refs/tags/v0.1.0 |
+| Release confirmation clock | Exact UTC, Lagos, deadline and freeze values are in raw JSON | verification/closeout/final-clock.json | Python datetime and ZoneInfo arithmetic |
+
+| Final deployment | dep-dbf7m8vb9u1s73btvprg reached live at a971584b9662f810aefc24b34c69d6366c9268c0 | verification/closeout/release-deploy-live.json | Render get_deploy |
+| Final health identity | HTTP 200, ready; main and live both a971584b9662f810aefc24b34c69d6366c9268c0 | verification/closeout/release-health.json | urllib GET /healthz; git rev-parse HEAD; exact comparison |
+| Final live functionality | Original, range and sanitised upload assertions completed with actual model inference | verification/closeout/release-live-functional.json and release-live-functional-command.txt | .venv/bin/python verification/verify_manifest_coverage.py --commit a971584b9662f810aefc24b34c69d6366c9268c0 --output verification/closeout/release-live-functional.json |
+| Release runtime delta | No application runtime paths changed between the measured application and the final documentation/evidence commit | verification/closeout/release-runtime-diff.json | git diff --name-only 3cc347f04f127ccc295645ffb7a3481573f0abe2 a971584b9662f810aefc24b34c69d6366c9268c0 |
+| Remote tests | Release CI tests job concluded success; raw runner log retained | verification/closeout/release-ci-jobs.json and release-ci-job.log | GitHub GET workflow jobs; fetch_workflow_job_logs 121301641827 |
+
+Final claims remain limited to executed checks. The benchmark, reusable Action, container image, cold-start measurement, disposable Blueprint installation, fresh mobile-width check and published release tag remain unverified or unfinished. The DEV post is prepared, not published by this execution.
+
+## Display branding update
+
+The owner explicitly requested a displayed product rename and a logo above the README introduction, superseding the earlier presentation-only freeze restriction for this work. The displayed name is Chart Ledger. Repository name and live hostname are unchanged. No name exclusivity or trademark clearance is claimed. Evidence: verification/branding/branding-check.json; templates/base.html; static/chart-ledger-logo.svg.
+
+The logo is an original SVG document/diff/source-link mark. It does not use a checkmark or imply upgrade approval. It is used in the application header and above the README introduction. The icon is also the favicon. Source and validation: static/chart-ledger-mark.svg, static/chart-ledger-logo.svg, verification/branding/branding-check.json.
+
+Branding changes passed the full local suite: 103 tests, exit 0. Evidence: verification/branding/tests.txt. Command: .venv/bin/python -m unittest discover -s tests -v. This is not new ranking validation.
+
+The DEV editor was opened through the browser and showed the sign-in form at https://dev.to/new. No account was signed in and no entry was published. Evidence: verification/branding/dev-editor-access.json and CUA transcript. The previous draft-only directive has been followed; the owner's latest request asks to proceed toward submission, which still needs DEV authentication.
+
+Presentation decision: state the concrete review-preparation outcome, place a direct demo and quickstart near the top, and show measured evidence rather than unverified benefit promises. This is our application of the value/outcome and effort principles requested from $100M Offers, not a claim that the book establishes product demand or prize likelihood. Source consulted: Acquisition.com pricing/value checklist and official book page, retrieved in this session. No material from the book is copied into the product.
+
+The final branding suite again ran 103 tests with exit 0 after the headline copy change. Evidence: verification/branding/tests-final.txt. The local Flask page and SVG asset check returned HTTP 200 using a scorer double; this is not an actual-model or responsive-browser check. Evidence: verification/branding/local-page.json. The SVG wordmark was rendered to a local preview and visually inspected before publication.

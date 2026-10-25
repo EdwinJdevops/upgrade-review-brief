@@ -1,5 +1,5 @@
 ---
-title: "A readiness path changed. Prepare the migration reading before the rollout."
+title: "Chart Ledger: prepare the migration reading before the rollout."
 published: false
 tags: devchallenge, hf26challenge
 ---
@@ -16,7 +16,7 @@ Kong 2.25.0 to 2.26.0 changes the proxy readiness path from `/status` to `/statu
 
 <!-- Evidence: verification/closeout/browser-observations.json; verification/closeout/live-functional.json; SUBMISSION_FACTS.md C12 -->
 
-Upgrade Review Brief prepares that reading for a platform engineer: a focused Deployment diff, migration passages ordered by an open-weight relevance model, input hashes, recorded source lines and a list of what still needs review. The automation assembles the review material; the engineer makes the upgrade decision. That is my interpretation of Slow and Steady: prepare the repetitive work before the human review.
+Chart Ledger prepares that reading for a platform engineer: a focused Deployment diff, migration passages ordered by an open-weight relevance model, input hashes, recorded source lines and a list of what still needs review. The automation assembles the review material; the engineer makes the upgrade decision. That is my interpretation of Slow and Steady: prepare the repetitive work before the human review.
 
 <!-- Evidence: verification/closeout/implementation-contract.json; verification/closeout/live-functional.json; SUBMISSION_FACTS.md C01-C06 -->
 

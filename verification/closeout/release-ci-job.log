@@ -1,0 +1,355 @@
+﻿2026-10-25T21:50:21.3364773Z Current runner version: '2.338.0'
+2026-10-25T21:50:21.3389893Z ##[group]Runner Image Provisioner
+2026-10-25T21:50:21.3390951Z Hosted Compute Agent
+2026-10-25T21:50:21.3391512Z Version: 20261021.618
+2026-10-25T21:50:21.3392183Z Commit: 21505ad2541d5be6135ed84fc33697146cf75b8e
+2026-10-25T21:50:21.3392878Z Build Date: 2026-10-21T00:45:21Z
+2026-10-25T21:50:21.3393563Z Worker ID: {302f4a21-0777-4b3f-802f-a8b913a96e5b}
+2026-10-25T21:50:21.3394282Z Region: westcentralus
+2026-10-25T21:50:21.3394843Z Cloud: Azure
+2026-10-25T21:50:21.3395390Z ##[endgroup]
+2026-10-25T21:50:21.3396761Z ##[group]Operating System
+2026-10-25T21:50:21.3397379Z Ubuntu
+2026-10-25T21:50:21.3397915Z 24.04.5
+2026-10-25T21:50:21.3398409Z LTS
+2026-10-25T21:50:21.3398952Z ##[endgroup]
+2026-10-25T21:50:21.3399472Z ##[group]Runner Image
+2026-10-25T21:50:21.3400022Z Image: ubuntu-24.04
+2026-10-25T21:50:21.3400798Z Version: 20261012.334.1
+2026-10-25T21:50:21.3402001Z Included Software: https://github.com/actions/runner-images/blob/ubuntu24/20261012.334/images/ubuntu/Ubuntu2404-Readme.md
+2026-10-25T21:50:21.3403508Z Image Release: https://github.com/actions/runner-images/releases/tag/ubuntu24%2F20261012.334
+2026-10-25T21:50:21.3404407Z ##[endgroup]
+2026-10-25T21:50:21.3405560Z ##[group]GITHUB_TOKEN Permissions
+2026-10-25T21:50:21.3408076Z Contents: read
+2026-10-25T21:50:21.3408790Z Metadata: read
+2026-10-25T21:50:21.3409393Z ##[endgroup]
+2026-10-25T21:50:21.3411645Z Secret source: Actions
+2026-10-25T21:50:21.3412710Z Cache mode: write
+2026-10-25T21:50:21.3413550Z Prepare workflow directory
+2026-10-25T21:50:21.3753192Z Prepare all required actions
+2026-10-25T21:50:21.3803633Z Getting action download info
+2026-10-25T21:50:21.6566458Z Download action repository 'actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1' (SHA:3d3c42e5aac5ba805825da76410c181273ba90b1)
+2026-10-25T21:50:21.7594645Z Download action repository 'actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0' (SHA:6d4fd22b20465ccc0f7354476588e8df7c9ca0e0)
+2026-10-25T21:50:22.6445893Z Complete job name: tests
+2026-10-25T21:50:22.7278787Z ##[group]Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+2026-10-25T21:50:22.7280021Z with:
+2026-10-25T21:50:22.7280818Z   persist-credentials: false
+2026-10-25T21:50:22.7281652Z   repository: EdwinJdevops/upgrade-review-brief
+2026-10-25T21:50:22.7286335Z   token: ***
+2026-10-25T21:50:22.7286945Z   ssh-strict: true
+2026-10-25T21:50:22.7287558Z   ssh-user: git
+2026-10-25T21:50:22.7288117Z   clean: true
+2026-10-25T21:50:22.7288747Z   sparse-checkout-cone-mode: true
+2026-10-25T21:50:22.7289400Z   fetch-depth: 1
+2026-10-25T21:50:22.7289992Z   fetch-tags: false
+2026-10-25T21:50:22.7290977Z   show-progress: true
+2026-10-25T21:50:22.7291813Z   lfs: false
+2026-10-25T21:50:22.7292411Z   submodules: false
+2026-10-25T21:50:22.7292997Z   set-safe-directory: true
+2026-10-25T21:50:22.7293623Z   allow-unsafe-pr-checkout: false
+2026-10-25T21:50:22.7294617Z ##[endgroup]
+2026-10-25T21:50:22.8367043Z Syncing repository: EdwinJdevops/upgrade-review-brief
+2026-10-25T21:50:22.8370397Z ##[group]Getting Git version info
+2026-10-25T21:50:22.8371886Z Working directory is '/home/runner/work/upgrade-review-brief/upgrade-review-brief'
+2026-10-25T21:50:22.8373766Z [command]/usr/bin/git version
+2026-10-25T21:50:22.8423153Z git version 2.55.0
+2026-10-25T21:50:22.8443250Z ##[endgroup]
+2026-10-25T21:50:22.8456895Z Temporarily overriding HOME='/home/runner/work/_temp/d1f2dc26-30fe-4303-bbce-ab7b9dc1d981' before making global git config changes
+2026-10-25T21:50:22.8462158Z Adding repository directory to the temporary git global config as a safe directory
+2026-10-25T21:50:22.8475266Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/upgrade-review-brief/upgrade-review-brief
+2026-10-25T21:50:22.8523422Z Deleting the contents of '/home/runner/work/upgrade-review-brief/upgrade-review-brief'
+2026-10-25T21:50:22.8533048Z ##[group]Determining repository object format
+2026-10-25T21:50:22.8535427Z ##[endgroup]
+2026-10-25T21:50:22.8537445Z ##[group]Initializing the repository
+2026-10-25T21:50:22.8539674Z [command]/usr/bin/git init /home/runner/work/upgrade-review-brief/upgrade-review-brief
+2026-10-25T21:50:22.8637317Z hint: Using 'master' as the name for the initial branch. This default branch name
+2026-10-25T21:50:22.8639606Z hint: will change to "main" in Git 3.0. To configure the initial branch name
+2026-10-25T21:50:22.8644894Z hint: to use in all of your new repositories, which will suppress this warning,
+2026-10-25T21:50:22.8646960Z hint: call:
+2026-10-25T21:50:22.8648152Z hint:
+2026-10-25T21:50:22.8649699Z hint: 	git config --global init.defaultBranch <name>
+2026-10-25T21:50:22.8651363Z hint:
+2026-10-25T21:50:22.8653441Z hint: Names commonly chosen instead of 'master' are 'main', 'trunk' and
+2026-10-25T21:50:22.8655529Z hint: 'development'. The just-created branch can be renamed via this command:
+2026-10-25T21:50:22.8656859Z hint:
+2026-10-25T21:50:22.8657821Z hint: 	git branch -m <name>
+2026-10-25T21:50:22.8658855Z hint:
+2026-10-25T21:50:22.8660073Z hint: Disable this message with "git config set advice.defaultBranchName false"
+2026-10-25T21:50:22.8662760Z Initialized empty Git repository in /home/runner/work/upgrade-review-brief/upgrade-review-brief/.git/
+2026-10-25T21:50:22.8666577Z [command]/usr/bin/git remote add origin https://github.com/EdwinJdevops/upgrade-review-brief
+2026-10-25T21:50:22.8711844Z ##[endgroup]
+2026-10-25T21:50:22.8713475Z ##[group]Disabling automatic garbage collection
+2026-10-25T21:50:22.8716724Z [command]/usr/bin/git config --local gc.auto 0
+2026-10-25T21:50:22.8749200Z ##[endgroup]
+2026-10-25T21:50:22.8751020Z ##[group]Setting up auth
+2026-10-25T21:50:22.8757516Z Removing SSH command configuration
+2026-10-25T21:50:22.8765459Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2026-10-25T21:50:22.8794594Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2026-10-25T21:50:22.9129446Z Removing HTTP extra header
+2026-10-25T21:50:22.9134944Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-10-25T21:50:22.9166392Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2026-10-25T21:50:22.9345772Z Removing includeIf entries pointing to credentials config files
+2026-10-25T21:50:22.9350836Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+2026-10-25T21:50:22.9385159Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+2026-10-25T21:50:22.9573816Z [command]/usr/bin/git config --file /home/runner/work/_temp/git-credentials-a166b2a7-ca57-448e-ac43-df5b7724d5db.config http.https://github.com/.extraheader AUTHORIZATION: basic ***
+2026-10-25T21:50:22.9609811Z [command]/usr/bin/git config --local includeIf.gitdir:/home/runner/work/upgrade-review-brief/upgrade-review-brief/.git.path /home/runner/work/_temp/git-credentials-a166b2a7-ca57-448e-ac43-df5b7724d5db.config
+2026-10-25T21:50:22.9754600Z [command]/usr/bin/git config --local includeIf.gitdir:/home/runner/work/upgrade-review-brief/upgrade-review-brief/.git/worktrees/*.path /home/runner/work/_temp/git-credentials-a166b2a7-ca57-448e-ac43-df5b7724d5db.config
+2026-10-25T21:50:22.9793334Z [command]/usr/bin/git config --local includeIf.gitdir:/github/workspace/.git.path /github/runner_temp/git-credentials-a166b2a7-ca57-448e-ac43-df5b7724d5db.config
+2026-10-25T21:50:22.9827596Z [command]/usr/bin/git config --local includeIf.gitdir:/github/workspace/.git/worktrees/*.path /github/runner_temp/git-credentials-a166b2a7-ca57-448e-ac43-df5b7724d5db.config
+2026-10-25T21:50:22.9856855Z ##[endgroup]
+2026-10-25T21:50:22.9857830Z ##[group]Fetching the repository
+2026-10-25T21:50:22.9864576Z [command]/usr/bin/git -c protocol.version=2 fetch --no-tags --prune --no-recurse-submodules --depth=1 origin +a971584b9662f810aefc24b34c69d6366c9268c0:refs/remotes/origin/main
+2026-10-25T21:50:23.7661014Z From https://github.com/EdwinJdevops/upgrade-review-brief
+2026-10-25T21:50:23.7663943Z  * [new ref]         a971584b9662f810aefc24b34c69d6366c9268c0 -> origin/main
+2026-10-25T21:50:23.7670110Z [command]/usr/bin/git branch --list --remote origin/main
+2026-10-25T21:50:23.7695546Z   origin/main
+2026-10-25T21:50:23.7702549Z [command]/usr/bin/git rev-parse refs/remotes/origin/main
+2026-10-25T21:50:23.7725033Z a971584b9662f810aefc24b34c69d6366c9268c0
+2026-10-25T21:50:23.7731243Z ##[endgroup]
+2026-10-25T21:50:23.7734182Z ##[group]Determining the checkout info
+2026-10-25T21:50:23.7737405Z ##[endgroup]
+2026-10-25T21:50:23.7739306Z [command]/usr/bin/git sparse-checkout disable
+2026-10-25T21:50:23.7790485Z [command]/usr/bin/git config --local --unset-all extensions.worktreeConfig
+2026-10-25T21:50:23.7825161Z ##[group]Checking out the ref
+2026-10-25T21:50:23.7828553Z [command]/usr/bin/git checkout --progress --force -B main refs/remotes/origin/main
+2026-10-25T21:50:23.8064666Z Switched to a new branch 'main'
+2026-10-25T21:50:23.8068724Z branch 'main' set up to track 'origin/main'.
+2026-10-25T21:50:23.8077095Z ##[endgroup]
+2026-10-25T21:50:23.8114803Z [command]/usr/bin/git log -1 --format=%H
+2026-10-25T21:50:23.8139435Z a971584b9662f810aefc24b34c69d6366c9268c0
+2026-10-25T21:50:23.8148048Z ##[group]Removing auth
+2026-10-25T21:50:23.8149738Z Removing SSH command configuration
+2026-10-25T21:50:23.8152603Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2026-10-25T21:50:23.8181173Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2026-10-25T21:50:23.8369664Z Removing HTTP extra header
+2026-10-25T21:50:23.8373044Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-10-25T21:50:23.8402110Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2026-10-25T21:50:23.8589044Z Removing includeIf entries pointing to credentials config files
+2026-10-25T21:50:23.8592868Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+2026-10-25T21:50:23.8618818Z includeif.gitdir:/home/runner/work/upgrade-review-brief/upgrade-review-brief/.git.path
+2026-10-25T21:50:23.8623222Z includeif.gitdir:/home/runner/work/upgrade-review-brief/upgrade-review-brief/.git/worktrees/*.path
+2026-10-25T21:50:23.8626143Z includeif.gitdir:/github/workspace/.git.path
+2026-10-25T21:50:23.8627924Z includeif.gitdir:/github/workspace/.git/worktrees/*.path
+2026-10-25T21:50:23.8633291Z [command]/usr/bin/git config --local --get-all includeif.gitdir:/home/runner/work/upgrade-review-brief/upgrade-review-brief/.git.path
+2026-10-25T21:50:23.8648382Z /home/runner/work/_temp/git-credentials-a166b2a7-ca57-448e-ac43-df5b7724d5db.config
+2026-10-25T21:50:23.8658331Z [command]/usr/bin/git config --local --unset includeif.gitdir:/home/runner/work/upgrade-review-brief/upgrade-review-brief/.git.path \/home\/runner\/work\/_temp\/git\-credentials\-a166b2a7\-ca57\-448e\-ac43\-df5b7724d5db\.config
+2026-10-25T21:50:23.8715390Z [command]/usr/bin/git config --local --get-all includeif.gitdir:/home/runner/work/upgrade-review-brief/upgrade-review-brief/.git/worktrees/*.path
+2026-10-25T21:50:23.8737029Z /home/runner/work/_temp/git-credentials-a166b2a7-ca57-448e-ac43-df5b7724d5db.config
+2026-10-25T21:50:23.8745438Z [command]/usr/bin/git config --local --unset includeif.gitdir:/home/runner/work/upgrade-review-brief/upgrade-review-brief/.git/worktrees/*.path \/home\/runner\/work\/_temp\/git\-credentials\-a166b2a7\-ca57\-448e\-ac43\-df5b7724d5db\.config
+2026-10-25T21:50:23.8779127Z [command]/usr/bin/git config --local --get-all includeif.gitdir:/github/workspace/.git.path
+2026-10-25T21:50:23.8801596Z /github/runner_temp/git-credentials-a166b2a7-ca57-448e-ac43-df5b7724d5db.config
+2026-10-25T21:50:23.8808069Z [command]/usr/bin/git config --local --unset includeif.gitdir:/github/workspace/.git.path \/github\/runner_temp\/git\-credentials\-a166b2a7\-ca57\-448e\-ac43\-df5b7724d5db\.config
+2026-10-25T21:50:23.8841585Z [command]/usr/bin/git config --local --get-all includeif.gitdir:/github/workspace/.git/worktrees/*.path
+2026-10-25T21:50:23.8862299Z /github/runner_temp/git-credentials-a166b2a7-ca57-448e-ac43-df5b7724d5db.config
+2026-10-25T21:50:23.8870607Z [command]/usr/bin/git config --local --unset includeif.gitdir:/github/workspace/.git/worktrees/*.path \/github\/runner_temp\/git\-credentials\-a166b2a7\-ca57\-448e\-ac43\-df5b7724d5db\.config
+2026-10-25T21:50:23.8904407Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+2026-10-25T21:50:23.9088885Z Removing credentials config '/home/runner/work/_temp/git-credentials-a166b2a7-ca57-448e-ac43-df5b7724d5db.config'
+2026-10-25T21:50:23.9099133Z ##[endgroup]
+2026-10-25T21:50:23.9458893Z ##[group]Run actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0
+2026-10-25T21:50:23.9460791Z with:
+2026-10-25T21:50:23.9461746Z   python-version: 3.12
+2026-10-25T21:50:23.9462871Z   check-latest: false
+2026-10-25T21:50:23.9472570Z   token: ***
+2026-10-25T21:50:23.9473985Z   mirror: https://raw.githubusercontent.com/actions/python-versions/main
+2026-10-25T21:50:23.9475717Z   update-environment: true
+2026-10-25T21:50:23.9476844Z   allow-prereleases: false
+2026-10-25T21:50:23.9478068Z   freethreaded: false
+2026-10-25T21:50:23.9479101Z ##[endgroup]
+2026-10-25T21:50:24.0624279Z ##[group]Installed versions
+2026-10-25T21:50:24.0716018Z Successfully set up CPython (3.12.15)
+2026-10-25T21:50:24.0727154Z ##[endgroup]
+2026-10-25T21:50:24.0925105Z ##[group]Run python -m pip install --disable-pip-version-check --no-cache-dir -r requirements-web.txt
+2026-10-25T21:50:24.0928482Z [36;1mpython -m pip install --disable-pip-version-check --no-cache-dir -r requirements-web.txt[0m
+2026-10-25T21:50:24.1169729Z shell: /usr/bin/bash -e {0}
+2026-10-25T21:50:24.1171099Z env:
+2026-10-25T21:50:24.1172453Z   pythonLocation: /opt/hostedtoolcache/Python/3.12.15/x64
+2026-10-25T21:50:24.1174281Z   PKG_CONFIG_PATH: /opt/hostedtoolcache/Python/3.12.15/x64/lib/pkgconfig
+2026-10-25T21:50:24.1176110Z   Python_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.15/x64
+2026-10-25T21:50:24.1177781Z   Python2_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.15/x64
+2026-10-25T21:50:24.1179417Z   Python3_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.15/x64
+2026-10-25T21:50:24.1181295Z   LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.12.15/x64/lib
+2026-10-25T21:50:24.1183234Z ##[endgroup]
+2026-10-25T21:50:25.0411182Z Collecting Flask==3.1.3 (from -r requirements-web.txt (line 1))
+2026-10-25T21:50:25.1737991Z   Downloading flask-3.1.3-py3-none-any.whl.metadata (3.2 kB)
+2026-10-25T21:50:25.2067023Z Collecting gunicorn==26.2.0 (from -r requirements-web.txt (line 2))
+2026-10-25T21:50:25.2334298Z   Downloading gunicorn-26.2.0-py3-none-any.whl.metadata (5.5 kB)
+2026-10-25T21:50:25.2973637Z Collecting PyYAML==6.0.3 (from -r requirements-web.txt (line 3))
+2026-10-25T21:50:25.3166851Z   Downloading pyyaml-6.0.3-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl.metadata (2.4 kB)
+2026-10-25T21:50:25.3402627Z Collecting blinker>=1.9.0 (from Flask==3.1.3->-r requirements-web.txt (line 1))
+2026-10-25T21:50:25.3609294Z   Downloading blinker-1.9.0-py3-none-any.whl.metadata (1.6 kB)
+2026-10-25T21:50:25.3873098Z Collecting click>=8.1.3 (from Flask==3.1.3->-r requirements-web.txt (line 1))
+2026-10-25T21:50:25.4065818Z   Downloading click-8.5.0-py3-none-any.whl.metadata (2.6 kB)
+2026-10-25T21:50:25.4313408Z Collecting itsdangerous>=2.2.0 (from Flask==3.1.3->-r requirements-web.txt (line 1))
+2026-10-25T21:50:25.4507380Z   Downloading itsdangerous-2.2.0-py3-none-any.whl.metadata (1.9 kB)
+2026-10-25T21:50:25.4757536Z Collecting jinja2>=3.1.2 (from Flask==3.1.3->-r requirements-web.txt (line 1))
+2026-10-25T21:50:25.4951264Z   Downloading jinja2-3.1.6-py3-none-any.whl.metadata (2.9 kB)
+2026-10-25T21:50:25.5693539Z Collecting markupsafe>=2.1.1 (from Flask==3.1.3->-r requirements-web.txt (line 1))
+2026-10-25T21:50:25.5889641Z   Downloading markupsafe-3.0.4-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl.metadata (2.7 kB)
+2026-10-25T21:50:25.6171178Z Collecting werkzeug>=3.1.0 (from Flask==3.1.3->-r requirements-web.txt (line 1))
+2026-10-25T21:50:25.6361439Z   Downloading werkzeug-3.1.9-py3-none-any.whl.metadata (4.1 kB)
+2026-10-25T21:50:25.6599056Z Downloading flask-3.1.3-py3-none-any.whl (103 kB)
+2026-10-25T21:50:25.7106481Z Downloading gunicorn-26.2.0-py3-none-any.whl (228 kB)
+2026-10-25T21:50:25.7639971Z Downloading pyyaml-6.0.3-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl (807 kB)
+2026-10-25T21:50:25.8061413Z    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 807.9/807.9 kB 25.5 MB/s  0:00:00
+2026-10-25T21:50:25.8257623Z Downloading blinker-1.9.0-py3-none-any.whl (8.5 kB)
+2026-10-25T21:50:25.8448928Z Downloading click-8.5.0-py3-none-any.whl (125 kB)
+2026-10-25T21:50:25.8651345Z Downloading itsdangerous-2.2.0-py3-none-any.whl (16 kB)
+2026-10-25T21:50:25.8845003Z Downloading jinja2-3.1.6-py3-none-any.whl (134 kB)
+2026-10-25T21:50:25.9051387Z Downloading markupsafe-3.0.4-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl (22 kB)
+2026-10-25T21:50:25.9239055Z Downloading werkzeug-3.1.9-py3-none-any.whl (228 kB)
+2026-10-25T21:50:25.9944936Z Installing collected packages: PyYAML, markupsafe, itsdangerous, gunicorn, click, blinker, werkzeug, jinja2, Flask
+2026-10-25T21:50:26.5722825Z 
+2026-10-25T21:50:26.5743071Z Successfully installed Flask-3.1.3 PyYAML-6.0.3 blinker-1.9.0 click-8.5.0 gunicorn-26.2.0 itsdangerous-2.2.0 jinja2-3.1.6 markupsafe-3.0.4 werkzeug-3.1.9
+2026-10-25T21:50:26.6384494Z ##[group]Run python -m unittest discover -s tests -v
+2026-10-25T21:50:26.6385550Z [36;1mpython -m unittest discover -s tests -v[0m
+2026-10-25T21:50:26.6429924Z shell: /usr/bin/bash -e {0}
+2026-10-25T21:50:26.6430428Z env:
+2026-10-25T21:50:26.6430872Z   pythonLocation: /opt/hostedtoolcache/Python/3.12.15/x64
+2026-10-25T21:50:26.6431402Z   PKG_CONFIG_PATH: /opt/hostedtoolcache/Python/3.12.15/x64/lib/pkgconfig
+2026-10-25T21:50:26.6431970Z   Python_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.15/x64
+2026-10-25T21:50:26.6432493Z   Python2_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.15/x64
+2026-10-25T21:50:26.6432954Z   Python3_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.15/x64
+2026-10-25T21:50:26.6433446Z   LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.12.15/x64/lib
+2026-10-25T21:50:26.6433871Z ##[endgroup]
+2026-10-25T21:50:27.1627102Z test_actual_proxy_only_render_requires_external_facts (test_artifacts.ArtifactContract.test_actual_proxy_only_render_requires_external_facts) ... ok
+2026-10-25T21:50:27.1929277Z test_binding_to_wrong_proxy_is_rejected (test_artifacts.ArtifactContract.test_binding_to_wrong_proxy_is_rejected) ... ok
+2026-10-25T21:50:27.2213450Z test_chart_label_conflict_is_rejected (test_artifacts.ArtifactContract.test_chart_label_conflict_is_rejected) ... ok
+2026-10-25T21:50:27.3676514Z test_colocated_render_is_not_a_separate_controller_case (test_artifacts.ArtifactContract.test_colocated_render_is_not_a_separate_controller_case) ... ok
+2026-10-25T21:50:27.3991171Z test_controller_fixture_plus_explicit_binding_flags_condition (test_artifacts.ArtifactContract.test_controller_fixture_plus_explicit_binding_flags_condition) ... ok
+2026-10-25T21:50:27.4290749Z test_duplicate_json_binding_keys_are_rejected (test_artifacts.ArtifactContract.test_duplicate_json_binding_keys_are_rejected) ... ok
+2026-10-25T21:50:27.4851937Z test_duplicate_matching_resources_are_rejected (test_artifacts.ArtifactContract.test_duplicate_matching_resources_are_rejected) ... ok
+2026-10-25T21:50:27.4885223Z test_duplicate_yaml_keys_and_aliases_are_rejected (test_artifacts.ArtifactContract.test_duplicate_yaml_keys_and_aliases_are_rejected) ... ok
+2026-10-25T21:50:27.5178898Z test_namespace_scope_is_enforced (test_artifacts.ArtifactContract.test_namespace_scope_is_enforced) ... ok
+2026-10-25T21:50:27.5315222Z test_oversized_and_excessively_nested_artifacts_are_rejected (test_artifacts.ArtifactContract.test_oversized_and_excessively_nested_artifacts_are_rejected) ... ok
+2026-10-25T21:50:27.5627148Z test_recomputing_hash_does_not_authenticate_a_claim (test_artifacts.ArtifactContract.test_recomputing_hash_does_not_authenticate_a_claim) ... ok
+2026-10-25T21:50:27.5950705Z test_remedy_matches_only_referenced_configuration (test_artifacts.ArtifactContract.test_remedy_matches_only_referenced_configuration) ... ok
+2026-10-25T21:50:27.5957620Z test_stale_and_future_timestamps_are_rejected (test_artifacts.ArtifactContract.test_stale_and_future_timestamps_are_rejected) ... ok
+2026-10-25T21:50:27.6256927Z test_stale_controller_cannot_supply_current_prerequisite (test_artifacts.ArtifactContract.test_stale_controller_cannot_supply_current_prerequisite) ... ok
+2026-10-25T21:50:27.6265024Z test_tampered_target_is_rejected (test_artifacts.ArtifactContract.test_tampered_target_is_rejected) ... ok
+2026-10-25T21:50:27.6273550Z test_traversal_and_external_symlink_are_rejected (test_artifacts.ArtifactContract.test_traversal_and_external_symlink_are_rejected) ... ok
+2026-10-25T21:50:27.7257587Z test_unknown_repository_or_tag_cannot_supply_version (test_artifacts.ArtifactContract.test_unknown_repository_or_tag_cannot_supply_version) ... ok
+2026-10-25T21:50:27.7547712Z test_unrelated_controller_without_binding_cannot_resolve_unknown (test_artifacts.ArtifactContract.test_unrelated_controller_without_binding_cannot_resolve_unknown) ... ok
+2026-10-25T21:50:27.7587931Z test_aliases_and_duplicate_keys_rejected (test_brief.BriefTests.test_aliases_and_duplicate_keys_rejected) ... ok
+2026-10-25T21:50:27.7593383Z test_configuration_fence_stays_with_its_condition (test_brief.BriefTests.test_configuration_fence_stays_with_its_condition) ... ok
+2026-10-25T21:50:27.7753855Z test_credential_or_script_source_url_rejected (test_brief.BriefTests.test_credential_or_script_source_url_rejected) ... ok
+2026-10-25T21:50:27.7758706Z test_duplicate_or_absent_section_rejected (test_brief.BriefTests.test_duplicate_or_absent_section_rejected) ... ok
+2026-10-25T21:50:27.7820707Z test_every_locator_and_excerpt_binds_to_source_bytes (test_brief.BriefTests.test_every_locator_and_excerpt_binds_to_source_bytes) ... ok
+2026-10-25T21:50:27.7881111Z test_explicit_section_source_links_use_exact_lines_and_commit (test_brief.BriefTests.test_explicit_section_source_links_use_exact_lines_and_commit) ... ok
+2026-10-25T21:50:27.7939617Z test_literal_preview_budget_follows_ranked_reading_order (test_brief.BriefTests.test_literal_preview_budget_follows_ranked_reading_order) ... ok
+2026-10-25T21:50:27.7997552Z test_model_unscored_passage_remains_visible (test_brief.BriefTests.test_model_unscored_passage_remains_visible) ... ok
+2026-10-25T21:50:27.8054841Z test_no_change_never_becomes_approval (test_brief.BriefTests.test_no_change_never_becomes_approval) ... ok
+2026-10-25T21:50:27.8111131Z test_path_escape_rejected (test_brief.BriefTests.test_path_escape_rejected) ... ok
+2026-10-25T21:50:27.8169264Z test_sensitive_unselected_fields_never_enter_query_or_report (test_brief.BriefTests.test_sensitive_unselected_fields_never_enter_query_or_report) ... ok
+2026-10-25T21:50:27.8235277Z test_source_markup_cannot_become_raw_html_or_markdown_link (test_brief.BriefTests.test_source_markup_cannot_become_raw_html_or_markdown_link) ... ok
+2026-10-25T21:50:27.8297504Z test_tampered_source_rejected (test_brief.BriefTests.test_tampered_source_rejected) ... ok
+2026-10-25T21:50:27.8363637Z test_unverified_source_warning_survives_json_and_markdown_without_fetch (test_brief.BriefTests.test_unverified_source_warning_survives_json_and_markdown_without_fetch) ... ok
+2026-10-25T21:50:27.8417937Z test_wrong_chart_declaration_rejected (test_brief.BriefTests.test_wrong_chart_declaration_rejected) ... ok
+2026-10-25T21:50:27.8471443Z test_wrong_namespace_rejected (test_brief.BriefTests.test_wrong_namespace_rejected) ... ok
+2026-10-25T21:50:27.8473370Z test_only_timing_metadata_removed (test_determinism_normalization.DeterminismNormalizationTests.test_only_timing_metadata_removed) ... ok
+2026-10-25T21:50:27.8820846Z test_ready_health_exposes_render_commit (test_health_revision.HealthRevisionTests.test_ready_health_exposes_render_commit) ... ok
+2026-10-25T21:50:27.8846984Z test_unavailable_health_remains_unavailable (test_health_revision.HealthRevisionTests.test_unavailable_health_remains_unavailable) ... ok
+2026-10-25T21:50:27.8876245Z test_api_version_change_is_visible_as_two_unreviewed_identities (test_manifest_coverage.CoverageTests.test_api_version_change_is_visible_as_two_unreviewed_identities) ... ok
+2026-10-25T21:50:27.8904027Z test_boolean_numeric_type_change_is_not_silently_equal (test_manifest_coverage.CoverageTests.test_boolean_numeric_type_change_is_not_silently_equal) ... ok
+2026-10-25T21:50:27.8990568Z test_build_rejects_ambiguous_inventory_before_model_execution (test_manifest_coverage.CoverageTests.test_build_rejects_ambiguous_inventory_before_model_execution) ... ok
+2026-10-25T21:50:28.1127323Z test_cli_guard_emits_report_and_distinct_exit_code_without_claiming_approval (test_manifest_coverage.CoverageTests.test_cli_guard_emits_report_and_distinct_exit_code_without_claiming_approval) ... ok
+2026-10-25T21:50:28.1153724Z test_duplicate_identity_and_unexpanded_lists_rejected (test_manifest_coverage.CoverageTests.test_duplicate_identity_and_unexpanded_lists_rejected) ... ok
+2026-10-25T21:50:28.1180572Z test_full_body_change_is_distinct_from_metadata_even_when_in_focused_diff (test_manifest_coverage.CoverageTests.test_full_body_change_is_distinct_from_metadata_even_when_in_focused_diff) ... ok
+2026-10-25T21:50:28.1208506Z test_init_container_and_volume_changes_are_not_model_reviewed (test_manifest_coverage.CoverageTests.test_init_container_and_volume_changes_are_not_model_reviewed) ... ok
+2026-10-25T21:50:28.1234755Z test_known_probe_and_chart_label_change_does_not_claim_hidden_edits (test_manifest_coverage.CoverageTests.test_known_probe_and_chart_label_change_does_not_claim_hidden_edits) ... ok
+2026-10-25T21:50:28.1292681Z test_mapping_order_comments_and_resource_document_order_ignored (test_manifest_coverage.CoverageTests.test_mapping_order_comments_and_resource_document_order_ignored) ... ok
+2026-10-25T21:50:28.1323236Z test_metadata_only_does_not_mean_harmless_or_suppressed (test_manifest_coverage.CoverageTests.test_metadata_only_does_not_mean_harmless_or_suppressed) ... ok
+2026-10-25T21:50:28.1351903Z test_non_json_yaml_rejected_including_unselected_documents (test_manifest_coverage.CoverageTests.test_non_json_yaml_rejected_including_unselected_documents) ... ok
+2026-10-25T21:50:28.1377203Z test_omitted_namespace_is_not_assumed_equal_to_default (test_manifest_coverage.CoverageTests.test_omitted_namespace_is_not_assumed_equal_to_default) ... ok
+2026-10-25T21:50:28.1406682Z test_probe_timing_and_exec_action_are_outside_scope (test_manifest_coverage.CoverageTests.test_probe_timing_and_exec_action_are_outside_scope) ... ok
+2026-10-25T21:50:28.1436466Z test_readonly_field_is_masked_but_other_security_changes_are_not (test_manifest_coverage.CoverageTests.test_readonly_field_is_masked_but_other_security_changes_are_not) ... ok
+2026-10-25T21:50:28.1479110Z test_resource_addition_is_not_mislabeled_metadata_only (test_manifest_coverage.CoverageTests.test_resource_addition_is_not_mislabeled_metadata_only) ... ok
+2026-10-25T21:50:28.1532227Z test_secret_change_added_service_removed_crd_and_unmodified_resource (test_manifest_coverage.CoverageTests.test_secret_change_added_service_removed_crd_and_unmodified_resource) ... ok
+2026-10-25T21:50:28.1583854Z test_unknown_keys_env_and_headers_are_detected_without_export (test_manifest_coverage.CoverageTests.test_unknown_keys_env_and_headers_are_detected_without_export) ... ok
+2026-10-25T21:50:28.1635662Z test_zero_focused_diff_can_still_hide_replica_change (test_manifest_coverage.CoverageTests.test_zero_focused_diff_can_still_hide_replica_change) ... ok
+2026-10-25T21:50:28.1697664Z test_observer_stops_if_review_raises (test_memory_measurement.MemoryObservationTests.test_observer_stops_if_review_raises) ... ok
+2026-10-25T21:50:28.1706039Z test_process_measurement_and_observer_cleanup (test_memory_measurement.MemoryObservationTests.test_process_measurement_and_observer_cleanup) ... ok
+2026-10-25T21:50:28.1810057Z test_changes_above_query_limit_remain_in_diff_and_coverage (test_plan.PlanTests.test_changes_above_query_limit_remain_in_diff_and_coverage) ... ok
+2026-10-25T21:50:28.1820699Z test_duplicate_headings_unmatched_fences_and_passage_limits_fail (test_plan.PlanTests.test_duplicate_headings_unmatched_fences_and_passage_limits_fail) ... ok
+2026-10-25T21:50:28.1824378Z test_github_line_links_preserve_claimed_source_without_fetching (test_plan.PlanTests.test_github_line_links_preserve_claimed_source_without_fetching) ... ok
+2026-10-25T21:50:28.1890058Z test_no_change_and_model_unavailable_never_produce_approval (test_plan.PlanTests.test_no_change_and_model_unavailable_never_produce_approval) ... ok
+2026-10-25T21:50:28.1894899Z test_range_includes_intermediate_and_general_excludes_endpoints_and_future (test_plan.PlanTests.test_range_includes_intermediate_and_general_excludes_endpoints_and_future) ... ok
+2026-10-25T21:50:28.1957429Z test_range_report_exposes_reference_boundary_and_preserves_immutable_links (test_plan.PlanTests.test_range_report_exposes_reference_boundary_and_preserves_immutable_links) ... ok
+2026-10-25T21:50:28.2025802Z test_shared_budget_interleaves_fields_and_retains_unscored_material (test_plan.PlanTests.test_shared_budget_interleaves_fields_and_retains_unscored_material) ... ok
+2026-10-25T21:50:28.2030212Z test_stable_versions_numeric_not_lexicographic (test_plan.PlanTests.test_stable_versions_numeric_not_lexicographic) ... ok
+2026-10-25T21:50:28.2095826Z test_two_changes_get_separate_queries_and_exact_source_identities (test_plan.PlanTests.test_two_changes_get_separate_queries_and_exact_source_identities) ... ok
+2026-10-25T21:50:28.2097904Z test_adding_controller_evidence_resolves_only_applicability (test_review.EvidenceContract.test_adding_controller_evidence_resolves_only_applicability) ... ok
+2026-10-25T21:50:28.2100548Z test_ambiguous_controller_tags_are_unknown (test_review.EvidenceContract.test_ambiguous_controller_tags_are_unknown) ... ok
+2026-10-25T21:50:28.2101925Z test_boundary_patches_follow_documented_minor_version_condition (test_review.EvidenceContract.test_boundary_patches_follow_documented_minor_version_condition) ... ok
+2026-10-25T21:50:28.2103660Z test_documented_affected_combination_is_flagged (test_review.EvidenceContract.test_documented_affected_combination_is_flagged) ... ok
+2026-10-25T21:50:28.2105266Z test_explicit_remedy_only_satisfies_this_configuration_check (test_review.EvidenceContract.test_explicit_remedy_only_satisfies_this_configuration_check) ... ok
+2026-10-25T21:50:28.2106622Z test_known_false_condition_does_not_require_unrelated_facts (test_review.EvidenceContract.test_known_false_condition_does_not_require_unrelated_facts) ... ok
+2026-10-25T21:50:28.2108034Z test_malformed_top_level_is_rejected (test_review.EvidenceContract.test_malformed_top_level_is_rejected) ... ok
+2026-10-25T21:50:28.2109144Z test_missing_external_controller_never_becomes_satisfied (test_review.EvidenceContract.test_missing_external_controller_never_becomes_satisfied) ... ok
+2026-10-25T21:50:28.2110683Z test_newer_controller_excludes_this_condition (test_review.EvidenceContract.test_newer_controller_excludes_this_condition) ... ok
+2026-10-25T21:50:28.2112128Z test_other_chart_is_explicitly_uncovered (test_review.EvidenceContract.test_other_chart_is_explicitly_uncovered) ... ok
+2026-10-25T21:50:28.2113164Z test_readiness_is_not_inferred_when_missing (test_review.EvidenceContract.test_readiness_is_not_inferred_when_missing) ... ok
+2026-10-25T21:50:28.2114440Z test_references_are_required_and_boolean_strings_are_not_facts (test_review.EvidenceContract.test_references_are_required_and_boolean_strings_are_not_facts) ... ok
+2026-10-25T21:50:28.2115628Z test_unknown_endpoint_is_not_an_assumed_remedy (test_review.EvidenceContract.test_unknown_endpoint_is_not_an_assumed_remedy) ... ok
+2026-10-25T21:50:28.2117428Z test_unsupported_transition_does_not_look_covered (test_review.EvidenceContract.test_unsupported_transition_does_not_look_covered) ... ok
+2026-10-25T21:50:28.2119437Z test_branch_tag_short_revision_and_other_hosts_do_not_gain_trust (test_source_reference.ReferenceTests.test_branch_tag_short_revision_and_other_hosts_do_not_gain_trust) ... ok
+2026-10-25T21:50:28.2122709Z test_demo_links_bind_to_recorded_publisher_commit_without_rewriting_frozen_experiment (test_source_reference.ReferenceTests.test_demo_links_bind_to_recorded_publisher_commit_without_rewriting_frozen_experiment) ... ok
+2026-10-25T21:50:28.2124356Z test_full_commit_is_recorded_without_claiming_remote_verification (test_source_reference.ReferenceTests.test_full_commit_is_recorded_without_claiming_remote_verification) ... ok
+2026-10-25T21:50:28.2132936Z test_preparation_binds_commit_path_response_blob_and_downloaded_bytes (test_source_reference.ReferenceTests.test_preparation_binds_commit_path_response_blob_and_downloaded_bytes) ... ok
+2026-10-25T21:50:28.2139660Z test_preparation_rejects_modified_cached_source_without_network (test_source_reference.ReferenceTests.test_preparation_rejects_modified_cached_source_without_network) ... ok
+2026-10-25T21:50:28.2145680Z test_preparation_rejects_response_identity_before_writing_source (test_source_reference.ReferenceTests.test_preparation_rejects_response_identity_before_writing_source) ... ok
+2026-10-25T21:50:28.2147186Z test_traversal_does_not_gain_commit_reference_status (test_source_reference.ReferenceTests.test_traversal_does_not_gain_commit_reference_status) ... ok
+2026-10-25T21:50:28.2395185Z test_alias_yaml_rejected_before_inference (test_web.WebTests.test_alias_yaml_rejected_before_inference) ... ok
+2026-10-25T21:50:28.2801996Z test_blank_section_selects_version_range_and_emits_reading_coverage (test_web.WebTests.test_blank_section_selects_version_range_and_emits_reading_coverage) ... [2026-10-25 21:50:28,279] INFO in webapp: review_complete passages=2 model_windows=2 elapsed_seconds=0.016
+2026-10-25T21:50:28.2803540Z [2026-10-25 21:50:28,280] INFO in webapp: inference_memory sampled_peak_rss_bytes=43732992 sampling_interval_ms=10 process_lifetime_peak_rss_bytes=43646976
+2026-10-25T21:50:28.2808336Z ok
+2026-10-25T21:50:28.3238358Z test_concurrency_and_rate_limit (test_web.WebTests.test_concurrency_and_rate_limit) ... [2026-10-25 21:50:28,323] INFO in webapp: review_complete passages=2 model_windows=2 elapsed_seconds=0.016
+2026-10-25T21:50:28.3240851Z [2026-10-25 21:50:28,323] INFO in webapp: inference_memory sampled_peak_rss_bytes=43839488 sampling_interval_ms=10 process_lifetime_peak_rss_bytes=43778048
+2026-10-25T21:50:28.3258606Z ok
+2026-10-25T21:50:28.3470953Z test_duplicate_other_resource_rejected_before_inference (test_web.WebTests.test_duplicate_other_resource_rejected_before_inference) ... ok
+2026-10-25T21:50:28.3631012Z test_file_and_request_size_limits (test_web.WebTests.test_file_and_request_size_limits) ... ok
+2026-10-25T21:50:28.4152626Z test_guide_larger_than_parser_chunk_is_accepted_within_file_limit (test_web.WebTests.test_guide_larger_than_parser_chunk_is_accepted_within_file_limit) ... [2026-10-25 21:50:28,414] INFO in webapp: review_complete passages=1 model_windows=1 elapsed_seconds=0.017
+2026-10-25T21:50:28.4154255Z [2026-10-25 21:50:28,415] INFO in webapp: inference_memory sampled_peak_rss_bytes=43900928 sampling_interval_ms=10 process_lifetime_peak_rss_bytes=43778048
+2026-10-25T21:50:28.4157541Z ok
+2026-10-25T21:50:28.4477795Z test_invalid_source_url_not_rendered_or_fetched (test_web.WebTests.test_invalid_source_url_not_rendered_or_fetched) ... ok
+2026-10-25T21:50:28.4595158Z test_missing_or_unicode_csrf_rejected (test_web.WebTests.test_missing_or_unicode_csrf_rejected) ... ok
+2026-10-25T21:50:28.4840565Z test_model_failure_releases_lock_and_cleans_files (test_web.WebTests.test_model_failure_releases_lock_and_cleans_files) ... [2026-10-25 21:50:28,483] ERROR in webapp: review_failed operational_error
+2026-10-25T21:50:28.4851885Z ok
+2026-10-25T21:50:28.4946192Z test_model_unavailable_does_not_return_baseline (test_web.WebTests.test_model_unavailable_does_not_return_baseline) ... ok
+2026-10-25T21:50:28.6415908Z test_range_demo_uses_two_actual_render_changes (test_web.WebTests.test_range_demo_uses_two_actual_render_changes) ... [2026-10-25 21:50:28,641] INFO in webapp: review_complete passages=3 model_windows=6 elapsed_seconds=0.123
+2026-10-25T21:50:28.6417902Z [2026-10-25 21:50:28,641] INFO in webapp: inference_memory sampled_peak_rss_bytes=44040192 sampling_interval_ms=10 process_lifetime_peak_rss_bytes=43909120
+2026-10-25T21:50:28.6424988Z ok
+2026-10-25T21:50:28.6495784Z test_request_window_budget_and_core_zero_window_guard (test_web.WebTests.test_request_window_budget_and_core_zero_window_guard) ... ok
+2026-10-25T21:50:28.6567835Z test_security_headers_and_ready_health (test_web.WebTests.test_security_headers_and_ready_health) ... ok
+2026-10-25T21:50:28.6980080Z test_success_preserves_boundaries_and_cleans_uploads (test_web.WebTests.test_success_preserves_boundaries_and_cleans_uploads) ... [2026-10-25 21:50:28,697] INFO in webapp: review_complete passages=2 model_windows=2 elapsed_seconds=0.017
+2026-10-25T21:50:28.6982373Z [2026-10-25 21:50:28,697] INFO in webapp: inference_memory sampled_peak_rss_bytes=44093440 sampling_interval_ms=10 process_lifetime_peak_rss_bytes=44040192
+2026-10-25T21:50:28.6985762Z ok
+2026-10-25T21:50:28.7436258Z test_unreviewed_resource_visible_without_secret_contents (test_web.WebTests.test_unreviewed_resource_visible_without_secret_contents) ... [2026-10-25 21:50:28,743] INFO in webapp: review_complete passages=2 model_windows=2 elapsed_seconds=0.020
+2026-10-25T21:50:28.7439034Z [2026-10-25 21:50:28,743] INFO in webapp: inference_memory sampled_peak_rss_bytes=44130304 sampling_interval_ms=10 process_lifetime_peak_rss_bytes=44040192
+2026-10-25T21:50:28.7441007Z ok
+2026-10-25T21:50:28.7849124Z test_untrusted_source_markup_is_escaped (test_web.WebTests.test_untrusted_source_markup_is_escaped) ... [2026-10-25 21:50:28,784] INFO in webapp: review_complete passages=1 model_windows=1 elapsed_seconds=0.016
+2026-10-25T21:50:28.7850661Z [2026-10-25 21:50:28,784] INFO in webapp: inference_memory sampled_peak_rss_bytes=44204032 sampling_interval_ms=10 process_lifetime_peak_rss_bytes=44171264
+2026-10-25T21:50:28.7851597Z ok
+2026-10-25T21:50:28.7851964Z 
+2026-10-25T21:50:28.7852435Z ----------------------------------------------------------------------
+2026-10-25T21:50:28.7852950Z Ran 103 tests in 1.654s
+2026-10-25T21:50:28.7853195Z 
+2026-10-25T21:50:28.7853391Z OK
+2026-10-25T21:50:28.7853889Z Pinned Kong demo source bytes verified.
+2026-10-25T21:50:28.8346636Z Post job cleanup.
+2026-10-25T21:50:28.9642245Z Post job cleanup.
+2026-10-25T21:50:29.0478186Z [command]/usr/bin/git version
+2026-10-25T21:50:29.0526006Z git version 2.55.0
+2026-10-25T21:50:29.0558130Z Temporarily overriding HOME='/home/runner/work/_temp/8167ee40-a982-440d-b71e-c6679f39551a' before making global git config changes
+2026-10-25T21:50:29.0559740Z Adding repository directory to the temporary git global config as a safe directory
+2026-10-25T21:50:29.0563749Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/upgrade-review-brief/upgrade-review-brief
+2026-10-25T21:50:29.0602659Z Removing SSH command configuration
+2026-10-25T21:50:29.0603450Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2026-10-25T21:50:29.0633799Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2026-10-25T21:50:29.0852234Z Removing HTTP extra header
+2026-10-25T21:50:29.0857354Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-10-25T21:50:29.0887590Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2026-10-25T21:50:29.1100055Z Removing includeIf entries pointing to credentials config files
+2026-10-25T21:50:29.1109382Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+2026-10-25T21:50:29.1137390Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+2026-10-25T21:50:29.1537974Z Cleaning up orphan processes
+

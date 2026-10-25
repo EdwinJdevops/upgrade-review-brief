@@ -1,0 +1,14 @@
+{
+  "checked_at": "2026-10-25T22:09:27.305519+00:00",
+  "display_name": "Chart Ledger",
+  "repository_renamed": false,
+  "live_url_changed": false,
+  "logo_svg_parses": true,
+  "readme_logo_before_heading": true,
+  "model_or_query_changed": false,
+  "scope": "Display branding, static logo, README and draft presentation only. No claim of name or trademark exclusivity.",
+  "files": {
+    "static/chart-ledger-mark.svg": "88a1f9ee98fa7216ba0e91c27d380144c2c509fdd241b7472330412b1342acae",
+    "static/chart-ledger-logo.svg": "a1c2def60467bdcb5fe5390d45e383069c1cdac953cbdeaacacdfd1905cfaefb"
+  }
+}

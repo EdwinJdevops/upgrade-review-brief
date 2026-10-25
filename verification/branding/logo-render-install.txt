@@ -1,0 +1,33 @@
+Collecting cairosvg
+  Downloading cairosvg-2.9.1-py3-none-any.whl.metadata (2.7 kB)
+Collecting cairocffi (from cairosvg)
+  Downloading cairocffi-1.7.1-py3-none-any.whl.metadata (3.3 kB)
+Collecting cssselect2 (from cairosvg)
+  Downloading cssselect2-0.10.1-py3-none-any.whl.metadata (2.9 kB)
+Collecting defusedxml (from cairosvg)
+  Downloading defusedxml-0.7.1-py2.py3-none-any.whl.metadata (32 kB)
+Collecting pillow (from cairosvg)
+  Downloading pillow-13.0.0-cp312-cp312-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl.metadata (9.1 kB)
+Collecting tinycss2 (from cairosvg)
+  Downloading tinycss2-1.5.1-py3-none-any.whl.metadata (3.0 kB)
+Collecting cffi>=1.1.0 (from cairocffi->cairosvg)
+  Downloading cffi-2.1.1-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.whl.metadata (2.5 kB)
+Collecting webencodings (from cssselect2->cairosvg)
+  Downloading webencodings-0.6.1-py3-none-any.whl.metadata (3.4 kB)
+Collecting pycparser (from cffi>=1.1.0->cairocffi->cairosvg)
+  Downloading pycparser-3.12-py3-none-any.whl.metadata (9.7 kB)
+Downloading cairosvg-2.9.1-py3-none-any.whl (46 kB)
+Downloading cairocffi-1.7.1-py3-none-any.whl (75 kB)
+Downloading cssselect2-0.10.1-py3-none-any.whl (15 kB)
+Downloading defusedxml-0.7.1-py2.py3-none-any.whl (25 kB)
+Downloading pillow-13.0.0-cp312-cp312-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl (7.1 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 7.1/7.1 MB 31.7 MB/s eta 0:00:00
+Downloading tinycss2-1.5.1-py3-none-any.whl (28 kB)
+Downloading cffi-2.1.1-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.whl (221 kB)
+Downloading webencodings-0.6.1-py3-none-any.whl (8.7 kB)
+Downloading pycparser-3.12-py3-none-any.whl (62 kB)
+Installing collected packages: webencodings, pycparser, pillow, defusedxml, tinycss2, cffi, cssselect2, cairocffi, cairosvg
+Successfully installed cairocffi-1.7.1 cairosvg-2.9.1 cffi-2.1.1 cssselect2-0.10.1 defusedxml-0.7.1 pillow-13.0.0 pycparser-3.12 tinycss2-1.5.1 webencodings-0.6.1
+
+[notice] A new release of pip is available: 25.0.1 -> 26.2.2
+[notice] To update, run: python -m pip install --upgrade pip

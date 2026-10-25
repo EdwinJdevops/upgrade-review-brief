@@ -234,7 +234,7 @@ def markdown(report):
     def safe(value):
         text = str(value).replace("`", "'").replace("\r", " ").replace("\n", " ").replace("<", "&lt;").replace(">", "&gt;")
         return text.replace("[", "\\[").replace("]", "\\]")
-    lines = ["# Upgrade review brief", "", "**REVIEW REQUIRED**", "", safe(report["scope"]), "",
+    lines = ["# Chart Ledger review", "", "**REVIEW REQUIRED**", "", safe(report["scope"]), "",
              f"{safe(report['from_chart'])} → {safe(report['to_chart'])}", "", "## Focused manifest changes", ""]
     for change in report["changes"]:
         lines.append(f"- `{safe(change['field'])}`: `{safe(json.dumps(change['before']))}` → `{safe(json.dumps(change['after']))}`")

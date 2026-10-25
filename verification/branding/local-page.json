@@ -1,0 +1,13 @@
+{
+  "command": "Flask test client with scorer double: GET homepage and static assets",
+  "homepage_status": 200,
+  "title": "Chart Ledger",
+  "headline": "Trace changes. Read the source.",
+  "assets": {
+    "/static/chart-ledger-mark.svg": 200,
+    "/static/chart-ledger-logo.svg": 200,
+    "/static/app.css": 200
+  },
+  "scorer_double": true,
+  "actual_model_test": false
+}

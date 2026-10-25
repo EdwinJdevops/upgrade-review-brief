@@ -1,0 +1,37 @@
+{
+  "checked_at": "2026-10-25T22:00:17.470056+00:00",
+  "url": "https://upgrade-review-brief.onrender.com",
+  "expected_commit_verified_separately_by_render": "a971584b9662f810aefc24b34c69d6366c9268c0",
+  "system_tls_validation": true,
+  "health_status": 200,
+  "range": {
+    "model": {
+      "name": "BAAI/bge-reranker-base",
+      "revision": "2cfc18c9415c912f9d8155881c133215df768a70",
+      "runtime": "server_cpu_float32"
+    },
+    "model_windows": 32,
+    "passages": 16,
+    "outside_scope_resources": 3,
+    "resource_kinds": [
+      "Deployment",
+      "Service",
+      "ServiceAccount"
+    ],
+    "processing_seconds": 10.258
+  },
+  "pinned_source_links": {
+    "commit": "b39300d09d6d70297dc437015d4a49e484b7b77d",
+    "original_and_range_line_anchors_checked": true,
+    "remote_content_verification_not_claimed_by_review": true
+  },
+  "metadata_only_modified_resources": 2,
+  "sanitized_upload": {
+    "model_windows": 2,
+    "focused_changes": 1,
+    "outside_scope_resources": 2,
+    "secret_sentinels_absent_from_response": true,
+    "processing_seconds": 0.339
+  },
+  "boundary": "Actual model execution and HTTP/export checks; not relevance accuracy, engineer benefit, Kubernetes semantic validation or production capacity."
+}

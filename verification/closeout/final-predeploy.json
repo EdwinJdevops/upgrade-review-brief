@@ -1,0 +1,11 @@
+{
+  "at_utc": "2026-10-25T21:51:14.196938+00:00",
+  "last_known_good": {
+    "http_status": 200,
+    "body": {
+      "git_sha": "3cc347f04f127ccc295645ffb7a3481573f0abe2",
+      "status": "ready"
+    }
+  },
+  "target_sha": "a971584b9662f810aefc24b34c69d6366c9268c0"
+}

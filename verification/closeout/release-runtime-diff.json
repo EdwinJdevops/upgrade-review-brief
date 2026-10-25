@@ -1,0 +1,5 @@
+{
+  "command": "git diff --name-only 3cc347f04f127ccc295645ffb7a3481573f0abe2 a971584b9662f810aefc24b34c69d6366c9268c0",
+  "application_runtime_paths_changed": [],
+  "runtime_unchanged": true
+}

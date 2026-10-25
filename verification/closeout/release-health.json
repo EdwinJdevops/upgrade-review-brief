@@ -1,0 +1,9 @@
+{
+  "http_status": 200,
+  "body": {
+    "git_sha": "a971584b9662f810aefc24b34c69d6366c9268c0",
+    "status": "ready"
+  },
+  "main_sha": "a971584b9662f810aefc24b34c69d6366c9268c0",
+  "main_matches_live": true
+}
